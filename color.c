@@ -3,6 +3,8 @@
 #include "i2c.h"
 #include "serial.h"
 #include <stdio.h>
+#include "interrupts.h"
+#include "dc_motor.h"
 
 void color_click_init(void)
 {   
@@ -84,7 +86,7 @@ unsigned int color_read_Clear(void)
 	return tmp;
 }
 void RGBC2Serial(char *str){
-    __delay_ms(2000);
+    __delay_ms(10);
     sendStringSerial4(str);
 }
 void color_read_RGBC(struct RGBC_val *temp){
@@ -96,6 +98,7 @@ void color_read_RGBC(struct RGBC_val *temp){
 char colorVal2String(char *buf,struct RGBC_val *temp) {
     sprintf(buf,"RGBC:%i %i %i %i\n",temp->R, temp->G, temp->B, temp->C); 
     RGBC2Serial(buf);
+    return buf;
 }
 
 

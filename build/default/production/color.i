@@ -24297,6 +24297,7 @@ unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void color_read_RGBC(struct RGBC_val *temp);
+void color_click_init(void);
 char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
 void RGBC2Serial(char *str);
@@ -24484,6 +24485,56 @@ char *ctermid(char *);
 char *tempnam(const char *, const char *);
 # 5 "color.c" 2
 
+# 1 "./interrupts.h" 1
+
+
+
+
+
+
+
+int interrupt_flag = 1;
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+void Color_Interrupts_init(void);
+void Color_Interrupts_threshold(int upperThreshold,int lowerThreshold);
+void persistence_register(void);
+void Color_Interrupts_clear(void);
+# 6 "color.c" 2
+
+# 1 "./dc_motor.h" 1
+
+
+
+
+
+
+
+typedef struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+} DC_motor;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(DC_motor *m);
+void stop(DC_motor *mL, DC_motor *mR);
+void turnLeft(DC_motor *mL, DC_motor *mR);
+void turnRight(DC_motor *mL, DC_motor *mR);
+void uturn(DC_motor *mL, DC_motor *mR);
+
+void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void reverse(DC_motor *mL, DC_motor *mR);
+void motorLinit(DC_motor *mL);
+void motorRinit(DC_motor *mR);
+void norm_stop(DC_motor *mL, DC_motor *mR);
+# 7 "color.c" 2
+
 
 void color_click_init(void)
 {
@@ -24565,7 +24616,7 @@ unsigned int color_read_Clear(void)
  return tmp;
 }
 void RGBC2Serial(char *str){
-    _delay((unsigned long)((2000)*(64000000/4000.0)));
+    _delay((unsigned long)((10)*(64000000/4000.0)));
     sendStringSerial4(str);
 }
 void color_read_RGBC(struct RGBC_val *temp){
@@ -24577,6 +24628,7 @@ void color_read_RGBC(struct RGBC_val *temp){
 char colorVal2String(char *buf,struct RGBC_val *temp) {
     sprintf(buf,"RGBC:%i %i %i %i\n",temp->R, temp->G, temp->B, temp->C);
     RGBC2Serial(buf);
+    return buf;
 }
 
 

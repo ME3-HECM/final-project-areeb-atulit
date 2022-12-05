@@ -34,6 +34,7 @@ unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void color_read_RGBC(struct RGBC_val *temp);
+void color_click_init(void);
 char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
 void RGBC2Serial(char *str);

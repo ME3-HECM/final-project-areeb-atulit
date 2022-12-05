@@ -4,50 +4,89 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./color.h: 9: typedef struct RGBC_val {
 [s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2016 RGBC_val R G B C ]
-"19
-[; ;./color.h: 19: void color_click_init(void);
+"37
+[; ;./color.h: 37: void color_click_init(void);
 [v _color_click_init `(v ~T0 @X0 0 ef ]
+"12 ./interrupts.h
+[; ;./interrupts.h: 12: void Color_Interrupts_init(void);
+[v _Color_Interrupts_init `(v ~T0 @X0 0 ef ]
+"13
+[; ;./interrupts.h: 13: void Color_Interrupts_threshold(int upperThreshold,int lowerThreshold);
+[v _Color_Interrupts_threshold `(v ~T0 @X0 0 ef2`i`i ]
+"14
+[; ;./interrupts.h: 14: void persistence_register(void);
+[v _persistence_register `(v ~T0 @X0 0 ef ]
 "23 ./serial.h
 [; ;./serial.h: 23: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"29706 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29706:     struct {
-[s S1380 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1380 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"29705
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29705: typedef union {
-[u S1379 `S1380 1 ]
-[n S1379 . . ]
-"29717
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29717: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF84)));
-[v _TRISDbits `VS1379 ~T0 @X0 0 e@3972 ]
-"28810
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 28810:     struct {
-[s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1349 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"28820
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 28820:     struct {
-[s S1350 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1350 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
-"28809
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 28809: typedef union {
-[u S1348 `S1349 1 `S1350 1 ]
-[n S1348 . . . ]
-"28831
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 28831: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
-[v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
-"38 ./color.h
-[; ;./color.h: 38: void tricolorLED(void);
+"18 ./dc_motor.h
+[; ;./dc_motor.h: 18: void initDCmotorsPWM(unsigned int PWMperiod);
+[v _initDCmotorsPWM `(v ~T0 @X0 0 ef1`ui ]
+"8
+[; ;./dc_motor.h: 8: typedef struct DC_motor {
+[s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
+[n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
+"27
+[; ;./dc_motor.h: 27: void motorLinit(DC_motor *mL);
+[v _motorLinit `(v ~T0 @X0 0 ef1`*S2015 ]
+"28
+[; ;./dc_motor.h: 28: void motorRinit(DC_motor *mR);
+[v _motorRinit `(v ~T0 @X0 0 ef1`*S2015 ]
+"29828 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29828:     struct {
+[s S1384 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1384 . TRISE0 TRISE1 TRISE2 TRISE3 TRISE4 TRISE5 TRISE6 TRISE7 ]
+"29827
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29827: typedef union {
+[u S1383 `S1384 1 ]
+[n S1383 . . ]
+"29839
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29839: extern volatile TRISEbits_t TRISEbits __attribute__((address(0xF85)));
+[v _TRISEbits `VS1383 ~T0 @X0 0 e@3973 ]
+"29584
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29584:     struct {
+[s S1376 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1376 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"29583
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29583: typedef union {
+[u S1375 `S1376 1 ]
+[n S1375 . . ]
+"29595
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29595: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF83)));
+[v _TRISCbits `VS1375 ~T0 @X0 0 e@3971 ]
+"30007
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30007:     struct {
+[s S1390 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1390 . TRISG0 TRISG1 TRISG2 TRISG3 TRISG4 . TRISG6 TRISG7 ]
+"30006
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30006: typedef union {
+[u S1389 `S1390 1 ]
+[n S1389 . . ]
+"30018
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30018: extern volatile TRISGbits_t TRISGbits __attribute__((address(0xF87)));
+[v _TRISGbits `VS1389 ~T0 @X0 0 e@3975 ]
+"39 ./color.h
+[; ;./color.h: 39: void tricolorLED(void);
 [v _tricolorLED `(v ~T0 @X0 0 ef ]
 "36
 [; ;./color.h: 36: void color_read_RGBC(struct RGBC_val *temp);
 [v _color_read_RGBC `(v ~T0 @X0 0 ef1`*S2016 ]
-"37
-[; ;./color.h: 37: char colorVal2String(char *buf,struct RGBC_val *temp);
+"38
+[; ;./color.h: 38: char colorVal2String(char *buf,struct RGBC_val *temp);
 [v _colorVal2String `(uc ~T0 @X0 0 ef2`*uc`*S2016 ]
-"39
-[; ;./color.h: 39: void RGBC2Serial(char *str);
-[v _RGBC2Serial `(v ~T0 @X0 0 ef1`*uc ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
+"29 ./dc_motor.h
+[; ;./dc_motor.h: 29: void norm_stop(DC_motor *mL, DC_motor *mR);
+[v _norm_stop `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"22
+[; ;./dc_motor.h: 22: void turnRight(DC_motor *mL, DC_motor *mR);
+[v _turnRight `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"15 ./interrupts.h
+[; ;./interrupts.h: 15: void Color_Interrupts_clear(void);
+[v _Color_Interrupts_clear `(v ~T0 @X0 0 ef ]
 "2 main.c
 [p x FEXTOSC  =  HS      ]
 "3
@@ -2060,9 +2099,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
+"8 ./interrupts.h
+[; ;./interrupts.h: 8: int interrupt_flag = 1;
+[v _interrupt_flag `i ~T0 @X0 1 e ]
+[i _interrupt_flag
+-> 1 `i
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "20 main.c
-[; ;main.c: 20: void main(){
+[; ;main.c: 20: void main() {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
@@ -2070,46 +2115,112 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22
 [; ;main.c: 22:     struct RGBC_val RGBC;
 [v _RGBC `S2016 ~T0 @X0 1 a ]
-"24
-[; ;main.c: 24:     color_click_init();
-[e ( _color_click_init ..  ]
-"25
-[; ;main.c: 25:     initUSART4();
-[e ( _initUSART4 ..  ]
-"28
-[; ;main.c: 28:     TRISDbits.TRISD3 = 0;
-[e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
-"29
-[; ;main.c: 29:     LATDbits.LATD3 = 1;
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
-"31
-[; ;main.c: 31:     tricolorLED();
-[e ( _tricolorLED ..  ]
-[v F14297 `uc ~T0 @X0 -> 3 `i s ]
-[i F14297
-:U ..
-"32
-[; ;main.c: 32:     char rgb_address[]={0x16, 0x18, 0x1A};
--> -> 22 `i `uc
--> -> 24 `i `uc
--> -> 26 `i `uc
-..
-]
-[v _rgb_address `uc ~T0 @X0 -> 3 `i a ]
-[e = _rgb_address F14297 ]
-"44
-[; ;main.c: 44:     char buf[100];
+"23
+[; ;main.c: 23:     char buf[100];
 [v _buf `uc ~T0 @X0 -> 100 `i a ]
+"24
+[; ;main.c: 24:     int upperThreshold = 2500;
+[v _upperThreshold `i ~T0 @X0 1 a ]
+[e = _upperThreshold -> 2500 `i ]
+"25
+[; ;main.c: 25:     int lowerThreshold = 0;
+[v _lowerThreshold `i ~T0 @X0 1 a ]
+[e = _lowerThreshold -> 0 `i ]
+"27
+[; ;main.c: 27:     color_click_init();
+[e ( _color_click_init ..  ]
+"28
+[; ;main.c: 28:     Color_Interrupts_init();
+[e ( _Color_Interrupts_init ..  ]
+"29
+[; ;main.c: 29:     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
+[e ( _Color_Interrupts_threshold (2 , _upperThreshold _lowerThreshold ]
+"30
+[; ;main.c: 30:     persistence_register();
+[e ( _persistence_register ..  ]
+"31
+[; ;main.c: 31:     initUSART4();
+[e ( _initUSART4 ..  ]
+"32
+[; ;main.c: 32:     initDCmotorsPWM(200);
+[e ( _initDCmotorsPWM (1 -> -> 200 `i `ui ]
+"33
+[; ;main.c: 33:     DC_motor mL, mR;
+[v _mL `S2015 ~T0 @X0 1 a ]
+[v _mR `S2015 ~T0 @X0 1 a ]
+"34
+[; ;main.c: 34:     motorLinit(&mL);
+[e ( _motorLinit (1 &U _mL ]
+"35
+[; ;main.c: 35:     motorRinit(&mR);
+[e ( _motorRinit (1 &U _mR ]
+"37
+[; ;main.c: 37:     TRISEbits.TRISE2 = 0;
+[e = . . _TRISEbits 0 2 -> -> 0 `i `uc ]
+"38
+[; ;main.c: 38:     TRISEbits.TRISE4 = 0;
+[e = . . _TRISEbits 0 4 -> -> 0 `i `uc ]
+"39
+[; ;main.c: 39:     TRISCbits.TRISC7 = 0;
+[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
+"40
+[; ;main.c: 40:     TRISGbits.TRISG6 = 0;
+[e = . . _TRISGbits 0 6 -> -> 0 `i `uc ]
 "45
-[; ;main.c: 45:     color_read_RGBC(&RGBC);
-[e ( _color_read_RGBC (1 &U _RGBC ]
+[; ;main.c: 45:     tricolorLED();
+[e ( _tricolorLED ..  ]
 "46
-[; ;main.c: 46:     colorVal2String(buf,&RGBC);
-[e ( _colorVal2String (2 , &U _buf &U _RGBC ]
+[; ;main.c: 46:     while (1) {
+[e :U 2019 ]
+{
 "47
-[; ;main.c: 47:     RGBC2Serial(colorVal2String(buf,&RGBC));
-[e ( _RGBC2Serial (1 -> ( _colorVal2String (2 , &U _buf &U _RGBC `*uc ]
+[; ;main.c: 47:         color_read_RGBC(&RGBC);
+[e ( _color_read_RGBC (1 &U _RGBC ]
 "48
-[; ;main.c: 48: }
+[; ;main.c: 48:         colorVal2String(buf, &RGBC);
+[e ( _colorVal2String (2 , &U _buf &U _RGBC ]
+"51
+[; ;main.c: 51:         _delay((unsigned long)((2000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"52
+[; ;main.c: 52:         if (interrupt_flag == 0) {
+[e $ ! == _interrupt_flag -> 0 `i 2021  ]
+{
+"53
+[; ;main.c: 53:             norm_stop(&mL, &mR);
+[e ( _norm_stop (2 , &U _mL &U _mR ]
+"54
+[; ;main.c: 54:             _delay((unsigned long)((2000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"55
+[; ;main.c: 55:             interrupt_flag = 1;
+[e = _interrupt_flag -> 1 `i ]
+"56
+[; ;main.c: 56:             turnRight(&mL, &mR);
+[e ( _turnRight (2 , &U _mL &U _mR ]
+"57
+[; ;main.c: 57:             _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"58
+[; ;main.c: 58:             Color_Interrupts_clear();
+[e ( _Color_Interrupts_clear ..  ]
+"59
+[; ;main.c: 59:         }
+}
+[e :U 2021 ]
+"60
+[; ;main.c: 60:         norm_stop(&mL, &mR);
+[e ( _norm_stop (2 , &U _mL &U _mR ]
+"61
+[; ;main.c: 61:         _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"62
+[; ;main.c: 62:     }
+}
+[e :U 2018 ]
+[e $U 2019  ]
+[e :U 2020 ]
+"63
+[; ;main.c: 63: }
 [e :UE 2017 ]
 }

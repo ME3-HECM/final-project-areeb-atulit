@@ -17,32 +17,47 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-void main(){
+void main() {
     //Variable declarations
-    struct RGBC_val RGBC;
+    struct RGBC_val RGBC; //initialise object of struct RGBC_val
+    char buf[100]; //buffer to store rbgc values
+    int upperThreshold = 2500;
+    int lowerThreshold = 0;
     //initialisations
     color_click_init();
+    Color_Interrupts_init();
+    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
+    persistence_register();
     initUSART4();
-    //initDCmotorsPWM(20);
-    //to turn on the additional buggy leds, find corresponding clickerboard pin and turn it on
-    TRISDbits.TRISD3 = 0;
-    LATDbits.LATD3 = 1;
-    
-    tricolorLED();
-    char rgb_address[]={0x16, 0x18, 0x1A}; //stores red green and blue register addresses 
-//    volatile unsigned int red_val=0;
-//    volatile unsigned int blue_val=0;
-//    volatile unsigned int green_val=0;
+    initDCmotorsPWM(200);
+    DC_motor mL, mR;
+    motorLinit(&mL);
+    motorRinit(&mR);
 
-//        red_val=color_read(rgb_address[0]);
-//        __delay_ms(500);
-//        blue_val=color_read(rgb_address[1]);
-//        __delay_ms(500);
-//        green_val=color_read(rgb_address[2]);
-//        __delay_ms(500); 
-        //colorVal2String(&red,300);
-    char buf[100];
-    color_read_RGBC(&RGBC);
-    colorVal2String(buf,&RGBC);
-    RGBC2Serial(colorVal2String(buf,&RGBC));     
+    TRISEbits.TRISE2 = 0;
+    TRISEbits.TRISE4 = 0;
+    TRISCbits.TRISC7 = 0;
+    TRISGbits.TRISG6 = 0;
+    //    DC_motor mL, mR; //declare two DC_motor structures
+    //    motorLinit(&mL);
+    //    motorRinit(&mR);
+
+    tricolorLED();
+    while (1) {
+        color_read_RGBC(&RGBC);
+        colorVal2String(buf, &RGBC);
+//        RGBC2Serial(colorVal2String(buf, &RGBC));
+       // fullSpeedAhead(&mL, &mR);
+        __delay_ms(2000);
+        if (interrupt_flag == 0) {
+            norm_stop(&mL, &mR);
+            __delay_ms(2000);
+            interrupt_flag = 1;
+            turnRight(&mL, &mR);
+            __delay_ms(500);
+            Color_Interrupts_clear();
+        }
+        norm_stop(&mL, &mR);
+        __delay_ms(500);
+    }
 }

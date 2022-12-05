@@ -23,7 +23,8 @@ void turnRight(DC_motor *mL, DC_motor *mR);
 void uturn(DC_motor *mL, DC_motor *mR);
 
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void reverse(DC_motor *mL, DC_motor *mR);
 void motorLinit(DC_motor *mL);
 void motorRinit(DC_motor *mR);
-
+void norm_stop(DC_motor *mL, DC_motor *mR);
 #endif

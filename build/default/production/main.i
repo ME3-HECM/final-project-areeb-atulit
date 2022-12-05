@@ -24267,8 +24267,10 @@ void turnRight(DC_motor *mL, DC_motor *mR);
 void uturn(DC_motor *mL, DC_motor *mR);
 
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void reverse(DC_motor *mL, DC_motor *mR);
 void motorLinit(DC_motor *mL);
 void motorRinit(DC_motor *mR);
+void norm_stop(DC_motor *mL, DC_motor *mR);
 # 11 "main.c" 2
 
 # 1 "./i2c.h" 1
@@ -24372,6 +24374,7 @@ unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void color_read_RGBC(struct RGBC_val *temp);
+void color_click_init(void);
 char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
 void RGBC2Serial(char *str);
@@ -24386,8 +24389,14 @@ void RGBC2Serial(char *str);
 
 
 
+int interrupt_flag = 1;
+
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
+void Color_Interrupts_init(void);
+void Color_Interrupts_threshold(int upperThreshold,int lowerThreshold);
+void persistence_register(void);
+void Color_Interrupts_clear(void);
 # 15 "main.c" 2
 
 # 1 "./timers.h" 1
@@ -24405,22 +24414,47 @@ unsigned int get16bitTMR0val(void);
 
 
 
-void main(){
+void main() {
 
     struct RGBC_val RGBC;
+    char buf[100];
+    int upperThreshold = 2500;
+    int lowerThreshold = 0;
 
     color_click_init();
+    Color_Interrupts_init();
+    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
+    persistence_register();
     initUSART4();
+    initDCmotorsPWM(200);
+    DC_motor mL, mR;
+    motorLinit(&mL);
+    motorRinit(&mR);
+
+    TRISEbits.TRISE2 = 0;
+    TRISEbits.TRISE4 = 0;
+    TRISCbits.TRISC7 = 0;
+    TRISGbits.TRISG6 = 0;
 
 
-    TRISDbits.TRISD3 = 0;
-    LATDbits.LATD3 = 1;
+
 
     tricolorLED();
-    char rgb_address[]={0x16, 0x18, 0x1A};
-# 44 "main.c"
-    char buf[100];
-    color_read_RGBC(&RGBC);
-    colorVal2String(buf,&RGBC);
-    RGBC2Serial(colorVal2String(buf,&RGBC));
+    while (1) {
+        color_read_RGBC(&RGBC);
+        colorVal2String(buf, &RGBC);
+
+
+        _delay((unsigned long)((2000)*(64000000/4000.0)));
+        if (interrupt_flag == 0) {
+            norm_stop(&mL, &mR);
+            _delay((unsigned long)((2000)*(64000000/4000.0)));
+            interrupt_flag = 1;
+            turnRight(&mL, &mR);
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            Color_Interrupts_clear();
+        }
+        norm_stop(&mL, &mR);
+        _delay((unsigned long)((500)*(64000000/4000.0)));
+    }
 }

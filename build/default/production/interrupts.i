@@ -24236,12 +24236,156 @@ unsigned char __t3rd16on(void);
 
 
 
+# 1 "./i2c.h" 1
+# 13 "./i2c.h"
+void I2C_2_Master_Init(void);
 
 
+
+
+void I2C_2_Master_Idle(void);
+
+
+
+
+void I2C_2_Master_Start(void);
+
+
+
+
+void I2C_2_Master_RepStart(void);
+
+
+
+
+void I2C_2_Master_Stop(void);
+
+
+
+
+void I2C_2_Master_Write(unsigned char data_byte);
+
+
+
+
+unsigned char I2C_2_Master_Read(unsigned char ack);
+# 5 "./interrupts.h" 2
+
+
+
+int interrupt_flag = 1;
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
+void Color_Interrupts_init(void);
+void Color_Interrupts_threshold(int upperThreshold,int lowerThreshold);
+void persistence_register(void);
+void Color_Interrupts_clear(void);
 # 2 "interrupts.c" 2
+
+# 1 "./dc_motor.h" 1
+
+
+
+
+
+
+
+typedef struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+} DC_motor;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(DC_motor *m);
+void stop(DC_motor *mL, DC_motor *mR);
+void turnLeft(DC_motor *mL, DC_motor *mR);
+void turnRight(DC_motor *mL, DC_motor *mR);
+void uturn(DC_motor *mL, DC_motor *mR);
+
+void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void reverse(DC_motor *mL, DC_motor *mR);
+void motorLinit(DC_motor *mL);
+void motorRinit(DC_motor *mR);
+void norm_stop(DC_motor *mL, DC_motor *mR);
+# 3 "interrupts.c" 2
+
+# 1 "./color.h" 1
+
+
+
+
+# 1 "./serial.h" 1
+# 13 "./serial.h"
+volatile char EUSART4RXbuf[20];
+volatile char RxBufWriteCnt=0;
+volatile char RxBufReadCnt=0;
+
+volatile char EUSART4TXbuf[60];
+volatile char TxBufWriteCnt=0;
+volatile char TxBufReadCnt=0;
+
+
+
+void initUSART4(void);
+char getCharSerial4(void);
+void sendCharSerial4(char charToSend);
+void sendStringSerial4(char *string);
+
+
+char getCharFromRxBuf(void);
+void putCharToRxBuf(char byte);
+char isDataInRxBuf (void);
+
+
+char getCharFromTxBuf(void);
+void putCharToTxBuf(char byte);
+char isDataInTxBuf (void);
+void TxBufferedString(char *string);
+void sendTxBuf(void);
+# 5 "./color.h" 2
+
+
+
+
+typedef struct RGBC_val {
+ unsigned int R;
+ unsigned int G;
+ unsigned int B;
+    unsigned int C;
+};
+
+
+
+
+void color_click_init(void);
+
+
+
+
+
+
+void color_writetoaddr(char address, char value);
+
+
+
+
+
+unsigned int color_read_Red(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_Blue(void);
+unsigned int color_read_Clear(void);
+void color_read_RGBC(struct RGBC_val *temp);
+void color_click_init(void);
+char colorVal2String(char *buf,struct RGBC_val *temp);
+void tricolorLED(void);
+void RGBC2Serial(char *str);
+# 4 "interrupts.c" 2
 
 
 
@@ -24252,10 +24396,51 @@ void Interrupts_init(void)
 {
 
 
-    PIE0bits.TMR0IE=1;
+
+    TRISBbits.TRISB0=1;
+
+    ANSELBbits.ANSELB0=0;
+    PIE0bits.INT1IE = 1;
+    PIR0bits.INT1IF = 1;
+    IPR0bits.INT1IP = 1;
+    INTCONbits.INT1EDG=0;
+    INTCONbits.IPEN=1;
     INTCONbits.PEIE=1;
     INTCONbits.GIE=1;
 
+}
+
+void Color_Interrupts_init(void)
+{
+
+
+   color_writetoaddr(0x00, 0b00010011);
+   _delay((unsigned long)((10)*(64000000/4000.0))) ;
+}
+
+void Color_Interrupts_threshold(int upperThreshold, int lowerThreshold)
+{
+ color_writetoaddr(0x04, lowerThreshold);
+    color_writetoaddr(0x05, lowerThreshold>>8);
+    color_writetoaddr(0x06, upperThreshold);
+    color_writetoaddr(0x07, upperThreshold>>8);
+}
+
+void persistence_register(void)
+{
+ color_writetoaddr(0x0C, 0b0101);
+}
+
+void Color_Interrupts_clear(void)
+{
+
+
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0b11100110);
+    I2C_2_Master_Stop();
+
+   Color_Interrupts_init();
 }
 
 
@@ -24265,10 +24450,10 @@ void Interrupts_init(void)
 void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
 
+    if(!PIR0bits.INT1IF){
+        interrupt_flag = 0;
 
-    if(PIR0bits.TMR0IF){
-        LATHbits.LATH3 = !LATHbits.LATH3;
 
-        PIR0bits.TMR0IF=0;
+        PIR0bits.INT1IF = 1;
  }
 }

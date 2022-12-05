@@ -24257,8 +24257,10 @@ void turnRight(DC_motor *mL, DC_motor *mR);
 void uturn(DC_motor *mL, DC_motor *mR);
 
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void reverse(DC_motor *mL, DC_motor *mR);
 void motorLinit(DC_motor *mL);
 void motorRinit(DC_motor *mR);
+void norm_stop(DC_motor *mL, DC_motor *mR);
 # 2 "dc_motor.c" 2
 
 
@@ -24358,26 +24360,41 @@ void motorRinit(DC_motor *mR)
 
 void stop(DC_motor *mL, DC_motor *mR)
 {
-    mL->brakemode = 0;
-    mR->brakemode = 0;
-    mL->PWMperiod = 1;
-    mR->PWMperiod = 1;
-    setMotorPWM(mL);
-    setMotorPWM(mR);
+
+
+
+
+    while (mL->power >= 1 && mR->power >= 1)
+    {
+        mL->power--;
+        mR->power--;
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+    }
     mL->power = 0;
     mR->power = 0;
-    mL->PWMperiod = 200;
-    mR->PWMperiod = 200;
+    setMotorPWM(mL);
+    setMotorPWM(mR);
+
+}
+void norm_stop(DC_motor *mL, DC_motor *mR)
+{
+
+
+
+
+    mL->power = 0;
+    mR->power = 0;
     setMotorPWM(mL);
     setMotorPWM(mR);
 
 }
 
-
 void turnLeft(DC_motor *mL, DC_motor *mR)
 {
-    mL->power = 38;
-    mR->power = 38;
+    mL->power = 50;
+    mR->power = 50;
     mL->brakemode = 1;
     mR->brakemode = 1;
     mL->direction = 0;
@@ -24389,8 +24406,8 @@ void turnLeft(DC_motor *mL, DC_motor *mR)
 
 void turnRight(DC_motor *mL, DC_motor *mR)
 {
-    mL->power = 38;
-    mR->power = 38;
+    mL->power = 50;
+    mR->power = 50;
     mL->brakemode = 1;
     mR->brakemode = 1;
     mR->direction = 0;
@@ -24400,8 +24417,8 @@ void turnRight(DC_motor *mL, DC_motor *mR)
 }
 
 void uturn(DC_motor *mL, DC_motor *mR){
-    mL->power = 50;
-    mR->power = 50;
+    mL->power = 45;
+    mR->power = 45;
     mL->brakemode = 1;
     mR->brakemode = 1;
     mR->direction = 0;
@@ -24412,12 +24429,44 @@ void uturn(DC_motor *mL, DC_motor *mR){
 
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {
-    mL->power = 50;
-    mR->power = 50;
+    mL->power = 5;
+    mR->power = 5;
     mR->direction = 1;
     mL->direction = 1;
     mL->brakemode = 1;
     mR->brakemode = 1;
+    while (mL->power <= 100 && mR->power <=100)
+    {
+        mL->power++;
+        mR->power++;
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+    }
+    mL->power = 100;
+    mR->power = 100;
+    setMotorPWM(mL);
+    setMotorPWM(mR);
+
+}
+void reverse(DC_motor *mL, DC_motor *mR)
+{
+    mL->power = 5;
+    mR->power = 5;
+    mR->direction = 0;
+    mL->direction = 0;
+    mL->brakemode = 1;
+    mR->brakemode = 1;
+    while (mL->power <= 100 && mR->power <=100)
+    {
+        mL->power++;
+        mR->power++;
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+    }
+    mL->power = 100;
+    mR->power = 100;
     setMotorPWM(mL);
     setMotorPWM(mR);
 

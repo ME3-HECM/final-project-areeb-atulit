@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\final-project-areeb-atulit.X.production.hex">
+  <executable name="dist/default/debug\final-project-areeb-atulit.X.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>131072</length>
-      <used>614</used>
-      <free>130458</free>
+      <used>616</used>
+      <free>130456</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

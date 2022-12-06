@@ -1,4 +1,4 @@
-# 1 "interrupts.c"
+# 1 "i2c.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "interrupts.c" 2
+# 1 "i2c.c" 2
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,12 +24229,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 1 "interrupts.c" 2
-
-# 1 "./interrupts.h" 1
-
-
-
+# 1 "i2c.c" 2
 
 # 1 "./i2c.h" 1
 # 13 "./i2c.h"
@@ -24269,193 +24264,65 @@ void I2C_2_Master_Write(unsigned char data_byte);
 
 
 unsigned char I2C_2_Master_Read(unsigned char ack);
-# 5 "./interrupts.h" 2
+# 2 "i2c.c" 2
 
 
-
-int interrupt_flag = 1;
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-void Color_Interrupts_init(void);
-void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
-void persistence_register(void);
-void Color_Interrupts_clear(void);
-# 2 "interrupts.c" 2
-
-# 1 "./dc_motor.h" 1
-
-
-
-
-
-
-
-typedef struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-} DC_motor;
-
-
-void initDCmotorsPWM(unsigned int PWMperiod);
-void setMotorPWM(DC_motor *m);
-void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft(DC_motor *mL, DC_motor *mR);
-void turnRight(DC_motor *mL, DC_motor *mR);
-void uturn(DC_motor *mL, DC_motor *mR);
-
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void reverse(DC_motor *mL, DC_motor *mR);
-void motorLinit(DC_motor *mL);
-void motorRinit(DC_motor *mR);
-void norm_stop(DC_motor *mL, DC_motor *mR);
-# 3 "interrupts.c" 2
-
-# 1 "./color.h" 1
-
-
-
-
-# 1 "./serial.h" 1
-# 13 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
-
-
-
-void initUSART4(void);
-char getCharSerial4(void);
-void sendCharSerial4(char charToSend);
-void sendStringSerial4(char *string);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-# 5 "./color.h" 2
-
-
-
-
-typedef struct RGBC_val {
- unsigned int R;
- unsigned int G;
- unsigned int B;
-    unsigned int C;
-} RGBC_val;
-
-
-
-
-void color_click_init(void);
-
-
-
-
-
-
-void color_writetoaddr(char address, char value);
-
-
-
-
-
-unsigned int color_read_Red(void);
-unsigned int color_read_Green(void);
-unsigned int color_read_Blue(void);
-unsigned int color_read_Clear(void);
-void color_read_RGBC(struct RGBC_val *temp);
-void color_click_init(void);
-char colorVal2String(char *buf,struct RGBC_val *temp);
-void tricolorLED(void);
-void RGBC2Serial(char *str);
-void RGBC_timing_register(void);
-# 4 "interrupts.c" 2
-
-
-
-
-
-
-void Interrupts_init(void)
+void I2C_2_Master_Init(void)
 {
 
+  SSP2CON1bits.SSPM= 0b1000;
+  SSP2CON1bits.SSPEN = 1;
+  SSP2ADD = (64000000/(4*100000))-1;
 
 
-    TRISBbits.TRISB0=1;
-
-    ANSELBbits.ANSELB0=0;
-    PIE0bits.INT0IE = 1;
-    IPR0bits.INT0IP = 1;
-    INTCONbits.INT0EDG=0;
-    INTCONbits.IPEN=1;
-    INTCONbits.PEIE=1;
-    INTCONbits.GIE=1;
-
+  TRISDbits.TRISD5 = 1;
+  TRISDbits.TRISD6 = 1;
+  ANSELDbits.ANSELD5=0;
+  ANSELDbits.ANSELD6=0;
+  SSP2DATPPS=0x1D;
+  SSP2CLKPPS=0x1E;
+  RD5PPS=0x1C;
+  RD6PPS=0x1B;
 }
 
-void Color_Interrupts_init(void)
+void I2C_2_Master_Idle(void)
 {
-
-
-   color_writetoaddr(0x00, 0b00010011);
-   _delay((unsigned long)((10)*(64000000/4000.0))) ;
-   Color_Interrupts_clear();
+  while ((SSP2STAT & 0x04) || (SSP2CON2 & 0x1F));
 }
 
-void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerThreshold)
+void I2C_2_Master_Start(void)
 {
- color_writetoaddr(0x04, lowerThreshold);
-    color_writetoaddr(0x05, lowerThreshold>>8);
-    color_writetoaddr(0x06, upperThreshold);
-    color_writetoaddr(0x07, upperThreshold>>8);
+  I2C_2_Master_Idle();
+  SSP2CON2bits.SEN = 1;
 }
 
-void persistence_register(void)
+void I2C_2_Master_RepStart(void)
 {
- color_writetoaddr(0x0C, 0b0001);
+  I2C_2_Master_Idle();
+  SSP2CON2bits.RSEN = 1;
 }
 
-void Color_Interrupts_clear(void)
+void I2C_2_Master_Stop()
 {
-
-
-    I2C_2_Master_Start();
-    I2C_2_Master_Write(0x52 | 0x00);
-    I2C_2_Master_Write(0b11100110);
-    I2C_2_Master_Stop();
-
+  I2C_2_Master_Idle();
+  SSP2CON2bits.PEN = 1;
 }
 
-
-
-
-
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
+void I2C_2_Master_Write(unsigned char data_byte)
 {
+  I2C_2_Master_Idle();
+  SSP2BUF = data_byte;
+}
 
-    if(PIR0bits.INT0IF){
-
-    LATDbits.LATD7=!LATDbits.LATD7;
-        interrupt_flag = 0;
-
-
-        PIR0bits.INT0IF = 0;
- }
+unsigned char I2C_2_Master_Read(unsigned char ack)
+{
+  unsigned char tmp;
+  I2C_2_Master_Idle();
+  SSP2CON2bits.RCEN = 1;
+  I2C_2_Master_Idle();
+  tmp = SSP2BUF;
+  I2C_2_Master_Idle();
+  SSP2CON2bits.ACKDT = !ack;
+  SSP2CON2bits.ACKEN = 1;
+  return tmp;
 }

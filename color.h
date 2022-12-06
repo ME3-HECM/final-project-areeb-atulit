@@ -11,7 +11,7 @@ typedef struct RGBC_val {
 	unsigned int G;
 	unsigned int B;
     unsigned int C;
-};
+} RGBC_val;
 
 /********************************************//**
  *  Function to initialise the colour click module using I2C
@@ -38,4 +38,5 @@ void color_click_init(void);
 char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
 void RGBC2Serial(char *str);
+void RGBC_timing_register(void);
 #endif

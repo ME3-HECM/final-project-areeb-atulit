@@ -2127,8 +2127,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 73:     TRISHbits.TRISH3=0;
 [e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
 "74
-[; ;main.c: 74:     TRISBbits.TRISB0=1;
-[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 74:     TRISBbits.TRISB0=0;
+[e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
 "75
 [; ;main.c: 75:     ANSELBbits.ANSELB0=0;
 [e = . . _ANSELBbits 0 0 -> -> 0 `i `uc ]
@@ -2136,9 +2136,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 76:     LATHbits.LATH3 =0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 "78
-[; ;main.c: 78:     unsigned int upperThreshold = 10000;
+[; ;main.c: 78:     unsigned int upperThreshold = 100;
 [v _upperThreshold `ui ~T0 @X0 1 a ]
-[e = _upperThreshold -> -> 10000 `i `ui ]
+[e = _upperThreshold -> -> 100 `i `ui ]
 "79
 [; ;main.c: 79:     unsigned int lowerThreshold = 0;
 [v _lowerThreshold `ui ~T0 @X0 1 a ]

@@ -4,13 +4,12 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v2.40\pic\dat\20220703182018_en.msgs \
-  -cn \
-  -h+dist/default/production\final-project-areeb-atulit.X.production.sym \
-  --cmf=dist/default/production\final-project-areeb-atulit.X.production.cmf \
-  -z -Q18F67K40 -oC:\Users\44756\AppData\Local\Temp\xcAs1760.4 \
+  -cn -h+dist/default/debug\final-project-areeb-atulit.X.debug.sym \
+  --cmf=dist/default/debug\final-project-areeb-atulit.X.debug.cmf -z \
+  -Q18F67K40 -oC:\Users\44756\AppData\Local\Temp\xcAsmqo.4 \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
-  -Mdist/default/production/final-project-areeb-atulit.X.production.map \
-  --md=C:\Users\44756\AppData\Local\Temp\xcAs1760.dat -E1 -ver=XC8 Compiler \
+  -Mdist/default/debug/final-project-areeb-atulit.X.debug.map \
+  --md=C:\Users\44756\AppData\Local\Temp\xcAsmqo.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -30,8 +29,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\44756\AppData\Local\Temp\xcAs1760.o \
-  dist/default/production\final-project-areeb-atulit.X.production.o 
+  C:\Users\44756\AppData\Local\Temp\xcAsmqo.o \
+  dist/default/debug\final-project-areeb-atulit.X.debug.o 
 
 Object code version is 3.11
 
@@ -40,12 +39,12 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\44756\AppData\Local\Temp\xcAs1760.o
+C:\Users\44756\AppData\Local\Temp\xcAsmqo.o
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
                 init                                 4C       4C        4        4       0
-                reset_vec                             0        0        4        0       0
-dist/default/production\final-project-areeb-atulit.X.production.o
+                reset_vec                             0        0        6        0       0
+dist/default/debug\final-project-areeb-atulit.X.debug.o
                 intcode                               8        8       44        4       0
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
@@ -74,7 +73,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 intcode                               8        8       44         0
                 init                                 4C       4C        4         0
-                reset_vec                             0        0        4         0
+                reset_vec                             0        0        6         0
                 text11                              F70      F70       28         0
                 text10                             100E     100E        A         0
                 text9                              1004     1004        A         0
@@ -160,7 +159,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                reset_vec                      000000  000004  000004         0       0  CODE    
+                reset_vec                      000000  000006  000006         0       0  CODE    
                 bssCOMRAM                      000001  000028  000029         1       1  COMRAM  
                 intcode                        000008  000048  000050         4       0  CODE    
                 bssBANK0                       000060  00003C  00009C        60       1  BANK0   
@@ -188,11 +187,11 @@ UNUSED ADDRESS RANGES
         BIGRAM           000029-00005F               37
                          00009C-000DE9              D4E
         BIGSFR           000DEF-000FFF              211
-        CODE             000004-000007                4
+        CODE             000006-000007                2
                          000050-000DFF              DB0
                          00101A-01FFFF            1EFE6
         COMRAM           000029-00005F               37
-        CONST            000004-000007                4
+        CONST            000006-000007                2
                          000050-000DFF              DB0
                          00101A-01FFFF            1EFE6
         EEDATA           310000-3103FF              400
@@ -343,7 +342,7 @@ __Hramtop                                 ramtop       000E00
 __Hrbit                                   rbit         000000
 __Hrbss                                   rbss         000000
 __Hrdata                                  rdata        000000
-__Hreset_vec                              reset_vec    000004
+__Hreset_vec                              reset_vec    000006
 __Hrparam                                 rparam       000000
 __Hsfr                                    sfr          000000
 __Hsmallconst                             smallconst   000E14

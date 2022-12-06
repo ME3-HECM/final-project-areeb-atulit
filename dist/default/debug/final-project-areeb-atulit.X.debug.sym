@@ -294,7 +294,7 @@ Color_Interrupts_threshold@upperThreshold 1E 0 COMRAM 1
 __pidataCOMRAM 1018 0 CODE 0
 _Color_Interrupts_init FB8 0 CODE 0
 __smallconst E00 0 SMALLCONST 0
-__Hreset_vec 4 0 CODE 0
+__Hreset_vec 6 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __accesstop 60 0 ABS 0
 __Hintcode_body 0 0 ABS 0
@@ -321,16 +321,16 @@ __activetblptr 1 0 ABS 0
 __end_of_HighISR 4C 0 CODE 0
 _BAUD4CONbits EE9 0 ABS 0
 %segments
-reset_vec 0 3 CODE 0 0
+reset_vec 0 5 CODE 0 0
 intcode 8 4F CODE 8 0
 smallconst E00 E13 SMALLCONST E00 0
 bssCOMRAM 1 28 COMRAM 1 1
 bssBANK0 60 9B BANK0 60 1
 text0 E14 1019 CODE E14 0
 %locals
-dist/default/production\final-project-areeb-atulit.X.production.o
+dist/default/debug\final-project-areeb-atulit.X.debug.o
 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
-C:\Users\44756\AppData\Local\Temp\xcAs1760.s
+C:\Users\44756\AppData\Local\Temp\xcAsmqo.s
 9523 EA6 0 CODE 0
 9525 EA6 0 CODE 0
 9528 EA6 0 CODE 0
@@ -454,7 +454,7 @@ i2c.c
 22 F70 0 CODE 0
 24 F70 0 CODE 0
 25 F96 0 CODE 0
-C:\Users\44756\AppData\Local\Temp\xcAs1760.s
+C:\Users\44756\AppData\Local\Temp\xcAsmqo.s
 11212 8 0 CODE 0
 interrupts.c
 64 8 0 CODE 0

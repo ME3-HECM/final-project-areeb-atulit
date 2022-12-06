@@ -24429,7 +24429,7 @@ void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerT
 
 void persistence_register(void)
 {
- color_writetoaddr(0x0C, 0b0001);
+ color_writetoaddr(0x0C, 0b0101);
 }
 
 void Color_Interrupts_clear(void)

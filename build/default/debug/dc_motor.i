@@ -1,4 +1,4 @@
-# 1 "interrupts.c"
+# 1 "dc_motor.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "interrupts.c" 2
+# 1 "dc_motor.c" 2
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,59 +24229,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 1 "interrupts.c" 2
-
-# 1 "./interrupts.h" 1
-
-
-
-
-# 1 "./i2c.h" 1
-# 13 "./i2c.h"
-void I2C_2_Master_Init(void);
-
-
-
-
-void I2C_2_Master_Idle(void);
-
-
-
-
-void I2C_2_Master_Start(void);
-
-
-
-
-void I2C_2_Master_RepStart(void);
-
-
-
-
-void I2C_2_Master_Stop(void);
-
-
-
-
-void I2C_2_Master_Write(unsigned char data_byte);
-
-
-
-
-unsigned char I2C_2_Master_Read(unsigned char ack);
-# 5 "./interrupts.h" 2
-
-
-
-int interrupt_flag = 1;
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-void Color_Interrupts_init(void);
-void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
-void persistence_register(void);
-void Color_Interrupts_clear(void);
-# 2 "interrupts.c" 2
+# 1 "dc_motor.c" 2
 
 # 1 "./dc_motor.h" 1
 
@@ -24313,149 +24261,213 @@ void reverse(DC_motor *mL, DC_motor *mR);
 void motorLinit(DC_motor *mL);
 void motorRinit(DC_motor *mR);
 void norm_stop(DC_motor *mL, DC_motor *mR);
-# 3 "interrupts.c" 2
-
-# 1 "./color.h" 1
+# 2 "dc_motor.c" 2
 
 
 
-
-# 1 "./serial.h" 1
-# 13 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
+void initDCmotorsPWM(unsigned int PWMperiod){
 
 
 
-void initUSART4(void);
-char getCharSerial4(void);
-void sendCharSerial4(char charToSend);
-void sendStringSerial4(char *string);
+    RE2PPS=0x05;
+    RE4PPS=0x06;
+    RC7PPS=0x07;
+    RG6PPS=0x08;
 
 
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-# 5 "./color.h" 2
+    T2CONbits.CKPS=0b0011;
+    T2HLTbits.MODE=0b00000;
+    T2CLKCONbits.CS=0b0001;
 
 
 
-
-typedef struct RGBC_val {
- unsigned int R;
- unsigned int G;
- unsigned int B;
-    unsigned int C;
-} RGBC_val;
+    T2PR=200;
+    T2CONbits.ON=1;
 
 
 
-
-void color_click_init(void);
-
-
-
-
+    CCPR1H=0;
+    CCPR2H=0;
+    CCPR3H=0;
+    CCPR4H=0;
 
 
-void color_writetoaddr(char address, char value);
+    CCPTMRS0bits.C1TSEL=0;
+    CCPTMRS0bits.C2TSEL=0;
+    CCPTMRS0bits.C3TSEL=0;
+    CCPTMRS0bits.C4TSEL=0;
 
 
+    CCP1CONbits.FMT=1;
+    CCP1CONbits.CCP1MODE=0b1100;
+    CCP1CONbits.EN=1;
 
+    CCP2CONbits.FMT=1;
+    CCP2CONbits.CCP2MODE=0b1100;
+    CCP2CONbits.EN=1;
 
+    CCP3CONbits.FMT=1;
+    CCP3CONbits.CCP3MODE=0b1100;
+    CCP3CONbits.EN=1;
 
-unsigned int color_read_Red(void);
-unsigned int color_read_Green(void);
-unsigned int color_read_Blue(void);
-unsigned int color_read_Clear(void);
-void color_read_RGBC(struct RGBC_val *temp);
-void color_click_init(void);
-char colorVal2String(char *buf,struct RGBC_val *temp);
-void tricolorLED(void);
-void RGBC2Serial(char *str);
-void RGBC_timing_register(void);
-# 4 "interrupts.c" 2
-
-
-
-
-
-
-void Interrupts_init(void)
-{
-
-
-
-    TRISBbits.TRISB0=1;
-
-    ANSELBbits.ANSELB0=0;
-    PIE0bits.INT0IE = 1;
-    IPR0bits.INT0IP = 1;
-    INTCONbits.INT0EDG=0;
-    INTCONbits.IPEN=1;
-    INTCONbits.PEIE=1;
-    INTCONbits.GIE=1;
-
-}
-
-void Color_Interrupts_init(void)
-{
-
-
-   color_writetoaddr(0x00, 0b00010011);
-   _delay((unsigned long)((10)*(64000000/4000.0))) ;
-   Color_Interrupts_clear();
-}
-
-void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerThreshold)
-{
- color_writetoaddr(0x04, lowerThreshold);
-    color_writetoaddr(0x05, lowerThreshold>>8);
-    color_writetoaddr(0x06, upperThreshold);
-    color_writetoaddr(0x07, upperThreshold>>8);
-}
-
-void persistence_register(void)
-{
- color_writetoaddr(0x0C, 0b0001);
-}
-
-void Color_Interrupts_clear(void)
-{
-
-
-    I2C_2_Master_Start();
-    I2C_2_Master_Write(0x52 | 0x00);
-    I2C_2_Master_Write(0b11100110);
-    I2C_2_Master_Stop();
-
+    CCP4CONbits.FMT=1;
+    CCP4CONbits.CCP4MODE=0b1100;
+    CCP4CONbits.EN=1;
 }
 
 
+void setMotorPWM(DC_motor *m)
+{
+    unsigned char posDuty, negDuty;
 
+    if(m->brakemode) {
+        posDuty=m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100;
+        negDuty=m->PWMperiod;
+    }
+    else {
+        posDuty=((unsigned int)(m->power)*(m->PWMperiod))/100;
+        negDuty=0;
+    }
 
+    if (m->direction) {
+        *(m->posDutyHighByte)=posDuty;
+        *(m->negDutyHighByte)=negDuty;
+    } else {
+        *(m->posDutyHighByte)=negDuty;
+        *(m->negDutyHighByte)=posDuty;
+    }
+}
 
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
+void motorLinit(DC_motor *mL)
+{
+    mL->power = 50;
+    mL->direction = 1;
+    mL->brakemode = 1;
+    mL->posDutyHighByte = (unsigned char *) (&CCPR1H);
+    mL->negDutyHighByte = (unsigned char *) (&CCPR2H);
+    mL->PWMperiod = 200;
+}
+
+void motorRinit(DC_motor *mR)
+{
+    mR->power = 50;
+    mR->direction = 1;
+    mR->brakemode = 1;
+    mR->posDutyHighByte = (unsigned char *) (&CCPR3H);
+    mR->negDutyHighByte = (unsigned char *) (&CCPR4H);
+    mR->PWMperiod = 200;
+}
+
+void stop(DC_motor *mL, DC_motor *mR)
 {
 
-    if(PIR0bits.INT0IF){
-
-    LATDbits.LATD7=!LATDbits.LATD7;
-        interrupt_flag = 0;
 
 
-        PIR0bits.INT0IF = 0;
- }
+
+    while (mL->power >= 1 && mR->power >= 1)
+    {
+        mL->power--;
+        mR->power--;
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+    }
+    mL->power = 0;
+    mR->power = 0;
+    setMotorPWM(mL);
+    setMotorPWM(mR);
+
+}
+void norm_stop(DC_motor *mL, DC_motor *mR)
+{
+
+
+
+
+    mL->power = 0;
+    mR->power = 0;
+    setMotorPWM(mL);
+    setMotorPWM(mR);
+
+}
+
+void turnLeft(DC_motor *mL, DC_motor *mR)
+{
+    mL->power = 50;
+    mR->power = 50;
+    mL->brakemode = 1;
+    mR->brakemode = 1;
+    mL->direction = 0;
+    mR->direction = 1;
+    setMotorPWM(mL);
+    setMotorPWM(mR);
+}
+
+
+void turnRight(DC_motor *mL, DC_motor *mR)
+{
+    mL->power = 50;
+    mR->power = 50;
+    mL->brakemode = 1;
+    mR->brakemode = 1;
+    mR->direction = 0;
+    mL->direction = 1;
+    setMotorPWM(mL);
+    setMotorPWM(mR);
+}
+
+void uturn(DC_motor *mL, DC_motor *mR){
+    mL->power = 45;
+    mR->power = 45;
+    mL->brakemode = 1;
+    mR->brakemode = 1;
+    mR->direction = 0;
+    mL->direction = 1;
+    setMotorPWM(mL);
+    setMotorPWM(mR);
+}
+
+void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
+{
+    mL->power = 5;
+    mR->power = 5;
+    mR->direction = 1;
+    mL->direction = 1;
+    mL->brakemode = 1;
+    mR->brakemode = 1;
+    while (mL->power <= 100 && mR->power <=100)
+    {
+        mL->power++;
+        mR->power++;
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+    }
+    mL->power = 100;
+    mR->power = 100;
+    setMotorPWM(mL);
+    setMotorPWM(mR);
+
+}
+void reverse(DC_motor *mL, DC_motor *mR)
+{
+    mL->power = 5;
+    mR->power = 5;
+    mR->direction = 0;
+    mL->direction = 0;
+    mL->brakemode = 1;
+    mR->brakemode = 1;
+    while (mL->power <= 100 && mR->power <=100)
+    {
+        mL->power++;
+        mR->power++;
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+    }
+    mL->power = 100;
+    mR->power = 100;
+    setMotorPWM(mL);
+    setMotorPWM(mR);
+
 }

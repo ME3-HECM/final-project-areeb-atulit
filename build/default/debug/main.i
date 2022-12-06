@@ -1,4 +1,4 @@
-# 1 "interrupts.c"
+# 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,16 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "interrupts.c" 2
+# 1 "main.c" 2
+
+#pragma config FEXTOSC = HS
+#pragma config RSTOSC = EXTOSC_4PLL
+
+
+#pragma config WDTCPS = WDTCPS_31
+#pragma config WDTE = OFF
+
+
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,12 +24238,40 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 1 "interrupts.c" 2
-
-# 1 "./interrupts.h" 1
+# 9 "main.c" 2
 
 
+# 1 "./dc_motor.h" 1
 
+
+
+
+
+
+
+typedef struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+} DC_motor;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(DC_motor *m);
+void stop(DC_motor *mL, DC_motor *mR);
+void turnLeft(DC_motor *mL, DC_motor *mR);
+void turnRight(DC_motor *mL, DC_motor *mR);
+void uturn(DC_motor *mL, DC_motor *mR);
+
+void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void reverse(DC_motor *mL, DC_motor *mR);
+void motorLinit(DC_motor *mL);
+void motorRinit(DC_motor *mR);
+void norm_stop(DC_motor *mL, DC_motor *mR);
+# 11 "main.c" 2
 
 # 1 "./i2c.h" 1
 # 13 "./i2c.h"
@@ -24269,51 +24306,7 @@ void I2C_2_Master_Write(unsigned char data_byte);
 
 
 unsigned char I2C_2_Master_Read(unsigned char ack);
-# 5 "./interrupts.h" 2
-
-
-
-int interrupt_flag = 1;
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-void Color_Interrupts_init(void);
-void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
-void persistence_register(void);
-void Color_Interrupts_clear(void);
-# 2 "interrupts.c" 2
-
-# 1 "./dc_motor.h" 1
-
-
-
-
-
-
-
-typedef struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-} DC_motor;
-
-
-void initDCmotorsPWM(unsigned int PWMperiod);
-void setMotorPWM(DC_motor *m);
-void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft(DC_motor *mL, DC_motor *mR);
-void turnRight(DC_motor *mL, DC_motor *mR);
-void uturn(DC_motor *mL, DC_motor *mR);
-
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void reverse(DC_motor *mL, DC_motor *mR);
-void motorLinit(DC_motor *mL);
-void motorRinit(DC_motor *mR);
-void norm_stop(DC_motor *mL, DC_motor *mR);
-# 3 "interrupts.c" 2
+# 12 "main.c" 2
 
 # 1 "./color.h" 1
 
@@ -24386,76 +24379,55 @@ char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
 void RGBC2Serial(char *str);
 void RGBC_timing_register(void);
-# 4 "interrupts.c" 2
+# 13 "main.c" 2
+
+
+# 1 "./interrupts.h" 1
 
 
 
 
 
 
-void Interrupts_init(void)
-{
+
+int interrupt_flag = 1;
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+void Color_Interrupts_init(void);
+void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
+void persistence_register(void);
+void Color_Interrupts_clear(void);
+# 15 "main.c" 2
+
+# 1 "./timers.h" 1
 
 
 
-    TRISBbits.TRISB0=1;
 
+
+
+
+void Timer0_init(void);
+unsigned int get16bitTMR0val(void);
+# 16 "main.c" 2
+# 72 "main.c"
+void main() {
+    TRISHbits.TRISH3=0;
+    TRISBbits.TRISB0=0;
     ANSELBbits.ANSELB0=0;
-    PIE0bits.INT0IE = 1;
-    IPR0bits.INT0IP = 1;
-    INTCONbits.INT0EDG=0;
-    INTCONbits.IPEN=1;
-    INTCONbits.PEIE=1;
-    INTCONbits.GIE=1;
+    LATHbits.LATH3 =0;
 
-}
-
-void Color_Interrupts_init(void)
-{
-
-
-   color_writetoaddr(0x00, 0b00010011);
-   _delay((unsigned long)((10)*(64000000/4000.0))) ;
-   Color_Interrupts_clear();
-}
-
-void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerThreshold)
-{
- color_writetoaddr(0x04, lowerThreshold);
-    color_writetoaddr(0x05, lowerThreshold>>8);
-    color_writetoaddr(0x06, upperThreshold);
-    color_writetoaddr(0x07, upperThreshold>>8);
-}
-
-void persistence_register(void)
-{
- color_writetoaddr(0x0C, 0b0001);
-}
-
-void Color_Interrupts_clear(void)
-{
-
-
-    I2C_2_Master_Start();
-    I2C_2_Master_Write(0x52 | 0x00);
-    I2C_2_Master_Write(0b11100110);
-    I2C_2_Master_Stop();
-
-}
-
-
-
-
-
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
-{
-
-    if(PIR0bits.INT0IF){
-
-    LATDbits.LATD7=!LATDbits.LATD7;
-        interrupt_flag = 0;
-
-
-        PIR0bits.INT0IF = 0;
- }
+    unsigned int upperThreshold = 100;
+    unsigned int lowerThreshold = 0;
+    color_click_init();
+    Color_Interrupts_init();
+    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
+    persistence_register();
+    while(1){
+    LATHbits.LATH3 = !PORTBbits.RB0;
+    _delay((unsigned long)((2000)*(64000000/4000.0)));
+    Color_Interrupts_clear();
+    _delay((unsigned long)((2000)*(64000000/4000.0)));
+    }
 }

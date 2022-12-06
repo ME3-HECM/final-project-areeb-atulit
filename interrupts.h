@@ -10,7 +10,7 @@ int interrupt_flag = 1;
 void Interrupts_init(void);
 void __interrupt(high_priority) HighISR();
 void Color_Interrupts_init(void);
-void Color_Interrupts_threshold(int upperThreshold,int lowerThreshold);
+void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
 void persistence_register(void);
 void Color_Interrupts_clear(void);
 

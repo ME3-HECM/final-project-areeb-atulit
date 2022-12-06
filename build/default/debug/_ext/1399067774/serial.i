@@ -1,4 +1,4 @@
-# 1 "interrupts.c"
+# 1 "../lab-5-areeb-atulit.X/serial.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "interrupts.c" 2
+# 1 "../lab-5-areeb-atulit.X/serial.c" 2
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,99 +24229,10 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 1 "interrupts.c" 2
+# 1 "../lab-5-areeb-atulit.X/serial.c" 2
 
-# 1 "./interrupts.h" 1
-
-
-
-
-# 1 "./i2c.h" 1
-# 13 "./i2c.h"
-void I2C_2_Master_Init(void);
-
-
-
-
-void I2C_2_Master_Idle(void);
-
-
-
-
-void I2C_2_Master_Start(void);
-
-
-
-
-void I2C_2_Master_RepStart(void);
-
-
-
-
-void I2C_2_Master_Stop(void);
-
-
-
-
-void I2C_2_Master_Write(unsigned char data_byte);
-
-
-
-
-unsigned char I2C_2_Master_Read(unsigned char ack);
-# 5 "./interrupts.h" 2
-
-
-
-int interrupt_flag = 1;
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-void Color_Interrupts_init(void);
-void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
-void persistence_register(void);
-void Color_Interrupts_clear(void);
-# 2 "interrupts.c" 2
-
-# 1 "./dc_motor.h" 1
-
-
-
-
-
-
-
-typedef struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-} DC_motor;
-
-
-void initDCmotorsPWM(unsigned int PWMperiod);
-void setMotorPWM(DC_motor *m);
-void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft(DC_motor *mL, DC_motor *mR);
-void turnRight(DC_motor *mL, DC_motor *mR);
-void uturn(DC_motor *mL, DC_motor *mR);
-
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void reverse(DC_motor *mL, DC_motor *mR);
-void motorLinit(DC_motor *mL);
-void motorRinit(DC_motor *mR);
-void norm_stop(DC_motor *mL, DC_motor *mR);
-# 3 "interrupts.c" 2
-
-# 1 "./color.h" 1
-
-
-
-
-# 1 "./serial.h" 1
-# 13 "./serial.h"
+# 1 "../lab-5-areeb-atulit.X/serial.h" 1
+# 13 "../lab-5-areeb-atulit.X/serial.h"
 volatile char EUSART4RXbuf[20];
 volatile char RxBufWriteCnt=0;
 volatile char RxBufReadCnt=0;
@@ -24348,114 +24259,110 @@ void putCharToTxBuf(char byte);
 char isDataInTxBuf (void);
 void TxBufferedString(char *string);
 void sendTxBuf(void);
-# 5 "./color.h" 2
+# 2 "../lab-5-areeb-atulit.X/serial.c" 2
+
+
+void initUSART4(void) {
 
 
 
+    RC0PPS = 0x12;
+    RX4PPS = 0x11;
+    BAUD4CONbits.BRG16 = 0;
+    TX4STAbits.BRGH = 0;
+    SP4BRGL = 103;
+    SP4BRGH = 0;
 
-typedef struct RGBC_val {
- unsigned int R;
- unsigned int G;
- unsigned int B;
-    unsigned int C;
-} RGBC_val;
-
-
-
-
-void color_click_init(void);
-
-
-
-
-
-
-void color_writetoaddr(char address, char value);
-
-
-
-
-
-unsigned int color_read_Red(void);
-unsigned int color_read_Green(void);
-unsigned int color_read_Blue(void);
-unsigned int color_read_Clear(void);
-void color_read_RGBC(struct RGBC_val *temp);
-void color_click_init(void);
-char colorVal2String(char *buf,struct RGBC_val *temp);
-void tricolorLED(void);
-void RGBC2Serial(char *str);
-void RGBC_timing_register(void);
-# 4 "interrupts.c" 2
-
-
-
-
-
-
-void Interrupts_init(void)
-{
-
-
-
-    TRISBbits.TRISB0=1;
-
-    ANSELBbits.ANSELB0=0;
-    PIE0bits.INT0IE = 1;
-    IPR0bits.INT0IP = 1;
-    INTCONbits.INT0EDG=0;
-    INTCONbits.IPEN=1;
-    INTCONbits.PEIE=1;
-    INTCONbits.GIE=1;
+    RC4STAbits.CREN = 1;
+    TX4STAbits.TXEN = 1;
+    RC4STAbits.SPEN = 1;
+    PIE4bits.RC4IE=1;
+    PIE4bits.TX4IE=1;
 
 }
 
-void Color_Interrupts_init(void)
-{
 
-
-   color_writetoaddr(0x00, 0b00010011);
-   _delay((unsigned long)((10)*(64000000/4000.0))) ;
-   Color_Interrupts_clear();
+char getCharSerial4(void) {
+    while (!PIR4bits.RC4IF);
+    return RC4REG;
 }
 
-void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerThreshold)
-{
- color_writetoaddr(0x04, lowerThreshold);
-    color_writetoaddr(0x05, lowerThreshold>>8);
-    color_writetoaddr(0x06, upperThreshold);
-    color_writetoaddr(0x07, upperThreshold>>8);
+
+void sendCharSerial4(char charToSend) {
+    while (!PIR4bits.TX4IF);
+    TX4REG = charToSend;
 }
 
-void persistence_register(void)
-{
- color_writetoaddr(0x0C, 0b0001);
-}
-
-void Color_Interrupts_clear(void)
-{
 
 
-    I2C_2_Master_Start();
-    I2C_2_Master_Write(0x52 | 0x00);
-    I2C_2_Master_Write(0b11100110);
-    I2C_2_Master_Stop();
+void sendStringSerial4(char *string){
 
+    int i=0;
+    while(string[i]!=0){
+        sendCharSerial4(string[i]);
+        i++;
+    }
 }
 
 
 
 
 
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
-{
 
-    if(PIR0bits.INT0IF){
-
-    LATDbits.LATD7=!LATDbits.LATD7;
-        interrupt_flag = 0;
+char getCharFromRxBuf(void){
+    if (RxBufReadCnt>=20) {RxBufReadCnt=0;}
+    return EUSART4RXbuf[RxBufReadCnt++];
+}
 
 
-        PIR0bits.INT0IF = 0;
- }
+void putCharToRxBuf(char byte){
+    if (RxBufWriteCnt>=20) {RxBufWriteCnt=0;}
+    EUSART4RXbuf[RxBufWriteCnt++]=byte;
+}
+
+
+
+
+char isDataInRxBuf (void){
+    return (RxBufWriteCnt!=RxBufReadCnt);
+}
+
+
+
+char getCharFromTxBuf(void){
+    if (TxBufReadCnt>=60) {
+        TxBufReadCnt=0;
+    }
+    return EUSART4TXbuf[TxBufReadCnt++];
+}
+
+
+void putCharToTxBuf(char byte){
+    if (TxBufWriteCnt>=60) {
+        TxBufWriteCnt=0;
+    }
+    EUSART4TXbuf[TxBufWriteCnt++]=byte;
+}
+
+
+
+
+char isDataInTxBuf (void){
+    return (TxBufWriteCnt!=TxBufReadCnt);
+}
+
+
+void TxBufferedString(char *string){
+
+        int i=0;
+    while(string[i]!=0){
+        putCharToTxBuf(string[i]);
+        i++;
+    }
+}
+
+
+
+void sendTxBuf(void){
+    if (isDataInTxBuf()) {PIE4bits.TX4IE=1;}
 }

@@ -15,10 +15,9 @@ void Interrupts_init(void)
     TRISBbits.TRISB0=1;
      //Trigger on falling edge
     ANSELBbits.ANSELB0=0;//turns off analogue input
-    PIE0bits.INT1IE = 1;
-    PIR0bits.INT1IF = 1;
-    IPR0bits.INT1IP = 1;
-    INTCONbits.INT1EDG=0;
+    PIE0bits.INT0IE = 1;
+    IPR0bits.INT0IP = 1;
+    INTCONbits.INT0EDG=0;
     INTCONbits.IPEN=1;//Enable priority 
     INTCONbits.PEIE=1;
     INTCONbits.GIE=1; //turn on interrupts globally (when this is off, all interrupts are deactivated)
@@ -31,9 +30,10 @@ void Color_Interrupts_init(void)
 	// It's a good idea to turn on global interrupts last, once all other interrupt configuration is done.
    color_writetoaddr(0x00, 0b00010011);
    __delay_ms(10) ;
+   Color_Interrupts_clear();
 }
 
-void Color_Interrupts_threshold(int upperThreshold, int lowerThreshold)
+void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerThreshold)
 {
 	color_writetoaddr(0x04, lowerThreshold);
     color_writetoaddr(0x05, lowerThreshold>>8);
@@ -43,7 +43,7 @@ void Color_Interrupts_threshold(int upperThreshold, int lowerThreshold)
 
 void persistence_register(void)
 {
-	color_writetoaddr(0x0C, 0b0101);
+	color_writetoaddr(0x0C, 0b0001);
 }
 
 void Color_Interrupts_clear(void)
@@ -55,7 +55,6 @@ void Color_Interrupts_clear(void)
     I2C_2_Master_Write(0b11100110);    
     I2C_2_Master_Stop();          //Stop condition
    //__delay_ms(10) ;
-   Color_Interrupts_init();
 }
 
 /************************************
@@ -65,11 +64,13 @@ void Color_Interrupts_clear(void)
 void __interrupt(high_priority) HighISR()
 {
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...
-    if(!PIR0bits.INT1IF){ 					//check the interrupt source
+    if(PIR0bits.INT0IF){ 					//check the interrupt source
+        
+    LATDbits.LATD7=!LATDbits.LATD7;
         interrupt_flag = 0;
 //        __delay_ms(10);
         
-        PIR0bits.INT1IF = 1; 						//clear the interrupt flag!
+        PIR0bits.INT0IF = 0; 						//clear the interrupt flag!
 	}
 }
 

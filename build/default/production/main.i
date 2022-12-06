@@ -24351,7 +24351,7 @@ typedef struct RGBC_val {
  unsigned int G;
  unsigned int B;
     unsigned int C;
-};
+} RGBC_val;
 
 
 
@@ -24378,6 +24378,7 @@ void color_click_init(void);
 char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
 void RGBC2Serial(char *str);
+void RGBC_timing_register(void);
 # 13 "main.c" 2
 
 
@@ -24394,7 +24395,7 @@ int interrupt_flag = 1;
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 void Color_Interrupts_init(void);
-void Color_Interrupts_threshold(int upperThreshold,int lowerThreshold);
+void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
 void persistence_register(void);
 void Color_Interrupts_clear(void);
 # 15 "main.c" 2
@@ -24410,51 +24411,23 @@ void Color_Interrupts_clear(void);
 void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
 # 16 "main.c" 2
-
-
-
-
+# 72 "main.c"
 void main() {
+    TRISHbits.TRISH3=0;
+    TRISBbits.TRISB0=1;
+    ANSELBbits.ANSELB0=0;
+    LATHbits.LATH3 =0;
 
-    struct RGBC_val RGBC;
-    char buf[100];
-    int upperThreshold = 2500;
-    int lowerThreshold = 0;
-
+    unsigned int upperThreshold = 10000;
+    unsigned int lowerThreshold = 0;
     color_click_init();
     Color_Interrupts_init();
     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
     persistence_register();
-    initUSART4();
-    initDCmotorsPWM(200);
-    DC_motor mL, mR;
-    motorLinit(&mL);
-    motorRinit(&mR);
-
-    TRISEbits.TRISE2 = 0;
-    TRISEbits.TRISE4 = 0;
-    TRISCbits.TRISC7 = 0;
-    TRISGbits.TRISG6 = 0;
-
-
-
-
-    tricolorLED();
-    while (1) {
-        color_read_RGBC(&RGBC);
-        colorVal2String(buf, &RGBC);
-
-
-        _delay((unsigned long)((2000)*(64000000/4000.0)));
-        if (interrupt_flag == 0) {
-            norm_stop(&mL, &mR);
-            _delay((unsigned long)((2000)*(64000000/4000.0)));
-            interrupt_flag = 1;
-            turnRight(&mL, &mR);
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-            Color_Interrupts_clear();
-        }
-        norm_stop(&mL, &mR);
-        _delay((unsigned long)((500)*(64000000/4000.0)));
+    while(1){
+    LATHbits.LATH3 = !PORTBbits.RB0;
+    _delay((unsigned long)((2000)*(64000000/4000.0)));
+    Color_Interrupts_clear();
+    _delay((unsigned long)((2000)*(64000000/4000.0)));
     }
 }

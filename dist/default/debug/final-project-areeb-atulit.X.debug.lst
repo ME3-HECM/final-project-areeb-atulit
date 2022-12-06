@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.40 build 20220703182018 
-                                                                                               Tue Dec 06 10:44:54 2022
+                                                                                               Tue Dec 06 10:35:33 2022
 
 Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1 
      1                           	processor	18F67K40
@@ -355,8 +355,8 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    336                           ;main.c: 73:     TRISHbits.TRISH3=0;
    337   000E14  9688               	bcf	136,3,c	;volatile
    338                           
-   339                           ;main.c: 74:     TRISBbits.TRISB0=1;
-   340   000E16  8082               	bsf	130,0,c	;volatile
+   339                           ;main.c: 74:     TRISBbits.TRISB0=0;
+   340   000E16  9082               	bcf	130,0,c	;volatile
    341                           
    342                           ;main.c: 75:     ANSELBbits.ANSELB0=0;
    343   000E18  010E               	movlb	14	; () banked
@@ -380,9 +380,9 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    361   000E2A  ECDC  F007         	call	_Color_Interrupts_init	;wreg free
    362   000E2E                     
    363                           ;main.c: 82:     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
-   364   000E2E  0E27               	movlw	39
+   364   000E2E  0E00               	movlw	0
    365   000E30  6E1F               	movwf	(Color_Interrupts_threshold@upperThreshold+1)^0,c
-   366   000E32  0E10               	movlw	16
+   366   000E32  0E64               	movlw	100
    367   000E34  6E1E               	movwf	Color_Interrupts_threshold@upperThreshold^0,c
    368   000E36  0E00               	movlw	0
    369   000E38  6E21               	movwf	(Color_Interrupts_threshold@lowerThreshold+1)^0,c
@@ -492,8 +492,8 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    468   000FEC                     _persistence_register:
    469                           	callstack 26
    470   000FEC                     
-   471                           ;interrupts.c: 46:  color_writetoaddr(0x0C, 0b0001);
-   472   000FEC  0E01               	movlw	1
+   471                           ;interrupts.c: 46:  color_writetoaddr(0x0C, 0b0101);
+   472   000FEC  0E05               	movlw	5
    473   000FEE  6E1C               	movwf	color_writetoaddr@value^0,c
    474   000FF0  0E0C               	movlw	12
    475   000FF2  ECCC  F007         	call	_color_writetoaddr
@@ -1967,7 +1967,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.40 build 20220703182018 
-Symbol Table                                                                                   Tue Dec 06 10:44:54 2022
+Symbol Table                                                                                   Tue Dec 06 10:35:33 2022
 
                                       l53 0F1A                                        l56 0FB6  
                                       u10 0F80                                        u11 0F7C  

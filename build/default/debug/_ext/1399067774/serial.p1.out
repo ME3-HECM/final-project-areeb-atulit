@@ -1,111 +1,77 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"30064 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30064:     struct {
-[s S1392 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1392 . TRISH0 TRISH1 TRISH2 TRISH3 ]
-"30063
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30063: typedef union {
-[u S1391 `S1392 1 ]
-[n S1391 . . ]
-"30071
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30071: extern volatile TRISHbits_t TRISHbits __attribute__((address(0xF88)));
-[v _TRISHbits `VS1391 ~T0 @X0 0 e@3976 ]
-"29462
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29462:     struct {
-[s S1372 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1372 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"29461
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29461: typedef union {
-[u S1371 `S1372 1 ]
-[n S1371 . . ]
-"29473
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29473: extern volatile TRISBbits_t TRISBbits __attribute__((address(0xF82)));
-[v _TRISBbits `VS1371 ~T0 @X0 0 e@3970 ]
-"10758
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 10758:     struct {
-[s S518 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S518 . ANSELB0 ANSELB1 ANSELB2 ANSELB3 ANSELB4 ANSELB5 ANSELB6 ANSELB7 ]
-"10757
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 10757: typedef union {
-[u S517 `S518 1 ]
-[n S517 . . ]
-"10769
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 10769: extern volatile ANSELBbits_t ANSELBbits __attribute__((address(0xE9A)));
-[v _ANSELBbits `VS517 ~T0 @X0 0 e@3738 ]
-"29235
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29235:     struct {
-[s S1361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1361 . LATH0 LATH1 LATH2 LATH3 ]
-"29241
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29241:     struct {
-[s S1362 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1362 . LH0 LH1 LH2 LH3 ]
-"29247
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29247:     struct {
-[s S1363 :4 `uc 1 :1 `uc 1 ]
-[n S1363 . . LH4 ]
-"29251
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29251:     struct {
-[s S1364 :5 `uc 1 :1 `uc 1 ]
-[n S1364 . . LH5 ]
-"29255
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29255:     struct {
-[s S1365 :6 `uc 1 :1 `uc 1 ]
-[n S1365 . . LH6 ]
-"29259
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29259:     struct {
-[s S1366 :7 `uc 1 :1 `uc 1 ]
-[n S1366 . . LH7 ]
-"29234
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29234: typedef union {
-[u S1360 `S1361 1 `S1362 1 `S1363 1 `S1364 1 `S1365 1 `S1366 1 ]
-[n S1360 . . . . . . . ]
-"29264
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29264: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
-[v _LATHbits `VS1360 ~T0 @X0 0 e@3968 ]
-"37 ./color.h
-[; ;./color.h: 37: void color_click_init(void);
-[v _color_click_init `(v ~T0 @X0 0 ef ]
-"12 ./interrupts.h
-[; ;./interrupts.h: 12: void Color_Interrupts_init(void);
-[v _Color_Interrupts_init `(v ~T0 @X0 0 ef ]
-"13
-[; ;./interrupts.h: 13: void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
-[v _Color_Interrupts_threshold `(v ~T0 @X0 0 ef2`ui`ui ]
-"14
-[; ;./interrupts.h: 14: void persistence_register(void);
-[v _persistence_register `(v ~T0 @X0 0 ef ]
-"30186 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30186:     struct {
-[s S1397 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1397 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"30196
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30196:     struct {
-[s S1398 :3 `uc 1 :1 `uc 1 ]
-[n S1398 . . CCP2_PA2 ]
-"30185
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30185: typedef union {
-[u S1396 `S1397 1 `S1398 1 ]
-[n S1396 . . . ]
-"30201
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30201: extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF8A)));
-[v _PORTBbits `VS1396 ~T0 @X0 0 e@3978 ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
-"15 ./interrupts.h
-[; ;./interrupts.h: 15: void Color_Interrupts_clear(void);
-[v _Color_Interrupts_clear `(v ~T0 @X0 0 ef ]
-"2 main.c
-[p x FEXTOSC  =  HS      ]
-"3
-[p x RSTOSC  =  EXTOSC_4PLL ]
-"6
-[p x WDTCPS  =  WDTCPS_31 ]
-"7
-[p x WDTE  =  OFF         ]
+"7858 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 7858: extern volatile unsigned char RC0PPS __attribute__((address(0xE62)));
+[v _RC0PPS `Vuc ~T0 @X0 0 e@3682 ]
+"3182
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 3182: extern volatile unsigned char RX4PPS __attribute__((address(0xE15)));
+[v _RX4PPS `Vuc ~T0 @X0 0 e@3605 ]
+"16200
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16200:     struct {
+[s S759 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S759 . ABDEN WUE . BRG16 SCKP . RCIDL ABDOVF ]
+"16199
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16199: typedef union {
+[u S758 `S759 1 ]
+[n S758 . . ]
+"16211
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16211: extern volatile BAUD4CONbits_t BAUD4CONbits __attribute__((address(0xEE9)));
+[v _BAUD4CONbits `VS758 ~T0 @X0 0 e@3817 ]
+"16074
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16074:     struct {
+[s S755 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S755 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"16073
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16073: typedef union {
+[u S754 `S755 1 ]
+[n S754 . . ]
+"16085
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 16085: extern volatile TX4STAbits_t TX4STAbits __attribute__((address(0xEE8)));
+[v _TX4STAbits `VS754 ~T0 @X0 0 e@3816 ]
+"15865
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15865: extern volatile unsigned char SP4BRGL __attribute__((address(0xEE5)));
+[v _SP4BRGL `Vuc ~T0 @X0 0 e@3813 ]
+"15903
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15903: extern volatile unsigned char SP4BRGH __attribute__((address(0xEE6)));
+[v _SP4BRGH `Vuc ~T0 @X0 0 e@3814 ]
+"15952
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15952:     struct {
+[s S751 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S751 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"15951
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15951: typedef union {
+[u S750 `S751 1 ]
+[n S750 . . ]
+"15963
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15963: extern volatile RC4STAbits_t RC4STAbits __attribute__((address(0xEE7)));
+[v _RC4STAbits `VS750 ~T0 @X0 0 e@3815 ]
+"4810
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4810:     struct {
+[s S274 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S274 . TX3IE RC3IE TX4IE RC4IE TX5IE RC5IE ]
+"4809
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4809: typedef union {
+[u S273 `S274 1 ]
+[n S273 . . ]
+"4819
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 4819: extern volatile PIE4bits_t PIE4bits __attribute__((address(0xE2D)));
+[v _PIE4bits `VS273 ~T0 @X0 0 e@3629 ]
+"5323
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 5323:     struct {
+[s S297 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S297 . TX3IF RC3IF TX4IF RC4IF TX5IF RC5IF ]
+"5322
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 5322: typedef union {
+[u S296 `S297 1 ]
+[n S296 . . ]
+"5332
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 5332: extern volatile PIR4bits_t PIR4bits __attribute__((address(0xE37)));
+[v _PIR4bits `VS296 ~T0 @X0 0 e@3639 ]
+"15782
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15782: extern volatile unsigned char RC4REG __attribute__((address(0xEE3)));
+[v _RC4REG `Vuc ~T0 @X0 0 e@3811 ]
+"15820
+[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 15820: extern volatile unsigned char TX4REG __attribute__((address(0xEE4)));
+[v _TX4REG `Vuc ~T0 @X0 0 e@3812 ]
 "54 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2080,104 +2046,323 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40927
 [; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40927: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"13 ./serial.h
-[; ;./serial.h: 13: volatile char EUSART4RXbuf[20];
+"13 ../lab-5-areeb-atulit.X/serial.h
+[; ;../lab-5-areeb-atulit.X/serial.h: 13: volatile char EUSART4RXbuf[20];
 [v _EUSART4RXbuf `Vuc ~T0 @X0 -> 20 `i e ]
 "14
-[; ;./serial.h: 14: volatile char RxBufWriteCnt=0;
+[; ;../lab-5-areeb-atulit.X/serial.h: 14: volatile char RxBufWriteCnt=0;
 [v _RxBufWriteCnt `Vuc ~T0 @X0 1 e ]
 [i _RxBufWriteCnt
 -> -> 0 `i `uc
 ]
 "15
-[; ;./serial.h: 15: volatile char RxBufReadCnt=0;
+[; ;../lab-5-areeb-atulit.X/serial.h: 15: volatile char RxBufReadCnt=0;
 [v _RxBufReadCnt `Vuc ~T0 @X0 1 e ]
 [i _RxBufReadCnt
 -> -> 0 `i `uc
 ]
 "17
-[; ;./serial.h: 17: volatile char EUSART4TXbuf[60];
+[; ;../lab-5-areeb-atulit.X/serial.h: 17: volatile char EUSART4TXbuf[60];
 [v _EUSART4TXbuf `Vuc ~T0 @X0 -> 60 `i e ]
 "18
-[; ;./serial.h: 18: volatile char TxBufWriteCnt=0;
+[; ;../lab-5-areeb-atulit.X/serial.h: 18: volatile char TxBufWriteCnt=0;
 [v _TxBufWriteCnt `Vuc ~T0 @X0 1 e ]
 [i _TxBufWriteCnt
 -> -> 0 `i `uc
 ]
 "19
-[; ;./serial.h: 19: volatile char TxBufReadCnt=0;
+[; ;../lab-5-areeb-atulit.X/serial.h: 19: volatile char TxBufReadCnt=0;
 [v _TxBufReadCnt `Vuc ~T0 @X0 1 e ]
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
-"8 ./interrupts.h
-[; ;./interrupts.h: 8: int interrupt_flag = 1;
-[v _interrupt_flag `i ~T0 @X0 1 e ]
-[i _interrupt_flag
--> 1 `i
-]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"72 main.c
-[; ;main.c: 72: void main() {
-[v _main `(v ~T0 @X0 1 ef ]
+"4 ../lab-5-areeb-atulit.X/serial.c
+[; ;../lab-5-areeb-atulit.X/serial.c: 4: void initUSART4(void) {
+[v _initUSART4 `(v ~T0 @X0 1 ef ]
 {
-[e :U _main ]
+[e :U _initUSART4 ]
 [f ]
-"73
-[; ;main.c: 73:     TRISHbits.TRISH3=0;
-[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
-"74
-[; ;main.c: 74:     TRISBbits.TRISB0=1;
-[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-"75
-[; ;main.c: 75:     ANSELBbits.ANSELB0=0;
-[e = . . _ANSELBbits 0 0 -> -> 0 `i `uc ]
-"76
-[; ;main.c: 76:     LATHbits.LATH3 =0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"78
-[; ;main.c: 78:     unsigned int upperThreshold = 10000;
-[v _upperThreshold `ui ~T0 @X0 1 a ]
-[e = _upperThreshold -> -> 10000 `i `ui ]
-"79
-[; ;main.c: 79:     unsigned int lowerThreshold = 0;
-[v _lowerThreshold `ui ~T0 @X0 1 a ]
-[e = _lowerThreshold -> -> 0 `i `ui ]
-"80
-[; ;main.c: 80:     color_click_init();
-[e ( _color_click_init ..  ]
-"81
-[; ;main.c: 81:     Color_Interrupts_init();
-[e ( _Color_Interrupts_init ..  ]
-"82
-[; ;main.c: 82:     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
-[e ( _Color_Interrupts_threshold (2 , _upperThreshold _lowerThreshold ]
-"83
-[; ;main.c: 83:     persistence_register();
-[e ( _persistence_register ..  ]
-"84
-[; ;main.c: 84:     while(1){
-[e :U 2019 ]
-{
-"85
-[; ;main.c: 85:     LATHbits.LATH3 = !PORTBbits.RB0;
-[e = . . _LATHbits 0 3 -> -> ! != -> . . _PORTBbits 0 0 `i -> 0 `i `i `uc ]
-"86
-[; ;main.c: 86:     _delay((unsigned long)((2000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"87
-[; ;main.c: 87:     Color_Interrupts_clear();
-[e ( _Color_Interrupts_clear ..  ]
-"88
-[; ;main.c: 88:     _delay((unsigned long)((2000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"89
-[; ;main.c: 89:     }
+"8
+[; ;../lab-5-areeb-atulit.X/serial.c: 8:     RC0PPS = 0x12;
+[e = _RC0PPS -> -> 18 `i `uc ]
+"9
+[; ;../lab-5-areeb-atulit.X/serial.c: 9:     RX4PPS = 0x11;
+[e = _RX4PPS -> -> 17 `i `uc ]
+"10
+[; ;../lab-5-areeb-atulit.X/serial.c: 10:     BAUD4CONbits.BRG16 = 0;
+[e = . . _BAUD4CONbits 0 3 -> -> 0 `i `uc ]
+"11
+[; ;../lab-5-areeb-atulit.X/serial.c: 11:     TX4STAbits.BRGH = 0;
+[e = . . _TX4STAbits 0 2 -> -> 0 `i `uc ]
+"12
+[; ;../lab-5-areeb-atulit.X/serial.c: 12:     SP4BRGL = 103;
+[e = _SP4BRGL -> -> 103 `i `uc ]
+"13
+[; ;../lab-5-areeb-atulit.X/serial.c: 13:     SP4BRGH = 0;
+[e = _SP4BRGH -> -> 0 `i `uc ]
+"15
+[; ;../lab-5-areeb-atulit.X/serial.c: 15:     RC4STAbits.CREN = 1;
+[e = . . _RC4STAbits 0 4 -> -> 1 `i `uc ]
+"16
+[; ;../lab-5-areeb-atulit.X/serial.c: 16:     TX4STAbits.TXEN = 1;
+[e = . . _TX4STAbits 0 5 -> -> 1 `i `uc ]
+"17
+[; ;../lab-5-areeb-atulit.X/serial.c: 17:     RC4STAbits.SPEN = 1;
+[e = . . _RC4STAbits 0 7 -> -> 1 `i `uc ]
+"18
+[; ;../lab-5-areeb-atulit.X/serial.c: 18:     PIE4bits.RC4IE=1;
+[e = . . _PIE4bits 0 3 -> -> 1 `i `uc ]
+"19
+[; ;../lab-5-areeb-atulit.X/serial.c: 19:     PIE4bits.TX4IE=1;
+[e = . . _PIE4bits 0 2 -> -> 1 `i `uc ]
+"21
+[; ;../lab-5-areeb-atulit.X/serial.c: 21: }
+[e :UE 2015 ]
 }
+"24
+[; ;../lab-5-areeb-atulit.X/serial.c: 24: char getCharSerial4(void) {
+[v _getCharSerial4 `(uc ~T0 @X0 1 ef ]
+{
+[e :U _getCharSerial4 ]
+[f ]
+"25
+[; ;../lab-5-areeb-atulit.X/serial.c: 25:     while (!PIR4bits.RC4IF);
+[e $U 2017  ]
 [e :U 2018 ]
-[e $U 2019  ]
-[e :U 2020 ]
+[e :U 2017 ]
+[e $ ! != -> . . _PIR4bits 0 3 `i -> 0 `i 2018  ]
+[e :U 2019 ]
+"26
+[; ;../lab-5-areeb-atulit.X/serial.c: 26:     return RC4REG;
+[e ) -> _RC4REG `uc ]
+[e $UE 2016  ]
+"27
+[; ;../lab-5-areeb-atulit.X/serial.c: 27: }
+[e :UE 2016 ]
+}
+"30
+[; ;../lab-5-areeb-atulit.X/serial.c: 30: void sendCharSerial4(char charToSend) {
+[v _sendCharSerial4 `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _sendCharSerial4 ]
+[v _charToSend `uc ~T0 @X0 1 r1 ]
+[f ]
+"31
+[; ;../lab-5-areeb-atulit.X/serial.c: 31:     while (!PIR4bits.TX4IF);
+[e $U 2021  ]
+[e :U 2022 ]
+[e :U 2021 ]
+[e $ ! != -> . . _PIR4bits 0 2 `i -> 0 `i 2022  ]
+[e :U 2023 ]
+"32
+[; ;../lab-5-areeb-atulit.X/serial.c: 32:     TX4REG = charToSend;
+[e = _TX4REG -> _charToSend `uc ]
+"33
+[; ;../lab-5-areeb-atulit.X/serial.c: 33: }
+[e :UE 2020 ]
+}
+"37
+[; ;../lab-5-areeb-atulit.X/serial.c: 37: void sendStringSerial4(char *string){
+[v _sendStringSerial4 `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _sendStringSerial4 ]
+[v _string `*uc ~T0 @X0 1 r1 ]
+[f ]
+"39
+[; ;../lab-5-areeb-atulit.X/serial.c: 39:     int i=0;
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+"40
+[; ;../lab-5-areeb-atulit.X/serial.c: 40:     while(string[i]!=0){
+[e $U 2025  ]
+[e :U 2026 ]
+{
+"41
+[; ;../lab-5-areeb-atulit.X/serial.c: 41:         sendCharSerial4(string[i]);
+[e ( _sendCharSerial4 (1 *U + _string * -> _i `x -> -> # *U _string `i `x ]
+"42
+[; ;../lab-5-areeb-atulit.X/serial.c: 42:         i++;
+[e ++ _i -> 1 `i ]
+"43
+[; ;../lab-5-areeb-atulit.X/serial.c: 43:     }
+}
+[e :U 2025 ]
+"40
+[; ;../lab-5-areeb-atulit.X/serial.c: 40:     while(string[i]!=0){
+[e $ != -> *U + _string * -> _i `x -> -> # *U _string `i `x `i -> 0 `i 2026  ]
+[e :U 2027 ]
+"44
+[; ;../lab-5-areeb-atulit.X/serial.c: 44: }
+[e :UE 2024 ]
+}
+"51
+[; ;../lab-5-areeb-atulit.X/serial.c: 51: char getCharFromRxBuf(void){
+[v _getCharFromRxBuf `(uc ~T0 @X0 1 ef ]
+{
+[e :U _getCharFromRxBuf ]
+[f ]
+"52
+[; ;../lab-5-areeb-atulit.X/serial.c: 52:     if (RxBufReadCnt>=20) {RxBufReadCnt=0;}
+[e $ ! >= -> _RxBufReadCnt `i -> 20 `i 2029  ]
+{
+[e = _RxBufReadCnt -> -> 0 `i `uc ]
+}
+[e :U 2029 ]
+"53
+[; ;../lab-5-areeb-atulit.X/serial.c: 53:     return EUSART4RXbuf[RxBufReadCnt++];
+[e ) *U + &U _EUSART4RXbuf * -> ++ _RxBufReadCnt -> -> 1 `i `Vuc `ux -> -> # *U &U _EUSART4RXbuf `ui `ux ]
+[e $UE 2028  ]
+"54
+[; ;../lab-5-areeb-atulit.X/serial.c: 54: }
+[e :UE 2028 ]
+}
+"57
+[; ;../lab-5-areeb-atulit.X/serial.c: 57: void putCharToRxBuf(char byte){
+[v _putCharToRxBuf `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _putCharToRxBuf ]
+[v _byte `uc ~T0 @X0 1 r1 ]
+[f ]
+"58
+[; ;../lab-5-areeb-atulit.X/serial.c: 58:     if (RxBufWriteCnt>=20) {RxBufWriteCnt=0;}
+[e $ ! >= -> _RxBufWriteCnt `i -> 20 `i 2031  ]
+{
+[e = _RxBufWriteCnt -> -> 0 `i `uc ]
+}
+[e :U 2031 ]
+"59
+[; ;../lab-5-areeb-atulit.X/serial.c: 59:     EUSART4RXbuf[RxBufWriteCnt++]=byte;
+[e = *U + &U _EUSART4RXbuf * -> ++ _RxBufWriteCnt -> -> 1 `i `Vuc `ux -> -> # *U &U _EUSART4RXbuf `ui `ux _byte ]
+"60
+[; ;../lab-5-areeb-atulit.X/serial.c: 60: }
+[e :UE 2030 ]
+}
+"65
+[; ;../lab-5-areeb-atulit.X/serial.c: 65: char isDataInRxBuf (void){
+[v _isDataInRxBuf `(uc ~T0 @X0 1 ef ]
+{
+[e :U _isDataInRxBuf ]
+[f ]
+"66
+[; ;../lab-5-areeb-atulit.X/serial.c: 66:     return (RxBufWriteCnt!=RxBufReadCnt);
+[e ) -> -> != -> _RxBufWriteCnt `i -> _RxBufReadCnt `i `i `uc ]
+[e $UE 2032  ]
+"67
+[; ;../lab-5-areeb-atulit.X/serial.c: 67: }
+[e :UE 2032 ]
+}
+"71
+[; ;../lab-5-areeb-atulit.X/serial.c: 71: char getCharFromTxBuf(void){
+[v _getCharFromTxBuf `(uc ~T0 @X0 1 ef ]
+{
+[e :U _getCharFromTxBuf ]
+[f ]
+"72
+[; ;../lab-5-areeb-atulit.X/serial.c: 72:     if (TxBufReadCnt>=60) {
+[e $ ! >= -> _TxBufReadCnt `i -> 60 `i 2034  ]
+{
+"73
+[; ;../lab-5-areeb-atulit.X/serial.c: 73:         TxBufReadCnt=0;
+[e = _TxBufReadCnt -> -> 0 `i `uc ]
+"74
+[; ;../lab-5-areeb-atulit.X/serial.c: 74:     }
+}
+[e :U 2034 ]
+"75
+[; ;../lab-5-areeb-atulit.X/serial.c: 75:     return EUSART4TXbuf[TxBufReadCnt++];
+[e ) *U + &U _EUSART4TXbuf * -> ++ _TxBufReadCnt -> -> 1 `i `Vuc `ux -> -> # *U &U _EUSART4TXbuf `ui `ux ]
+[e $UE 2033  ]
+"76
+[; ;../lab-5-areeb-atulit.X/serial.c: 76: }
+[e :UE 2033 ]
+}
+"79
+[; ;../lab-5-areeb-atulit.X/serial.c: 79: void putCharToTxBuf(char byte){
+[v _putCharToTxBuf `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _putCharToTxBuf ]
+[v _byte `uc ~T0 @X0 1 r1 ]
+[f ]
+"80
+[; ;../lab-5-areeb-atulit.X/serial.c: 80:     if (TxBufWriteCnt>=60) {
+[e $ ! >= -> _TxBufWriteCnt `i -> 60 `i 2036  ]
+{
+"81
+[; ;../lab-5-areeb-atulit.X/serial.c: 81:         TxBufWriteCnt=0;
+[e = _TxBufWriteCnt -> -> 0 `i `uc ]
+"82
+[; ;../lab-5-areeb-atulit.X/serial.c: 82:     }
+}
+[e :U 2036 ]
+"83
+[; ;../lab-5-areeb-atulit.X/serial.c: 83:     EUSART4TXbuf[TxBufWriteCnt++]=byte;
+[e = *U + &U _EUSART4TXbuf * -> ++ _TxBufWriteCnt -> -> 1 `i `Vuc `ux -> -> # *U &U _EUSART4TXbuf `ui `ux _byte ]
+"84
+[; ;../lab-5-areeb-atulit.X/serial.c: 84: }
+[e :UE 2035 ]
+}
+"89
+[; ;../lab-5-areeb-atulit.X/serial.c: 89: char isDataInTxBuf (void){
+[v _isDataInTxBuf `(uc ~T0 @X0 1 ef ]
+{
+[e :U _isDataInTxBuf ]
+[f ]
 "90
-[; ;main.c: 90: }
-[e :UE 2017 ]
+[; ;../lab-5-areeb-atulit.X/serial.c: 90:     return (TxBufWriteCnt!=TxBufReadCnt);
+[e ) -> -> != -> _TxBufWriteCnt `i -> _TxBufReadCnt `i `i `uc ]
+[e $UE 2037  ]
+"91
+[; ;../lab-5-areeb-atulit.X/serial.c: 91: }
+[e :UE 2037 ]
+}
+"94
+[; ;../lab-5-areeb-atulit.X/serial.c: 94: void TxBufferedString(char *string){
+[v _TxBufferedString `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _TxBufferedString ]
+[v _string `*uc ~T0 @X0 1 r1 ]
+[f ]
+"96
+[; ;../lab-5-areeb-atulit.X/serial.c: 96:         int i=0;
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+"97
+[; ;../lab-5-areeb-atulit.X/serial.c: 97:     while(string[i]!=0){
+[e $U 2039  ]
+[e :U 2040 ]
+{
+"98
+[; ;../lab-5-areeb-atulit.X/serial.c: 98:         putCharToTxBuf(string[i]);
+[e ( _putCharToTxBuf (1 *U + _string * -> _i `x -> -> # *U _string `i `x ]
+"99
+[; ;../lab-5-areeb-atulit.X/serial.c: 99:         i++;
+[e ++ _i -> 1 `i ]
+"100
+[; ;../lab-5-areeb-atulit.X/serial.c: 100:     }
+}
+[e :U 2039 ]
+"97
+[; ;../lab-5-areeb-atulit.X/serial.c: 97:     while(string[i]!=0){
+[e $ != -> *U + _string * -> _i `x -> -> # *U _string `i `x `i -> 0 `i 2040  ]
+[e :U 2041 ]
+"101
+[; ;../lab-5-areeb-atulit.X/serial.c: 101: }
+[e :UE 2038 ]
+}
+"105
+[; ;../lab-5-areeb-atulit.X/serial.c: 105: void sendTxBuf(void){
+[v _sendTxBuf `(v ~T0 @X0 1 ef ]
+{
+[e :U _sendTxBuf ]
+[f ]
+"106
+[; ;../lab-5-areeb-atulit.X/serial.c: 106:     if (isDataInTxBuf()) {PIE4bits.TX4IE=1;}
+[e $ ! != -> ( _isDataInTxBuf ..  `i -> 0 `i 2043  ]
+{
+[e = . . _PIE4bits 0 2 -> -> 1 `i `uc ]
+}
+[e :U 2043 ]
+"107
+[; ;../lab-5-areeb-atulit.X/serial.c: 107: }
+[e :UE 2042 ]
 }

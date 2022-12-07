@@ -2143,10 +2143,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "8 ./interrupts.h
-[; ;./interrupts.h: 8: int interrupt_flag = 1;
+[; ;./interrupts.h: 8: int interrupt_flag = 0;
 [v _interrupt_flag `i ~T0 @X0 1 e ]
 [i _interrupt_flag
--> 1 `i
+-> 0 `i
 ]
 "9 color.c
 [; ;color.c: 9: void color_click_init(void)
@@ -2382,8 +2382,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _str `*uc ~T0 @X0 1 r1 ]
 [f ]
 "89
-[; ;color.c: 89:     _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 89:     _delay((unsigned long)((2000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "90
 [; ;color.c: 90:     sendStringSerial4(str);
 [e ( _sendStringSerial4 (1 _str ]
@@ -2429,51 +2429,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;color.c: 100:     RGBC2Serial(buf);
 [e ( _RGBC2Serial (1 _buf ]
 "101
-[; ;color.c: 101:     return buf;
-[e ) -> _buf `uc ]
-[e $UE 2027  ]
-"102
-[; ;color.c: 102: }
+[; ;color.c: 101: }
 [e :UE 2027 ]
 }
-"105
-[; ;color.c: 105: void tricolorLED(void){
+"104
+[; ;color.c: 104: void tricolorLED(void){
 [v _tricolorLED `(v ~T0 @X0 1 ef ]
 {
 [e :U _tricolorLED ]
 [f ]
-"107
-[; ;color.c: 107:     TRISGbits.TRISG0 = 0;
+"106
+[; ;color.c: 106:     TRISGbits.TRISG0 = 0;
 [e = . . _TRISGbits 0 0 -> -> 0 `i `uc ]
-"108
-[; ;color.c: 108:     LATGbits.LATG0 = 1;
+"107
+[; ;color.c: 107:     LATGbits.LATG0 = 1;
 [e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
-"109
-[; ;color.c: 109:     TRISAbits.TRISA4 = 0;
+"108
+[; ;color.c: 108:     TRISAbits.TRISA4 = 0;
 [e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
-"110
-[; ;color.c: 110:     LATAbits.LATA4= 1;
+"109
+[; ;color.c: 109:     LATAbits.LATA4= 1;
 [e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
-"111
-[; ;color.c: 111:     TRISFbits.TRISF7 = 0;
+"110
+[; ;color.c: 110:     TRISFbits.TRISF7 = 0;
 [e = . . _TRISFbits 0 7 -> -> 0 `i `uc ]
-"112
-[; ;color.c: 112:     LATFbits.LATF7 = 1;
+"111
+[; ;color.c: 111:     LATFbits.LATF7 = 1;
 [e = . . _LATFbits 0 7 -> -> 1 `i `uc ]
-"113
-[; ;color.c: 113:     TRISAbits.TRISA3 = 0;
+"112
+[; ;color.c: 112:     TRISAbits.TRISA3 = 0;
 [e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
-"114
-[; ;color.c: 114:     LATAbits.LATA3 = 1;
+"113
+[; ;color.c: 113:     LATAbits.LATA3 = 1;
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-"115
-[; ;color.c: 115:     TRISEbits.TRISE7 = 0;
+"114
+[; ;color.c: 114:     TRISEbits.TRISE7 = 0;
 [e = . . _TRISEbits 0 7 -> -> 0 `i `uc ]
-"116
-[; ;color.c: 116:     LATEbits.LATE7 = 1;
+"115
+[; ;color.c: 115:     LATEbits.LATE7 = 1;
 [e = . . _LATEbits 0 7 -> -> 1 `i `uc ]
-"117
-[; ;color.c: 117: }
+"116
+[; ;color.c: 116: }
 [e :UE 2028 ]
 }
 [p f _sprintf 8388736 ]

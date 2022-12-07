@@ -24494,7 +24494,7 @@ char *tempnam(const char *, const char *);
 
 
 
-int interrupt_flag = 1;
+int interrupt_flag = 0;
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
@@ -24617,7 +24617,7 @@ unsigned int color_read_Clear(void)
  return tmp;
 }
 void RGBC2Serial(char *str){
-    _delay((unsigned long)((10)*(64000000/4000.0)));
+    _delay((unsigned long)((2000)*(64000000/4000.0)));
     sendStringSerial4(str);
 }
 void color_read_RGBC(struct RGBC_val *temp){
@@ -24629,7 +24629,6 @@ void color_read_RGBC(struct RGBC_val *temp){
 char colorVal2String(char *buf,struct RGBC_val *temp) {
     sprintf(buf,"RGBC:%i %i %i %i\n",temp->R, temp->G, temp->B, temp->C);
     RGBC2Serial(buf);
-    return buf;
 }
 
 

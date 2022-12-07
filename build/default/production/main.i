@@ -24390,7 +24390,7 @@ void RGBC_timing_register(void);
 
 
 
-int interrupt_flag = 1;
+int interrupt_flag = 0;
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
@@ -24411,23 +24411,22 @@ void Color_Interrupts_clear(void);
 void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
 # 16 "main.c" 2
-# 72 "main.c"
+# 129 "main.c"
 void main() {
-    TRISHbits.TRISH3=0;
-    TRISBbits.TRISB0=1;
-    ANSELBbits.ANSELB0=0;
-    LATHbits.LATH3 =0;
 
-    unsigned int upperThreshold = 10000;
-    unsigned int lowerThreshold = 0;
+    RGBC_val RGBC;
+    char buf[100];
+
+
+
     color_click_init();
-    Color_Interrupts_init();
-    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
-    persistence_register();
-    while(1){
-    LATHbits.LATH3 = !PORTBbits.RB0;
-    _delay((unsigned long)((2000)*(64000000/4000.0)));
-    Color_Interrupts_clear();
-    _delay((unsigned long)((2000)*(64000000/4000.0)));
-    }
+
+
+
+    initUSART4();
+# 153 "main.c"
+        color_read_RGBC(&RGBC);
+        colorVal2String(buf, &RGBC);
+# 168 "main.c"
+    while(1){}
 }

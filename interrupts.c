@@ -30,7 +30,7 @@ void Color_Interrupts_init(void)
 	// It's a good idea to turn on global interrupts last, once all other interrupt configuration is done.
    color_writetoaddr(0x00, 0b00010011);
    __delay_ms(10) ;
-   Color_Interrupts_clear();
+   //Color_Interrupts_clear();
 }
 
 void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerThreshold)
@@ -43,7 +43,7 @@ void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerT
 
 void persistence_register(void)
 {
-	color_writetoaddr(0x0C, 0b0001);
+	color_writetoaddr(0x0C, 0b0100);
 }
 
 void Color_Interrupts_clear(void)
@@ -55,6 +55,9 @@ void Color_Interrupts_clear(void)
     I2C_2_Master_Write(0b11100110);    
     I2C_2_Master_Stop();          //Stop condition
    //__delay_ms(10) ;
+    color_click_init();
+    Color_Interrupts_threshold(10000, 0);
+    Color_Interrupts_init();
 }
 
 /************************************
@@ -67,7 +70,7 @@ void __interrupt(high_priority) HighISR()
     if(PIR0bits.INT0IF){ 					//check the interrupt source
         
     LATDbits.LATD7=!LATDbits.LATD7;
-        interrupt_flag = 0;
+        interrupt_flag = 1;
 //        __delay_ms(10);
         
         PIR0bits.INT0IF = 0; 						//clear the interrupt flag!

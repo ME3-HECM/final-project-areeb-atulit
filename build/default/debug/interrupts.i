@@ -24273,7 +24273,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
-int interrupt_flag = 1;
+int interrupt_flag = 0;
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
@@ -24429,7 +24429,7 @@ void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerT
 
 void persistence_register(void)
 {
- color_writetoaddr(0x0C, 0b0101);
+ color_writetoaddr(0x0C, 0b0100);
 }
 
 void Color_Interrupts_clear(void)
@@ -24453,7 +24453,7 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
     if(PIR0bits.INT0IF){
 
     LATDbits.LATD7=!LATDbits.LATD7;
-        interrupt_flag = 0;
+        interrupt_flag = 1;
 
 
         PIR0bits.INT0IF = 0;

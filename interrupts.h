@@ -5,7 +5,7 @@
 #include "i2c.h"
 
 #define _XTAL_FREQ 64000000
-int interrupt_flag = 1;
+int interrupt_flag = 0;
 
 void Interrupts_init(void);
 void __interrupt(high_priority) HighISR();

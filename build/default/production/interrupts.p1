@@ -69,9 +69,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
-"15 ./interrupts.h
-[; ;./interrupts.h: 15: void Color_Interrupts_clear(void);
-[v _Color_Interrupts_clear `(v ~T0 @X0 0 ef ]
 "23 ./i2c.h
 [; ;./i2c.h: 23: void I2C_2_Master_Start(void);
 [v _I2C_2_Master_Start `(v ~T0 @X0 0 ef ]
@@ -81,6 +78,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "33
 [; ;./i2c.h: 33: void I2C_2_Master_Stop(void);
 [v _I2C_2_Master_Stop `(v ~T0 @X0 0 ef ]
+"37 ./color.h
+[; ;./color.h: 37: void color_click_init(void);
+[v _color_click_init `(v ~T0 @X0 0 ef ]
 [t ~ __interrupt . k ]
 [t T2 __interrupt high_priority ]
 "5093 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
@@ -2084,10 +2084,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 40927: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "8 ./interrupts.h
-[; ;./interrupts.h: 8: int interrupt_flag = 1;
+[; ;./interrupts.h: 8: int interrupt_flag = 0;
 [v _interrupt_flag `i ~T0 @X0 1 e ]
 [i _interrupt_flag
--> 1 `i
+-> 0 `i
 ]
 "13 ./serial.h
 [; ;./serial.h: 13: volatile char EUSART4RXbuf[20];
@@ -2169,9 +2169,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32
 [; ;interrupts.c: 32:    _delay((unsigned long)((10)*(64000000/4000.0))) ;
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"33
-[; ;interrupts.c: 33:    Color_Interrupts_clear();
-[e ( _Color_Interrupts_clear ..  ]
 "34
 [; ;interrupts.c: 34: }
 [e :UE 2018 ]
@@ -2215,8 +2212,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _persistence_register ]
 [f ]
 "46
-[; ;interrupts.c: 46:  color_writetoaddr(0x0C, 0b0001);
-[e ( _color_writetoaddr (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
+[; ;interrupts.c: 46:  color_writetoaddr(0x0C, 0b0100);
+[e ( _color_writetoaddr (2 , -> -> 12 `i `uc -> -> 4 `i `uc ]
 "47
 [; ;interrupts.c: 47: }
 [e :UE 2020 ]
@@ -2242,36 +2239,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 56:     I2C_2_Master_Stop();
 [e ( _I2C_2_Master_Stop ..  ]
 "58
-[; ;interrupts.c: 58: }
+[; ;interrupts.c: 58:     color_click_init();
+[e ( _color_click_init ..  ]
+"59
+[; ;interrupts.c: 59:     Color_Interrupts_threshold(10000, 0);
+[e ( _Color_Interrupts_threshold (2 , -> -> 10000 `i `ui -> -> 0 `i `ui ]
+"60
+[; ;interrupts.c: 60:     Color_Interrupts_init();
+[e ( _Color_Interrupts_init ..  ]
+"61
+[; ;interrupts.c: 61: }
 [e :UE 2021 ]
 }
 [v $root$_HighISR `(v ~T0 @X0 0 e ]
-"64
-[; ;interrupts.c: 64: void __attribute__((picinterrupt(("high_priority")))) HighISR()
+"67
+[; ;interrupts.c: 67: void __attribute__((picinterrupt(("high_priority")))) HighISR()
 [v _HighISR `(v ~T2 @X0 1 ef ]
-"65
-[; ;interrupts.c: 65: {
+"68
+[; ;interrupts.c: 68: {
 {
 [e :U _HighISR ]
 [f ]
-"67
-[; ;interrupts.c: 67:     if(PIR0bits.INT0IF){
+"70
+[; ;interrupts.c: 70:     if(PIR0bits.INT0IF){
 [e $ ! != -> . . _PIR0bits 0 0 `i -> 0 `i 2023  ]
 {
-"69
-[; ;interrupts.c: 69:     LATDbits.LATD7=!LATDbits.LATD7;
+"72
+[; ;interrupts.c: 72:     LATDbits.LATD7=!LATDbits.LATD7;
 [e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
-"70
-[; ;interrupts.c: 70:         interrupt_flag = 0;
-[e = _interrupt_flag -> 0 `i ]
 "73
-[; ;interrupts.c: 73:         PIR0bits.INT0IF = 0;
+[; ;interrupts.c: 73:         interrupt_flag = 1;
+[e = _interrupt_flag -> 1 `i ]
+"76
+[; ;interrupts.c: 76:         PIR0bits.INT0IF = 0;
 [e = . . _PIR0bits 0 0 -> -> 0 `i `uc ]
-"74
-[; ;interrupts.c: 74:  }
+"77
+[; ;interrupts.c: 77:  }
 }
 [e :U 2023 ]
-"75
-[; ;interrupts.c: 75: }
+"78
+[; ;interrupts.c: 78: }
 [e :UE 2022 ]
 }

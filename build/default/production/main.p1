@@ -1,103 +1,21 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"30064 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30064:     struct {
-[s S1392 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1392 . TRISH0 TRISH1 TRISH2 TRISH3 ]
-"30063
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30063: typedef union {
-[u S1391 `S1392 1 ]
-[n S1391 . . ]
-"30071
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30071: extern volatile TRISHbits_t TRISHbits __attribute__((address(0xF88)));
-[v _TRISHbits `VS1391 ~T0 @X0 0 e@3976 ]
-"29462
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29462:     struct {
-[s S1372 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1372 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"29461
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29461: typedef union {
-[u S1371 `S1372 1 ]
-[n S1371 . . ]
-"29473
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29473: extern volatile TRISBbits_t TRISBbits __attribute__((address(0xF82)));
-[v _TRISBbits `VS1371 ~T0 @X0 0 e@3970 ]
-"10758
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 10758:     struct {
-[s S518 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S518 . ANSELB0 ANSELB1 ANSELB2 ANSELB3 ANSELB4 ANSELB5 ANSELB6 ANSELB7 ]
-"10757
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 10757: typedef union {
-[u S517 `S518 1 ]
-[n S517 . . ]
-"10769
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 10769: extern volatile ANSELBbits_t ANSELBbits __attribute__((address(0xE9A)));
-[v _ANSELBbits `VS517 ~T0 @X0 0 e@3738 ]
-"29235
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29235:     struct {
-[s S1361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1361 . LATH0 LATH1 LATH2 LATH3 ]
-"29241
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29241:     struct {
-[s S1362 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1362 . LH0 LH1 LH2 LH3 ]
-"29247
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29247:     struct {
-[s S1363 :4 `uc 1 :1 `uc 1 ]
-[n S1363 . . LH4 ]
-"29251
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29251:     struct {
-[s S1364 :5 `uc 1 :1 `uc 1 ]
-[n S1364 . . LH5 ]
-"29255
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29255:     struct {
-[s S1365 :6 `uc 1 :1 `uc 1 ]
-[n S1365 . . LH6 ]
-"29259
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29259:     struct {
-[s S1366 :7 `uc 1 :1 `uc 1 ]
-[n S1366 . . LH7 ]
-"29234
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29234: typedef union {
-[u S1360 `S1361 1 `S1362 1 `S1363 1 `S1364 1 `S1365 1 `S1366 1 ]
-[n S1360 . . . . . . . ]
-"29264
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29264: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
-[v _LATHbits `VS1360 ~T0 @X0 0 e@3968 ]
-"37 ./color.h
+"9 ./color.h
+[; ;./color.h: 9: typedef struct RGBC_val {
+[s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S2016 RGBC_val R G B C ]
+"37
 [; ;./color.h: 37: void color_click_init(void);
 [v _color_click_init `(v ~T0 @X0 0 ef ]
-"12 ./interrupts.h
-[; ;./interrupts.h: 12: void Color_Interrupts_init(void);
-[v _Color_Interrupts_init `(v ~T0 @X0 0 ef ]
-"13
-[; ;./interrupts.h: 13: void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
-[v _Color_Interrupts_threshold `(v ~T0 @X0 0 ef2`ui`ui ]
-"14
-[; ;./interrupts.h: 14: void persistence_register(void);
-[v _persistence_register `(v ~T0 @X0 0 ef ]
-"30186 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30186:     struct {
-[s S1397 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1397 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"30196
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30196:     struct {
-[s S1398 :3 `uc 1 :1 `uc 1 ]
-[n S1398 . . CCP2_PA2 ]
-"30185
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30185: typedef union {
-[u S1396 `S1397 1 `S1398 1 ]
-[n S1396 . . . ]
-"30201
-[; ;C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 30201: extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF8A)));
-[v _PORTBbits `VS1396 ~T0 @X0 0 e@3978 ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
-"15 ./interrupts.h
-[; ;./interrupts.h: 15: void Color_Interrupts_clear(void);
-[v _Color_Interrupts_clear `(v ~T0 @X0 0 ef ]
+"23 ./serial.h
+[; ;./serial.h: 23: void initUSART4(void);
+[v _initUSART4 `(v ~T0 @X0 0 ef ]
+"36 ./color.h
+[; ;./color.h: 36: void color_read_RGBC(struct RGBC_val *temp);
+[v _color_read_RGBC `(v ~T0 @X0 0 ef1`*S2016 ]
+"38
+[; ;./color.h: 38: char colorVal2String(char *buf,struct RGBC_val *temp);
+[v _colorVal2String `(uc ~T0 @X0 0 ef2`*uc`*S2016 ]
 "2 main.c
 [p x FEXTOSC  =  HS      ]
 "3
@@ -2111,73 +2029,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "8 ./interrupts.h
-[; ;./interrupts.h: 8: int interrupt_flag = 1;
+[; ;./interrupts.h: 8: int interrupt_flag = 0;
 [v _interrupt_flag `i ~T0 @X0 1 e ]
 [i _interrupt_flag
--> 1 `i
+-> 0 `i
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"72 main.c
-[; ;main.c: 72: void main() {
+"129 main.c
+[; ;main.c: 129: void main() {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"73
-[; ;main.c: 73:     TRISHbits.TRISH3=0;
-[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
-"74
-[; ;main.c: 74:     TRISBbits.TRISB0=1;
-[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-"75
-[; ;main.c: 75:     ANSELBbits.ANSELB0=0;
-[e = . . _ANSELBbits 0 0 -> -> 0 `i `uc ]
-"76
-[; ;main.c: 76:     LATHbits.LATH3 =0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"78
-[; ;main.c: 78:     unsigned int upperThreshold = 10000;
-[v _upperThreshold `ui ~T0 @X0 1 a ]
-[e = _upperThreshold -> -> 10000 `i `ui ]
-"79
-[; ;main.c: 79:     unsigned int lowerThreshold = 0;
-[v _lowerThreshold `ui ~T0 @X0 1 a ]
-[e = _lowerThreshold -> -> 0 `i `ui ]
-"80
-[; ;main.c: 80:     color_click_init();
+"131
+[; ;main.c: 131:     RGBC_val RGBC;
+[v _RGBC `S2016 ~T0 @X0 1 a ]
+"132
+[; ;main.c: 132:     char buf[100];
+[v _buf `uc ~T0 @X0 -> 100 `i a ]
+"136
+[; ;main.c: 136:     color_click_init();
 [e ( _color_click_init ..  ]
-"81
-[; ;main.c: 81:     Color_Interrupts_init();
-[e ( _Color_Interrupts_init ..  ]
-"82
-[; ;main.c: 82:     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
-[e ( _Color_Interrupts_threshold (2 , _upperThreshold _lowerThreshold ]
-"83
-[; ;main.c: 83:     persistence_register();
-[e ( _persistence_register ..  ]
-"84
-[; ;main.c: 84:     while(1){
+"140
+[; ;main.c: 140:     initUSART4();
+[e ( _initUSART4 ..  ]
+"153
+[; ;main.c: 153:         color_read_RGBC(&RGBC);
+[e ( _color_read_RGBC (1 &U _RGBC ]
+"154
+[; ;main.c: 154:         colorVal2String(buf, &RGBC);
+[e ( _colorVal2String (2 , &U _buf &U _RGBC ]
+"168
+[; ;main.c: 168:     while(1){}
 [e :U 2019 ]
 {
-"85
-[; ;main.c: 85:     LATHbits.LATH3 = !PORTBbits.RB0;
-[e = . . _LATHbits 0 3 -> -> ! != -> . . _PORTBbits 0 0 `i -> 0 `i `i `uc ]
-"86
-[; ;main.c: 86:     _delay((unsigned long)((2000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"87
-[; ;main.c: 87:     Color_Interrupts_clear();
-[e ( _Color_Interrupts_clear ..  ]
-"88
-[; ;main.c: 88:     _delay((unsigned long)((2000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"89
-[; ;main.c: 89:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"90
-[; ;main.c: 90: }
+"169
+[; ;main.c: 169: }
 [e :UE 2017 ]
 }

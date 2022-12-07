@@ -24390,7 +24390,7 @@ void RGBC_timing_register(void);
 
 
 
-int interrupt_flag = 1;
+int interrupt_flag = 0;
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
@@ -24411,23 +24411,57 @@ void Color_Interrupts_clear(void);
 void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
 # 16 "main.c" 2
-# 72 "main.c"
+# 73 "main.c"
 void main() {
-    TRISHbits.TRISH3=0;
-    TRISBbits.TRISB0=0;
-    ANSELBbits.ANSELB0=0;
-    LATHbits.LATH3 =0;
+    TRISHbits.TRISH3 = 0;
+    TRISBbits.TRISB0 = 1;
+    ANSELBbits.ANSELB0 = 0;
+    LATHbits.LATH3 = 0;
 
-    unsigned int upperThreshold = 100;
+    struct RGBC_val RGBC;
+    unsigned int upperThreshold = 10000;
     unsigned int lowerThreshold = 0;
+
     color_click_init();
-    Color_Interrupts_init();
     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
     persistence_register();
-    while(1){
-    LATHbits.LATH3 = !PORTBbits.RB0;
-    _delay((unsigned long)((2000)*(64000000/4000.0)));
-    Color_Interrupts_clear();
-    _delay((unsigned long)((2000)*(64000000/4000.0)));
+    Color_Interrupts_init();
+
+    Interrupts_init();
+
+    initDCmotorsPWM(200);
+    TRISEbits.TRISE2 = 0;
+    TRISEbits.TRISE4 = 0;
+    TRISCbits.TRISC7 = 0;
+    TRISGbits.TRISG6 = 0;
+    DC_motor mL, mR;
+    motorLinit(&mL);
+    motorRinit(&mR);
+
+    while (1) {
+        color_read_RGBC(&RGBC);
+
+
+        fullSpeedAhead(&mL, &mR);
+        _delay((unsigned long)((1000)*(64000000/4000.0)));
+
+
+
+
+        if (interrupt_flag == 1) {
+            LATHbits.LATH3 = !LATHbits.LATH3;
+            norm_stop(&mL, &mR);
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            turnRight(&mL, &mR);
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            interrupt_flag = 0;
+            Color_Interrupts_clear();
+        }
+        norm_stop(&mL, &mR);
+        _delay((unsigned long)((500)*(64000000/4000.0)));
     }
+
+
+
+
 }

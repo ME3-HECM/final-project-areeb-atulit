@@ -15,9 +15,11 @@ void Interrupts_init(void)
     TRISBbits.TRISB0=1;
      //Trigger on falling edge
     ANSELBbits.ANSELB0=0;//turns off analogue input
+    PIR0bits.INT0IF = 0;
     PIE0bits.INT0IE = 1;
     IPR0bits.INT0IP = 1;
     INTCONbits.INT0EDG=0;
+    //Color_Interrupts_clear();
     INTCONbits.IPEN=1;//Enable priority 
     INTCONbits.PEIE=1;
     INTCONbits.GIE=1; //turn on interrupts globally (when this is off, all interrupts are deactivated)
@@ -43,7 +45,7 @@ void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerT
 
 void persistence_register(void)
 {
-	color_writetoaddr(0x0C, 0b0100);
+	color_writetoaddr(0x0C, 0b010);
 }
 
 void Color_Interrupts_clear(void)
@@ -55,9 +57,11 @@ void Color_Interrupts_clear(void)
     I2C_2_Master_Write(0b11100110);    
     I2C_2_Master_Stop();          //Stop condition
    //__delay_ms(10) ;
-    color_click_init();
-    Color_Interrupts_threshold(10000, 0);
+    //color_click_init();
     Color_Interrupts_init();
+    persistence_register();
+    Color_Interrupts_threshold(5000, 0);
+    
 }
 
 /************************************
@@ -67,13 +71,14 @@ void Color_Interrupts_clear(void)
 void __interrupt(high_priority) HighISR()
 {
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...
-    if(PIR0bits.INT0IF){ 					//check the interrupt source
-        
-    LATDbits.LATD7=!LATDbits.LATD7;
+    if(PIR0bits.INT0IF==1){ 					//check the interrupt source
+        LATDbits.LATD7 = 1;
         interrupt_flag = 1;
-//        __delay_ms(10);
+        //interrupt_ctr++;
+        Color_Interrupts_clear();
+        PIR0bits.INT0IF = 0; //clear the interrupt flag!
         
-        PIR0bits.INT0IF = 0; 						//clear the interrupt flag!
-	}
-}
+    }
+    }
+
 

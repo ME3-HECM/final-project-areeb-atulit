@@ -2,6 +2,12 @@
 #define _DC_MOTOR_H
 
 #include <xc.h>
+#include "color.h"
+#include "i2c.h"
+#include "serial.h"
+#include <stdio.h>
+#include "interrupts.h"
+#include "dc_motor.h"
 
 #define _XTAL_FREQ 64000000
 

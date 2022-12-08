@@ -172,16 +172,16 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
     mL->direction = 1;
     mL->brakemode = 1;
     mR->brakemode = 1;
-    while (mL->power <= 100 && mR->power <=100)
+    while (mL->power <= 20 && mR->power <=20)
     {
         mL->power++;
         mR->power++;
-        __delay_ms(10);
+        //__delay_ms(10);
         setMotorPWM(mL);
         setMotorPWM(mR);
     }
-    mL->power = 100;
-    mR->power = 100;
+    mL->power = 20;
+    mR->power = 20;
     setMotorPWM(mL);
     setMotorPWM(mR);
     

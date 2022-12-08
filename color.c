@@ -86,7 +86,7 @@ unsigned int color_read_Clear(void)
 	return tmp;
 }
 void RGBC2Serial(char *str){
-    __delay_ms(2000);
+    __delay_ms(200);
     sendStringSerial4(str);
 }
 void color_read_RGBC(struct RGBC_val *temp){
@@ -97,7 +97,7 @@ void color_read_RGBC(struct RGBC_val *temp){
 }
 char colorVal2String(char *buf,struct RGBC_val *temp) {
     sprintf(buf,"RGBC:%i %i %i %i\n",temp->R, temp->G, temp->B, temp->C); 
-    RGBC2Serial(buf);
+    return buf;
 }
 
 
@@ -113,4 +113,20 @@ void tricolorLED(void){
     LATAbits.LATA3 = 1;
     TRISEbits.TRISE7 = 0;
     LATEbits.LATE7 = 1;
+}
+
+ void motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R) {
+    if (temp->C > 2000) {
+//        reverse(&L, &R);
+//        __delay_ms(100);
+        norm_stop(L,R);
+        __delay_ms(100);
+        turnRight(L,R); //turn right if red identified
+        __delay_ms(210);
+        norm_stop(L,R);
+        __delay_ms(100);
+    }
+//    if (temp->R > 800 && temp->R < 1000)turnLeft(*mL, *mR);
+//    if (temp->R > 800 && temp->R < 1000)uturn(*mL, *mR);
+
 }

@@ -6,7 +6,7 @@
 
 #define _XTAL_FREQ 64000000
 int interrupt_flag = 0;
-
+int interrupt_ctr = 0;
 void Interrupts_init(void);
 void __interrupt(high_priority) HighISR();
 void Color_Interrupts_init(void);

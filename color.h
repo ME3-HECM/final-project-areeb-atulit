@@ -3,6 +3,8 @@
 
 #include <xc.h>
 #include "serial.h"
+#include "interrupts.h"
+#include "dc_motor.h"
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 //definition of RGB structure
@@ -39,4 +41,5 @@ char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
 void RGBC2Serial(char *str);
 void RGBC_timing_register(void);
+void motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
 #endif

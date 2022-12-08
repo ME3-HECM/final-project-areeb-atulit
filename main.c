@@ -7,6 +7,7 @@
 #pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
 
 #include <xc.h>
+#include <stdio.h>
 #include <pic18f67k40.h>
 #include "dc_motor.h"
 #include "i2c.h"
@@ -17,153 +18,83 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-//void main() {
-//    //Variable declarations
-//    struct RGBC_val RGBC; //initialise object of struct RGBC_val
-//    char buf[100]; //buffer to store rbgc values
-//    int upperThreshold = 2500;
-//    int lowerThreshold = 0;
-//    //initialisations
-//    color_click_init();
-//    Color_Interrupts_init();
-//    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
-//    persistence_register();
-//    initUSART4();
-//    initDCmotorsPWM(200);
-//    DC_motor mL, mR;
-//    motorLinit(&mL);
-//    motorRinit(&mR);
-//
-//    TRISEbits.TRISE2 = 0;
-//    TRISEbits.TRISE4 = 0;
-//    TRISCbits.TRISC7 = 0;
-//    TRISGbits.TRISG6 = 0;
-//    //    DC_motor mL, mR; //declare two DC_motor structures
-//    //    motorLinit(&mL);
-//    //    motorRinit(&mR);
-//
-//    tricolorLED();
-//    TRISDbits.TRISD7=0;
-//    LATDbits.LATD7=0;
-//    TRISHbits.TRISH3=0;
-//    LATHbits.LATH3=0;
-//    while (1) {
-//        color_read_RGBC(&RGBC);
-//        colorVal2String(buf, &RGBC);
-////        RGBC2Serial(colorVal2String(buf, &RGBC));
-//        //fullSpeedAhead(&mL, &mR);
-//        LATHbits.LATH3=!PORTBbits.RB0;
-//        __delay_ms(2000);
-//         Color_Interrupts_clear();
-//         __delay_ms(500);
-//        if (interrupt_flag == 0) {
-//         //   LATHbits.LATH3=!LATHbits.LATH3;
-////            norm_stop(&mL, &mR);
-////            __delay_ms(2000);
-//            interrupt_flag = 1;
-////            turnRight(&mL, &mR);
-////            __delay_ms(500);
-//            //Color_Interrupts_clear();
-//        }
-//        norm_stop(&mL, &mR);
-//        __delay_ms(500);
-//    }
-//}
-
-//void main() {
-//    //char buf[100];
-//    TRISHbits.TRISH3 = 0;
-//    TRISBbits.TRISB0 = 1;
-//    ANSELBbits.ANSELB0 = 0;
-//    LATHbits.LATH3 = 0;
-//    //tricolorLED();
-//    RGBC_val RGBC;
-//    RGBC.C=0;
-//    unsigned int upperThreshold = 10000;
-//    unsigned int lowerThreshold = 0;
-//    char buf[100]; //buffer to store rbgc values
-//    color_click_init();
-//    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
-//    Color_Interrupts_init();
-//
-//    Interrupts_init();
-//    initUSART4();
-//    initDCmotorsPWM(200);
-//    persistence_register();
-//    TRISEbits.TRISE2 = 0;
-//    TRISEbits.TRISE4 = 0;
-//    TRISCbits.TRISC7 = 0;
-//    TRISGbits.TRISG6 = 0;
-//    DC_motor mL, mR; //declare two DC_motor structures
-//    motorLinit(&mL);
-//    motorRinit(&mR);
-//    tricolorLED();
-//    int ctr=1;
-//    while (1) {
-//        color_read_RGBC(&RGBC);
-//        colorVal2String(buf, &RGBC);
-//        RGBC2Serial(colorVal2String(buf, &RGBC));
-//        fullSpeedAhead(&mL, &mR);
-//        __delay_ms(1000);
-////        LATHbits.LATH3 = !PORTBbits.RB0;
-////        __delay_ms(2000);
-////        Color_Interrupts_clear();
-////        __delay_ms(500);
-//        if (interrupt_flag == 1) {
-//            LATHbits.LATH3 = !LATHbits.LATH3;
-//            norm_stop(&mL, &mR);
-//            __delay_ms(500);
-//            turnRight(&mL, &mR);
-//            __delay_ms(500);
-//            interrupt_flag = 0;
-//            Color_Interrupts_clear();
-//        }
-//        norm_stop(&mL, &mR);
-//        __delay_ms(500);
-//    }
-//    LATHbits.LATH3 = !PORTBbits.RB0;
-//    __delay_ms(2000);
-//    Color_Interrupts_clear();
-//    __delay_ms(2000);
-//}
 void main() {
     //Variable declarations
+    tricolorLED();
     RGBC_val RGBC; //initialise object of struct RGBC_val
     char buf[100]; //buffer to store rbgc values
-//    int upperThreshold = 2500;
-//    int lowerThreshold = 0;
+    int upperThreshold = 5000;
+    int lowerThreshold = 0;
     //initialisations
     color_click_init();
-//    Color_Interrupts_init();
-//    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
-//    persistence_register();
-    initUSART4();
-//    initDCmotorsPWM(200);
-//    DC_motor mL, mR;
-//    motorLinit(&mL);
-//    motorRinit(&mR);
-//    TRISEbits.TRISE2 = 0;
-//    TRISEbits.TRISE4 = 0;
-//    TRISCbits.TRISC7 = 0;
-//    TRISGbits.TRISG6 = 0;
-    //    DC_motor mL, mR; //declare two DC_motor structures
-    //    motorLinit(&mL);
-    //    motorRinit(&mR);
-    //tricolorLED();
-        color_read_RGBC(&RGBC);
-        colorVal2String(buf, &RGBC);
-        //RGBC2Serial(colorVal2String(buf, &RGBC));
-       // fullSpeedAhead(&mL, &mR);
-        //__delay_ms(2000);
-//        if (interrupt_flag == 0) {
-//            norm_stop(&mL, &mR);
-//            __delay_ms(2000);
-//            interrupt_flag = 1;
-//            turnRight(&mL, &mR);
-//            __delay_ms(500);
-//            Color_Interrupts_clear();
+    
+    Interrupts_init();
+    Color_Interrupts_init();
+    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
+    persistence_register();
+    
+    initDCmotorsPWM(200);
+    DC_motor mL, mR;
+    motorLinit(&mL);
+    motorRinit(&mR);
+
+    TRISEbits.TRISE2 = 0;
+    TRISEbits.TRISE4 = 0;
+    TRISCbits.TRISC7 = 0;
+    TRISGbits.TRISG6 = 0;
+    TRISDbits.TRISD7 = 0;
+    LATDbits.LATD7 = 0;
+    TRISHbits.TRISH3 = 0;
+    LATHbits.LATH3 = 0;
+   while (1) {
+        
+        fullSpeedAhead(&mL, &mR);
+        //color_read_RGBC(&RGBC);
+        LATHbits.LATH3 = 1;
+        if (interrupt_flag == 1 ) {
+            //Color_Interrupts_clear();
+            norm_stop(&mL, &mR);
+            __delay_ms(1000);
+            LATDbits.LATD7 = 0;
+            color_read_RGBC(&RGBC);
+            motor_response(&RGBC,&mL,&mR);
+            LATHbits.LATH3 = 0;
+            interrupt_flag = 0;
+//            if (RGBC.R >5000){
+//                reverse(&mL, &mR);
+//                __delay_ms(50);
+//                turnRight(&mL, &mR); //turn right if red identified
+//                __delay_ms(210);
+//                norm_stop(&mL, &mR);
+//                __delay_ms(100);
+//            }
 //        }
-//        norm_stop(&mL, &mR);
-//        __delay_ms(500);
-    while(1){}
+
+
+   }
 }
+}
+
+//----------Code for Serial Term(comment out interrupts.h before using this fucntion)-----------------------------------------------
+/*void main() {
+    //Variable declarations
+    tricolorLED();
+    TRISHbits.TRISH3 = 0;
+    LATHbits.LATH3 = 0;
+    
+    RGBC_val RGBC; //initialise object of struct RGBC_val
+    char buf[100]; //buffer to store rbgc values
+    initUSART4();
+    color_click_init();
+    
+    while(1) {
+        
+        color_read_RGBC(&RGBC);
+        LATHbits.LATH3 = !LATHbits.LATH3;
+        __delay_ms(500);
+        colorVal2String(buf, &RGBC);
+        RGBC2Serial(buf);
+    }
+}
+*/
+//------------------------------------------------------------------------------

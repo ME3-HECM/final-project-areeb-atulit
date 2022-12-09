@@ -18,7 +18,7 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-void main() {
+/*void main() {
     //Variable declarations
     tricolorLED();
     RGBC_val RGBC; //initialise object of struct RGBC_val
@@ -74,9 +74,9 @@ void main() {
    }
 }
 }
-
+*/
 //----------Code for Serial Term(comment out interrupts.h before using this fucntion)-----------------------------------------------
-/*void main() {
+void main() {
     //Variable declarations
     tricolorLED();
     TRISHbits.TRISH3 = 0;
@@ -96,5 +96,5 @@ void main() {
         RGBC2Serial(buf);
     }
 }
-*/
+
 //------------------------------------------------------------------------------

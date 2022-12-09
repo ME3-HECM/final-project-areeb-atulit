@@ -142,12 +142,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./dc_motor.h: 14: typedef struct DC_motor {
 [s S2017 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2017 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
-"35
-[; ;./dc_motor.h: 35: void norm_stop(DC_motor *mL, DC_motor *mR);
-[v _norm_stop `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
 "28
 [; ;./dc_motor.h: 28: void turnRight(DC_motor *mL, DC_motor *mR);
 [v _turnRight `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
+"35
+[; ;./dc_motor.h: 35: void norm_stop(DC_motor *mL, DC_motor *mR);
+[v _norm_stop `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
+"27
+[; ;./dc_motor.h: 27: void turnLeft(DC_motor *mL, DC_motor *mR);
+[v _turnLeft `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2490,42 +2493,128 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2028 ]
 }
 "118
-[; ;color.c: 118:  void motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R) {
+[; ;color.c: 118:  void motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
 [v _motor_response `(v ~T0 @X0 1 ef3`*S2018`*S2017`*S2017 ]
 {
 [e :U _motor_response ]
 [v _temp `*S2018 ~T0 @X0 1 r1 ]
-[v _L `*S2017 ~T0 @X0 1 r2 ]
-[v _R `*S2017 ~T0 @X0 1 r3 ]
+[v _mL `*S2017 ~T0 @X0 1 r2 ]
+[v _mR `*S2017 ~T0 @X0 1 r3 ]
 [f ]
 "119
-[; ;color.c: 119:     if (temp->C > 2000) {
-[e $ ! > . *U _temp 3 -> -> 2000 `i `ui 2030  ]
+[; ;color.c: 119:     if (temp->R > 5000) {
+[e $ ! > . *U _temp 0 -> -> 5000 `i `ui 2030  ]
 {
+"120
+[; ;color.c: 120:      for (int j = 0; j <= 15; j++) {
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ <= _j -> 15 `i 2031  ]
+[e $U 2032  ]
+[e :U 2031 ]
+{
+"121
+[; ;color.c: 121:          turnRight(mL, mR);
+[e ( _turnRight (2 , _mL _mR ]
 "122
-[; ;color.c: 122:         norm_stop(L,R);
-[e ( _norm_stop (2 , _L _R ]
+[; ;color.c: 122:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "123
-[; ;color.c: 123:         _delay((unsigned long)((100)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 123:          norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
 "124
-[; ;color.c: 124:         turnRight(L,R);
-[e ( _turnRight (2 , _L _R ]
+[; ;color.c: 124:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "125
-[; ;color.c: 125:         _delay((unsigned long)((210)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 210 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"126
-[; ;color.c: 126:         norm_stop(L,R);
-[e ( _norm_stop (2 , _L _R ]
-"127
-[; ;color.c: 127:         _delay((unsigned long)((100)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"128
-[; ;color.c: 128:     }
+[; ;color.c: 125:      }
 }
+[e ++ _j -> 1 `i ]
+[e $ <= _j -> 15 `i 2031  ]
+[e :U 2032 ]
+}
+"126
+[; ;color.c: 126:     }
+}
+[e $U 2034  ]
+"127
+[; ;color.c: 127:     else if (temp->R > 3000 && temp->G > 3000) {
 [e :U 2030 ]
+[e $ ! && > . *U _temp 0 -> -> 3000 `i `ui > . *U _temp 1 -> -> 3000 `i `ui 2035  ]
+{
+"128
+[; ;color.c: 128:     for (int j = 0; j <= 15; j++) {
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ <= _j -> 15 `i 2036  ]
+[e $U 2037  ]
+[e :U 2036 ]
+{
+"129
+[; ;color.c: 129:         turnLeft(mL, mR);
+[e ( _turnLeft (2 , _mL _mR ]
+"130
+[; ;color.c: 130:         _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"131
+[; ;color.c: 131:         norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
 "132
-[; ;color.c: 132: }
+[; ;color.c: 132:         _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"133
+[; ;color.c: 133:     }
+}
+[e ++ _j -> 1 `i ]
+[e $ <= _j -> 15 `i 2036  ]
+[e :U 2037 ]
+}
+"134
+[; ;color.c: 134:     }
+}
+[e $U 2039  ]
+"135
+[; ;color.c: 135:     else if (temp->R >1000) {
+[e :U 2035 ]
+[e $ ! > . *U _temp 0 -> -> 1000 `i `ui 2040  ]
+{
+"136
+[; ;color.c: 136:      for (int j = 0; j <= 29; j++) {
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ <= _j -> 29 `i 2041  ]
+[e $U 2042  ]
+[e :U 2041 ]
+{
+"137
+[; ;color.c: 137:          turnLeft(mL, mR);
+[e ( _turnLeft (2 , _mL _mR ]
+"138
+[; ;color.c: 138:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"139
+[; ;color.c: 139:          norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
+"140
+[; ;color.c: 140:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"141
+[; ;color.c: 141:      }
+}
+[e ++ _j -> 1 `i ]
+[e $ <= _j -> 29 `i 2041  ]
+[e :U 2042 ]
+}
+"142
+[; ;color.c: 142:     }
+}
+[e :U 2040 ]
+[e :U 2039 ]
+[e :U 2034 ]
+"186
+[; ;color.c: 186: }
 [e :UE 2029 ]
 }
 [p f _sprintf 8388736 ]

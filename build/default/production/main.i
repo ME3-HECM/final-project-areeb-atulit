@@ -24579,7 +24579,7 @@ void main() {
     tricolorLED();
     RGBC_val RGBC;
     char buf[100];
-    int upperThreshold = 5000;
+        int upperThreshold = 3000;
     int lowerThreshold = 0;
 
     color_click_init();

@@ -2195,9 +2195,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 25:     char buf[100];
 [v _buf `uc ~T0 @X0 -> 100 `i a ]
 "26
-[; ;main.c: 26:     int upperThreshold = 5000;
+[; ;main.c: 26:         int upperThreshold = 3000;
 [v _upperThreshold `i ~T0 @X0 1 a ]
-[e = _upperThreshold -> 5000 `i ]
+[e = _upperThreshold -> 3000 `i ]
 "27
 [; ;main.c: 27:     int lowerThreshold = 0;
 [v _lowerThreshold `i ~T0 @X0 1 a ]

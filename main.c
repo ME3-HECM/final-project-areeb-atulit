@@ -23,7 +23,7 @@ void main() {
     tricolorLED();
     RGBC_val RGBC; //initialise object of struct RGBC_val
     char buf[100]; //buffer to store rbgc values
-    int upperThreshold = 5000;
+        int upperThreshold = 3000;
     int lowerThreshold = 0;
     //initialisations
     color_click_init();

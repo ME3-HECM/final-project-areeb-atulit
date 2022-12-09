@@ -24659,18 +24659,30 @@ void tricolorLED(void){
     LATEbits.LATE7 = 1;
 }
 
- void motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R) {
-    if (temp->C > 2000) {
-
-
-        norm_stop(L,R);
-        _delay((unsigned long)((100)*(64000000/4000.0)));
-        turnRight(L,R);
-        _delay((unsigned long)((210)*(64000000/4000.0)));
-        norm_stop(L,R);
-        _delay((unsigned long)((100)*(64000000/4000.0)));
+ void motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
+    if (temp->R > 5000) {
+     for (int j = 0; j <= 15; j++) {
+         turnRight(mL, mR);
+         _delay((unsigned long)((30)*(64000000/4000.0)));
+         norm_stop(mL, mR);
+         _delay((unsigned long)((30)*(64000000/4000.0)));
+     }
     }
-
-
-
+    else if (temp->R > 3000 && temp->G > 3000) {
+    for (int j = 0; j <= 15; j++) {
+        turnLeft(mL, mR);
+        _delay((unsigned long)((30)*(64000000/4000.0)));
+        norm_stop(mL, mR);
+        _delay((unsigned long)((30)*(64000000/4000.0)));
+    }
+    }
+    else if (temp->R >1000) {
+     for (int j = 0; j <= 29; j++) {
+         turnLeft(mL, mR);
+         _delay((unsigned long)((30)*(64000000/4000.0)));
+         norm_stop(mL, mR);
+         _delay((unsigned long)((30)*(64000000/4000.0)));
+     }
+    }
+# 186 "color.c"
 }

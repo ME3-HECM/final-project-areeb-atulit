@@ -17,9 +17,12 @@
 #include "timers.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
-
+step_ctr=0;
 void main() {
     //Variable declarations
+    char motor_return=0;
+    char buggy_path[15];
+    char step_ctr=0;//stores which step the buggy is on
     tricolorLED();
     RGBC_val RGBC; //initialise object of struct RGBC_val
     char buf[100]; //buffer to store rbgc values
@@ -57,7 +60,13 @@ void main() {
             __delay_ms(1000);
             LATDbits.LATD7 = 0;
             color_read_RGBC(&RGBC);
-            motor_response(&RGBC,&mL,&mR);
+            if(motor_return=0){
+                motor_response(&RGBC,&mL,&mR);}
+            else{
+                motor_retrace(&buggy_path,ctr, &mL, &mR);
+                ;
+            }
+   
             LATHbits.LATH3 = 0;
             interrupt_flag = 0;
 //            if (RGBC.R >5000){

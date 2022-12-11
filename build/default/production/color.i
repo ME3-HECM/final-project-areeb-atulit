@@ -24644,13 +24644,12 @@ char colorVal2String(char *buf,struct RGBC_val *temp) {
     return buf;
 }
 
-
-void tricolorLED(void){
+void tricolorLED(void) {
 
     TRISGbits.TRISG0 = 0;
     LATGbits.LATG0 = 1;
     TRISAbits.TRISA4 = 0;
-    LATAbits.LATA4= 1;
+    LATAbits.LATA4 = 1;
     TRISFbits.TRISF7 = 0;
     LATFbits.LATF7 = 1;
     TRISAbits.TRISA3 = 0;
@@ -24659,30 +24658,23 @@ void tricolorLED(void){
     LATEbits.LATE7 = 1;
 }
 
- void motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
-    if (temp->R > 5000) {
-     for (int j = 0; j <= 15; j++) {
-         turnRight(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
-         norm_stop(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
-     }
+void motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
+    if (temp->R > 8000 && temp->G < 2000 && temp->B < 2000) {
+        for (int j = 0; j <= 15; j++) {
+            turnRight(mL, mR);
+            _delay((unsigned long)((30)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((30)*(64000000/4000.0)));
+        }
     }
-    else if (temp->R > 3000 && temp->G > 3000) {
-    for (int j = 0; j <= 15; j++) {
-        turnLeft(mL, mR);
-        _delay((unsigned long)((30)*(64000000/4000.0)));
-        norm_stop(mL, mR);
-        _delay((unsigned long)((30)*(64000000/4000.0)));
+# 174 "color.c"
+    else if ( temp->G >3500 && temp->B > 4000 && temp->R < 4500) {
+        for (int j = 0; j <= 20; j++) {
+            turnLeft(mL, mR);
+            _delay((unsigned long)((30)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((30)*(64000000/4000.0)));
+        }
     }
-    }
-    else if (temp->R >1000) {
-     for (int j = 0; j <= 29; j++) {
-         turnLeft(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
-         norm_stop(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
-     }
-    }
-# 186 "color.c"
+
 }

@@ -24570,53 +24570,24 @@ void norm_stop(DC_motor *mL, DC_motor *mR);
 void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
 # 17 "main.c" 2
-
-
-
-
+# 79 "main.c"
 void main() {
 
     tricolorLED();
-    RGBC_val RGBC;
-    char buf[100];
-        int upperThreshold = 3000;
-    int lowerThreshold = 0;
-
-    color_click_init();
-
-    Interrupts_init();
-    Color_Interrupts_init();
-    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
-    persistence_register();
-
-    initDCmotorsPWM(200);
-    DC_motor mL, mR;
-    motorLinit(&mL);
-    motorRinit(&mR);
-
-    TRISEbits.TRISE2 = 0;
-    TRISEbits.TRISE4 = 0;
-    TRISCbits.TRISC7 = 0;
-    TRISGbits.TRISG6 = 0;
-    TRISDbits.TRISD7 = 0;
-    LATDbits.LATD7 = 0;
     TRISHbits.TRISH3 = 0;
     LATHbits.LATH3 = 0;
-   while (1) {
 
-        fullSpeedAhead(&mL, &mR);
+    RGBC_val RGBC;
+    char buf[100];
+    initUSART4();
+    color_click_init();
 
-        LATHbits.LATH3 = 1;
-        if (interrupt_flag == 1 ) {
+    while(1) {
 
-            norm_stop(&mL, &mR);
-            _delay((unsigned long)((1000)*(64000000/4000.0)));
-            LATDbits.LATD7 = 0;
-            color_read_RGBC(&RGBC);
-            motor_response(&RGBC,&mL,&mR);
-            LATHbits.LATH3 = 0;
-            interrupt_flag = 0;
-# 74 "main.c"
-   }
-}
+        color_read_RGBC(&RGBC);
+        LATHbits.LATH3 = !LATHbits.LATH3;
+        _delay((unsigned long)((500)*(64000000/4000.0)));
+        colorVal2String(buf, &RGBC);
+        RGBC2Serial(buf);
+    }
 }

@@ -6,6 +6,8 @@
 #include "interrupts.h"
 #include "dc_motor.h"
 
+
+
 void color_click_init(void)
 {   
     //setup colour sensor via i2c interface
@@ -95,6 +97,11 @@ void color_read_RGBC(struct RGBC_val *temp){
     temp->G = color_read_Green();   
     temp->C = color_read_Clear();
 }
+void color_normalise(struct RGBC_val *RGBC){
+    RGBC->norm_R = RGBC->C / RGBC->R;
+    RGBC->norm_G = RGBC->C / RGBC->G;
+    RGBC->norm_B = RGBC->C / RGBC->B;
+}
 char colorVal2String(char *buf,struct RGBC_val *temp) {
     sprintf(buf,"RGBC:%i %i %i %i\n",temp->R, temp->G, temp->B, temp->C); 
     return buf;
@@ -114,7 +121,7 @@ void tricolorLED(void) {
     LATEbits.LATE7 = 1;
 }
 
-void motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
+char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
     if (temp->R > 8000 && temp->G < 2000 && temp->B < 2000) { //Red Colour (Turn 90deg Right)
         for (int j = 0; j <= 15; j++) { //for 135 deg, j=20, for 90 deg, j=15
             turnRight(mL, mR);
@@ -122,55 +129,56 @@ void motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             norm_stop(mL, mR);
             __delay_ms(30);
         }
+        return 1;
     } 
-//    else if (temp->R > 3000 && temp->G > 3000) { //Green Colour (Turn 90deg Left)
-//        for (int j = 0; j <= 15; j++) { //for 135 deg, j=20, for 90 deg, j=15
-//            turnLeft(mL, mR);
-//            __delay_ms(30);
-//            norm_stop(mL, mR);
-//            __delay_ms(30);
-//        }
-//    }
-//    else if (temp->R > 1000) { //Dark Blue (Turn left 180)
-//        for (int j = 0; j <= 29; j++) { //for 135 deg, j=20, for 90 deg, j=15
-//            turnLeft(mL, mR);
-//            __delay_ms(30);
-//            norm_stop(mL, mR);
-//            __delay_ms(30);
-//        }
-//    }
-//    else if (temp->R > 12000 && temp->G > 7000 && temp->B < 4500) { //Yellow(Reverse 1 square and turn right 90)
-//        reverse(mL, mR);
-//        __delay_ms(50);
-//        norm_stop(mL, mR);
-//        __delay_ms(100);
-//        for (int j = 0; j <= 16; j++) { //for 135 deg, j=20, for 90 deg, j=15
-//            turnRight(mL, mR);
-//            __delay_ms(30);
-//            norm_stop(mL, mR);
-//            __delay_ms(30);
-//        }
-//    } 
-//    else if (temp->R > 10000 && temp->G > 7000 && temp->C > 20000 && temp->C < 22000) { //Pink(Reverse 1 square and turn left 90)
-//        reverse(mL, mR);
-//        __delay_ms(10);
-//        norm_stop(mL, mR);
-//        __delay_ms(300);
-//        for (int j = 0; j <= 12; j++) { //for 135 deg, j=20, for 90 deg, j=15
-//            turnLeft(mL, mR);
-//            __delay_ms(30);
-//            norm_stop(mL, mR);
-//            __delay_ms(30);
-//        }
-//    } 
-//    else if (temp->R > 9000 && temp->R < 9500 && temp->G > 7000 && temp->C > 13000 && temp->C < 15000) { //Orange(Turn Right 135)
-//        for (int j = 0; j <= 23; j++) { //for 135 deg, j=20, for 90 deg, j=15
-//            turnRight(mL, mR);
-//            __delay_ms(30);
-//            norm_stop(mL, mR);
-//            __delay_ms(30);
-//        }
-//    } 
+    else if (temp->R > 3000 && temp->G > 3000) { //Green Colour (Turn 90deg Left)
+        for (int j = 0; j <= 15; j++) { //for 135 deg, j=20, for 90 deg, j=15
+            turnLeft(mL, mR);
+            __delay_ms(30);
+            norm_stop(mL, mR);
+            __delay_ms(30);
+        }
+    }
+    else if (temp->R > 1000) { //Dark Blue (Turn left 180)
+        for (int j = 0; j <= 29; j++) { //for 135 deg, j=20, for 90 deg, j=15
+            turnLeft(mL, mR);
+            __delay_ms(30);
+            norm_stop(mL, mR);
+            __delay_ms(30);
+        }
+    }
+    else if (temp->R > 12000 && temp->G > 7000 && temp->B < 4500) { //Yellow(Reverse 1 square and turn right 90)
+        reverse(mL, mR);
+        __delay_ms(50);
+        norm_stop(mL, mR);
+        __delay_ms(100);
+        for (int j = 0; j <= 16; j++) { //for 135 deg, j=20, for 90 deg, j=15
+            turnRight(mL, mR);
+            __delay_ms(30);
+            norm_stop(mL, mR);
+            __delay_ms(30);
+        }
+    } 
+    else if (temp->R > 10000 && temp->G > 7000 && temp->C > 20000 && temp->C < 22000) { //Pink(Reverse 1 square and turn left 90)
+        reverse(mL, mR);
+        __delay_ms(10);
+        norm_stop(mL, mR);
+        __delay_ms(300);
+        for (int j = 0; j <= 12; j++) { //for 135 deg, j=20, for 90 deg, j=15
+            turnLeft(mL, mR);
+            __delay_ms(30);
+            norm_stop(mL, mR);
+            __delay_ms(30);
+        }
+    } 
+    else if (temp->R > 9000 && temp->R < 9500 && temp->G > 7000 && temp->C > 13000 && temp->C < 15000) { //Orange(Turn Right 135)
+        for (int j = 0; j <= 23; j++) { //for 135 deg, j=20, for 90 deg, j=15
+            turnRight(mL, mR);
+            __delay_ms(30);
+            norm_stop(mL, mR);
+            __delay_ms(30);
+        }
+    } 
     else if ( temp->G >3500 && temp->B > 4000 && temp->R < 4500) { //Light Blue(Turn left 135)
         for (int j = 0; j <= 20; j++) { //for 135 deg, j=20, for 90 deg, j=15
             turnLeft(mL, mR);
@@ -179,5 +187,80 @@ void motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             __delay_ms(30);
         }
     }
+    ctr++;
+    
+}
+
+void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR) {
+    if (buggy_path[ctr]==1) { //Red Colour (Turn 90deg Right)
+     for (int j = 0; j <= 15; j++) { //for 135 deg, j=20, for 90 deg, j=15
+         turnLeft(mL, mR);
+         __delay_ms(30);
+         norm_stop(mL, mR);
+         __delay_ms(30);
+     }
+    }
+    else if (buggy_path[ctr]==2) { //Green Colour (Turn 90deg Left)
+    for (int j = 0; j <= 15; j++) { //for 135 deg, j=20, for 90 deg, j=15
+        turnRight(mL, mR);
+        __delay_ms(30);
+        norm_stop(mL, mR);
+        __delay_ms(30);
+    }
+    }
+    else if (buggy_path[ctr]==3) { //Dark Blue (Turn left 180)
+     for (int j = 0; j <= 29; j++) { //for 135 deg, j=20, for 90 deg, j=15
+         turnRight(mL, mR);
+         __delay_ms(30);
+         norm_stop(mL, mR);
+         __delay_ms(30);
+     }
+    }
+    
+    else if (buggy_path[ctr]==4) { //Yellow(Reverse 1 square and turn right 90)
+     reverse(mL, mR);
+     __delay_ms(10);
+     norm_stop(mL, mR);
+     __delay_ms(100);
+     for (int j = 0; j <= 16; j++) { //for 135 deg, j=20, for 90 deg, j=15
+         turnLeft(mL, mR);
+         __delay_ms(30);
+         norm_stop(mL, mR);
+         __delay_ms(30);
+     }
+    }
+    else if (buggy_path[ctr]==5) { //Pink(Reverse 1 square and turn left 90)
+     reverse(mL, mR);
+     __delay_ms(10);
+     norm_stop(mL, mR);
+     __delay_ms(300);
+     for (int j = 0; j <= 12; j++) { //for 135 deg, j=20, for 90 deg, j=15
+         turnRight(mL, mR);
+         __delay_ms(30);
+         norm_stop(mL, mR);
+         __delay_ms(30);
+     }
+    }
+    else if (buggy_path[ctr]==6) { //Orange(Turn Right 135)
+     for (int j = 0; j <= 23; j++) { //for 135 deg, j=20, for 90 deg, j=15
+         turnRight(mL, mR);
+         __delay_ms(30);
+         norm_stop(mL, mR);
+         __delay_ms(30);
+     }
+    }
+    else if (buggy_path[ctr]==7) { //Light Blue(Turn left 135)
+         for (int j = 0; j <= 20; j++) { //for 135 deg, j=20, for 90 deg, j=15
+         turnRight(mL, mR);
+         __delay_ms(30);
+         norm_stop(mL, mR);
+         __delay_ms(30);
+     }
+
+    }
+    ctr--;
+    if (ctr == -1) {
+           motor_return = 0;
+        }
     
 }

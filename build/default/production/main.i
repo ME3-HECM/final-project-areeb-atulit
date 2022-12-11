@@ -24490,7 +24490,15 @@ typedef struct RGBC_val {
  unsigned int G;
  unsigned int B;
     unsigned int C;
+    unsigned int norm_R;
+    unsigned int norm_G;
+    unsigned int norm_B;
 } RGBC_val;
+
+
+char motor_return = 0;
+char buggy_path[15];
+signed int ctr = 0;
 
 
 
@@ -24508,17 +24516,20 @@ void color_writetoaddr(char address, char value);
 
 
 
+
 unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void color_read_RGBC(struct RGBC_val *temp);
+void color_normalise(struct RGBC_val *RGBC);
 void color_click_init(void);
 char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
 void RGBC2Serial(char *str);
 void RGBC_timing_register(void);
-void motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
+char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
+void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
 # 5 "./dc_motor.h" 2
 
 
@@ -24570,24 +24581,62 @@ void norm_stop(DC_motor *mL, DC_motor *mR);
 void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
 # 17 "main.c" 2
-# 79 "main.c"
+
+
+
+
+
 void main() {
 
     tricolorLED();
-    TRISHbits.TRISH3 = 0;
-    LATHbits.LATH3 = 0;
-
     RGBC_val RGBC;
     char buf[100];
-    initUSART4();
+        int upperThreshold = 3000;
+    int lowerThreshold = 0;
+
     color_click_init();
 
-    while(1) {
+    Interrupts_init();
+    Color_Interrupts_init();
+    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
+    persistence_register();
 
-        color_read_RGBC(&RGBC);
-        LATHbits.LATH3 = !LATHbits.LATH3;
-        _delay((unsigned long)((500)*(64000000/4000.0)));
-        colorVal2String(buf, &RGBC);
-        RGBC2Serial(buf);
-    }
+    initDCmotorsPWM(200);
+    DC_motor mL, mR;
+    motorLinit(&mL);
+    motorRinit(&mR);
+
+    TRISEbits.TRISE2 = 0;
+    TRISEbits.TRISE4 = 0;
+    TRISCbits.TRISC7 = 0;
+    TRISGbits.TRISG6 = 0;
+    TRISDbits.TRISD7 = 0;
+    LATDbits.LATD7 = 0;
+    TRISHbits.TRISH3 = 0;
+    LATHbits.LATH3 = 0;
+   while (1) {
+
+        fullSpeedAhead(&mL, &mR);
+
+        LATHbits.LATH3 = 1;
+        if (interrupt_flag == 1 ) {
+
+            norm_stop(&mL, &mR);
+            _delay((unsigned long)((1000)*(64000000/4000.0)));
+            LATDbits.LATD7 = 0;
+            color_read_RGBC(&RGBC);
+            if(motor_return=0){
+                buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
+
+            }
+            else{
+                motor_retrace(&buggy_path, &mL, &mR);
+
+            }
+
+            LATHbits.LATH3 = 0;
+            interrupt_flag = 0;
+# 83 "main.c"
+   }
+}
 }

@@ -208,8 +208,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _CCP4CONbits `VS1000 ~T0 @X0 0 e@3874 ]
 "14 ./dc_motor.h
 [; ;./dc_motor.h: 14: typedef struct DC_motor {
-[s S2019 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
-[n S2019 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
+[s S2020 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
+[n S2020 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
@@ -2230,6 +2230,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _interrupt_ctr
 -> 0 `i
 ]
+"22 ./color.h
+[; ;./color.h: 22: char motor_return = 0;
+[v _motor_return `uc ~T0 @X0 1 e ]
+[i _motor_return
+-> -> 0 `i `uc
+]
+"23
+[; ;./color.h: 23: char buggy_path[15];
+[v _buggy_path `uc ~T0 @X0 -> 15 `i e ]
+"24
+[; ;./color.h: 24: signed int ctr = 0;
+[v _ctr `i ~T0 @X0 1 e ]
+[i _ctr
+-> 0 `i
+]
 "5 dc_motor.c
 [; ;dc_motor.c: 5: void initDCmotorsPWM(unsigned int PWMperiod){
 [v _initDCmotorsPWM `(v ~T0 @X0 1 ef1`ui ]
@@ -2326,18 +2341,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _CCP4CONbits 0 4 -> -> 1 `i `uc ]
 "53
 [; ;dc_motor.c: 53: }
-[e :UE 2020 ]
+[e :UE 2021 ]
 }
 "56
 [; ;dc_motor.c: 56: void setMotorPWM(DC_motor *m)
-[v _setMotorPWM `(v ~T0 @X0 1 ef1`*S2019 ]
+[v _setMotorPWM `(v ~T0 @X0 1 ef1`*S2020 ]
 "57
 [; ;dc_motor.c: 57: {
 {
 [e :U _setMotorPWM ]
 "56
 [; ;dc_motor.c: 56: void setMotorPWM(DC_motor *m)
-[v _m `*S2019 ~T0 @X0 1 r1 ]
+[v _m `*S2020 ~T0 @X0 1 r1 ]
 "57
 [; ;dc_motor.c: 57: {
 [f ]
@@ -2347,7 +2362,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _negDuty `uc ~T0 @X0 1 a ]
 "60
 [; ;dc_motor.c: 60:     if(m->brakemode) {
-[e $ ! != -> . *U _m 2 `i -> 0 `i 2022  ]
+[e $ ! != -> . *U _m 2 `i -> 0 `i 2023  ]
 {
 "61
 [; ;dc_motor.c: 61:         posDuty=m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100;
@@ -2358,10 +2373,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "63
 [; ;dc_motor.c: 63:     }
 }
-[e $U 2023  ]
+[e $U 2024  ]
 "64
 [; ;dc_motor.c: 64:     else {
-[e :U 2022 ]
+[e :U 2023 ]
 {
 "65
 [; ;dc_motor.c: 65:         posDuty=((unsigned int)(m->power)*(m->PWMperiod))/100;
@@ -2372,10 +2387,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "67
 [; ;dc_motor.c: 67:     }
 }
-[e :U 2023 ]
+[e :U 2024 ]
 "69
 [; ;dc_motor.c: 69:     if (m->direction) {
-[e $ ! != -> . *U _m 1 `i -> 0 `i 2024  ]
+[e $ ! != -> . *U _m 1 `i -> 0 `i 2025  ]
 {
 "70
 [; ;dc_motor.c: 70:         *(m->posDutyHighByte)=posDuty;
@@ -2386,8 +2401,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72
 [; ;dc_motor.c: 72:     } else {
 }
-[e $U 2025  ]
-[e :U 2024 ]
+[e $U 2026  ]
+[e :U 2025 ]
 {
 "73
 [; ;dc_motor.c: 73:         *(m->posDutyHighByte)=negDuty;
@@ -2398,21 +2413,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "75
 [; ;dc_motor.c: 75:     }
 }
-[e :U 2025 ]
+[e :U 2026 ]
 "76
 [; ;dc_motor.c: 76: }
-[e :UE 2021 ]
+[e :UE 2022 ]
 }
 "78
 [; ;dc_motor.c: 78: void motorLinit(DC_motor *mL)
-[v _motorLinit `(v ~T0 @X0 1 ef1`*S2019 ]
+[v _motorLinit `(v ~T0 @X0 1 ef1`*S2020 ]
 "79
 [; ;dc_motor.c: 79: {
 {
 [e :U _motorLinit ]
 "78
 [; ;dc_motor.c: 78: void motorLinit(DC_motor *mL)
-[v _mL `*S2019 ~T0 @X0 1 r1 ]
+[v _mL `*S2020 ~T0 @X0 1 r1 ]
 "79
 [; ;dc_motor.c: 79: {
 [f ]
@@ -2436,18 +2451,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _mL 3 -> -> 200 `i `ui ]
 "86
 [; ;dc_motor.c: 86: }
-[e :UE 2026 ]
+[e :UE 2027 ]
 }
 "88
 [; ;dc_motor.c: 88: void motorRinit(DC_motor *mR)
-[v _motorRinit `(v ~T0 @X0 1 ef1`*S2019 ]
+[v _motorRinit `(v ~T0 @X0 1 ef1`*S2020 ]
 "89
 [; ;dc_motor.c: 89: {
 {
 [e :U _motorRinit ]
 "88
 [; ;dc_motor.c: 88: void motorRinit(DC_motor *mR)
-[v _mR `*S2019 ~T0 @X0 1 r1 ]
+[v _mR `*S2020 ~T0 @X0 1 r1 ]
 "89
 [; ;dc_motor.c: 89: {
 [f ]
@@ -2471,26 +2486,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _mR 3 -> -> 200 `i `ui ]
 "96
 [; ;dc_motor.c: 96: }
-[e :UE 2027 ]
+[e :UE 2028 ]
 }
 "98
 [; ;dc_motor.c: 98: void stop(DC_motor *mL, DC_motor *mR)
-[v _stop `(v ~T0 @X0 1 ef2`*S2019`*S2019 ]
+[v _stop `(v ~T0 @X0 1 ef2`*S2020`*S2020 ]
 "99
 [; ;dc_motor.c: 99: {
 {
 [e :U _stop ]
 "98
 [; ;dc_motor.c: 98: void stop(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2019 ~T0 @X0 1 r1 ]
-[v _mR `*S2019 ~T0 @X0 1 r2 ]
+[v _mL `*S2020 ~T0 @X0 1 r1 ]
+[v _mR `*S2020 ~T0 @X0 1 r2 ]
 "99
 [; ;dc_motor.c: 99: {
 [f ]
 "104
 [; ;dc_motor.c: 104:     while (mL->power >= 1 && mR->power >= 1)
-[e $U 2029  ]
-[e :U 2030 ]
+[e $U 2030  ]
+[e :U 2031 ]
 "105
 [; ;dc_motor.c: 105:     {
 {
@@ -2512,11 +2527,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "111
 [; ;dc_motor.c: 111:     }
 }
-[e :U 2029 ]
+[e :U 2030 ]
 "104
 [; ;dc_motor.c: 104:     while (mL->power >= 1 && mR->power >= 1)
-[e $ && >= -> . *U _mL 0 `i -> 1 `i >= -> . *U _mR 0 `i -> 1 `i 2030  ]
-[e :U 2031 ]
+[e $ && >= -> . *U _mL 0 `i -> 1 `i >= -> . *U _mR 0 `i -> 1 `i 2031  ]
+[e :U 2032 ]
 "112
 [; ;dc_motor.c: 112:     mL->power = 0;
 [e = . *U _mL 0 -> -> 0 `i `uc ]
@@ -2531,19 +2546,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setMotorPWM (1 _mR ]
 "117
 [; ;dc_motor.c: 117: }
-[e :UE 2028 ]
+[e :UE 2029 ]
 }
 "118
 [; ;dc_motor.c: 118: void norm_stop(DC_motor *mL, DC_motor *mR)
-[v _norm_stop `(v ~T0 @X0 1 ef2`*S2019`*S2019 ]
+[v _norm_stop `(v ~T0 @X0 1 ef2`*S2020`*S2020 ]
 "119
 [; ;dc_motor.c: 119: {
 {
 [e :U _norm_stop ]
 "118
 [; ;dc_motor.c: 118: void norm_stop(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2019 ~T0 @X0 1 r1 ]
-[v _mR `*S2019 ~T0 @X0 1 r2 ]
+[v _mL `*S2020 ~T0 @X0 1 r1 ]
+[v _mR `*S2020 ~T0 @X0 1 r2 ]
 "119
 [; ;dc_motor.c: 119: {
 [f ]
@@ -2561,19 +2576,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setMotorPWM (1 _mR ]
 "129
 [; ;dc_motor.c: 129: }
-[e :UE 2032 ]
+[e :UE 2033 ]
 }
 "131
 [; ;dc_motor.c: 131: void turnLeft(DC_motor *mL, DC_motor *mR)
-[v _turnLeft `(v ~T0 @X0 1 ef2`*S2019`*S2019 ]
+[v _turnLeft `(v ~T0 @X0 1 ef2`*S2020`*S2020 ]
 "132
 [; ;dc_motor.c: 132: {
 {
 [e :U _turnLeft ]
 "131
 [; ;dc_motor.c: 131: void turnLeft(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2019 ~T0 @X0 1 r1 ]
-[v _mR `*S2019 ~T0 @X0 1 r2 ]
+[v _mL `*S2020 ~T0 @X0 1 r1 ]
+[v _mR `*S2020 ~T0 @X0 1 r2 ]
 "132
 [; ;dc_motor.c: 132: {
 [f ]
@@ -2603,19 +2618,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setMotorPWM (1 _mR ]
 "141
 [; ;dc_motor.c: 141: }
-[e :UE 2033 ]
+[e :UE 2034 ]
 }
 "144
 [; ;dc_motor.c: 144: void turnRight(DC_motor *mL, DC_motor *mR)
-[v _turnRight `(v ~T0 @X0 1 ef2`*S2019`*S2019 ]
+[v _turnRight `(v ~T0 @X0 1 ef2`*S2020`*S2020 ]
 "145
 [; ;dc_motor.c: 145: {
 {
 [e :U _turnRight ]
 "144
 [; ;dc_motor.c: 144: void turnRight(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2019 ~T0 @X0 1 r1 ]
-[v _mR `*S2019 ~T0 @X0 1 r2 ]
+[v _mL `*S2020 ~T0 @X0 1 r1 ]
+[v _mR `*S2020 ~T0 @X0 1 r2 ]
 "145
 [; ;dc_motor.c: 145: {
 [f ]
@@ -2645,15 +2660,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setMotorPWM (1 _mR ]
 "154
 [; ;dc_motor.c: 154: }
-[e :UE 2034 ]
+[e :UE 2035 ]
 }
 "156
 [; ;dc_motor.c: 156: void uturn(DC_motor *mL, DC_motor *mR){
-[v _uturn `(v ~T0 @X0 1 ef2`*S2019`*S2019 ]
+[v _uturn `(v ~T0 @X0 1 ef2`*S2020`*S2020 ]
 {
 [e :U _uturn ]
-[v _mL `*S2019 ~T0 @X0 1 r1 ]
-[v _mR `*S2019 ~T0 @X0 1 r2 ]
+[v _mL `*S2020 ~T0 @X0 1 r1 ]
+[v _mR `*S2020 ~T0 @X0 1 r2 ]
 [f ]
 "157
 [; ;dc_motor.c: 157:     mL->power = 45;
@@ -2681,19 +2696,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setMotorPWM (1 _mR ]
 "165
 [; ;dc_motor.c: 165: }
-[e :UE 2035 ]
+[e :UE 2036 ]
 }
 "167
 [; ;dc_motor.c: 167: void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
-[v _fullSpeedAhead `(v ~T0 @X0 1 ef2`*S2019`*S2019 ]
+[v _fullSpeedAhead `(v ~T0 @X0 1 ef2`*S2020`*S2020 ]
 "168
 [; ;dc_motor.c: 168: {
 {
 [e :U _fullSpeedAhead ]
 "167
 [; ;dc_motor.c: 167: void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2019 ~T0 @X0 1 r1 ]
-[v _mR `*S2019 ~T0 @X0 1 r2 ]
+[v _mL `*S2020 ~T0 @X0 1 r1 ]
+[v _mR `*S2020 ~T0 @X0 1 r2 ]
 "168
 [; ;dc_motor.c: 168: {
 [f ]
@@ -2717,8 +2732,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _mR 2 -> -> 1 `i `uc ]
 "175
 [; ;dc_motor.c: 175:     while (mL->power <= 20 && mR->power <=20)
-[e $U 2037  ]
-[e :U 2038 ]
+[e $U 2038  ]
+[e :U 2039 ]
 "176
 [; ;dc_motor.c: 176:     {
 {
@@ -2737,11 +2752,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "182
 [; ;dc_motor.c: 182:     }
 }
-[e :U 2037 ]
+[e :U 2038 ]
 "175
 [; ;dc_motor.c: 175:     while (mL->power <= 20 && mR->power <=20)
-[e $ && <= -> . *U _mL 0 `i -> 20 `i <= -> . *U _mR 0 `i -> 20 `i 2038  ]
-[e :U 2039 ]
+[e $ && <= -> . *U _mL 0 `i -> 20 `i <= -> . *U _mR 0 `i -> 20 `i 2039  ]
+[e :U 2040 ]
 "183
 [; ;dc_motor.c: 183:     mL->power = 20;
 [e = . *U _mL 0 -> -> 20 `i `uc ]
@@ -2756,19 +2771,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setMotorPWM (1 _mR ]
 "188
 [; ;dc_motor.c: 188: }
-[e :UE 2036 ]
+[e :UE 2037 ]
 }
 "189
 [; ;dc_motor.c: 189: void reverse(DC_motor *mL, DC_motor *mR)
-[v _reverse `(v ~T0 @X0 1 ef2`*S2019`*S2019 ]
+[v _reverse `(v ~T0 @X0 1 ef2`*S2020`*S2020 ]
 "190
 [; ;dc_motor.c: 190: {
 {
 [e :U _reverse ]
 "189
 [; ;dc_motor.c: 189: void reverse(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2019 ~T0 @X0 1 r1 ]
-[v _mR `*S2019 ~T0 @X0 1 r2 ]
+[v _mL `*S2020 ~T0 @X0 1 r1 ]
+[v _mR `*S2020 ~T0 @X0 1 r2 ]
 "190
 [; ;dc_motor.c: 190: {
 [f ]
@@ -2792,8 +2807,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _mR 2 -> -> 1 `i `uc ]
 "197
 [; ;dc_motor.c: 197:     while (mL->power <= 100 && mR->power <=100)
-[e $U 2041  ]
-[e :U 2042 ]
+[e $U 2042  ]
+[e :U 2043 ]
 "198
 [; ;dc_motor.c: 198:     {
 {
@@ -2815,11 +2830,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "204
 [; ;dc_motor.c: 204:     }
 }
-[e :U 2041 ]
+[e :U 2042 ]
 "197
 [; ;dc_motor.c: 197:     while (mL->power <= 100 && mR->power <=100)
-[e $ && <= -> . *U _mL 0 `i -> 100 `i <= -> . *U _mR 0 `i -> 100 `i 2042  ]
-[e :U 2043 ]
+[e $ && <= -> . *U _mL 0 `i -> 100 `i <= -> . *U _mR 0 `i -> 100 `i 2043  ]
+[e :U 2044 ]
 "205
 [; ;dc_motor.c: 205:     mL->power = 100;
 [e = . *U _mL 0 -> -> 100 `i `uc ]
@@ -2834,5 +2849,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setMotorPWM (1 _mR ]
 "210
 [; ;dc_motor.c: 210: }
-[e :UE 2040 ]
+[e :UE 2041 ]
 }

@@ -24334,7 +24334,15 @@ typedef struct RGBC_val {
  unsigned int G;
  unsigned int B;
     unsigned int C;
+    unsigned int norm_R;
+    unsigned int norm_G;
+    unsigned int norm_B;
 } RGBC_val;
+
+
+char motor_return = 0;
+char buggy_path[15];
+signed int ctr = 0;
 
 
 
@@ -24352,17 +24360,20 @@ void color_writetoaddr(char address, char value);
 
 
 
+
 unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void color_read_RGBC(struct RGBC_val *temp);
+void color_normalise(struct RGBC_val *RGBC);
 void color_click_init(void);
 char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
 void RGBC2Serial(char *str);
 void RGBC_timing_register(void);
-void motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
+char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
+void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
 # 5 "./dc_motor.h" 2
 
 

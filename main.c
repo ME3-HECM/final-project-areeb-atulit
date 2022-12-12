@@ -92,10 +92,23 @@ void main() {
                 LATHbits.LATH3 = !LATHbits.LATH3;
                 buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
                 ctr++;
-            }
-            else{
-                motor_retrace(&buggy_path, &mL, &mR); 
+            } else {
+                motor_retrace(&buggy_path, &mL, &mR);
                 ctr--;
+                if (ctr-1 == 0) {
+                    fullSpeedAhead(&mL, &mR);
+                    __delay_ms(100);
+                    for (int j = 0; j <= 40; j++) { //for 135 deg, j=20, for 90 deg, j=15
+                        turnLeft(&mL, &mR);
+                        __delay_ms(30);
+                        norm_stop(&mL, &mR);
+                        __delay_ms(30);
+                    }
+                    LATHbits.LATH0 = !LATHbits.LATH0;
+                    motor_return = 0;
+                    norm_stop(&mL, &mR);
+                    __delay_ms(2000);
+                }
             }
             
    

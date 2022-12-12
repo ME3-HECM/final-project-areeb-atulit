@@ -24491,10 +24491,10 @@ typedef struct RGBC_val {
  float B;
     float C;
     float norm_R;
-    float norm_R_mod;
     float norm_G;
     float norm_B;
     float norm_C;
+# 28 "./color.h"
 } RGBC_val;
 
 
@@ -24505,6 +24505,8 @@ int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
+int upperThreshold = 3000;
+int lowerThreshold = 0;
 
 
 
@@ -24596,8 +24598,6 @@ void main() {
     tricolorLED();
     RGBC_val RGBC;
     char buf[100];
-    int upperThreshold = 8000;
-    int lowerThreshold = 0;
 
     color_click_init();
 
@@ -24637,18 +24637,19 @@ void main() {
             LATDbits.LATD7 = 0;
             color_read_RGBC(&RGBC);
             color_normalise(&RGBC);
-            buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
-            ctr++;
 
 
-
-
-
-
+            if(motor_return=0){
+                buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
+                ctr++;
+            }
+            else{
+                motor_retrace(&buggy_path, &mL, &mR);
+            }
 
             LATHbits.LATH3 = 0;
             interrupt_flag = 0;
-# 90 "main.c"
+# 89 "main.c"
    }
 }
 }

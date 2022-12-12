@@ -24494,17 +24494,18 @@ typedef struct RGBC_val {
     float norm_G;
     float norm_B;
     float norm_C;
+# 28 "./color.h"
 } RGBC_val;
 
 
-char motor_return = 0;
+char motor_return;
 char buggy_path[15];
 signed int ctr = 0;
 int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 2500;
+int upperThreshold = 3000;
 int lowerThreshold = 0;
 
 
@@ -24623,12 +24624,12 @@ void main() {
     int amb_green = color_read_Blue();
     int amb_blue = color_read_Green();
     int amb_clear = color_read_Clear();
+    motor_return = 0;
 
    while (1) {
 
         fullSpeedAhead(&mL, &mR);
 
-        LATHbits.LATH3 = 1;
         if (interrupt_flag == 1 ) {
 
             norm_stop(&mL, &mR);
@@ -24636,18 +24637,20 @@ void main() {
             LATDbits.LATD7 = 0;
             color_read_RGBC(&RGBC);
             color_normalise(&RGBC);
-            buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
-            ctr++;
 
 
-
-
-
-
+            if(motor_return == 0){
+                LATHbits.LATH3 = !LATHbits.LATH3;
+                buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
+                ctr++;
+            }
+            else{
+                motor_retrace(&buggy_path, &mL, &mR);
+            }
 
             LATHbits.LATH3 = 0;
             interrupt_flag = 0;
-# 88 "main.c"
+# 90 "main.c"
    }
 }
 }

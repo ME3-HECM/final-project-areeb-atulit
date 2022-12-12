@@ -24514,10 +24514,10 @@ typedef struct RGBC_val {
  float B;
     float C;
     float norm_R;
-    float norm_R_mod;
     float norm_G;
     float norm_B;
     float norm_C;
+# 28 "./color.h"
 } RGBC_val;
 
 
@@ -24528,6 +24528,8 @@ int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
+int upperThreshold = 3000;
+int lowerThreshold = 0;
 
 
 
@@ -24677,6 +24679,7 @@ void tricolorLED(void) {
 }
 
 char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
+
     if (temp->norm_G >8) {
         for (int j = 0; j <= 15; j++) {
             turnRight(mL, mR);
@@ -24686,8 +24689,37 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
         }
         return 1;
     }
-# 201 "color.c"
+    else if (temp->norm_B > 4.5 && temp->norm_B < 5.2) {
+        for (int j = 0; j <= 15; j++) {
+            turnLeft(mL, mR);
+            _delay((unsigned long)((30)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((30)*(64000000/4000.0)));
+        }
+        return 2;
+    }
+    else if (temp->norm_B > 2.8 && temp->norm_B < 3.2 && temp->norm_R > 2.8 && temp->norm_R < 3.2 && temp->norm_G > 2.8 && temp->norm_G < 3.2) {
+        for (int j = 0; j <= 29; j++) {
+            turnLeft(mL, mR);
+            _delay((unsigned long)((30)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((30)*(64000000/4000.0)));
+        }
+        return 3;
+    }
+# 209 "color.c"
+    else if (temp->norm_C > 12) {
+        motor_return = 1;
+        for (int j = 0; j <= 40; j++) {
+            turnLeft(mL, mR);
+            _delay((unsigned long)((30)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((30)*(64000000/4000.0)));
+        }
+        fullSpeedAhead(&mL, &mR);
+    }
 }
+
 
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR) {
     if (buggy_path[ctr]==1) {

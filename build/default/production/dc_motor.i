@@ -24338,17 +24338,18 @@ typedef struct RGBC_val {
     float norm_G;
     float norm_B;
     float norm_C;
+# 28 "./color.h"
 } RGBC_val;
 
 
-char motor_return = 0;
+char motor_return;
 char buggy_path[15];
 signed int ctr = 0;
 int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 2500;
+int upperThreshold = 3000;
 int lowerThreshold = 0;
 
 

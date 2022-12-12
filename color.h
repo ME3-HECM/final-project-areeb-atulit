@@ -17,17 +17,25 @@ typedef struct RGBC_val {
     float norm_G;
     float norm_B;
     float norm_C;
+//    unsigned int R;
+//    unsigned int G;
+//    unsigned int B;
+//    unsigned int C;
+//    unsigned int norm_R;
+//    unsigned int norm_G;
+//    unsigned int norm_B;
+//    unsigned int norm_C;
 } RGBC_val;
 
 
-char motor_return = 0;
+char motor_return;
 char buggy_path[15];
 signed int ctr = 0; //stores which step the buggy is on
 int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 2500;
+int upperThreshold = 3000;
 int lowerThreshold = 0;
 /********************************************//**
  *  Function to initialise the colour click module using I2C

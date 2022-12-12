@@ -50,12 +50,12 @@ void main() {
     int amb_green = color_read_Blue();
     int amb_blue = color_read_Green();
     int amb_clear = color_read_Clear();
+    motor_return = 0;
 
    while (1) {
         
         fullSpeedAhead(&mL, &mR);
         //color_read_RGBC(&RGBC);
-        LATHbits.LATH3 = 1;
         if (interrupt_flag == 1 ) {
             //Color_Interrupts_clear();
             norm_stop(&mL, &mR);
@@ -63,14 +63,16 @@ void main() {
             LATDbits.LATD7 = 0;
             color_read_RGBC(&RGBC);
             color_normalise(&RGBC);
-            buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
-            ctr++;
-//            if(motor_return=0){
-//                buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
-//            }
-//            else{
-//                motor_retrace(&buggy_path, &mL, &mR); 
-//            }
+//            buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
+//            ctr++;
+            if(motor_return == 0){
+                LATHbits.LATH3 = !LATHbits.LATH3;
+                buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
+                ctr++;
+            }
+            else{
+                motor_retrace(&buggy_path, &mL, &mR); 
+            }
    
             LATHbits.LATH3 = 0;
             interrupt_flag = 0;
@@ -110,5 +112,5 @@ void main() {
         RGBC2Serial(buf);
     }
 }
-*/
+ */
 //------------------------------------------------------------------------------

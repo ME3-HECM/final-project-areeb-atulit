@@ -24335,10 +24335,10 @@ typedef struct RGBC_val {
  float B;
     float C;
     float norm_R;
-    float norm_R_mod;
     float norm_G;
     float norm_B;
     float norm_C;
+# 28 "./color.h"
 } RGBC_val;
 
 
@@ -24349,6 +24349,8 @@ int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
+int upperThreshold = 3000;
+int lowerThreshold = 0;
 
 
 

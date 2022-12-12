@@ -125,6 +125,7 @@ void tricolorLED(void) {
 }
 
 char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
+    
     if (temp->norm_G >8) { //Red Colour (Turn 90deg Right)
         for (int j = 0; j <= 15; j++) { //for 135 deg, j=20, for 90 deg, j=15
             turnRight(mL, mR);
@@ -197,8 +198,27 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
 //        return 7;
 //    }
     
-    
+//    else if ( temp->norm_C > 9) { //Light Blue(Turn left 135)
+//        for (int j = 0; j <= 20; j++) { //for 135 deg, j=20, for 90 deg, j=15
+//            turnLeft(mL, mR);
+//            __delay_ms(30);
+//            norm_stop(mL, mR);
+//            __delay_ms(30);
+//        }
+//        return 7;
+    else if (temp->norm_C > 12) { //White (Turn left 180 and return)
+        motor_return = 1;
+        for (int j = 0; j <= 40; j++) { //for 135 deg, j=20, for 90 deg, j=15
+            turnLeft(mL, mR);
+            __delay_ms(30);
+            norm_stop(mL, mR);
+            __delay_ms(30);
+        }
+        fullSpeedAhead(&mL, &mR);
+        return 0;
+    }
 }
+
 
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR) {
     if (buggy_path[ctr]==1) { //Red Colour (Turn 90deg Right)

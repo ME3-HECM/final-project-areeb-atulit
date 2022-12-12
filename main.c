@@ -26,7 +26,14 @@ void main() {
     char buf[100]; //buffer to store rbgc values
     //initialisations
     color_click_init();
-       
+    ctr=0;
+    interrupt_ctr=0;
+    int pathSet=0;
+    for(pathSet=0;pathSet<15;pathSet++)
+    {
+        buggy_path[pathSet]=0;
+    }
+      
     Interrupts_init();
     Color_Interrupts_init();
     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
@@ -45,6 +52,11 @@ void main() {
     LATDbits.LATD7 = 0;
     TRISHbits.TRISH3 = 0;
     LATHbits.LATH3 = 0;
+    TRISHbits.TRISH0 = 0;
+    LATHbits.LATH0 = 0;
+    
+    TRISFbits.TRISF0 = 0;
+    LATFbits.LATF0 = 0;
     
     int amb_red = color_read_Red();
     int amb_green = color_read_Blue();
@@ -55,24 +67,37 @@ void main() {
    while (1) {
         
         fullSpeedAhead(&mL, &mR);
+        if(ctr==1){
+            LATFbits.LATF0=1;
+        }
+        else 
+            {
+            LATFbits.LATF0=0;
+        }
         //color_read_RGBC(&RGBC);
-        if (interrupt_flag == 1 ) {
+        if (interrupt_flag == 1 && interrupt_ctr>1) {
             //Color_Interrupts_clear();
+//            if(interrupt_ctr==0)
+//                interrupt_ctr++;
+//            else{
             norm_stop(&mL, &mR);
             __delay_ms(1000);
             LATDbits.LATD7 = 0;
-            color_read_RGBC(&RGBC);
-            color_normalise(&RGBC);
+
 //            buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
 //            ctr++;
             if(motor_return == 0){
+                color_read_RGBC(&RGBC);
+                color_normalise(&RGBC);
                 LATHbits.LATH3 = !LATHbits.LATH3;
                 buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
                 ctr++;
             }
             else{
                 motor_retrace(&buggy_path, &mL, &mR); 
+                ctr--;
             }
+            
    
             LATHbits.LATH3 = 0;
             interrupt_flag = 0;
@@ -111,6 +136,6 @@ void main() {
         colorVal2String(buf, &RGBC);
         RGBC2Serial(buf);
     }
-}
- */
+}*/
+ 
 //------------------------------------------------------------------------------

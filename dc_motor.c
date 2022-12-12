@@ -130,8 +130,8 @@ void norm_stop(DC_motor *mL, DC_motor *mR)
 //function to make the robot turn left 
 void turnLeft(DC_motor *mL, DC_motor *mR)
 {
-    mL->power = 50;
-    mR->power = 50;
+    mL->power = 60;
+    mR->power = 60;
     mL->brakemode = 1;
     mR->brakemode = 1;
     mL->direction = 0;
@@ -143,8 +143,8 @@ void turnLeft(DC_motor *mL, DC_motor *mR)
 //function to make the robot turn right 
 void turnRight(DC_motor *mL, DC_motor *mR)
 {
-    mL->power = 50;
-    mR->power = 50;
+    mL->power = 60;
+    mR->power = 60;
     mL->brakemode = 1;
     mR->brakemode = 1;
     mR->direction = 0;
@@ -166,13 +166,13 @@ void uturn(DC_motor *mL, DC_motor *mR){
 //function to make the robot go straight
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {
-    mL->power = 5;
+    mL->power =5;
     mR->power = 5;
     mR->direction = 1;
     mL->direction = 1;
     mL->brakemode = 1;
     mR->brakemode = 1;
-    while (mL->power <= 20 && mR->power <=20)
+    while (mL->power <= 45 && mR->power <=45)
     {
         mL->power++;
         mR->power++;
@@ -180,8 +180,8 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
         setMotorPWM(mL);
         setMotorPWM(mR);
     }
-    mL->power = 20;
-    mR->power = 20;
+    mL->power = 45;
+    mR->power = 45;
     setMotorPWM(mL);
     setMotorPWM(mR);
     
@@ -194,7 +194,7 @@ void reverse(DC_motor *mL, DC_motor *mR)
     mL->direction = 0;
     mL->brakemode = 1;
     mR->brakemode = 1;
-    while (mL->power <= 100 && mR->power <=100)
+    while (mL->power <= 20 && mR->power <=20)
     {
         mL->power++;
         mR->power++;
@@ -202,8 +202,8 @@ void reverse(DC_motor *mL, DC_motor *mR)
         setMotorPWM(mL);
         setMotorPWM(mR);
     }
-    mL->power = 100;
-    mR->power = 100;
+    mL->power = 20;
+    mR->power = 20;
     setMotorPWM(mL);
     setMotorPWM(mR);
     

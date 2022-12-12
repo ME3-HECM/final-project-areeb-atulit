@@ -30,7 +30,7 @@ typedef struct RGBC_val {
 
 char motor_return;
 char buggy_path[15];
-signed int ctr = 0; //stores which step the buggy is on
+int ctr; //stores which step the buggy is on
 int amb_red;
 int amb_green;
 int amb_blue;

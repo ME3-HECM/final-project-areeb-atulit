@@ -71,14 +71,17 @@ void Color_Interrupts_clear(void)
 void __interrupt(high_priority) HighISR()
 {
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...
-    if(PIR0bits.INT0IF==1){ 					//check the interrupt source
+
+    
+        if(PIR0bits.INT0IF==1){ 					//check the interrupt source
         LATDbits.LATD7 = 1;
         interrupt_flag = 1;
-        //interrupt_ctr++;
+        interrupt_ctr++;
         Color_Interrupts_clear();
         PIR0bits.INT0IF = 0; //clear the interrupt flag!
         
     }
+        
     }
 
 

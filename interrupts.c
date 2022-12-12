@@ -60,7 +60,7 @@ void Color_Interrupts_clear(void)
     //color_click_init();
     Color_Interrupts_init();
     persistence_register();
-    Color_Interrupts_threshold(5000, 0);
+    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
     
 }
 

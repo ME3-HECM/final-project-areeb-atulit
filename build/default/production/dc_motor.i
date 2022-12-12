@@ -24330,20 +24330,26 @@ void Color_Interrupts_clear(void);
 
 
 typedef struct RGBC_val {
- unsigned int R;
- unsigned int G;
- unsigned int B;
-    unsigned int C;
-    unsigned int norm_R;
-    unsigned int norm_G;
-    unsigned int norm_B;
+ float R;
+ float G;
+ float B;
+    float C;
+    float norm_R;
+    float norm_G;
+    float norm_B;
+    float norm_C;
 } RGBC_val;
 
 
 char motor_return = 0;
 char buggy_path[15];
 signed int ctr = 0;
-
+int amb_red;
+int amb_green;
+int amb_blue;
+int amb_clear;
+int upperThreshold = 2500;
+int lowerThreshold = 0;
 
 
 

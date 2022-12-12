@@ -2230,19 +2230,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _interrupt_ctr
 -> 0 `i
 ]
-"22 ./color.h
-[; ;./color.h: 22: char motor_return = 0;
+"23 ./color.h
+[; ;./color.h: 23: char motor_return = 0;
 [v _motor_return `uc ~T0 @X0 1 e ]
 [i _motor_return
 -> -> 0 `i `uc
 ]
-"23
-[; ;./color.h: 23: char buggy_path[15];
-[v _buggy_path `uc ~T0 @X0 -> 15 `i e ]
 "24
-[; ;./color.h: 24: signed int ctr = 0;
+[; ;./color.h: 24: char buggy_path[15];
+[v _buggy_path `uc ~T0 @X0 -> 15 `i e ]
+"25
+[; ;./color.h: 25: signed int ctr = 0;
 [v _ctr `i ~T0 @X0 1 e ]
 [i _ctr
+-> 0 `i
+]
+"26
+[; ;./color.h: 26: int amb_red;
+[v _amb_red `i ~T0 @X0 1 e ]
+"27
+[; ;./color.h: 27: int amb_green;
+[v _amb_green `i ~T0 @X0 1 e ]
+"28
+[; ;./color.h: 28: int amb_blue;
+[v _amb_blue `i ~T0 @X0 1 e ]
+"29
+[; ;./color.h: 29: int amb_clear;
+[v _amb_clear `i ~T0 @X0 1 e ]
+"30
+[; ;./color.h: 30: int upperThreshold = 2500;
+[v _upperThreshold `i ~T0 @X0 1 e ]
+[i _upperThreshold
+-> 2500 `i
+]
+"31
+[; ;./color.h: 31: int lowerThreshold = 0;
+[v _lowerThreshold `i ~T0 @X0 1 e ]
+[i _lowerThreshold
 -> 0 `i
 ]
 "5 dc_motor.c

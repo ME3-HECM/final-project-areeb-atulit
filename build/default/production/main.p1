@@ -1,14 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"51 ./color.h
-[; ;./color.h: 51: void tricolorLED(void);
+"57 ./color.h
+[; ;./color.h: 57: void tricolorLED(void);
 [v _tricolorLED `(v ~T0 @X0 0 ef ]
 "11
 [; ;./color.h: 11: typedef struct RGBC_val {
-[s S2017 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S2017 RGBC_val R G B C norm_R norm_G norm_B ]
-"49
-[; ;./color.h: 49: void color_click_init(void);
+[s S2017 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 ]
+[n S2017 RGBC_val R G B C norm_R norm_G norm_B norm_C ]
+"55
+[; ;./color.h: 55: void color_click_init(void);
 [v _color_click_init `(v ~T0 @X0 0 ef ]
 "10 ./interrupts.h
 [; ;./interrupts.h: 10: void Interrupts_init(void);
@@ -136,6 +136,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29264
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h: 29264: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
 [v _LATHbits `VS1360 ~T0 @X0 0 e@3968 ]
+"49 ./color.h
+[; ;./color.h: 49: unsigned int color_read_Red(void);
+[v _color_read_Red `(ui ~T0 @X0 0 ef ]
+"51
+[; ;./color.h: 51: unsigned int color_read_Blue(void);
+[v _color_read_Blue `(ui ~T0 @X0 0 ef ]
+"50
+[; ;./color.h: 50: unsigned int color_read_Green(void);
+[v _color_read_Green `(ui ~T0 @X0 0 ef ]
+"52
+[; ;./color.h: 52: unsigned int color_read_Clear(void);
+[v _color_read_Clear `(ui ~T0 @X0 0 ef ]
 "31 ./dc_motor.h
 [; ;./dc_motor.h: 31: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
 [v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2020`*S2020 ]
@@ -146,19 +158,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
-"47 ./color.h
-[; ;./color.h: 47: void color_read_RGBC(struct RGBC_val *temp);
+"53 ./color.h
+[; ;./color.h: 53: void color_read_RGBC(struct RGBC_val *temp);
 [v _color_read_RGBC `(v ~T0 @X0 0 ef1`*S2017 ]
 "54
-[; ;./color.h: 54: char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
+[; ;./color.h: 54: void color_normalise(struct RGBC_val *RGBC);
+[v _color_normalise `(v ~T0 @X0 0 ef1`*S2017 ]
+"60
+[; ;./color.h: 60: char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
 [s S2018 ]
 [n S2018 DC_motor ]
 [v _motor_response `(uc ~T0 @X0 0 ef3`*S2017`*S2018`*S2018 ]
-"55
-[; ;./color.h: 55: void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
-[s S2019 ]
-[n S2019 DC_motor ]
-[v _motor_retrace `(v ~T0 @X0 0 ef3`*uc`*S2019`*S2019 ]
 "2 main.c
 [p x FEXTOSC  =  HS      ]
 "3
@@ -2183,19 +2193,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _interrupt_ctr
 -> 0 `i
 ]
-"22 ./color.h
-[; ;./color.h: 22: char motor_return = 0;
+"23 ./color.h
+[; ;./color.h: 23: char motor_return = 0;
 [v _motor_return `uc ~T0 @X0 1 e ]
 [i _motor_return
 -> -> 0 `i `uc
 ]
-"23
-[; ;./color.h: 23: char buggy_path[15];
-[v _buggy_path `uc ~T0 @X0 -> 15 `i e ]
 "24
-[; ;./color.h: 24: signed int ctr = 0;
+[; ;./color.h: 24: char buggy_path[15];
+[v _buggy_path `uc ~T0 @X0 -> 15 `i e ]
+"25
+[; ;./color.h: 25: signed int ctr = 0;
 [v _ctr `i ~T0 @X0 1 e ]
 [i _ctr
+-> 0 `i
+]
+"26
+[; ;./color.h: 26: int amb_red;
+[v _amb_red `i ~T0 @X0 1 e ]
+"27
+[; ;./color.h: 27: int amb_green;
+[v _amb_green `i ~T0 @X0 1 e ]
+"28
+[; ;./color.h: 28: int amb_blue;
+[v _amb_blue `i ~T0 @X0 1 e ]
+"29
+[; ;./color.h: 29: int amb_clear;
+[v _amb_clear `i ~T0 @X0 1 e ]
+"30
+[; ;./color.h: 30: int upperThreshold = 2500;
+[v _upperThreshold `i ~T0 @X0 1 e ]
+[i _upperThreshold
+-> 2500 `i
+]
+"31
+[; ;./color.h: 31: int lowerThreshold = 0;
+[v _lowerThreshold `i ~T0 @X0 1 e ]
+[i _lowerThreshold
 -> 0 `i
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
@@ -2214,131 +2248,126 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26
 [; ;main.c: 26:     char buf[100];
 [v _buf `uc ~T0 @X0 -> 100 `i a ]
-"27
-[; ;main.c: 27:         int upperThreshold = 3000;
-[v _upperThreshold `i ~T0 @X0 1 a ]
-[e = _upperThreshold -> 3000 `i ]
 "28
-[; ;main.c: 28:     int lowerThreshold = 0;
-[v _lowerThreshold `i ~T0 @X0 1 a ]
-[e = _lowerThreshold -> 0 `i ]
-"30
-[; ;main.c: 30:     color_click_init();
+[; ;main.c: 28:     color_click_init();
 [e ( _color_click_init ..  ]
-"32
-[; ;main.c: 32:     Interrupts_init();
+"30
+[; ;main.c: 30:     Interrupts_init();
 [e ( _Interrupts_init ..  ]
-"33
-[; ;main.c: 33:     Color_Interrupts_init();
+"31
+[; ;main.c: 31:     Color_Interrupts_init();
 [e ( _Color_Interrupts_init ..  ]
-"34
-[; ;main.c: 34:     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
+"32
+[; ;main.c: 32:     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
 [e ( _Color_Interrupts_threshold (2 , -> _upperThreshold `ui -> _lowerThreshold `ui ]
-"35
-[; ;main.c: 35:     persistence_register();
+"33
+[; ;main.c: 33:     persistence_register();
 [e ( _persistence_register ..  ]
-"37
-[; ;main.c: 37:     initDCmotorsPWM(200);
+"35
+[; ;main.c: 35:     initDCmotorsPWM(200);
 [e ( _initDCmotorsPWM (1 -> -> 200 `i `ui ]
-"38
-[; ;main.c: 38:     DC_motor mL, mR;
+"36
+[; ;main.c: 36:     DC_motor mL, mR;
 [v _mL `S2020 ~T0 @X0 1 a ]
 [v _mR `S2020 ~T0 @X0 1 a ]
-"39
-[; ;main.c: 39:     motorLinit(&mL);
+"37
+[; ;main.c: 37:     motorLinit(&mL);
 [e ( _motorLinit (1 &U _mL ]
-"40
-[; ;main.c: 40:     motorRinit(&mR);
+"38
+[; ;main.c: 38:     motorRinit(&mR);
 [e ( _motorRinit (1 &U _mR ]
-"42
-[; ;main.c: 42:     TRISEbits.TRISE2 = 0;
+"40
+[; ;main.c: 40:     TRISEbits.TRISE2 = 0;
 [e = . . _TRISEbits 0 2 -> -> 0 `i `uc ]
-"43
-[; ;main.c: 43:     TRISEbits.TRISE4 = 0;
+"41
+[; ;main.c: 41:     TRISEbits.TRISE4 = 0;
 [e = . . _TRISEbits 0 4 -> -> 0 `i `uc ]
-"44
-[; ;main.c: 44:     TRISCbits.TRISC7 = 0;
+"42
+[; ;main.c: 42:     TRISCbits.TRISC7 = 0;
 [e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
-"45
-[; ;main.c: 45:     TRISGbits.TRISG6 = 0;
+"43
+[; ;main.c: 43:     TRISGbits.TRISG6 = 0;
 [e = . . _TRISGbits 0 6 -> -> 0 `i `uc ]
-"46
-[; ;main.c: 46:     TRISDbits.TRISD7 = 0;
+"44
+[; ;main.c: 44:     TRISDbits.TRISD7 = 0;
 [e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
-"47
-[; ;main.c: 47:     LATDbits.LATD7 = 0;
+"45
+[; ;main.c: 45:     LATDbits.LATD7 = 0;
 [e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-"48
-[; ;main.c: 48:     TRISHbits.TRISH3 = 0;
+"46
+[; ;main.c: 46:     TRISHbits.TRISH3 = 0;
 [e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
-"49
-[; ;main.c: 49:     LATHbits.LATH3 = 0;
+"47
+[; ;main.c: 47:     LATHbits.LATH3 = 0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+"49
+[; ;main.c: 49:     int amb_red = color_read_Red();
+[v _amb_red `i ~T0 @X0 1 a ]
+[e = _amb_red -> ( _color_read_Red ..  `i ]
 "50
-[; ;main.c: 50:    while (1) {
+[; ;main.c: 50:     int amb_green = color_read_Blue();
+[v _amb_green `i ~T0 @X0 1 a ]
+[e = _amb_green -> ( _color_read_Blue ..  `i ]
+"51
+[; ;main.c: 51:     int amb_blue = color_read_Green();
+[v _amb_blue `i ~T0 @X0 1 a ]
+[e = _amb_blue -> ( _color_read_Green ..  `i ]
+"52
+[; ;main.c: 52:     int amb_clear = color_read_Clear();
+[v _amb_clear `i ~T0 @X0 1 a ]
+[e = _amb_clear -> ( _color_read_Clear ..  `i ]
+"54
+[; ;main.c: 54:    while (1) {
 [e :U 2023 ]
 {
-"52
-[; ;main.c: 52:         fullSpeedAhead(&mL, &mR);
+"56
+[; ;main.c: 56:         fullSpeedAhead(&mL, &mR);
 [e ( _fullSpeedAhead (2 , &U _mL &U _mR ]
-"54
-[; ;main.c: 54:         LATHbits.LATH3 = 1;
+"58
+[; ;main.c: 58:         LATHbits.LATH3 = 1;
 [e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"55
-[; ;main.c: 55:         if (interrupt_flag == 1 ) {
+"59
+[; ;main.c: 59:         if (interrupt_flag == 1 ) {
 [e $ ! == _interrupt_flag -> 1 `i 2025  ]
 {
-"57
-[; ;main.c: 57:             norm_stop(&mL, &mR);
-[e ( _norm_stop (2 , &U _mL &U _mR ]
-"58
-[; ;main.c: 58:             _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"59
-[; ;main.c: 59:             LATDbits.LATD7 = 0;
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-"60
-[; ;main.c: 60:             color_read_RGBC(&RGBC);
-[e ( _color_read_RGBC (1 &U _RGBC ]
 "61
-[; ;main.c: 61:             if(motor_return=0){
-[e $ ! != -> = _motor_return -> -> 0 `i `uc `i -> 0 `i 2026  ]
-{
+[; ;main.c: 61:             norm_stop(&mL, &mR);
+[e ( _norm_stop (2 , &U _mL &U _mR ]
 "62
-[; ;main.c: 62:                 buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
-[e = *U + &U _buggy_path * -> -> _ctr `ui `ux -> -> # *U &U _buggy_path `ui `ux ( _motor_response (3 , , &U _RGBC -> &U _mL `*S2018 -> &U _mR `*S2018 ]
+[; ;main.c: 62:             _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"63
+[; ;main.c: 63:             LATDbits.LATD7 = 0;
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
 "64
-[; ;main.c: 64:             }
-}
-[e $U 2027  ]
+[; ;main.c: 64:             color_read_RGBC(&RGBC);
+[e ( _color_read_RGBC (1 &U _RGBC ]
 "65
-[; ;main.c: 65:             else{
-[e :U 2026 ]
-{
+[; ;main.c: 65:             color_normalise(&RGBC);
+[e ( _color_normalise (1 &U _RGBC ]
 "66
-[; ;main.c: 66:                 motor_retrace(&buggy_path, &mL, &mR);
-[e ( _motor_retrace (3 , , -> &U _buggy_path `*uc -> &U _mL `*S2019 -> &U _mR `*S2019 ]
-"68
-[; ;main.c: 68:             }
-}
-[e :U 2027 ]
-"70
-[; ;main.c: 70:             LATHbits.LATH3 = 0;
+[; ;main.c: 66:             buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
+[e = *U + &U _buggy_path * -> -> _ctr `ui `ux -> -> # *U &U _buggy_path `ui `ux ( _motor_response (3 , , &U _RGBC -> &U _mL `*S2018 -> &U _mR `*S2018 ]
+"67
+[; ;main.c: 67:             ctr++;
+[e ++ _ctr -> 1 `i ]
+"75
+[; ;main.c: 75:             LATHbits.LATH3 = 0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"71
-[; ;main.c: 71:             interrupt_flag = 0;
+"76
+[; ;main.c: 76:             interrupt_flag = 0;
 [e = _interrupt_flag -> 0 `i ]
-"83
-[; ;main.c: 83:    }
+"88
+[; ;main.c: 88:    }
 }
 [e :U 2025 ]
-"84
-[; ;main.c: 84: }
+"89
+[; ;main.c: 89: }
 }
 [e :U 2022 ]
 [e $U 2023  ]
 [e :U 2024 ]
-"85
-[; ;main.c: 85: }
+"90
+[; ;main.c: 90: }
 [e :UE 2021 ]
 }

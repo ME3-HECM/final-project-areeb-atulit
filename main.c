@@ -24,11 +24,9 @@ void main() {
     tricolorLED();
     RGBC_val RGBC; //initialise object of struct RGBC_val
     char buf[100]; //buffer to store rbgc values
-    int upperThreshold = 3000;
-    int lowerThreshold = 0;
     //initialisations
     color_click_init();
-    
+       
     Interrupts_init();
     Color_Interrupts_init();
     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
@@ -47,6 +45,12 @@ void main() {
     LATDbits.LATD7 = 0;
     TRISHbits.TRISH3 = 0;
     LATHbits.LATH3 = 0;
+    
+    int amb_red = color_read_Red();
+    int amb_green = color_read_Blue();
+    int amb_blue = color_read_Green();
+    int amb_clear = color_read_Clear();
+
    while (1) {
         
         fullSpeedAhead(&mL, &mR);
@@ -58,14 +62,15 @@ void main() {
             __delay_ms(1000);
             LATDbits.LATD7 = 0;
             color_read_RGBC(&RGBC);
-            if(motor_return=0){
-                buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
-                
-            }
-            else{
-                motor_retrace(&buggy_path, &mL, &mR);
-                
-            }
+            color_normalise(&RGBC);
+            buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
+            ctr++;
+//            if(motor_return=0){
+//                buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
+//            }
+//            else{
+//                motor_retrace(&buggy_path, &mL, &mR); 
+//            }
    
             LATHbits.LATH3 = 0;
             interrupt_flag = 0;
@@ -97,8 +102,8 @@ void main() {
     color_click_init();
     
     while(1) {
-        
         color_read_RGBC(&RGBC);
+        color_normalise(&RGBC);
         LATHbits.LATH3 = !LATHbits.LATH3;
         __delay_ms(500);
         colorVal2String(buf, &RGBC);

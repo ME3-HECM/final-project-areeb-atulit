@@ -24509,20 +24509,26 @@ void norm_stop(DC_motor *mL, DC_motor *mR);
 
 
 typedef struct RGBC_val {
- unsigned int R;
- unsigned int G;
- unsigned int B;
-    unsigned int C;
-    unsigned int norm_R;
-    unsigned int norm_G;
-    unsigned int norm_B;
+ float R;
+ float G;
+ float B;
+    float C;
+    float norm_R;
+    float norm_G;
+    float norm_B;
+    float norm_C;
 } RGBC_val;
 
 
 char motor_return = 0;
 char buggy_path[15];
 signed int ctr = 0;
-
+int amb_red;
+int amb_green;
+int amb_blue;
+int amb_clear;
+int upperThreshold = 2500;
+int lowerThreshold = 0;
 
 
 
@@ -24646,11 +24652,14 @@ void color_read_RGBC(struct RGBC_val *temp){
 }
 void color_normalise(struct RGBC_val *RGBC){
     RGBC->norm_R = RGBC->C / RGBC->R;
+
     RGBC->norm_G = RGBC->C / RGBC->G;
     RGBC->norm_B = RGBC->C / RGBC->B;
+    RGBC->norm_C = RGBC->C / amb_clear;
 }
 char colorVal2String(char *buf,struct RGBC_val *temp) {
-    sprintf(buf,"RGBC:%i %i %i %i\n",temp->R, temp->G, temp->B, temp->C);
+    sprintf(buf,"RGBC:%i %i %i %i %i\n",temp->R, temp->G, temp->B, temp->C, temp->norm_R);
+
     return buf;
 }
 
@@ -24669,7 +24678,7 @@ void tricolorLED(void) {
 }
 
 char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
-    if (temp->R > 8000 && temp->G < 2000 && temp->B < 2000) {
+    if (temp->norm_G >8) {
         for (int j = 0; j <= 15; j++) {
             turnRight(mL, mR);
             _delay((unsigned long)((30)*(64000000/4000.0)));
@@ -24678,64 +24687,25 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
         }
         return 1;
     }
-    else if (temp->R > 3000 && temp->G > 3000) {
+    else if (temp->norm_B > 4.5 && temp->norm_B < 5.2) {
         for (int j = 0; j <= 15; j++) {
             turnLeft(mL, mR);
             _delay((unsigned long)((30)*(64000000/4000.0)));
             norm_stop(mL, mR);
             _delay((unsigned long)((30)*(64000000/4000.0)));
         }
+        return 2;
     }
-    else if (temp->R > 1000) {
+    else if (temp->norm_B > 2.8 && temp->norm_B < 3.2 && temp->norm_R > 2.8 && temp->norm_R < 3.2 && temp->norm_G > 2.8 && temp->norm_G < 3.2) {
         for (int j = 0; j <= 29; j++) {
             turnLeft(mL, mR);
             _delay((unsigned long)((30)*(64000000/4000.0)));
             norm_stop(mL, mR);
             _delay((unsigned long)((30)*(64000000/4000.0)));
         }
+        return 3;
     }
-    else if (temp->R > 12000 && temp->G > 7000 && temp->B < 4500) {
-        reverse(mL, mR);
-        _delay((unsigned long)((50)*(64000000/4000.0)));
-        norm_stop(mL, mR);
-        _delay((unsigned long)((100)*(64000000/4000.0)));
-        for (int j = 0; j <= 16; j++) {
-            turnRight(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-    }
-    else if (temp->R > 10000 && temp->G > 7000 && temp->C > 20000 && temp->C < 22000) {
-        reverse(mL, mR);
-        _delay((unsigned long)((10)*(64000000/4000.0)));
-        norm_stop(mL, mR);
-        _delay((unsigned long)((300)*(64000000/4000.0)));
-        for (int j = 0; j <= 12; j++) {
-            turnLeft(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-    }
-    else if (temp->R > 9000 && temp->R < 9500 && temp->G > 7000 && temp->C > 13000 && temp->C < 15000) {
-        for (int j = 0; j <= 23; j++) {
-            turnRight(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-    }
-    else if ( temp->G >3500 && temp->B > 4000 && temp->R < 4500) {
-        for (int j = 0; j <= 20; j++) {
-            turnLeft(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-    }
-    ctr++;
-
+# 201 "color.c"
 }
 
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR) {

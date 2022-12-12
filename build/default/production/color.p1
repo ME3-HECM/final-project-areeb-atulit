@@ -2,8 +2,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./i2c.h
 [; ;./i2c.h: 13: void I2C_2_Master_Init(void);
 [v _I2C_2_Master_Init `(v ~T0 @X0 0 ef ]
-"36 ./color.h
-[; ;./color.h: 36: void color_writetoaddr(char address, char value);
+"42 ./color.h
+[; ;./color.h: 42: void color_writetoaddr(char address, char value);
 [v _color_writetoaddr `(v ~T0 @X0 0 ef2`uc`uc ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
@@ -29,8 +29,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _sendStringSerial4 `(v ~T0 @X0 0 ef1`*uc ]
 "11 ./color.h
 [; ;./color.h: 11: typedef struct RGBC_val {
-[s S2018 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S2018 RGBC_val R G B C norm_R norm_G norm_B ]
+[s S2018 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 ]
+[n S2018 RGBC_val R G B C norm_R norm_G norm_B norm_C ]
 "109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
@@ -2170,19 +2170,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _interrupt_ctr
 -> 0 `i
 ]
-"22 ./color.h
-[; ;./color.h: 22: char motor_return = 0;
+"23 ./color.h
+[; ;./color.h: 23: char motor_return = 0;
 [v _motor_return `uc ~T0 @X0 1 e ]
 [i _motor_return
 -> -> 0 `i `uc
 ]
-"23
-[; ;./color.h: 23: char buggy_path[15];
-[v _buggy_path `uc ~T0 @X0 -> 15 `i e ]
 "24
-[; ;./color.h: 24: signed int ctr = 0;
+[; ;./color.h: 24: char buggy_path[15];
+[v _buggy_path `uc ~T0 @X0 -> 15 `i e ]
+"25
+[; ;./color.h: 25: signed int ctr = 0;
 [v _ctr `i ~T0 @X0 1 e ]
 [i _ctr
+-> 0 `i
+]
+"26
+[; ;./color.h: 26: int amb_red;
+[v _amb_red `i ~T0 @X0 1 e ]
+"27
+[; ;./color.h: 27: int amb_green;
+[v _amb_green `i ~T0 @X0 1 e ]
+"28
+[; ;./color.h: 28: int amb_blue;
+[v _amb_blue `i ~T0 @X0 1 e ]
+"29
+[; ;./color.h: 29: int amb_clear;
+[v _amb_clear `i ~T0 @X0 1 e ]
+"30
+[; ;./color.h: 30: int upperThreshold = 2500;
+[v _upperThreshold `i ~T0 @X0 1 e ]
+[i _upperThreshold
+-> 2500 `i
+]
+"31
+[; ;./color.h: 31: int lowerThreshold = 0;
+[v _lowerThreshold `i ~T0 @X0 1 e ]
+[i _lowerThreshold
 -> 0 `i
 ]
 "11 color.c
@@ -2437,16 +2461,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "95
 [; ;color.c: 95:     temp->R = color_read_Red();
-[e = . *U _temp 0 ( _color_read_Red ..  ]
+[e = . *U _temp 0 -> ( _color_read_Red ..  `f ]
 "96
 [; ;color.c: 96:     temp->B = color_read_Blue();
-[e = . *U _temp 2 ( _color_read_Blue ..  ]
+[e = . *U _temp 2 -> ( _color_read_Blue ..  `f ]
 "97
 [; ;color.c: 97:     temp->G = color_read_Green();
-[e = . *U _temp 1 ( _color_read_Green ..  ]
+[e = . *U _temp 1 -> ( _color_read_Green ..  `f ]
 "98
 [; ;color.c: 98:     temp->C = color_read_Clear();
-[e = . *U _temp 3 ( _color_read_Clear ..  ]
+[e = . *U _temp 3 -> ( _color_read_Clear ..  `f ]
 "99
 [; ;color.c: 99: }
 [e :UE 2026 ]
@@ -2461,77 +2485,80 @@ Version 4.0 HI-TECH Software Intermediate Code
 "101
 [; ;color.c: 101:     RGBC->norm_R = RGBC->C / RGBC->R;
 [e = . *U _RGBC 4 / . *U _RGBC 3 . *U _RGBC 0 ]
-"102
-[; ;color.c: 102:     RGBC->norm_G = RGBC->C / RGBC->G;
-[e = . *U _RGBC 5 / . *U _RGBC 3 . *U _RGBC 1 ]
 "103
-[; ;color.c: 103:     RGBC->norm_B = RGBC->C / RGBC->B;
-[e = . *U _RGBC 6 / . *U _RGBC 3 . *U _RGBC 2 ]
+[; ;color.c: 103:     RGBC->norm_G = RGBC->C / RGBC->G;
+[e = . *U _RGBC 5 / . *U _RGBC 3 . *U _RGBC 1 ]
 "104
-[; ;color.c: 104: }
+[; ;color.c: 104:     RGBC->norm_B = RGBC->C / RGBC->B;
+[e = . *U _RGBC 6 / . *U _RGBC 3 . *U _RGBC 2 ]
+"105
+[; ;color.c: 105:     RGBC->norm_C = RGBC->C / amb_clear;
+[e = . *U _RGBC 7 / . *U _RGBC 3 -> _amb_clear `f ]
+"106
+[; ;color.c: 106: }
 [e :UE 2027 ]
 }
-"105
-[; ;color.c: 105: char colorVal2String(char *buf,struct RGBC_val *temp) {
+"107
+[; ;color.c: 107: char colorVal2String(char *buf,struct RGBC_val *temp) {
 [v _colorVal2String `(uc ~T0 @X0 1 ef2`*uc`*S2018 ]
 {
 [e :U _colorVal2String ]
 [v _buf `*uc ~T0 @X0 1 r1 ]
 [v _temp `*S2018 ~T0 @X0 1 r2 ]
 [f ]
-"106
-[; ;color.c: 106:     sprintf(buf,"RGBC:%i %i %i %i\n",temp->R, temp->G, temp->B, temp->C);
-[e ( _sprintf (1 , , , , (. , _buf :s 1C . *U _temp 0 . *U _temp 1 . *U _temp 2 . *U _temp 3 ]
-"107
-[; ;color.c: 107:     return buf;
+"108
+[; ;color.c: 108:     sprintf(buf,"RGBC:%i %i %i %i %i\n",temp->R, temp->G, temp->B, temp->C, temp->norm_R);
+[e ( _sprintf (1 , , , , , (. , _buf :s 1C -> . *U _temp 0 `d -> . *U _temp 1 `d -> . *U _temp 2 `d -> . *U _temp 3 `d -> . *U _temp 4 `d ]
+"110
+[; ;color.c: 110:     return buf;
 [e ) -> _buf `uc ]
 [e $UE 2028  ]
-"108
-[; ;color.c: 108: }
+"111
+[; ;color.c: 111: }
 [e :UE 2028 ]
 }
-"110
-[; ;color.c: 110: void tricolorLED(void) {
+"113
+[; ;color.c: 113: void tricolorLED(void) {
 [v _tricolorLED `(v ~T0 @X0 1 ef ]
 {
 [e :U _tricolorLED ]
 [f ]
-"112
-[; ;color.c: 112:     TRISGbits.TRISG0 = 0;
-[e = . . _TRISGbits 0 0 -> -> 0 `i `uc ]
-"113
-[; ;color.c: 113:     LATGbits.LATG0 = 1;
-[e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
-"114
-[; ;color.c: 114:     TRISAbits.TRISA4 = 0;
-[e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
 "115
-[; ;color.c: 115:     LATAbits.LATA4 = 1;
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+[; ;color.c: 115:     TRISGbits.TRISG0 = 0;
+[e = . . _TRISGbits 0 0 -> -> 0 `i `uc ]
 "116
-[; ;color.c: 116:     TRISFbits.TRISF7 = 0;
-[e = . . _TRISFbits 0 7 -> -> 0 `i `uc ]
+[; ;color.c: 116:     LATGbits.LATG0 = 1;
+[e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
 "117
-[; ;color.c: 117:     LATFbits.LATF7 = 1;
-[e = . . _LATFbits 0 7 -> -> 1 `i `uc ]
+[; ;color.c: 117:     TRISAbits.TRISA4 = 0;
+[e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
 "118
-[; ;color.c: 118:     TRISAbits.TRISA3 = 0;
-[e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
+[; ;color.c: 118:     LATAbits.LATA4 = 1;
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
 "119
-[; ;color.c: 119:     LATAbits.LATA3 = 1;
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+[; ;color.c: 119:     TRISFbits.TRISF7 = 0;
+[e = . . _TRISFbits 0 7 -> -> 0 `i `uc ]
 "120
-[; ;color.c: 120:     TRISEbits.TRISE7 = 0;
-[e = . . _TRISEbits 0 7 -> -> 0 `i `uc ]
+[; ;color.c: 120:     LATFbits.LATF7 = 1;
+[e = . . _LATFbits 0 7 -> -> 1 `i `uc ]
 "121
-[; ;color.c: 121:     LATEbits.LATE7 = 1;
-[e = . . _LATEbits 0 7 -> -> 1 `i `uc ]
+[; ;color.c: 121:     TRISAbits.TRISA3 = 0;
+[e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
 "122
-[; ;color.c: 122: }
+[; ;color.c: 122:     LATAbits.LATA3 = 1;
+[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+"123
+[; ;color.c: 123:     TRISEbits.TRISE7 = 0;
+[e = . . _TRISEbits 0 7 -> -> 0 `i `uc ]
+"124
+[; ;color.c: 124:     LATEbits.LATE7 = 1;
+[e = . . _LATEbits 0 7 -> -> 1 `i `uc ]
+"125
+[; ;color.c: 125: }
 [e :UE 2029 ]
 }
-"124
-[; ;color.c: 124: char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
+"127
+[; ;color.c: 127: char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
 [v _motor_response `(uc ~T0 @X0 1 ef3`*S2018`*S2017`*S2017 ]
 {
 [e :U _motor_response ]
@@ -2539,12 +2566,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _mL `*S2017 ~T0 @X0 1 r2 ]
 [v _mR `*S2017 ~T0 @X0 1 r3 ]
 [f ]
-"125
-[; ;color.c: 125:     if (temp->R > 8000 && temp->G < 2000 && temp->B < 2000) {
-[e $ ! && && > . *U _temp 0 -> -> 8000 `i `ui < . *U _temp 1 -> -> 2000 `i `ui < . *U _temp 2 -> -> 2000 `i `ui 2031  ]
+"128
+[; ;color.c: 128:     if (temp->norm_G >8) {
+[e $ ! > . *U _temp 5 -> -> 8 `i `f 2031  ]
 {
-"126
-[; ;color.c: 126:         for (int j = 0; j <= 15; j++) {
+"129
+[; ;color.c: 129:         for (int j = 0; j <= 15; j++) {
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
@@ -2552,40 +2579,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2033  ]
 [e :U 2032 ]
 {
-"127
-[; ;color.c: 127:             turnRight(mL, mR);
-[e ( _turnRight (2 , _mL _mR ]
-"128
-[; ;color.c: 128:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"129
-[; ;color.c: 129:             norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
 "130
-[; ;color.c: 130:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 130:             turnRight(mL, mR);
+[e ( _turnRight (2 , _mL _mR ]
 "131
-[; ;color.c: 131:         }
+[; ;color.c: 131:             _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"132
+[; ;color.c: 132:             norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
+"133
+[; ;color.c: 133:             _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"134
+[; ;color.c: 134:         }
 }
 [e ++ _j -> 1 `i ]
 [e $ <= _j -> 15 `i 2032  ]
 [e :U 2033 ]
 }
-"132
-[; ;color.c: 132:         return 1;
+"135
+[; ;color.c: 135:         return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 2030  ]
-"133
-[; ;color.c: 133:     }
+"136
+[; ;color.c: 136:     }
 }
 [e $U 2035  ]
-"134
-[; ;color.c: 134:     else if (temp->R > 3000 && temp->G > 3000) {
+"137
+[; ;color.c: 137:     else if (temp->norm_B > 4.5 && temp->norm_B < 5.2) {
 [e :U 2031 ]
-[e $ ! && > . *U _temp 0 -> -> 3000 `i `ui > . *U _temp 1 -> -> 3000 `i `ui 2036  ]
+[e $ ! && > -> . *U _temp 6 `d .4.5 < -> . *U _temp 6 `d .5.2 2036  ]
 {
-"135
-[; ;color.c: 135:         for (int j = 0; j <= 15; j++) {
+"138
+[; ;color.c: 138:         for (int j = 0; j <= 15; j++) {
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
@@ -2593,36 +2620,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2038  ]
 [e :U 2037 ]
 {
-"136
-[; ;color.c: 136:             turnLeft(mL, mR);
-[e ( _turnLeft (2 , _mL _mR ]
-"137
-[; ;color.c: 137:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"138
-[; ;color.c: 138:             norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
 "139
-[; ;color.c: 139:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 139:             turnLeft(mL, mR);
+[e ( _turnLeft (2 , _mL _mR ]
 "140
-[; ;color.c: 140:         }
+[; ;color.c: 140:             _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"141
+[; ;color.c: 141:             norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
+"142
+[; ;color.c: 142:             _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"143
+[; ;color.c: 143:         }
 }
 [e ++ _j -> 1 `i ]
 [e $ <= _j -> 15 `i 2037  ]
 [e :U 2038 ]
 }
-"141
-[; ;color.c: 141:     }
+"144
+[; ;color.c: 144:         return 2;
+[e ) -> -> 2 `i `uc ]
+[e $UE 2030  ]
+"145
+[; ;color.c: 145:     }
 }
 [e $U 2040  ]
-"142
-[; ;color.c: 142:     else if (temp->R > 1000) {
+"146
+[; ;color.c: 146:     else if (temp->norm_B > 2.8 && temp->norm_B < 3.2 && temp->norm_R > 2.8 && temp->norm_R < 3.2 && temp->norm_G > 2.8 && temp->norm_G < 3.2) {
 [e :U 2036 ]
-[e $ ! > . *U _temp 0 -> -> 1000 `i `ui 2041  ]
+[e $ ! && && && && && > -> . *U _temp 6 `d .2.8 < -> . *U _temp 6 `d .3.2 > -> . *U _temp 4 `d .2.8 < -> . *U _temp 4 `d .3.2 > -> . *U _temp 5 `d .2.8 < -> . *U _temp 5 `d .3.2 2041  ]
 {
-"143
-[; ;color.c: 143:         for (int j = 0; j <= 29; j++) {
+"147
+[; ;color.c: 147:         for (int j = 0; j <= 29; j++) {
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
@@ -2630,216 +2661,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2043  ]
 [e :U 2042 ]
 {
-"144
-[; ;color.c: 144:             turnLeft(mL, mR);
-[e ( _turnLeft (2 , _mL _mR ]
-"145
-[; ;color.c: 145:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"146
-[; ;color.c: 146:             norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
-"147
-[; ;color.c: 147:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "148
-[; ;color.c: 148:         }
+[; ;color.c: 148:             turnLeft(mL, mR);
+[e ( _turnLeft (2 , _mL _mR ]
+"149
+[; ;color.c: 149:             _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"150
+[; ;color.c: 150:             norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
+"151
+[; ;color.c: 151:             _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"152
+[; ;color.c: 152:         }
 }
 [e ++ _j -> 1 `i ]
 [e $ <= _j -> 29 `i 2042  ]
 [e :U 2043 ]
 }
-"149
-[; ;color.c: 149:     }
-}
-[e $U 2045  ]
-"150
-[; ;color.c: 150:     else if (temp->R > 12000 && temp->G > 7000 && temp->B < 4500) {
-[e :U 2041 ]
-[e $ ! && && > . *U _temp 0 -> -> 12000 `i `ui > . *U _temp 1 -> -> 7000 `i `ui < . *U _temp 2 -> -> 4500 `i `ui 2046  ]
-{
-"151
-[; ;color.c: 151:         reverse(mL, mR);
-[e ( _reverse (2 , _mL _mR ]
-"152
-[; ;color.c: 152:         _delay((unsigned long)((50)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "153
-[; ;color.c: 153:         norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
+[; ;color.c: 153:         return 3;
+[e ) -> -> 3 `i `uc ]
+[e $UE 2030  ]
 "154
-[; ;color.c: 154:         _delay((unsigned long)((100)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"155
-[; ;color.c: 155:         for (int j = 0; j <= 16; j++) {
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ <= _j -> 16 `i 2047  ]
-[e $U 2048  ]
-[e :U 2047 ]
-{
-"156
-[; ;color.c: 156:             turnRight(mL, mR);
-[e ( _turnRight (2 , _mL _mR ]
-"157
-[; ;color.c: 157:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"158
-[; ;color.c: 158:             norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
-"159
-[; ;color.c: 159:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"160
-[; ;color.c: 160:         }
+[; ;color.c: 154:     }
 }
-[e ++ _j -> 1 `i ]
-[e $ <= _j -> 16 `i 2047  ]
-[e :U 2048 ]
-}
-"161
-[; ;color.c: 161:     }
-}
-[e $U 2050  ]
-"162
-[; ;color.c: 162:     else if (temp->R > 10000 && temp->G > 7000 && temp->C > 20000 && temp->C < 22000) {
-[e :U 2046 ]
-[e $ ! && && && > . *U _temp 0 -> -> 10000 `i `ui > . *U _temp 1 -> -> 7000 `i `ui > . *U _temp 3 -> -> 20000 `i `ui < . *U _temp 3 -> -> 22000 `i `ui 2051  ]
-{
-"163
-[; ;color.c: 163:         reverse(mL, mR);
-[e ( _reverse (2 , _mL _mR ]
-"164
-[; ;color.c: 164:         _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"165
-[; ;color.c: 165:         norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
-"166
-[; ;color.c: 166:         _delay((unsigned long)((300)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"167
-[; ;color.c: 167:         for (int j = 0; j <= 12; j++) {
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ <= _j -> 12 `i 2052  ]
-[e $U 2053  ]
-[e :U 2052 ]
-{
-"168
-[; ;color.c: 168:             turnLeft(mL, mR);
-[e ( _turnLeft (2 , _mL _mR ]
-"169
-[; ;color.c: 169:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"170
-[; ;color.c: 170:             norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
-"171
-[; ;color.c: 171:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"172
-[; ;color.c: 172:         }
-}
-[e ++ _j -> 1 `i ]
-[e $ <= _j -> 12 `i 2052  ]
-[e :U 2053 ]
-}
-"173
-[; ;color.c: 173:     }
-}
-[e $U 2055  ]
-"174
-[; ;color.c: 174:     else if (temp->R > 9000 && temp->R < 9500 && temp->G > 7000 && temp->C > 13000 && temp->C < 15000) {
-[e :U 2051 ]
-[e $ ! && && && && > . *U _temp 0 -> -> 9000 `i `ui < . *U _temp 0 -> -> 9500 `i `ui > . *U _temp 1 -> -> 7000 `i `ui > . *U _temp 3 -> -> 13000 `i `ui < . *U _temp 3 -> -> 15000 `i `ui 2056  ]
-{
-"175
-[; ;color.c: 175:         for (int j = 0; j <= 23; j++) {
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ <= _j -> 23 `i 2057  ]
-[e $U 2058  ]
-[e :U 2057 ]
-{
-"176
-[; ;color.c: 176:             turnRight(mL, mR);
-[e ( _turnRight (2 , _mL _mR ]
-"177
-[; ;color.c: 177:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"178
-[; ;color.c: 178:             norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
-"179
-[; ;color.c: 179:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"180
-[; ;color.c: 180:         }
-}
-[e ++ _j -> 1 `i ]
-[e $ <= _j -> 23 `i 2057  ]
-[e :U 2058 ]
-}
-"181
-[; ;color.c: 181:     }
-}
-[e $U 2060  ]
-"182
-[; ;color.c: 182:     else if ( temp->G >3500 && temp->B > 4000 && temp->R < 4500) {
-[e :U 2056 ]
-[e $ ! && && > . *U _temp 1 -> -> 3500 `i `ui > . *U _temp 2 -> -> 4000 `i `ui < . *U _temp 0 -> -> 4500 `i `ui 2061  ]
-{
-"183
-[; ;color.c: 183:         for (int j = 0; j <= 20; j++) {
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ <= _j -> 20 `i 2062  ]
-[e $U 2063  ]
-[e :U 2062 ]
-{
-"184
-[; ;color.c: 184:             turnLeft(mL, mR);
-[e ( _turnLeft (2 , _mL _mR ]
-"185
-[; ;color.c: 185:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"186
-[; ;color.c: 186:             norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
-"187
-[; ;color.c: 187:             _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"188
-[; ;color.c: 188:         }
-}
-[e ++ _j -> 1 `i ]
-[e $ <= _j -> 20 `i 2062  ]
-[e :U 2063 ]
-}
-"189
-[; ;color.c: 189:     }
-}
-[e :U 2061 ]
-[e :U 2060 ]
-[e :U 2055 ]
-[e :U 2050 ]
-[e :U 2045 ]
+[e :U 2041 ]
 [e :U 2040 ]
 [e :U 2035 ]
-"190
-[; ;color.c: 190:     ctr++;
-[e ++ _ctr -> 1 `i ]
-"192
-[; ;color.c: 192: }
+"201
+[; ;color.c: 201: }
 [e :UE 2030 ]
 }
-"194
-[; ;color.c: 194: void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR) {
+"203
+[; ;color.c: 203: void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR) {
 [v _motor_retrace `(v ~T0 @X0 1 ef3`*uc`*S2017`*S2017 ]
 {
 [e :U _motor_retrace ]
@@ -2847,311 +2703,311 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _mL `*S2017 ~T0 @X0 1 r2 ]
 [v _mR `*S2017 ~T0 @X0 1 r3 ]
 [f ]
-"195
-[; ;color.c: 195:     if (buggy_path[ctr]==1) {
-[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 1 `i 2066  ]
-{
-"196
-[; ;color.c: 196:      for (int j = 0; j <= 15; j++) {
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ <= _j -> 15 `i 2067  ]
-[e $U 2068  ]
-[e :U 2067 ]
-{
-"197
-[; ;color.c: 197:          turnLeft(mL, mR);
-[e ( _turnLeft (2 , _mL _mR ]
-"198
-[; ;color.c: 198:          _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"199
-[; ;color.c: 199:          norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
-"200
-[; ;color.c: 200:          _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"201
-[; ;color.c: 201:      }
-}
-[e ++ _j -> 1 `i ]
-[e $ <= _j -> 15 `i 2067  ]
-[e :U 2068 ]
-}
-"202
-[; ;color.c: 202:     }
-}
-[e $U 2070  ]
-"203
-[; ;color.c: 203:     else if (buggy_path[ctr]==2) {
-[e :U 2066 ]
-[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 2 `i 2071  ]
-{
 "204
-[; ;color.c: 204:     for (int j = 0; j <= 15; j++) {
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ <= _j -> 15 `i 2072  ]
-[e $U 2073  ]
-[e :U 2072 ]
+[; ;color.c: 204:     if (buggy_path[ctr]==1) {
+[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 1 `i 2046  ]
 {
 "205
-[; ;color.c: 205:         turnRight(mL, mR);
-[e ( _turnRight (2 , _mL _mR ]
-"206
-[; ;color.c: 206:         _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"207
-[; ;color.c: 207:         norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
-"208
-[; ;color.c: 208:         _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"209
-[; ;color.c: 209:     }
-}
-[e ++ _j -> 1 `i ]
-[e $ <= _j -> 15 `i 2072  ]
-[e :U 2073 ]
-}
-"210
-[; ;color.c: 210:     }
-}
-[e $U 2075  ]
-"211
-[; ;color.c: 211:     else if (buggy_path[ctr]==3) {
-[e :U 2071 ]
-[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 3 `i 2076  ]
-{
-"212
-[; ;color.c: 212:      for (int j = 0; j <= 29; j++) {
+[; ;color.c: 205:      for (int j = 0; j <= 15; j++) {
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ <= _j -> 29 `i 2077  ]
-[e $U 2078  ]
-[e :U 2077 ]
+[e $ <= _j -> 15 `i 2047  ]
+[e $U 2048  ]
+[e :U 2047 ]
 {
-"213
-[; ;color.c: 213:          turnRight(mL, mR);
-[e ( _turnRight (2 , _mL _mR ]
-"214
-[; ;color.c: 214:          _delay((unsigned long)((30)*(64000000/4000.0)));
+"206
+[; ;color.c: 206:          turnLeft(mL, mR);
+[e ( _turnLeft (2 , _mL _mR ]
+"207
+[; ;color.c: 207:          _delay((unsigned long)((30)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"215
-[; ;color.c: 215:          norm_stop(mL, mR);
+"208
+[; ;color.c: 208:          norm_stop(mL, mR);
 [e ( _norm_stop (2 , _mL _mR ]
-"216
-[; ;color.c: 216:          _delay((unsigned long)((30)*(64000000/4000.0)));
+"209
+[; ;color.c: 209:          _delay((unsigned long)((30)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"217
-[; ;color.c: 217:      }
+"210
+[; ;color.c: 210:      }
 }
 [e ++ _j -> 1 `i ]
-[e $ <= _j -> 29 `i 2077  ]
-[e :U 2078 ]
+[e $ <= _j -> 15 `i 2047  ]
+[e :U 2048 ]
 }
+"211
+[; ;color.c: 211:     }
+}
+[e $U 2050  ]
+"212
+[; ;color.c: 212:     else if (buggy_path[ctr]==2) {
+[e :U 2046 ]
+[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 2 `i 2051  ]
+{
+"213
+[; ;color.c: 213:     for (int j = 0; j <= 15; j++) {
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ <= _j -> 15 `i 2052  ]
+[e $U 2053  ]
+[e :U 2052 ]
+{
+"214
+[; ;color.c: 214:         turnRight(mL, mR);
+[e ( _turnRight (2 , _mL _mR ]
+"215
+[; ;color.c: 215:         _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"216
+[; ;color.c: 216:         norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
+"217
+[; ;color.c: 217:         _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "218
 [; ;color.c: 218:     }
 }
-[e $U 2080  ]
+[e ++ _j -> 1 `i ]
+[e $ <= _j -> 15 `i 2052  ]
+[e :U 2053 ]
+}
+"219
+[; ;color.c: 219:     }
+}
+[e $U 2055  ]
 "220
-[; ;color.c: 220:     else if (buggy_path[ctr]==4) {
-[e :U 2076 ]
-[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 4 `i 2081  ]
+[; ;color.c: 220:     else if (buggy_path[ctr]==3) {
+[e :U 2051 ]
+[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 3 `i 2056  ]
 {
 "221
-[; ;color.c: 221:      reverse(mL, mR);
-[e ( _reverse (2 , _mL _mR ]
+[; ;color.c: 221:      for (int j = 0; j <= 29; j++) {
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ <= _j -> 29 `i 2057  ]
+[e $U 2058  ]
+[e :U 2057 ]
+{
 "222
-[; ;color.c: 222:      _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 222:          turnRight(mL, mR);
+[e ( _turnRight (2 , _mL _mR ]
 "223
-[; ;color.c: 223:      norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
+[; ;color.c: 223:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "224
-[; ;color.c: 224:      _delay((unsigned long)((100)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 224:          norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
 "225
-[; ;color.c: 225:      for (int j = 0; j <= 16; j++) {
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ <= _j -> 16 `i 2082  ]
-[e $U 2083  ]
-[e :U 2082 ]
-{
+[; ;color.c: 225:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "226
-[; ;color.c: 226:          turnLeft(mL, mR);
-[e ( _turnLeft (2 , _mL _mR ]
+[; ;color.c: 226:      }
+}
+[e ++ _j -> 1 `i ]
+[e $ <= _j -> 29 `i 2057  ]
+[e :U 2058 ]
+}
 "227
-[; ;color.c: 227:          _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"228
-[; ;color.c: 228:          norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
+[; ;color.c: 227:     }
+}
+[e $U 2060  ]
 "229
-[; ;color.c: 229:          _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 229:     else if (buggy_path[ctr]==4) {
+[e :U 2056 ]
+[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 4 `i 2061  ]
+{
 "230
-[; ;color.c: 230:      }
-}
-[e ++ _j -> 1 `i ]
-[e $ <= _j -> 16 `i 2082  ]
-[e :U 2083 ]
-}
-"231
-[; ;color.c: 231:     }
-}
-[e $U 2085  ]
-"232
-[; ;color.c: 232:     else if (buggy_path[ctr]==5) {
-[e :U 2081 ]
-[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 5 `i 2086  ]
-{
-"233
-[; ;color.c: 233:      reverse(mL, mR);
+[; ;color.c: 230:      reverse(mL, mR);
 [e ( _reverse (2 , _mL _mR ]
-"234
-[; ;color.c: 234:      _delay((unsigned long)((10)*(64000000/4000.0)));
+"231
+[; ;color.c: 231:      _delay((unsigned long)((10)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"232
+[; ;color.c: 232:      norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
+"233
+[; ;color.c: 233:      _delay((unsigned long)((100)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"234
+[; ;color.c: 234:      for (int j = 0; j <= 16; j++) {
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ <= _j -> 16 `i 2062  ]
+[e $U 2063  ]
+[e :U 2062 ]
+{
 "235
-[; ;color.c: 235:      norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
+[; ;color.c: 235:          turnLeft(mL, mR);
+[e ( _turnLeft (2 , _mL _mR ]
 "236
-[; ;color.c: 236:      _delay((unsigned long)((300)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 236:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "237
-[; ;color.c: 237:      for (int j = 0; j <= 12; j++) {
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ <= _j -> 12 `i 2087  ]
-[e $U 2088  ]
-[e :U 2087 ]
-{
+[; ;color.c: 237:          norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
 "238
-[; ;color.c: 238:          turnRight(mL, mR);
-[e ( _turnRight (2 , _mL _mR ]
+[; ;color.c: 238:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "239
-[; ;color.c: 239:          _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 239:      }
+}
+[e ++ _j -> 1 `i ]
+[e $ <= _j -> 16 `i 2062  ]
+[e :U 2063 ]
+}
 "240
-[; ;color.c: 240:          norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
+[; ;color.c: 240:     }
+}
+[e $U 2065  ]
 "241
-[; ;color.c: 241:          _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 241:     else if (buggy_path[ctr]==5) {
+[e :U 2061 ]
+[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 5 `i 2066  ]
+{
 "242
-[; ;color.c: 242:      }
-}
-[e ++ _j -> 1 `i ]
-[e $ <= _j -> 12 `i 2087  ]
-[e :U 2088 ]
-}
+[; ;color.c: 242:      reverse(mL, mR);
+[e ( _reverse (2 , _mL _mR ]
 "243
-[; ;color.c: 243:     }
-}
-[e $U 2090  ]
+[; ;color.c: 243:      _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "244
-[; ;color.c: 244:     else if (buggy_path[ctr]==6) {
-[e :U 2086 ]
-[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 6 `i 2091  ]
-{
+[; ;color.c: 244:      norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
 "245
-[; ;color.c: 245:      for (int j = 0; j <= 23; j++) {
+[; ;color.c: 245:      _delay((unsigned long)((300)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"246
+[; ;color.c: 246:      for (int j = 0; j <= 12; j++) {
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ <= _j -> 23 `i 2092  ]
-[e $U 2093  ]
-[e :U 2092 ]
+[e $ <= _j -> 12 `i 2067  ]
+[e $U 2068  ]
+[e :U 2067 ]
 {
-"246
-[; ;color.c: 246:          turnRight(mL, mR);
-[e ( _turnRight (2 , _mL _mR ]
 "247
-[; ;color.c: 247:          _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 247:          turnRight(mL, mR);
+[e ( _turnRight (2 , _mL _mR ]
 "248
-[; ;color.c: 248:          norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
-"249
-[; ;color.c: 249:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[; ;color.c: 248:          _delay((unsigned long)((30)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"249
+[; ;color.c: 249:          norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
 "250
-[; ;color.c: 250:      }
+[; ;color.c: 250:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"251
+[; ;color.c: 251:      }
 }
 [e ++ _j -> 1 `i ]
-[e $ <= _j -> 23 `i 2092  ]
-[e :U 2093 ]
+[e $ <= _j -> 12 `i 2067  ]
+[e :U 2068 ]
 }
-"251
-[; ;color.c: 251:     }
-}
-[e $U 2095  ]
 "252
-[; ;color.c: 252:     else if (buggy_path[ctr]==7) {
-[e :U 2091 ]
-[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 7 `i 2096  ]
-{
+[; ;color.c: 252:     }
+}
+[e $U 2070  ]
 "253
-[; ;color.c: 253:          for (int j = 0; j <= 20; j++) {
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ <= _j -> 20 `i 2097  ]
-[e $U 2098  ]
-[e :U 2097 ]
+[; ;color.c: 253:     else if (buggy_path[ctr]==6) {
+[e :U 2066 ]
+[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 6 `i 2071  ]
 {
 "254
-[; ;color.c: 254:          turnRight(mL, mR);
-[e ( _turnRight (2 , _mL _mR ]
+[; ;color.c: 254:      for (int j = 0; j <= 23; j++) {
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ <= _j -> 23 `i 2072  ]
+[e $U 2073  ]
+[e :U 2072 ]
+{
 "255
-[; ;color.c: 255:          _delay((unsigned long)((30)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;color.c: 255:          turnRight(mL, mR);
+[e ( _turnRight (2 , _mL _mR ]
 "256
-[; ;color.c: 256:          norm_stop(mL, mR);
-[e ( _norm_stop (2 , _mL _mR ]
-"257
-[; ;color.c: 257:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[; ;color.c: 256:          _delay((unsigned long)((30)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"257
+[; ;color.c: 257:          norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
 "258
-[; ;color.c: 258:      }
+[; ;color.c: 258:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"259
+[; ;color.c: 259:      }
 }
 [e ++ _j -> 1 `i ]
-[e $ <= _j -> 20 `i 2097  ]
-[e :U 2098 ]
+[e $ <= _j -> 23 `i 2072  ]
+[e :U 2073 ]
 }
 "260
 [; ;color.c: 260:     }
 }
-[e :U 2096 ]
-[e :U 2095 ]
-[e :U 2090 ]
-[e :U 2085 ]
-[e :U 2080 ]
-[e :U 2075 ]
-[e :U 2070 ]
+[e $U 2075  ]
 "261
-[; ;color.c: 261:     ctr--;
-[e -- _ctr -> 1 `i ]
+[; ;color.c: 261:     else if (buggy_path[ctr]==7) {
+[e :U 2071 ]
+[e $ ! == -> *U + _buggy_path * -> _ctr `x -> -> # *U _buggy_path `i `x `i -> 7 `i 2076  ]
+{
 "262
-[; ;color.c: 262:     if (ctr == -1) {
-[e $ ! == _ctr -U -> 1 `i 2100  ]
+[; ;color.c: 262:          for (int j = 0; j <= 20; j++) {
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ <= _j -> 20 `i 2077  ]
+[e $U 2078  ]
+[e :U 2077 ]
 {
 "263
-[; ;color.c: 263:            motor_return = 0;
-[e = _motor_return -> -> 0 `i `uc ]
+[; ;color.c: 263:          turnRight(mL, mR);
+[e ( _turnRight (2 , _mL _mR ]
 "264
-[; ;color.c: 264:         }
-}
-[e :U 2100 ]
+[; ;color.c: 264:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"265
+[; ;color.c: 265:          norm_stop(mL, mR);
+[e ( _norm_stop (2 , _mL _mR ]
 "266
-[; ;color.c: 266: }
-[e :UE 2065 ]
+[; ;color.c: 266:          _delay((unsigned long)((30)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"267
+[; ;color.c: 267:      }
+}
+[e ++ _j -> 1 `i ]
+[e $ <= _j -> 20 `i 2077  ]
+[e :U 2078 ]
+}
+"269
+[; ;color.c: 269:     }
+}
+[e :U 2076 ]
+[e :U 2075 ]
+[e :U 2070 ]
+[e :U 2065 ]
+[e :U 2060 ]
+[e :U 2055 ]
+[e :U 2050 ]
+"270
+[; ;color.c: 270:     ctr--;
+[e -- _ctr -> 1 `i ]
+"271
+[; ;color.c: 271:     if (ctr == -1) {
+[e $ ! == _ctr -U -> 1 `i 2080  ]
+{
+"272
+[; ;color.c: 272:            motor_return = 0;
+[e = _motor_return -> -> 0 `i `uc ]
+"273
+[; ;color.c: 273:         }
+}
+[e :U 2080 ]
+"275
+[; ;color.c: 275: }
+[e :UE 2045 ]
 }
 [p f _sprintf 8388736 ]
-[a 1C 82 71 66 67 58 37 105 32 37 105 32 37 105 32 37 105 10 0 ]
+[a 1C 82 71 66 67 58 37 105 32 37 105 32 37 105 32 37 105 32 37 105 10 0 ]

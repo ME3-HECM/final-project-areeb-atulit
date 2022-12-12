@@ -24486,20 +24486,26 @@ void Color_Interrupts_clear(void);
 
 
 typedef struct RGBC_val {
- unsigned int R;
- unsigned int G;
- unsigned int B;
-    unsigned int C;
-    unsigned int norm_R;
-    unsigned int norm_G;
-    unsigned int norm_B;
+ float R;
+ float G;
+ float B;
+    float C;
+    float norm_R;
+    float norm_G;
+    float norm_B;
+    float norm_C;
 } RGBC_val;
 
 
 char motor_return = 0;
 char buggy_path[15];
 signed int ctr = 0;
-
+int amb_red;
+int amb_green;
+int amb_blue;
+int amb_clear;
+int upperThreshold = 2500;
+int lowerThreshold = 0;
 
 
 
@@ -24591,8 +24597,6 @@ void main() {
     tricolorLED();
     RGBC_val RGBC;
     char buf[100];
-        int upperThreshold = 3000;
-    int lowerThreshold = 0;
 
     color_click_init();
 
@@ -24614,6 +24618,12 @@ void main() {
     LATDbits.LATD7 = 0;
     TRISHbits.TRISH3 = 0;
     LATHbits.LATH3 = 0;
+
+    int amb_red = color_read_Red();
+    int amb_green = color_read_Blue();
+    int amb_blue = color_read_Green();
+    int amb_clear = color_read_Clear();
+
    while (1) {
 
         fullSpeedAhead(&mL, &mR);
@@ -24625,18 +24635,19 @@ void main() {
             _delay((unsigned long)((1000)*(64000000/4000.0)));
             LATDbits.LATD7 = 0;
             color_read_RGBC(&RGBC);
-            if(motor_return=0){
-                buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
+            color_normalise(&RGBC);
+            buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
+            ctr++;
 
-            }
-            else{
-                motor_retrace(&buggy_path, &mL, &mR);
 
-            }
+
+
+
+
 
             LATHbits.LATH3 = 0;
             interrupt_flag = 0;
-# 83 "main.c"
+# 88 "main.c"
    }
 }
 }

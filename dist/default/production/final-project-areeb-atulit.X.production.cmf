@@ -11,63 +11,67 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
+$C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
 idloc IDLOC 5 200000 200000 10 1 1
 init CODE 0 32 32 4 1 2
 reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 C 1 1
 $dist/default/production\final-project-areeb-atulit.X.production.o
-cinit CODE 0 23CA 23CA 2A 1 2
+cinit CODE 0 21A4 21A4 42 1 2
 idloc IDLOC 5 200000 200000 10 1 1
-text0 CODE 0 1CC8 1CC8 F4 1 2
-text1 CODE 0 255C 255C 16 1 2
-text2 CODE 0 2588 2588 C 1 2
-text3 CODE 0 1542 1542 522 1 2
-text4 CODE 0 E14 E14 72E 1 2
-text5 CODE 0 1F9A 1F9A 72 1 2
-text6 CODE 0 200C 200C 72 1 2
-text7 CODE 0 1BD0 1BD0 F8 1 2
-text8 CODE 0 2366 2366 32 1 2
-text9 CODE 0 207E 207E 6A 1 2
-text10 CODE 0 20E8 20E8 6A 1 2
-text11 CODE 0 1EA6 1EA6 80 1 2
-text12 CODE 0 1DBC 1DBC EA 1 2
-text13 CODE 0 1A64 1A64 16C 1 2
-text14 CODE 0 24C2 24C2 26 1 2
-text15 CODE 0 1F26 1F26 74 1 2
-text16 CODE 0 2152 2152 5E 1 2
-text17 CODE 0 21B0 21B0 50 1 2
-text18 CODE 0 2200 2200 50 1 2
-text19 CODE 0 2250 2250 50 1 2
-text20 CODE 0 22A0 22A0 50 1 2
-text21 CODE 0 25B8 25B8 A 1 2
-text22 CODE 0 22F0 22F0 42 1 2
-text23 CODE 0 2332 2332 34 1 2
-text24 CODE 0 23F4 23F4 2A 1 2
-text25 CODE 0 2572 2572 16 1 2
-text26 CODE 0 241E 241E 2A 1 2
-text27 CODE 0 2528 2528 1A 1 2
-text28 CODE 0 24E8 24E8 20 1 2
-text29 CODE 0 2594 2594 C 1 2
-text30 CODE 0 25C2 25C2 A 1 2
-text31 CODE 0 25CC 25CC A 1 2
-text32 CODE 0 2472 2472 28 1 2
-text34 CODE 0 2398 2398 32 1 2
-text35 CODE 0 25A0 25A0 C 1 2
-text36 CODE 0 2448 2448 2A 1 2
-text37 CODE 0 2542 2542 1A 1 2
-text38 CODE 0 2508 2508 20 1 2
-text39 CODE 0 25AC 25AC C 1 2
-text40 CODE 0 25D6 25D6 A 1 2
-text41 CODE 0 25E0 25E0 A 1 2
-text42 CODE 0 249A 249A 28 1 2
-cstackCOMRAM COMRAM 1 1 1 38 1 1
-cstackBANK0 BANK0 1 AD AD 20 1 1
-temp COMRAM 1 56 56 1 1 1
-bssBANK0 BANK0 1 60 60 4D 1 1
+text0 CODE 0 19E2 19E2 122 1 2
+text1 CODE 0 2428 2428 16 1 2
+text2 CODE 0 2454 2454 C 1 2
+text3 CODE 0 E18 E18 3BE 1 2
+text4 CODE 0 1EAC 1EAC 72 1 2
+text5 CODE 0 1F1E 1F1E 72 1 2
+text6 CODE 0 225C 225C 32 1 2
+text7 CODE 0 1B04 1B04 104 1 2
+text8 CODE 0 1F90 1F90 6A 1 2
+text9 CODE 0 1FFA 1FFA 6A 1 2
+text10 CODE 0 1DB8 1DB8 80 1 2
+text11 CODE 0 1C08 1C08 EA 1 2
+text12 CODE 0 1724 1724 16C 1 2
+text13 CODE 0 238E 238E 26 1 2
+text14 CODE 0 1E38 1E38 74 1 2
+text15 CODE 0 1CF2 1CF2 C6 1 2
+text16 CODE 0 2064 2064 50 1 2
+text17 CODE 0 20B4 20B4 50 1 2
+text18 CODE 0 2104 2104 50 1 2
+text19 CODE 0 2154 2154 50 1 2
+text20 CODE 0 2484 2484 A 1 2
+text21 CODE 0 21E6 21E6 42 1 2
+text22 CODE 0 1570 1570 1B4 1 2
+text23 CODE 0 1890 1890 152 1 2
+text24 CODE 0 11D6 11D6 39A 1 2
+text25 CODE 0 2228 2228 34 1 2
+text26 CODE 0 22C0 22C0 2A 1 2
+text27 CODE 0 243E 243E 16 1 2
+text28 CODE 0 22EA 22EA 2A 1 2
+text29 CODE 0 23F4 23F4 1A 1 2
+text30 CODE 0 23B4 23B4 20 1 2
+text31 CODE 0 2460 2460 C 1 2
+text32 CODE 0 248E 248E A 1 2
+text33 CODE 0 2498 2498 A 1 2
+text34 CODE 0 233E 233E 28 1 2
+text36 CODE 0 228E 228E 32 1 2
+text37 CODE 0 246C 246C C 1 2
+text38 CODE 0 2314 2314 2A 1 2
+text39 CODE 0 240E 240E 1A 1 2
+text40 CODE 0 23D4 23D4 20 1 2
+text41 CODE 0 2478 2478 C 1 2
+text42 CODE 0 24A2 24A2 A 1 2
+text43 CODE 0 24AC 24AC A 1 2
+text44 CODE 0 2366 2366 28 1 2
+cstackCOMRAM COMRAM 1 1 1 2F 1 1
+cstackBANK0 BANK0 1 B1 B1 32 1 1
+temp COMRAM 1 53 53 1 1 1
+bssBANK0 BANK0 1 60 60 51 1 1
 intcode CODE 0 8 8 2A 1 2
-smallconst SMALLCONST 0 E00 E00 14 1 2
-bssCOMRAM COMRAM 1 39 39 1D 1 1
+smallconst SMALLCONST 0 E00 E00 18 1 2
+idataBANK0 CODE 0 24B6 24B6 2 1 1
+dataBANK0 BANK0 1 E3 E3 2 1 1
+bssCOMRAM COMRAM 1 30 30 23 1 1
 config CONFIG 4 300000 300000 C 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -75,9 +79,9 @@ config CONFIG 4 300000 300000 C 1 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM CD-DE9 1
+RAM E5-DE9 1
 SFR DEF-FFF 1
-BANK0 CD-FF 1
+BANK0 E5-FF 1
 BANK1 100-1FF 1
 BANK2 200-2FF 1
 BANK3 300-3FF 1
@@ -89,21 +93,21 @@ BANK8 800-8FF 1
 BANK9 900-9FF 1
 CONST 4-7 1
 CONST 36-DFF 1
-CONST 25EA-1FFFF 1
-SMALLCONST 25EA-1FFFF 1
+CONST 24B8-1FFFF 1
+SMALLCONST 24B8-1FFFF 1
 CODE 4-7 1
 CODE 36-DFF 1
-CODE 25EA-1FFFF 1
+CODE 24B8-1FFFF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DE9 1
-BIGRAM 57-5F 1
-BIGRAM CD-DE9 1
+BIGRAM 54-5F 1
+BIGRAM E5-DE9 1
 BIGSFR DEF-FFF 1
-COMRAM 57-5F 1
+COMRAM 54-5F 1
 EEDATA 310000-3103FF 1
-MEDIUMCONST 25EA-FFFF 1
+MEDIUMCONST 24B8-FFFF 1
 MEDIUMCONST 10E00-1FFFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -119,7 +123,7 @@ MEDIUMCONST 10E00-1FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\final-project-areeb-atulit.X.production.o
-8 intcode CODE >16548:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
+8 intcode CODE >16296:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
 8 intcode CODE >71:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
 A intcode CODE >74:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
 1A intcode CODE >75:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
@@ -127,518 +131,548 @@ A intcode CODE >74:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\
 26 intcode CODE >78:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
 2A intcode CODE >79:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
 2E intcode CODE >82:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-249A text42 CODE >22:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-249A text42 CODE >24:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-24C0 text42 CODE >25:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25E0 text41 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25E0 text41 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25E4 text41 CODE >30:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25E8 text41 CODE >31:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25D6 text40 CODE >39:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25D6 text40 CODE >41:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25DA text40 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25DE text40 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25AC text39 CODE >45:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25AE text39 CODE >47:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25B2 text39 CODE >48:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25B6 text39 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2508 text38 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-250A text38 CODE >28:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-250E text38 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2514 text38 CODE >30:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-251C text38 CODE >31:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2522 text38 CODE >32:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2526 text38 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2542 text37 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2542 text37 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-254C text37 CODE >34:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-255A text37 CODE >36:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2448 text36 CODE >38:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2448 text36 CODE >40:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2452 text36 CODE >41:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-245C text36 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2466 text36 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2470 text36 CODE >44:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-25A0 text35 CODE >46:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-25A0 text35 CODE >48:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-25AA text35 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2398 text34 CODE >51:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2398 text34 CODE >55:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-239C text34 CODE >56:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-23A2 text34 CODE >57:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-23A8 text34 CODE >58:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-23AC text34 CODE >61:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-23B0 text34 CODE >62:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-23B4 text34 CODE >63:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-23C8 text34 CODE >65:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2472 text32 CODE >22:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2472 text32 CODE >24:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2498 text32 CODE >25:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25CC text31 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25CC text31 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25D0 text31 CODE >30:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25D4 text31 CODE >31:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25C2 text30 CODE >39:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25C2 text30 CODE >41:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25C6 text30 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25CA text30 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2594 text29 CODE >45:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2596 text29 CODE >47:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-259A text29 CODE >48:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-259E text29 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-24E8 text28 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-24EA text28 CODE >28:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-24EE text28 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-24F4 text28 CODE >30:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-24FC text28 CODE >31:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2502 text28 CODE >32:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2506 text28 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2528 text27 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2528 text27 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2532 text27 CODE >34:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2540 text27 CODE >36:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-241E text26 CODE >38:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-241E text26 CODE >40:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2428 text26 CODE >41:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2432 text26 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-243C text26 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2446 text26 CODE >44:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2572 text25 CODE >10:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2572 text25 CODE >15:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2574 text25 CODE >17:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2578 text25 CODE >18:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-257A text25 CODE >19:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-257C text25 CODE >20:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-257E text25 CODE >21:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2580 text25 CODE >23:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2582 text25 CODE >24:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2584 text25 CODE >25:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2586 text25 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-23F4 text24 CODE >4:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-23F4 text24 CODE >7:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-23FE text24 CODE >8:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2400 text24 CODE >9:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2404 text24 CODE >12:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2406 text24 CODE >13:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2408 text24 CODE >14:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-240A text24 CODE >15:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-240C text24 CODE >16:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2410 text24 CODE >17:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2414 text24 CODE >18:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2418 text24 CODE >19:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-241C text24 CODE >20:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2332 text23 CODE >11:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2332 text23 CODE >14:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2336 text23 CODE >17:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2340 text23 CODE >18:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2350 text23 CODE >21:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-235A text23 CODE >24:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2364 text23 CODE >25:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-22F0 text22 CODE >51:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-22F2 text22 CODE >54:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-22F6 text22 CODE >55:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-22FA text22 CODE >56:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-22FE text22 CODE >57:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2302 text22 CODE >58:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2306 text22 CODE >59:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-232C text22 CODE >60:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-232E text22 CODE >61:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-2330 text22 CODE >62:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25B8 text21 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25B8 text21 CODE >35:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25BC text21 CODE >36:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-25C0 text21 CODE >37:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
-22A0 text20 CODE >63:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-22A0 text20 CODE >66:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-22A4 text20 CODE >67:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-22AA text20 CODE >68:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-22B0 text20 CODE >69:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-22B4 text20 CODE >70:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-22BA text20 CODE >71:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-22C8 text20 CODE >72:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-22E2 text20 CODE >73:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-22E6 text20 CODE >74:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-22EE text20 CODE >75:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2250 text19 CODE >77:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2250 text19 CODE >80:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2254 text19 CODE >81:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-225A text19 CODE >82:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2260 text19 CODE >83:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2264 text19 CODE >84:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-226A text19 CODE >85:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2278 text19 CODE >86:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2292 text19 CODE >87:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2296 text19 CODE >88:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-229E text19 CODE >89:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2200 text18 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2200 text18 CODE >52:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2204 text18 CODE >53:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-220A text18 CODE >54:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2210 text18 CODE >55:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2214 text18 CODE >56:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-221A text18 CODE >57:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2228 text18 CODE >58:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2242 text18 CODE >59:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2246 text18 CODE >60:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-224E text18 CODE >61:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21B0 text17 CODE >35:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21B0 text17 CODE >38:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21B4 text17 CODE >39:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21BA text17 CODE >40:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21C0 text17 CODE >41:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21C4 text17 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21CA text17 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21D8 text17 CODE >44:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21F2 text17 CODE >45:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21F6 text17 CODE >46:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21FE text17 CODE >47:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2152 text16 CODE >94:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2152 text16 CODE >95:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2166 text16 CODE >96:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-217E text16 CODE >97:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2196 text16 CODE >98:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-21AE text16 CODE >99:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1F26 text15 CODE >7:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F26 text15 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F2E text15 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F40 text15 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F44 text15 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F48 text15 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F4E text15 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F50 text15 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F5E text15 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F64 text15 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F7A text15 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F82 text15 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F84 text15 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F8A text15 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F90 text15 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F90 text15 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-1F98 text15 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-24C2 text14 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-24C2 text14 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-24CE text14 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-24D6 text14 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-24DE text14 CODE >52:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-24E6 text14 CODE >53:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-1A64 text13 CODE >56:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1A64 text13 CODE >60:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1A80 text13 CODE >61:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1AD4 text13 CODE >62:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1AE4 text13 CODE >63:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1AE8 text13 CODE >65:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1B2A text13 CODE >66:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1B2E text13 CODE >69:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1B4A text13 CODE >70:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1B6A text13 CODE >71:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1B8A text13 CODE >72:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1B8E text13 CODE >73:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1BAE text13 CODE >74:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1BCE text13 CODE >76:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1DBC text12 CODE >167:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1DBC text12 CODE >169:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1DC8 text12 CODE >170:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1DD4 text12 CODE >171:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1DE4 text12 CODE >172:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1DF4 text12 CODE >173:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1E04 text12 CODE >174:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1E14 text12 CODE >175:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1E18 text12 CODE >177:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1E22 text12 CODE >178:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1E2C text12 CODE >180:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1E38 text12 CODE >181:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1E44 text12 CODE >175:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1E74 text12 CODE >183:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1E80 text12 CODE >184:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1E8C text12 CODE >185:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1E98 text12 CODE >186:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EA4 text12 CODE >188:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EA6 text11 CODE >5:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EA6 text11 CODE >9:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EAC text11 CODE >10:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EB0 text11 CODE >11:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EB4 text11 CODE >12:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EB8 text11 CODE >15:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EC0 text11 CODE >16:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EC4 text11 CODE >17:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1ECC text11 CODE >21:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1ED0 text11 CODE >22:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1ED2 text11 CODE >26:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1ED6 text11 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EDA text11 CODE >28:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EE0 text11 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EE4 text11 CODE >32:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EE8 text11 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EEC text11 CODE >34:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EF0 text11 CODE >35:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EF4 text11 CODE >38:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EF6 text11 CODE >39:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1EFE text11 CODE >40:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F00 text11 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F02 text11 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F0A text11 CODE >44:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F0C text11 CODE >46:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F0E text11 CODE >47:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F16 text11 CODE >48:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F18 text11 CODE >50:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F1A text11 CODE >51:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F22 text11 CODE >52:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F24 text11 CODE >53:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-20E8 text10 CODE >78:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-20E8 text10 CODE >80:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-20F4 text10 CODE >81:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2104 text10 CODE >82:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2114 text10 CODE >83:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2128 text10 CODE >84:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-213C text10 CODE >85:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2150 text10 CODE >86:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-207E text9 CODE >88:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-207E text9 CODE >90:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-208A text9 CODE >91:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-209A text9 CODE >92:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-20AA text9 CODE >93:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-20BE text9 CODE >94:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-20D2 text9 CODE >95:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-20E6 text9 CODE >96:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2366 text8 CODE >118:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2366 text8 CODE >124:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2372 text8 CODE >125:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-237E text8 CODE >126:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-238A text8 CODE >127:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2396 text8 CODE >129:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1BD0 text7 CODE >189:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1BD0 text7 CODE >191:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1BDC text7 CODE >192:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1BE8 text7 CODE >193:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1BF8 text7 CODE >194:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1C08 text7 CODE >195:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1C18 text7 CODE >196:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1C28 text7 CODE >197:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1C2C text7 CODE >199:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1C36 text7 CODE >200:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1C40 text7 CODE >201:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1C4E text7 CODE >202:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1C5A text7 CODE >203:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1C66 text7 CODE >197:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1C66 text7 CODE >204:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1C96 text7 CODE >205:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1CA2 text7 CODE >206:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1CAE text7 CODE >207:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1CBA text7 CODE >208:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1CC6 text7 CODE >210:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-200C text6 CODE >131:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-200C text6 CODE >133:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2018 text6 CODE >134:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2024 text6 CODE >135:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2034 text6 CODE >136:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2044 text6 CODE >137:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2054 text6 CODE >138:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2064 text6 CODE >139:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-2070 text6 CODE >140:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-207C text6 CODE >141:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F9A text5 CODE >144:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1F9A text5 CODE >146:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1FA6 text5 CODE >147:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1FB2 text5 CODE >148:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1FC2 text5 CODE >149:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1FD2 text5 CODE >150:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1FE2 text5 CODE >151:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1FF2 text5 CODE >152:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-1FFE text5 CODE >153:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-200A text5 CODE >154:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
-E14 text4 CODE >124:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-E14 text4 CODE >125:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-E76 text4 CODE >126:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-E7E text4 CODE >127:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-E92 text4 CODE >128:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-EAA text4 CODE >129:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-EBE text4 CODE >130:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-ED6 text4 CODE >131:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-EF6 text4 CODE >132:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-EFC text4 CODE >134:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-F3C text4 CODE >135:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-F44 text4 CODE >136:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-F58 text4 CODE >137:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-F70 text4 CODE >138:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-F84 text4 CODE >139:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-F9C text4 CODE >140:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-FC0 text4 CODE >142:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-FDE text4 CODE >143:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-FE6 text4 CODE >144:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-FFA text4 CODE >145:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1012 text4 CODE >146:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1026 text4 CODE >147:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-103E text4 CODE >148:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1062 text4 CODE >150:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-10C4 text4 CODE >151:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-10D8 text4 CODE >152:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-10F0 text4 CODE >153:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1104 text4 CODE >154:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-111C text4 CODE >155:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1124 text4 CODE >156:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1138 text4 CODE >157:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1150 text4 CODE >158:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1164 text4 CODE >159:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-117C text4 CODE >160:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-11A0 text4 CODE >162:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1224 text4 CODE >163:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1238 text4 CODE >164:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1246 text4 CODE >165:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-125A text4 CODE >166:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1270 text4 CODE >167:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1278 text4 CODE >168:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-128C text4 CODE >169:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-12A4 text4 CODE >170:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-12B8 text4 CODE >171:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-12D0 text4 CODE >172:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-12F4 text4 CODE >174:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1396 text4 CODE >175:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-13BE text4 CODE >176:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-13D2 text4 CODE >177:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-13EA text4 CODE >178:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-13FE text4 CODE >179:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1416 text4 CODE >180:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-143A text4 CODE >182:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-149C text4 CODE >183:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-14C4 text4 CODE >184:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-14D8 text4 CODE >185:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-14F0 text4 CODE >186:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1504 text4 CODE >187:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-151C text4 CODE >188:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-153C text4 CODE >190:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1540 text4 CODE >192:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1542 text3 CODE >194:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1542 text3 CODE >195:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-155E text3 CODE >196:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1566 text3 CODE >197:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-157A text3 CODE >198:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1592 text3 CODE >199:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-15A6 text3 CODE >200:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-15BE text3 CODE >201:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-15E2 text3 CODE >203:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1600 text3 CODE >204:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1608 text3 CODE >205:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-161C text3 CODE >206:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1634 text3 CODE >207:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1648 text3 CODE >208:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1660 text3 CODE >209:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1684 text3 CODE >211:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-16A2 text3 CODE >212:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-16AA text3 CODE >213:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-16BE text3 CODE >214:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-16D6 text3 CODE >215:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-16EA text3 CODE >216:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1702 text3 CODE >217:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1726 text3 CODE >220:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1744 text3 CODE >221:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1758 text3 CODE >222:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1766 text3 CODE >223:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-177A text3 CODE >224:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1792 text3 CODE >225:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-179A text3 CODE >226:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-17AE text3 CODE >227:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-17C6 text3 CODE >228:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-17DA text3 CODE >229:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-17F2 text3 CODE >230:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1816 text3 CODE >232:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1834 text3 CODE >233:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1848 text3 CODE >234:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1856 text3 CODE >235:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-186A text3 CODE >236:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1880 text3 CODE >237:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1888 text3 CODE >238:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-189C text3 CODE >239:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-18B4 text3 CODE >240:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-18C8 text3 CODE >241:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-18E0 text3 CODE >242:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1904 text3 CODE >244:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1922 text3 CODE >245:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-192A text3 CODE >246:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-193E text3 CODE >247:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1956 text3 CODE >248:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-196A text3 CODE >249:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1982 text3 CODE >250:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-19A6 text3 CODE >252:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-19C4 text3 CODE >253:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-19CC text3 CODE >254:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-19E0 text3 CODE >255:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-19F8 text3 CODE >256:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1A0C text3 CODE >257:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1A24 text3 CODE >258:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1A44 text3 CODE >261:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1A4A text3 CODE >262:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1A5E text3 CODE >263:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1A62 text3 CODE >266:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2588 text2 CODE >46:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2588 text2 CODE >48:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-2592 text2 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
-255C text1 CODE >110:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-255C text1 CODE >112:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-255E text1 CODE >113:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2560 text1 CODE >114:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2562 text1 CODE >115:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2564 text1 CODE >116:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2566 text1 CODE >117:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2568 text1 CODE >118:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-256A text1 CODE >119:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-256C text1 CODE >120:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-256E text1 CODE >121:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-2570 text1 CODE >122:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
-1CC8 text0 CODE >22:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1CC8 text0 CODE >24:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1CCC text0 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1CCC text0 CODE >28:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1CCC text0 CODE >30:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1CD0 text0 CODE >32:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1CD4 text0 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1CD8 text0 CODE >34:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1CEC text0 CODE >35:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1CF0 text0 CODE >37:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1CFC text0 CODE >39:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D08 text0 CODE >40:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D14 text0 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D16 text0 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D18 text0 CODE >44:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D1A text0 CODE >45:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D1C text0 CODE >46:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D1E text0 CODE >47:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D20 text0 CODE >48:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D22 text0 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D24 text0 CODE >52:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D38 text0 CODE >54:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D3A text0 CODE >55:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D4E text0 CODE >57:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D62 text0 CODE >58:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D7A text0 CODE >59:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D7C text0 CODE >60:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D88 text0 CODE >61:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1D8C text0 CODE >66:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1DA8 text0 CODE >70:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-1DAA text0 CODE >71:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
-23CA cinit CODE >9580:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23CA cinit CODE >9582:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23CA cinit CODE >9585:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23CA cinit CODE >9631:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23CE cinit CODE >9632:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23D0 cinit CODE >9633:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23D0 cinit CODE >9634:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23D2 cinit CODE >9635:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23D4 cinit CODE >9636:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23D6 cinit CODE >9639:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23DA cinit CODE >9640:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23DC cinit CODE >9641:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23DC cinit CODE >9642:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23DE cinit CODE >9643:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23E0 cinit CODE >9644:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23E2 cinit CODE >9650:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23E2 cinit CODE >9652:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23E4 cinit CODE >9653:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23E6 cinit CODE >9655:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23E8 cinit CODE >9656:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23EA cinit CODE >9657:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23EC cinit CODE >9658:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23EE cinit CODE >9659:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
-23F0 cinit CODE >9660:C:\Users\areeb\AppData\Local\Temp\xcAshmk.s
+2366 text44 CODE >22:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2366 text44 CODE >24:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+238C text44 CODE >25:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+24AC text43 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+24AC text43 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+24B0 text43 CODE >30:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+24B4 text43 CODE >31:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+24A2 text42 CODE >39:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+24A2 text42 CODE >41:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+24A6 text42 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+24AA text42 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2478 text41 CODE >45:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+247A text41 CODE >47:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+247E text41 CODE >48:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2482 text41 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+23D4 text40 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23D6 text40 CODE >28:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23DA text40 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23E0 text40 CODE >30:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23E8 text40 CODE >31:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23EE text40 CODE >32:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23F2 text40 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+240E text39 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+240E text39 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2418 text39 CODE >34:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2426 text39 CODE >36:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2314 text38 CODE >38:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2314 text38 CODE >40:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+231E text38 CODE >41:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2328 text38 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2332 text38 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+233C text38 CODE >44:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+246C text37 CODE >46:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+246C text37 CODE >48:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2476 text37 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+228E text36 CODE >51:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+228E text36 CODE >55:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2292 text36 CODE >56:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2298 text36 CODE >57:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+229E text36 CODE >58:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+22A2 text36 CODE >61:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+22A6 text36 CODE >62:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+22AA text36 CODE >63:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+22BE text36 CODE >65:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+233E text34 CODE >22:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+233E text34 CODE >24:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2364 text34 CODE >25:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2498 text33 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2498 text33 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+249C text33 CODE >30:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+24A0 text33 CODE >31:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+248E text32 CODE >39:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+248E text32 CODE >41:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2492 text32 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2496 text32 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2460 text31 CODE >45:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2462 text31 CODE >47:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2466 text31 CODE >48:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+246A text31 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+23B4 text30 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23B6 text30 CODE >28:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23BA text30 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23C0 text30 CODE >30:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23C8 text30 CODE >31:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23CE text30 CODE >32:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23D2 text30 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+23F4 text29 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+23F4 text29 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+23FE text29 CODE >34:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+240C text29 CODE >36:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+22EA text28 CODE >38:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+22EA text28 CODE >40:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+22F4 text28 CODE >41:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+22FE text28 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2308 text28 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2312 text28 CODE >44:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+243E text27 CODE >10:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+243E text27 CODE >15:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2440 text27 CODE >17:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2444 text27 CODE >18:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2446 text27 CODE >19:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2448 text27 CODE >20:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+244A text27 CODE >21:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+244C text27 CODE >23:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+244E text27 CODE >24:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2450 text27 CODE >25:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2452 text27 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+22C0 text26 CODE >4:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22C0 text26 CODE >7:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22CA text26 CODE >8:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22CC text26 CODE >9:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22D0 text26 CODE >12:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22D2 text26 CODE >13:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22D4 text26 CODE >14:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22D6 text26 CODE >15:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22D8 text26 CODE >16:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22DC text26 CODE >17:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22E0 text26 CODE >18:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22E4 text26 CODE >19:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+22E8 text26 CODE >20:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2228 text25 CODE >11:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2228 text25 CODE >14:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+222C text25 CODE >17:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2236 text25 CODE >18:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2246 text25 CODE >21:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2250 text25 CODE >24:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+225A text25 CODE >25:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+11D6 text24 CODE >11:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+11D6 text24 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+11DC text24 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+11E2 text24 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+11F0 text24 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+11F2 text24 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1202 text24 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1212 text24 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1222 text24 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1224 text24 CODE >42:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1228 text24 CODE >43:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+122C text24 CODE >46:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+123C text24 CODE >49:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1242 text24 CODE >50:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1248 text24 CODE >51:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1256 text24 CODE >52:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1258 text24 CODE >56:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1268 text24 CODE >58:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1278 text24 CODE >60:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1288 text24 CODE >63:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+128A text24 CODE >65:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+128E text24 CODE >66:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1292 text24 CODE >69:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+12A2 text24 CODE >75:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+12B8 text24 CODE >76:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+12C8 text24 CODE >77:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+12D0 text24 CODE >78:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+12D4 text24 CODE >79:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+12E8 text24 CODE >83:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+12F8 text24 CODE >84:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+12F8 text24 CODE >85:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+130C text24 CODE >89:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1326 text24 CODE >92:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1336 text24 CODE >93:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1346 text24 CODE >94:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1356 text24 CODE >96:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+135A text24 CODE >97:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+135E text24 CODE >100:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+136E text24 CODE >101:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1378 text24 CODE >102:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1382 text24 CODE >103:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1390 text24 CODE >104:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1392 text24 CODE >105:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1392 text24 CODE >106:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+139C text24 CODE >112:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+13BA text24 CODE >115:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+13BC text24 CODE >116:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+13CC text24 CODE >118:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+13CE text24 CODE >97:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+13CE text24 CODE >119:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+13DE text24 CODE >122:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+13F4 text24 CODE >123:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+13FA text24 CODE >128:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1404 text24 CODE >129:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1412 text24 CODE >130:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1414 text24 CODE >131:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1414 text24 CODE >132:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+141E text24 CODE >133:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1424 text24 CODE >127:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1432 text24 CODE >139:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1436 text24 CODE >140:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1444 text24 CODE >141:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1472 text24 CODE >142:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1476 text24 CODE >143:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+147A text24 CODE >144:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+147A text24 CODE >145:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+148C text24 CODE >149:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+148C text24 CODE >150:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+149C text24 CODE >151:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+14A8 text24 CODE >152:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+14B6 text24 CODE >153:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+14E0 text24 CODE >154:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+14E4 text24 CODE >159:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+14FE text24 CODE >160:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1504 text24 CODE >161:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1514 text24 CODE >165:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+152E text24 CODE >166:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1536 text24 CODE >167:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1546 text24 CODE >169:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+154A text24 CODE >173:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+154E text24 CODE >175:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+155C text24 CODE >176:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+155E text24 CODE >177:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1562 text24 CODE >180:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1564 text24 CODE >182:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+156E text24 CODE >185:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+1890 text23 CODE >100:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1890 text23 CODE >101:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+18E4 text23 CODE >103:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+193C text23 CODE >104:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1994 text23 CODE >105:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+19E0 text23 CODE >106:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1570 text22 CODE >10:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1572 text22 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1590 text22 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+15C2 text22 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+15C6 text22 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+15C6 text22 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+15D6 text22 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+15EC text22 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1600 text22 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1604 text22 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1608 text22 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+160A text22 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1614 text22 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1646 text22 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1648 text22 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1654 text22 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+165E text22 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+165E text22 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1690 text22 CODE >34:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1692 text22 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+169C text22 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+16BA text22 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+16C8 text22 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+16CA text22 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+16CE text22 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+16F2 text22 CODE >41:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1710 text22 CODE >42:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1712 text22 CODE >43:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+1722 text22 CODE >44:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+21E6 text21 CODE >51:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+21E8 text21 CODE >54:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+21EC text21 CODE >55:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+21F0 text21 CODE >56:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+21F4 text21 CODE >57:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+21F8 text21 CODE >58:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+21FC text21 CODE >59:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2222 text21 CODE >60:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2224 text21 CODE >61:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2226 text21 CODE >62:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2484 text20 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2484 text20 CODE >35:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2488 text20 CODE >36:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+248C text20 CODE >37:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+2154 text19 CODE >63:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2154 text19 CODE >66:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2158 text19 CODE >67:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+215E text19 CODE >68:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2164 text19 CODE >69:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2168 text19 CODE >70:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+216E text19 CODE >71:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+217C text19 CODE >72:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2196 text19 CODE >73:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+219A text19 CODE >74:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+21A2 text19 CODE >75:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2104 text18 CODE >77:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2104 text18 CODE >80:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2108 text18 CODE >81:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+210E text18 CODE >82:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2114 text18 CODE >83:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2118 text18 CODE >84:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+211E text18 CODE >85:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+212C text18 CODE >86:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2146 text18 CODE >87:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+214A text18 CODE >88:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2152 text18 CODE >89:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20B4 text17 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20B4 text17 CODE >52:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20B8 text17 CODE >53:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20BE text17 CODE >54:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20C4 text17 CODE >55:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20C8 text17 CODE >56:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20CE text17 CODE >57:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20DC text17 CODE >58:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20F6 text17 CODE >59:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20FA text17 CODE >60:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2102 text17 CODE >61:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2064 text16 CODE >35:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2064 text16 CODE >38:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2068 text16 CODE >39:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+206E text16 CODE >40:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2074 text16 CODE >41:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2078 text16 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+207E text16 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+208C text16 CODE >44:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20A6 text16 CODE >45:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20AA text16 CODE >46:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+20B2 text16 CODE >47:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1CF2 text15 CODE >94:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1CF2 text15 CODE >95:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1D20 text15 CODE >96:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1D52 text15 CODE >97:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1D84 text15 CODE >98:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1DB6 text15 CODE >99:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1E38 text14 CODE >7:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E38 text14 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E40 text14 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E52 text14 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E56 text14 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E5A text14 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E60 text14 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E62 text14 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E70 text14 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E76 text14 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E8C text14 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E94 text14 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E96 text14 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1E9C text14 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1EA2 text14 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1EA2 text14 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+1EAA text14 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+238E text13 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+238E text13 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+239A text13 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+23A2 text13 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+23AA text13 CODE >52:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+23B2 text13 CODE >53:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+1724 text12 CODE >56:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1724 text12 CODE >60:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1740 text12 CODE >61:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1794 text12 CODE >62:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+17A4 text12 CODE >63:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+17A8 text12 CODE >65:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+17EA text12 CODE >66:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+17EE text12 CODE >69:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+180A text12 CODE >70:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+182A text12 CODE >71:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+184A text12 CODE >72:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+184E text12 CODE >73:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+186E text12 CODE >74:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+188E text12 CODE >76:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C08 text11 CODE >167:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C08 text11 CODE >169:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C14 text11 CODE >170:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C20 text11 CODE >171:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C30 text11 CODE >172:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C40 text11 CODE >173:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C50 text11 CODE >174:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C60 text11 CODE >175:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C64 text11 CODE >177:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C6E text11 CODE >178:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C78 text11 CODE >180:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C84 text11 CODE >181:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1C90 text11 CODE >175:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1CC0 text11 CODE >183:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1CCC text11 CODE >184:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1CD8 text11 CODE >185:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1CE4 text11 CODE >186:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1CF0 text11 CODE >188:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DB8 text10 CODE >5:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DB8 text10 CODE >9:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DBE text10 CODE >10:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DC2 text10 CODE >11:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DC6 text10 CODE >12:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DCA text10 CODE >15:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DD2 text10 CODE >16:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DD6 text10 CODE >17:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DDE text10 CODE >21:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DE2 text10 CODE >22:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DE4 text10 CODE >26:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DE8 text10 CODE >27:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DEC text10 CODE >28:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DF2 text10 CODE >29:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DF6 text10 CODE >32:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DFA text10 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1DFE text10 CODE >34:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E02 text10 CODE >35:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E06 text10 CODE >38:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E08 text10 CODE >39:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E10 text10 CODE >40:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E12 text10 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E14 text10 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E1C text10 CODE >44:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E1E text10 CODE >46:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E20 text10 CODE >47:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E28 text10 CODE >48:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E2A text10 CODE >50:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E2C text10 CODE >51:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E34 text10 CODE >52:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1E36 text10 CODE >53:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1FFA text9 CODE >78:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1FFA text9 CODE >80:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+2006 text9 CODE >81:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+2016 text9 CODE >82:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+2026 text9 CODE >83:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+203A text9 CODE >84:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+204E text9 CODE >85:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+2062 text9 CODE >86:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F90 text8 CODE >88:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F90 text8 CODE >90:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F9C text8 CODE >91:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1FAC text8 CODE >92:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1FBC text8 CODE >93:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1FD0 text8 CODE >94:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1FE4 text8 CODE >95:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1FF8 text8 CODE >96:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1B04 text7 CODE >4:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1B04 text7 CODE >7:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1B32 text7 CODE >8:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1B42 text7 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1B70 text7 CODE >10:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1B80 text7 CODE >12:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1B8E text7 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1BA0 text7 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1BAE text7 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1BC0 text7 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1BD0 text7 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1BE0 text7 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+1C06 text7 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\flge.c
+225C text6 CODE >118:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+225C text6 CODE >124:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+2268 text6 CODE >125:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+2274 text6 CODE >126:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+2280 text6 CODE >127:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+228C text6 CODE >129:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F1E text5 CODE >131:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F1E text5 CODE >133:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F2A text5 CODE >134:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F36 text5 CODE >135:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F46 text5 CODE >136:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F56 text5 CODE >137:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F66 text5 CODE >138:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F76 text5 CODE >139:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F82 text5 CODE >140:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F8E text5 CODE >141:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1EAC text4 CODE >144:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1EAC text4 CODE >146:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1EB8 text4 CODE >147:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1EC4 text4 CODE >148:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1ED4 text4 CODE >149:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1EE4 text4 CODE >150:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1EF4 text4 CODE >151:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F04 text4 CODE >152:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F10 text4 CODE >153:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+1F1C text4 CODE >154:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+E18 text3 CODE >127:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+E18 text3 CODE >128:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+E56 text3 CODE >129:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+E5E text3 CODE >130:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+E72 text3 CODE >131:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+E8A text3 CODE >132:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+E9E text3 CODE >133:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+EB6 text3 CODE >134:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+ED6 text3 CODE >135:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+EDC text3 CODE >137:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+F58 text3 CODE >138:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+F60 text3 CODE >139:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+F74 text3 CODE >140:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+F8C text3 CODE >141:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+FA0 text3 CODE >142:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+FB8 text3 CODE >143:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+FD8 text3 CODE >144:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+FDE text3 CODE >146:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1152 text3 CODE >147:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+115A text3 CODE >148:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+116E text3 CODE >149:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+1186 text3 CODE >150:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+119A text3 CODE >151:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+11B2 text3 CODE >152:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+11D2 text3 CODE >153:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+11D4 text3 CODE >201:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2454 text2 CODE >46:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2454 text2 CODE >48:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+245E text2 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+2428 text1 CODE >113:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2428 text1 CODE >115:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+242A text1 CODE >116:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+242C text1 CODE >117:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+242E text1 CODE >118:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2430 text1 CODE >119:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2432 text1 CODE >120:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2434 text1 CODE >121:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2436 text1 CODE >122:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+2438 text1 CODE >123:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+243A text1 CODE >124:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+243C text1 CODE >125:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
+19E2 text0 CODE >22:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+19E2 text0 CODE >24:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+19E6 text0 CODE >28:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+19EA text0 CODE >30:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+19EE text0 CODE >31:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+19F2 text0 CODE >32:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A06 text0 CODE >33:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A0A text0 CODE >35:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A16 text0 CODE >37:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A22 text0 CODE >38:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A2E text0 CODE >40:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A30 text0 CODE >41:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A32 text0 CODE >42:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A34 text0 CODE >43:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A36 text0 CODE >44:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A38 text0 CODE >45:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A3A text0 CODE >46:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A3C text0 CODE >47:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A3E text0 CODE >49:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A42 text0 CODE >50:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A46 text0 CODE >51:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A4A text0 CODE >52:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A4E text0 CODE >56:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A62 text0 CODE >58:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A64 text0 CODE >59:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A78 text0 CODE >61:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1A8C text0 CODE >62:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1AA4 text0 CODE >63:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1AA6 text0 CODE >64:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1AB2 text0 CODE >65:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1ABE text0 CODE >66:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1AEE text0 CODE >67:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1AF2 text0 CODE >75:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+1AF4 text0 CODE >76:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
+21A4 cinit CODE >9594:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21A4 cinit CODE >9596:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21A4 cinit CODE >9599:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21A4 cinit CODE >9672:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21A6 cinit CODE >9673:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21A8 cinit CODE >9674:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21AA cinit CODE >9675:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21AC cinit CODE >9676:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21AE cinit CODE >9677:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21B0 cinit CODE >9678:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21B2 cinit CODE >9679:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21B6 cinit CODE >9680:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21B8 cinit CODE >9681:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21BC cinit CODE >9685:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21C0 cinit CODE >9686:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21C2 cinit CODE >9687:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21C2 cinit CODE >9688:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21C4 cinit CODE >9689:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21C6 cinit CODE >9690:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21C8 cinit CODE >9693:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21CC cinit CODE >9694:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21CE cinit CODE >9695:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21CE cinit CODE >9696:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21D0 cinit CODE >9697:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21D2 cinit CODE >9698:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21D4 cinit CODE >9704:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21D4 cinit CODE >9706:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21D6 cinit CODE >9707:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21D8 cinit CODE >9709:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21DA cinit CODE >9710:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21DC cinit CODE >9711:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21DE cinit CODE >9712:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21E0 cinit CODE >9713:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
+21E2 cinit CODE >9714:C:\Users\areeb\AppData\Local\Temp\xcAs1rs.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -651,100 +685,106 @@ FFA text4 CODE >145:C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
+__LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\final-project-areeb-atulit.X.production.o
-__Hspace_0 25EA 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-__Hspace_1 CD 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
+__Hspace_0 24B8 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
+__Hspace_1 E5 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __Hspace_4 60000C 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 color_writetoaddr@address C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-_motor_retrace 1542 0 CODE 0 text3 dist/default/production\final-project-areeb-atulit.X.production.o
-_persistence_register 2588 0 CODE 0 text2 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_reverse 1CC8 0 CODE 0 text7 dist/default/production\final-project-areeb-atulit.X.production.o
+__HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
+_persistence_register 2454 0 CODE 0 text2 dist/default/production\final-project-areeb-atulit.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\final-project-areeb-atulit.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\final-project-areeb-atulit.X.production.o
 setMotorPWM@m 16 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Lsmallconst E00 0 SMALLCONST 0 smallconst dist/default/production\final-project-areeb-atulit.X.production.o
 _T2PR FBC 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
-_main 1CC8 0 CODE 0 text0 dist/default/production\final-project-areeb-atulit.X.production.o
-btemp 56 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
-start 32 0 CODE 0 init C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
+___sp 0 0 STACK 2 stack C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+_main 19E2 0 CODE 0 text0 dist/default/production\final-project-areeb-atulit.X.production.o
+btemp 53 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
+start 32 0 CODE 0 init C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 ?___wmul 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-_RxBufReadCnt 54 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+_RxBufReadCnt 51 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+__LidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
 color_read_Green@tmp 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Hpowerup 32 0 CODE 0 powerup dist/default/production\final-project-areeb-atulit.X.production.o
-ttemp5 57 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
-ttemp6 5A 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
-ttemp7 5E 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
-_motorLinit 20E8 0 CODE 0 text10 dist/default/production\final-project-areeb-atulit.X.production.o
-_motorRinit 207E 0 CODE 0 text9 dist/default/production\final-project-areeb-atulit.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
-intlevel0 0 0 CODE 0 text C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
-intlevel1 0 0 CODE 0 text C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
-intlevel2 0 0 CODE 0 text C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
-intlevel3 0 0 CODE 0 text C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
+ttemp5 54 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
+ttemp6 57 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
+ttemp7 5B 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
+_motorLinit 1FFA 0 CODE 0 text9 dist/default/production\final-project-areeb-atulit.X.production.o
+_motorRinit 1F90 0 CODE 0 text8 dist/default/production\final-project-areeb-atulit.X.production.o
+__accesstop 60 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+intlevel0 0 0 CODE 0 text C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+intlevel1 0 0 CODE 0 text C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+intlevel2 0 0 CODE 0 text C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+intlevel3 0 0 CODE 0 text C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_response@temp 21 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+motor_response@temp 20 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\final-project-areeb-atulit.X.production.o
-wtemp8 57 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
+wtemp8 54 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\final-project-areeb-atulit.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\final-project-areeb-atulit.X.production.o
 ___wmul@multiplicand B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_Interrupts_init 2588 0 CODE 0 text25 dist/default/production\final-project-areeb-atulit.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
+__end_of_Interrupts_init 2454 0 CODE 0 text27 dist/default/production\final-project-areeb-atulit.X.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+_lowerThreshold AB 0 BANK0 1 bssBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
 I2C_2_Master_Read@ack B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 I2C_2_Master_Read@tmp C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__end_ofi2_Color_Interrupts_threshold 2472 0 CODE 0 text36 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_ofi2_Color_Interrupts_threshold 233E 0 CODE 0 text38 dist/default/production\final-project-areeb-atulit.X.production.o
 _CCPR1H FAA 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _CCPR2H FA6 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _CCPR3H F25 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _CCPR4H F21 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 color_writetoaddr@value B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of___wmul 24E8 0 CODE 0 text14 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of___flge 1C08 0 CODE 0 text7 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of___wmul 23B4 0 CODE 0 text13 dist/default/production\final-project-areeb-atulit.X.production.o
 Color_Interrupts_threshold@lowerThreshold F 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-_TxBufWriteCnt 53 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+_TxBufWriteCnt 50 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 i2Color_Interrupts_threshold@lowerThreshold 7 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\final-project-areeb-atulit.X.production.o
+___fldiv@aexp 21 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+___fldiv@bexp 20 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+___fldiv@sign 19 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\final-project-areeb-atulit.X.production.o
 motorLinit@mL 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 color_read_Blue@tmp 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Hintcodelo 32 0 CODE 0 intcodelo dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of___lwdiv 1F9A 0 CODE 0 text15 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_motorLinit 2152 0 CODE 0 text10 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_motorRinit 20E8 0 CODE 0 text9 dist/default/production\final-project-areeb-atulit.X.production.o
-_tricolorLED 255C 0 CODE 0 text1 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of___fldiv 1570 0 CODE 0 text24 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of___lwdiv 1EAC 0 CODE 0 text14 dist/default/production\final-project-areeb-atulit.X.production.o
+_upperThreshold E3 0 BANK0 1 dataBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_motorLinit 2064 0 CODE 0 text9 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_motorRinit 1FFA 0 CODE 0 text8 dist/default/production\final-project-areeb-atulit.X.production.o
+_tricolorLED 2428 0 CODE 0 text1 dist/default/production\final-project-areeb-atulit.X.production.o
 Color_Interrupts_threshold@upperThreshold D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 i2Color_Interrupts_threshold@upperThreshold 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_retrace@mL 23 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_retrace@mR 25 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 ___lwdiv@quotient 13 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_motor_retrace 1A64 0 CODE 0 text3 dist/default/production\final-project-areeb-atulit.X.production.o
-_Color_Interrupts_clear 2398 0 CODE 0 text34 dist/default/production\final-project-areeb-atulit.X.production.o
-reverse@mL 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-reverse@mR 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+___fldiv@a D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+___fldiv@b 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+_Color_Interrupts_clear 228E 0 CODE 0 text36 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lintcodelo 32 0 CODE 0 intcodelo dist/default/production\final-project-areeb-atulit.X.production.o
-_Interrupts_init 2572 0 CODE 0 text25 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_ofi2_I2C_2_Master_Start 25EA 0 CODE 0 text41 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_ofi2_I2C_2_Master_Write 25B8 0 CODE 0 text39 dist/default/production\final-project-areeb-atulit.X.production.o
+_Interrupts_init 243E 0 CODE 0 text27 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_ofi2_I2C_2_Master_Start 24B6 0 CODE 0 text43 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_ofi2_I2C_2_Master_Write 2484 0 CODE 0 text41 dist/default/production\final-project-areeb-atulit.X.production.o
 _SSP2CON1bits ED9 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-start_initialization 23CA 0 CODE 0 cinit dist/default/production\final-project-areeb-atulit.X.production.o
+start_initialization 21A4 0 CODE 0 cinit dist/default/production\final-project-areeb-atulit.X.production.o
 _SSP2CON2bits EDA 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-_setMotorPWM 1A64 0 CODE 0 text13 dist/default/production\final-project-areeb-atulit.X.production.o
+_setMotorPWM 1724 0 CODE 0 text12 dist/default/production\final-project-areeb-atulit.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\final-project-areeb-atulit.X.production.o
 _TRISAbits F81 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _TRISBbits F82 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _TRISCbits F83 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _TRISDbits F84 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _TRISEbits F85 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-_Color_Interrupts_threshold 241E 0 CODE 0 text26 dist/default/production\final-project-areeb-atulit.X.production.o
+_Color_Interrupts_threshold 22EA 0 CODE 0 text28 dist/default/production\final-project-areeb-atulit.X.production.o
 _TRISFbits F86 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _TRISGbits F87 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _TRISHbits F88 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
+_amb_red 4A 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 _RC0PPS E62 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _RC4REG EE3 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _RC7PPS E69 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
@@ -753,23 +793,24 @@ _RD6PPS E70 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.produ
 _RE2PPS E74 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _RE4PPS E76 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _RG6PPS E88 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_Color_Interrupts_init 2542 0 CODE 0 text27 dist/default/production\final-project-areeb-atulit.X.production.o
-_buggy_path 9E 0 BANK0 1 bssBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_Color_Interrupts_init 240E 0 CODE 0 text29 dist/default/production\final-project-areeb-atulit.X.production.o
+_buggy_path 9C 0 BANK0 1 bssBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
 _RX4PPS E15 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-i2_persistence_register 25A0 0 CODE 0 text35 dist/default/production\final-project-areeb-atulit.X.production.o
-__pcstackBANK0 AD 0 BANK0 1 cstackBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
+i2_persistence_register 246C 0 CODE 0 text37 dist/default/production\final-project-areeb-atulit.X.production.o
+__pcstackBANK0 B1 0 BANK0 1 cstackBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
 _IPR0bits E1F 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_I2C_2_Master_Start 25D6 0 CODE 0 text31 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_I2C_2_Master_Write 25A0 0 CODE 0 text29 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_I2C_2_Master_Start 24A2 0 CODE 0 text33 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_I2C_2_Master_Write 246C 0 CODE 0 text31 dist/default/production\final-project-areeb-atulit.X.production.o
 _TX4REG EE4 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_color_normalise 19E2 0 CODE 0 text23 dist/default/production\final-project-areeb-atulit.X.production.o
 I2C_2_Master_Write@data_byte A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
-i2_I2C_2_Master_Idle 249A 0 CODE 0 text42 dist/default/production\final-project-areeb-atulit.X.production.o
-i2_I2C_2_Master_Stop 25D6 0 CODE 0 text40 dist/default/production\final-project-areeb-atulit.X.production.o
+isa$xinst 0 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+i2_I2C_2_Master_Idle 2366 0 CODE 0 text44 dist/default/production\final-project-areeb-atulit.X.production.o
+i2_I2C_2_Master_Stop 24A2 0 CODE 0 text42 dist/default/production\final-project-areeb-atulit.X.production.o
 turnLeft@mL 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 turnLeft@mR 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-_reverse 1BD0 0 CODE 0 text7 dist/default/production\final-project-areeb-atulit.X.production.o
-_Color_Interrupts_init 2528 0 CODE 0 text27 dist/default/production\final-project-areeb-atulit.X.production.o
+_amb_blue 46 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+_Color_Interrupts_init 23F4 0 CODE 0 text29 dist/default/production\final-project-areeb-atulit.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\final-project-areeb-atulit.X.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\final-project-areeb-atulit.X.production.o
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\final-project-areeb-atulit.X.production.o
@@ -784,9 +825,9 @@ __Hcinit 0 0 ABS 0 cinit dist/default/production\final-project-areeb-atulit.X.pr
 __Hconst 0 0 CONST 0 const dist/default/production\final-project-areeb-atulit.X.production.o
 __Hidata 0 0 CODE 0 idata dist/default/production\final-project-areeb-atulit.X.production.o
 __Hidloc 200010 0 IDLOC 5 idloc dist/default/production\final-project-areeb-atulit.X.production.o
-_color_read_Clear 2250 0 CODE 0 text19 dist/default/production\final-project-areeb-atulit.X.production.o
+_color_read_Clear 2104 0 CODE 0 text18 dist/default/production\final-project-areeb-atulit.X.production.o
 __Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\final-project-areeb-atulit.X.production.o
-_color_read_Green 2200 0 CODE 0 text18 dist/default/production\final-project-areeb-atulit.X.production.o
+_color_read_Green 20B4 0 CODE 0 text17 dist/default/production\final-project-areeb-atulit.X.production.o
 __Hparam 0 0 COMRAM 1 rparam dist/default/production\final-project-areeb-atulit.X.production.o
 __Hrdata 0 0 COMRAM 1 rdata dist/default/production\final-project-areeb-atulit.X.production.o
 __Hstack 0 0 STACK 2 stack dist/default/production\final-project-areeb-atulit.X.production.o
@@ -808,12 +849,15 @@ __Hbank13 0 0 ABS 0 bank13 dist/default/production\final-project-areeb-atulit.X.
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\final-project-areeb-atulit.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\final-project-areeb-atulit.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\final-project-areeb-atulit.X.production.o
-i2_Color_Interrupts_init 2542 0 CODE 0 text37 dist/default/production\final-project-areeb-atulit.X.production.o
-__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
+i2_Color_Interrupts_init 240E 0 CODE 0 text39 dist/default/production\final-project-areeb-atulit.X.production.o
+__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+___xxtofl@arg 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+___xxtofl@exp 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+___xxtofl@val 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __end_of_HighISR 32 0 CODE 0 intcode dist/default/production\final-project-areeb-atulit.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\final-project-areeb-atulit.X.production.o
 __Hconfig 30000C 0 CONFIG 4 config dist/default/production\final-project-areeb-atulit.X.production.o
-__end_ofi2_Color_Interrupts_init 255C 0 CODE 0 text37 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_ofi2_Color_Interrupts_init 2428 0 CODE 0 text39 dist/default/production\final-project-areeb-atulit.X.production.o
 _T2HLTbits FBE 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\final-project-areeb-atulit.X.production.o
@@ -827,7 +871,7 @@ __Lbank8 0 0 ABS 0 bank8 dist/default/production\final-project-areeb-atulit.X.pr
 __Lbank9 0 0 ABS 0 bank9 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lcinit 0 0 ABS 0 cinit dist/default/production\final-project-areeb-atulit.X.production.o
 __Lconst 0 0 CONST 0 const dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_norm_stop 2398 0 CODE 0 text8 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_norm_stop 228E 0 CODE 0 text6 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lidata 0 0 CODE 0 idata dist/default/production\final-project-areeb-atulit.X.production.o
 __Lidloc 0 0 IDLOC 5 idloc dist/default/production\final-project-areeb-atulit.X.production.o
 __Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\final-project-areeb-atulit.X.production.o
@@ -844,9 +888,9 @@ __Ltext6 0 0 ABS 0 text6 dist/default/production\final-project-areeb-atulit.X.pr
 __Ltext7 0 0 ABS 0 text7 dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext8 0 0 ABS 0 text8 dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext9 0 0 ABS 0 text9 dist/default/production\final-project-areeb-atulit.X.production.o
-_I2C_2_Master_Start 25CC 0 CODE 0 text31 dist/default/production\final-project-areeb-atulit.X.production.o
+_I2C_2_Master_Start 2498 0 CODE 0 text33 dist/default/production\final-project-areeb-atulit.X.production.o
 initDCmotorsPWM@PWMperiod 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-_I2C_2_Master_Write 2594 0 CODE 0 text29 dist/default/production\final-project-areeb-atulit.X.production.o
+_I2C_2_Master_Write 2460 0 CODE 0 text31 dist/default/production\final-project-areeb-atulit.X.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\final-project-areeb-atulit.X.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\final-project-areeb-atulit.X.production.o
 _INTCONbits FF2 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
@@ -856,7 +900,7 @@ __Hheap 0 0 HEAP 7 heap dist/default/production\final-project-areeb-atulit.X.pro
 __Hinit 36 0 CODE 0 init dist/default/production\final-project-areeb-atulit.X.production.o
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\final-project-areeb-atulit.X.production.o
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\final-project-areeb-atulit.X.production.o
-__Htemp 57 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
+__Htemp 54 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
 __Htext 0 0 ABS 0 text dist/default/production\final-project-areeb-atulit.X.production.o
 __Labs1 0 0 ABS 0 abs1 dist/default/production\final-project-areeb-atulit.X.production.o
 __Ldata 0 0 ABS 0 data dist/default/production\final-project-areeb-atulit.X.production.o
@@ -864,46 +908,51 @@ __Lheap 0 0 HEAP 7 heap dist/default/production\final-project-areeb-atulit.X.pro
 __Linit 32 0 CODE 0 init dist/default/production\final-project-areeb-atulit.X.production.o
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\final-project-areeb-atulit.X.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\final-project-areeb-atulit.X.production.o
-__Ltemp 56 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
+__Ltemp 53 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\final-project-areeb-atulit.X.production.o
 _SSP2CON2 EDA 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _SSP2STAT ED8 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-___wmul 24C2 0 CODE 0 text14 dist/default/production\final-project-areeb-atulit.X.production.o
-_TxBufReadCnt 52 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+___flge 1B04 0 CODE 0 text7 dist/default/production\final-project-areeb-atulit.X.production.o
+___wmul 238E 0 CODE 0 text13 dist/default/production\final-project-areeb-atulit.X.production.o
+_TxBufReadCnt 4F 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
-int$flags 56 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
-_turnLeft 200C 0 CODE 0 text6 dist/default/production\final-project-areeb-atulit.X.production.o
+int$flags 53 0 COMRAM 1 temp dist/default/production\final-project-areeb-atulit.X.production.o
+_turnLeft 1F1E 0 CODE 0 text5 dist/default/production\final-project-areeb-atulit.X.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\final-project-areeb-atulit.X.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\final-project-areeb-atulit.X.production.o
-__S0 25EA 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-__S1 CD 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
+__S0 24B8 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
+__S1 E5 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __S4 0 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __S5 0 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-_ctr 4D 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-_norm_stop 2366 0 CODE 0 text8 dist/default/production\final-project-areeb-atulit.X.production.o
+_ctr AD 0 BANK0 1 bssBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
+_color_normalise 1890 0 CODE 0 text23 dist/default/production\final-project-areeb-atulit.X.production.o
+_norm_stop 225C 0 CODE 0 text6 dist/default/production\final-project-areeb-atulit.X.production.o
 fullSpeedAhead@mL 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 fullSpeedAhead@mR 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_turnLeft 207E 0 CODE 0 text6 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_turnLeft 1F90 0 CODE 0 text5 dist/default/production\final-project-areeb-atulit.X.production.o
 _TX4STAbits EE8 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-_color_read_Red 21B0 0 CODE 0 text17 dist/default/production\final-project-areeb-atulit.X.production.o
+_color_read_Red 2064 0 CODE 0 text16 dist/default/production\final-project-areeb-atulit.X.production.o
 setMotorPWM@posDuty 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 _BAUD4CONbits EE9 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-_motor_response E14 0 CODE 0 text4 dist/default/production\final-project-areeb-atulit.X.production.o
-i2_color_writetoaddr 2508 0 CODE 0 text38 dist/default/production\final-project-areeb-atulit.X.production.o
+_motor_response E18 0 CODE 0 text3 dist/default/production\final-project-areeb-atulit.X.production.o
+i2_color_writetoaddr 23D4 0 CODE 0 text40 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\final-project-areeb-atulit.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\final-project-areeb-atulit.X.production.o
+___xxtofl 1570 0 CODE 0 text22 dist/default/production\final-project-areeb-atulit.X.production.o
 turnRight@mL 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 turnRight@mR 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\final-project-areeb-atulit.X.production.o
-motor_response@mL 23 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_response@mR 25 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-_color_click_init 2332 0 CODE 0 text23 dist/default/production\final-project-areeb-atulit.X.production.o
+motor_response@mL 22 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+motor_response@mR 24 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+_color_click_init 2228 0 CODE 0 text25 dist/default/production\final-project-areeb-atulit.X.production.o
 __Hramtop E00 0 RAM 0 ramtop dist/default/production\final-project-areeb-atulit.X.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\final-project-areeb-atulit.X.production.o
 _CCPTMRS0bits FAD 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of___xxtofl 1724 0 CODE 0 text22 dist/default/production\final-project-areeb-atulit.X.production.o
+__pdataBANK0 E3 0 BANK0 1 dataBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
 __activetblptr 1 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-color_read_RGBC@temp 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+color_read_RGBC@temp 22 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\final-project-areeb-atulit.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
 __Htext10 0 0 ABS 0 text10 dist/default/production\final-project-areeb-atulit.X.production.o
@@ -929,8 +978,8 @@ __Htext29 0 0 ABS 0 text29 dist/default/production\final-project-areeb-atulit.X.
 __Htext30 0 0 ABS 0 text30 dist/default/production\final-project-areeb-atulit.X.production.o
 __Htext31 0 0 ABS 0 text31 dist/default/production\final-project-areeb-atulit.X.production.o
 __Htext32 0 0 ABS 0 text32 dist/default/production\final-project-areeb-atulit.X.production.o
+__Htext33 0 0 ABS 0 text33 dist/default/production\final-project-areeb-atulit.X.production.o
 __Htext34 0 0 ABS 0 text34 dist/default/production\final-project-areeb-atulit.X.production.o
-__Htext35 0 0 ABS 0 text35 dist/default/production\final-project-areeb-atulit.X.production.o
 __Htext36 0 0 ABS 0 text36 dist/default/production\final-project-areeb-atulit.X.production.o
 __Htext37 0 0 ABS 0 text37 dist/default/production\final-project-areeb-atulit.X.production.o
 __Htext38 0 0 ABS 0 text38 dist/default/production\final-project-areeb-atulit.X.production.o
@@ -938,48 +987,53 @@ __Htext39 0 0 ABS 0 text39 dist/default/production\final-project-areeb-atulit.X.
 __Htext40 0 0 ABS 0 text40 dist/default/production\final-project-areeb-atulit.X.production.o
 __Htext41 0 0 ABS 0 text41 dist/default/production\final-project-areeb-atulit.X.production.o
 __Htext42 0 0 ABS 0 text42 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_ofi2_I2C_2_Master_Idle 24C2 0 CODE 0 text42 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_ofi2_I2C_2_Master_Stop 25E0 0 CODE 0 text40 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_color_read_Clear 22A0 0 CODE 0 text19 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_color_read_Green 2250 0 CODE 0 text18 dist/default/production\final-project-areeb-atulit.X.production.o
+__Htext43 0 0 ABS 0 text43 dist/default/production\final-project-areeb-atulit.X.production.o
+__Htext44 0 0 ABS 0 text44 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_ofi2_I2C_2_Master_Idle 238E 0 CODE 0 text44 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_ofi2_I2C_2_Master_Stop 24AC 0 CODE 0 text42 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_color_read_Clear 2154 0 CODE 0 text18 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_color_read_Green 2104 0 CODE 0 text17 dist/default/production\final-project-areeb-atulit.X.production.o
 _PIE0bits E29 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _PIE4bits E2D 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_persistence_register 2594 0 CODE 0 text2 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_Color_Interrupts_clear 23CA 0 CODE 0 text34 dist/default/production\final-project-areeb-atulit.X.production.o
-_RxBufWriteCnt 55 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext10 20E8 0 CODE 0 text10 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext11 1EA6 0 CODE 0 text11 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext12 1DBC 0 CODE 0 text12 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext13 1A64 0 CODE 0 text13 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext14 24C2 0 CODE 0 text14 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext15 1F26 0 CODE 0 text15 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext16 2152 0 CODE 0 text16 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext17 21B0 0 CODE 0 text17 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext18 2200 0 CODE 0 text18 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext19 2250 0 CODE 0 text19 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext20 22A0 0 CODE 0 text20 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext21 25B8 0 CODE 0 text21 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext22 22F0 0 CODE 0 text22 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext23 2332 0 CODE 0 text23 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext24 23F4 0 CODE 0 text24 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext25 2572 0 CODE 0 text25 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext26 241E 0 CODE 0 text26 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext27 2528 0 CODE 0 text27 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext28 24E8 0 CODE 0 text28 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext29 2594 0 CODE 0 text29 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext30 25C2 0 CODE 0 text30 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext31 25CC 0 CODE 0 text31 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext32 2472 0 CODE 0 text32 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext34 2398 0 CODE 0 text34 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext35 25A0 0 CODE 0 text35 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext36 2448 0 CODE 0 text36 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext37 2542 0 CODE 0 text37 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext38 2508 0 CODE 0 text38 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext39 25AC 0 CODE 0 text39 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext40 25D6 0 CODE 0 text40 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext41 25E0 0 CODE 0 text41 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext42 249A 0 CODE 0 text42 dist/default/production\final-project-areeb-atulit.X.production.o
-___lwdiv 1F26 0 CODE 0 text15 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_persistence_register 2460 0 CODE 0 text2 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_Color_Interrupts_clear 22C0 0 CODE 0 text36 dist/default/production\final-project-areeb-atulit.X.production.o
+_RxBufWriteCnt 52 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext10 1DB8 0 CODE 0 text10 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext11 1C08 0 CODE 0 text11 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext12 1724 0 CODE 0 text12 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext13 238E 0 CODE 0 text13 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext14 1E38 0 CODE 0 text14 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext15 1CF2 0 CODE 0 text15 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext16 2064 0 CODE 0 text16 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext17 20B4 0 CODE 0 text17 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext18 2104 0 CODE 0 text18 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext19 2154 0 CODE 0 text19 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext20 2484 0 CODE 0 text20 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext21 21E6 0 CODE 0 text21 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext22 1570 0 CODE 0 text22 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext23 1890 0 CODE 0 text23 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext24 11D6 0 CODE 0 text24 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext25 2228 0 CODE 0 text25 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext26 22C0 0 CODE 0 text26 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext27 243E 0 CODE 0 text27 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext28 22EA 0 CODE 0 text28 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext29 23F4 0 CODE 0 text29 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext30 23B4 0 CODE 0 text30 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext31 2460 0 CODE 0 text31 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext32 248E 0 CODE 0 text32 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext33 2498 0 CODE 0 text33 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext34 233E 0 CODE 0 text34 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext36 228E 0 CODE 0 text36 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext37 246C 0 CODE 0 text37 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext38 2314 0 CODE 0 text38 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext39 240E 0 CODE 0 text39 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext40 23D4 0 CODE 0 text40 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext41 2478 0 CODE 0 text41 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext42 24A2 0 CODE 0 text42 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext43 24AC 0 CODE 0 text43 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext44 2366 0 CODE 0 text44 dist/default/production\final-project-areeb-atulit.X.production.o
+___fldiv 11D6 0 CODE 0 text24 dist/default/production\final-project-areeb-atulit.X.production.o
+___lwdiv 1E38 0 CODE 0 text14 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lbank10 0 0 ABS 0 bank10 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lbank11 0 0 ABS 0 bank11 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lbank12 0 0 ABS 0 bank12 dist/default/production\final-project-areeb-atulit.X.production.o
@@ -988,39 +1042,36 @@ __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\final-project-areeb-atulit
 __Lbigram 0 0 ABS 0 bigram dist/default/production\final-project-areeb-atulit.X.production.o
 __Lbigsfr 0 0 ABS 0 bigsfr dist/default/production\final-project-areeb-atulit.X.production.o
 color_read_Red@tmp 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_color_read_Red 2200 0 CODE 0 text17 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_color_read_Red 20B4 0 CODE 0 text16 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production\final-project-areeb-atulit.X.production.o
 __Lconfig 0 0 CONFIG 4 config dist/default/production\final-project-areeb-atulit.X.production.o
 ___wmul@multiplier 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_retrace@j_496 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_retrace@j_497 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_retrace@j_498 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_retrace@j_499 31 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_retrace@j_500 33 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_retrace@j_501 35 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 _LATAbits F79 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_motor_response 1542 0 CODE 0 text4 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_motor_response 11D6 0 CODE 0 text3 dist/default/production\final-project-areeb-atulit.X.production.o
 _LATDbits F7C 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _LATEbits F7D 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _LATFbits F7E 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _LATGbits F7F 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _LATHbits F80 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_I2C_2_Master_Idle 249A 0 CODE 0 text32 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_I2C_2_Master_Init 241E 0 CODE 0 text24 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_I2C_2_Master_Read 2332 0 CODE 0 text22 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_I2C_2_Master_Stop 25CC 0 CODE 0 text30 dist/default/production\final-project-areeb-atulit.X.production.o
-main@RGBC AD 0 BANK0 1 cstackBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
+___fldiv@grs 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+___fldiv@rem 15 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_I2C_2_Master_Idle 2366 0 CODE 0 text34 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_I2C_2_Master_Init 22EA 0 CODE 0 text26 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_I2C_2_Master_Read 2228 0 CODE 0 text21 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_I2C_2_Master_Stop 2498 0 CODE 0 text32 dist/default/production\final-project-areeb-atulit.X.production.o
+main@RGBC B1 0 BANK0 1 cstackBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\final-project-areeb-atulit.X.production.o
 ___lwdiv@divisor 11 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 ?_color_read_Red D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\final-project-areeb-atulit.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
-__end_ofi2_persistence_register 25AC 0 CODE 0 text35 dist/default/production\final-project-areeb-atulit.X.production.o
-_EUSART4RXbuf 39 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+isa$std 1 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+__end_ofi2_persistence_register 2478 0 CODE 0 text37 dist/default/production\final-project-areeb-atulit.X.production.o
+___fldiv@new_exp 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+_EUSART4RXbuf 30 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 _EUSART4TXbuf 60 0 BANK0 1 bssBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_tricolorLED 2572 0 CODE 0 text1 dist/default/production\final-project-areeb-atulit.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
-stacklo 0 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
+__end_of_tricolorLED 243E 0 CODE 0 text1 dist/default/production\final-project-areeb-atulit.X.production.o
+stackhi 0 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+stacklo 0 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\final-project-areeb-atulit.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\final-project-areeb-atulit.X.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\final-project-areeb-atulit.X.production.o
@@ -1028,50 +1079,53 @@ __Lspace_0 0 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.prod
 __Lspace_1 0 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __Lspace_4 0 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-main@mL BB 0 BANK0 1 cstackBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
-main@mR C4 0 BANK0 1 cstackBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
-__pbssCOMRAM 39 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+main@mL D1 0 BANK0 1 cstackBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
+main@mR DA 0 BANK0 1 cstackBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
+__pbssCOMRAM 30 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 color_read_Clear@tmp 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
+___flge@ff1 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+___flge@ff2 D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 _PIR0bits E33 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _PIR4bits E37 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_turnRight 200C 0 CODE 0 text5 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_turnRight 1F1E 0 CODE 0 text4 dist/default/production\final-project-areeb-atulit.X.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_setMotorPWM 1BD0 0 CODE 0 text13 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_ofi2_color_writetoaddr 2528 0 CODE 0 text38 dist/default/production\final-project-areeb-atulit.X.production.o
-_motor_return 51 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-end_of_initialization 23E2 0 CODE 0 cinit dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_color_click_init 2366 0 CODE 0 text23 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_setMotorPWM 1890 0 CODE 0 text12 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_ofi2_color_writetoaddr 23F4 0 CODE 0 text40 dist/default/production\final-project-areeb-atulit.X.production.o
+_motor_return 4E 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+end_of_initialization 21D4 0 CODE 0 cinit dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_color_click_init 225C 0 CODE 0 text25 dist/default/production\final-project-areeb-atulit.X.production.o
 _T2CLKCONbits FBF 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\final-project-areeb-atulit.X.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\final-project-areeb-atulit.X.production.o
-i2_I2C_2_Master_Start 25E0 0 CODE 0 text41 dist/default/production\final-project-areeb-atulit.X.production.o
-i2_I2C_2_Master_Write 25AC 0 CODE 0 text39 dist/default/production\final-project-areeb-atulit.X.production.o
+i2_I2C_2_Master_Start 24AC 0 CODE 0 text43 dist/default/production\final-project-areeb-atulit.X.production.o
+i2_I2C_2_Master_Write 2478 0 CODE 0 text41 dist/default/production\final-project-areeb-atulit.X.production.o
 ___lwdiv@dividend F 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+?___fldiv 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 ?___lwdiv F 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 _CCP4CONbits F22 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\final-project-areeb-atulit.X.production.o
 ?_color_read_Blue D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_initDCmotorsPWM 1F26 0 CODE 0 text11 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_initDCmotorsPWM 1E38 0 CODE 0 text10 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lramtop E00 0 RAM 0 ramtop dist/default/production\final-project-areeb-atulit.X.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\final-project-areeb-atulit.X.production.o
-_fullSpeedAhead 1DBC 0 CODE 0 text12 dist/default/production\final-project-areeb-atulit.X.production.o
-__pcinit 23CA 0 CODE 0 cinit dist/default/production\final-project-areeb-atulit.X.production.o
-_turnRight 1F9A 0 CODE 0 text5 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_color_read_Blue 22F0 0 CODE 0 text20 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_color_read_RGBC 21B0 0 CODE 0 text16 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext0 1CC8 0 CODE 0 text0 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext1 255C 0 CODE 0 text1 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext2 2588 0 CODE 0 text2 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext3 1542 0 CODE 0 text3 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext4 E14 0 CODE 0 text4 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext5 1F9A 0 CODE 0 text5 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext6 200C 0 CODE 0 text6 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext7 1BD0 0 CODE 0 text7 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext8 2366 0 CODE 0 text8 dist/default/production\final-project-areeb-atulit.X.production.o
-__ptext9 207E 0 CODE 0 text9 dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_I2C_2_Master_RepStart 25C2 0 CODE 0 text21 dist/default/production\final-project-areeb-atulit.X.production.o
+_fullSpeedAhead 1C08 0 CODE 0 text11 dist/default/production\final-project-areeb-atulit.X.production.o
+__pcinit 21A4 0 CODE 0 cinit dist/default/production\final-project-areeb-atulit.X.production.o
+_turnRight 1EAC 0 CODE 0 text4 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_color_read_Blue 21A4 0 CODE 0 text19 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_color_read_RGBC 1DB8 0 CODE 0 text15 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext0 19E2 0 CODE 0 text0 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext1 2428 0 CODE 0 text1 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext2 2454 0 CODE 0 text2 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext3 E18 0 CODE 0 text3 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext4 1EAC 0 CODE 0 text4 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext5 1F1E 0 CODE 0 text5 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext6 225C 0 CODE 0 text6 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext7 1B04 0 CODE 0 text7 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext8 1F90 0 CODE 0 text8 dist/default/production\final-project-areeb-atulit.X.production.o
+__ptext9 1FFA 0 CODE 0 text9 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_I2C_2_Master_RepStart 248E 0 CODE 0 text20 dist/default/production\final-project-areeb-atulit.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\final-project-areeb-atulit.X.production.o
 motorRinit@mR 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext10 0 0 ABS 0 text10 dist/default/production\final-project-areeb-atulit.X.production.o
@@ -1097,8 +1151,8 @@ __Ltext29 0 0 ABS 0 text29 dist/default/production\final-project-areeb-atulit.X.
 __Ltext30 0 0 ABS 0 text30 dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext31 0 0 ABS 0 text31 dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext32 0 0 ABS 0 text32 dist/default/production\final-project-areeb-atulit.X.production.o
+__Ltext33 0 0 ABS 0 text33 dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext34 0 0 ABS 0 text34 dist/default/production\final-project-areeb-atulit.X.production.o
-__Ltext35 0 0 ABS 0 text35 dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext36 0 0 ABS 0 text36 dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext37 0 0 ABS 0 text37 dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext38 0 0 ABS 0 text38 dist/default/production\final-project-areeb-atulit.X.production.o
@@ -1106,57 +1160,57 @@ __Ltext39 0 0 ABS 0 text39 dist/default/production\final-project-areeb-atulit.X.
 __Ltext40 0 0 ABS 0 text40 dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext41 0 0 ABS 0 text41 dist/default/production\final-project-areeb-atulit.X.production.o
 __Ltext42 0 0 ABS 0 text42 dist/default/production\final-project-areeb-atulit.X.production.o
+__Ltext43 0 0 ABS 0 text43 dist/default/production\final-project-areeb-atulit.X.production.o
+__Ltext44 0 0 ABS 0 text44 dist/default/production\final-project-areeb-atulit.X.production.o
 i2color_writetoaddr@value 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_color_writetoaddr 2508 0 CODE 0 text28 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_color_writetoaddr 23D4 0 CODE 0 text30 dist/default/production\final-project-areeb-atulit.X.production.o
 i2color_writetoaddr@address 4 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__ramtop E00 0 RAM 0 ramtop C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
+__ramtop E00 0 RAM 0 ramtop C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
 _HighISR 8 0 CODE 0 intcode dist/default/production\final-project-areeb-atulit.X.production.o
-motor_response@j_485 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_response@j_486 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_response@j_487 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_response@j_488 31 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_response@j_489 33 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-motor_response@j_490 35 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+motor_response@j_496 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+motor_response@j_497 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Lpowerup 32 0 CODE 0 powerup dist/default/production\final-project-areeb-atulit.X.production.o
+?___xxtofl 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\final-project-areeb-atulit.X.production.o
-_interrupt_flag 9C 0 BANK0 1 bssBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
+_amb_clear 44 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+_amb_green 48 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+_interrupt_flag AF 0 BANK0 1 bssBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
 __psmallconst E00 0 SMALLCONST 0 smallconst dist/default/production\final-project-areeb-atulit.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\final-project-areeb-atulit.X.production.o
 setMotorPWM@negDuty 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-_I2C_2_Master_RepStart 25B8 0 CODE 0 text21 dist/default/production\final-project-areeb-atulit.X.production.o
+_I2C_2_Master_RepStart 2484 0 CODE 0 text20 dist/default/production\final-project-areeb-atulit.X.production.o
 _CCP3CONbits F26 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
-___heap_lo 0 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAshmk.o
-_I2C_2_Master_Idle 2472 0 CODE 0 text32 dist/default/production\final-project-areeb-atulit.X.production.o
-_I2C_2_Master_Init 23F4 0 CODE 0 text24 dist/default/production\final-project-areeb-atulit.X.production.o
-_I2C_2_Master_Read 22F0 0 CODE 0 text22 dist/default/production\final-project-areeb-atulit.X.production.o
-_I2C_2_Master_Stop 25C2 0 CODE 0 text30 dist/default/production\final-project-areeb-atulit.X.production.o
+___heap_hi 0 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+___heap_lo 0 0 ABS 0 - C:\Users\areeb\AppData\Local\Temp\xcAs1rs.o
+_I2C_2_Master_Idle 233E 0 CODE 0 text34 dist/default/production\final-project-areeb-atulit.X.production.o
+_I2C_2_Master_Init 22C0 0 CODE 0 text26 dist/default/production\final-project-areeb-atulit.X.production.o
+_I2C_2_Master_Read 21E6 0 CODE 0 text21 dist/default/production\final-project-areeb-atulit.X.production.o
+_I2C_2_Master_Stop 248E 0 CODE 0 text32 dist/default/production\final-project-areeb-atulit.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of__initialization 23E2 0 CODE 0 cinit dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of__initialization 21D4 0 CODE 0 cinit dist/default/production\final-project-areeb-atulit.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\final-project-areeb-atulit.X.production.o
-motor_retrace@buggy_path 21 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+__pidataBANK0 24B6 0 CODE 0 idataBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
 _SP4BRGH EE6 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _SP4BRGL EE5 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\final-project-areeb-atulit.X.production.o
 i2I2C_2_Master_Write@data_byte 2 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-_initDCmotorsPWM 1EA6 0 CODE 0 text11 dist/default/production\final-project-areeb-atulit.X.production.o
+_initDCmotorsPWM 1DB8 0 CODE 0 text10 dist/default/production\final-project-areeb-atulit.X.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_fullSpeedAhead 1EA6 0 CODE 0 text12 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_fullSpeedAhead 1CF2 0 CODE 0 text11 dist/default/production\final-project-areeb-atulit.X.production.o
 _T0CON0bits FD5 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _T0CON1bits FD6 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-_color_read_Blue 22A0 0 CODE 0 text20 dist/default/production\final-project-areeb-atulit.X.production.o
-_color_read_RGBC 2152 0 CODE 0 text16 dist/default/production\final-project-areeb-atulit.X.production.o
+_color_read_Blue 2154 0 CODE 0 text19 dist/default/production\final-project-areeb-atulit.X.production.o
+_color_read_RGBC 1CF2 0 CODE 0 text15 dist/default/production\final-project-areeb-atulit.X.production.o
 _SSP2ADD ED6 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _SSP2BUF ED5 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
-i2_Color_Interrupts_threshold 2448 0 CODE 0 text36 dist/default/production\final-project-areeb-atulit.X.production.o
-motor_response@j 29 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+i2_Color_Interrupts_threshold 2314 0 CODE 0 text38 dist/default/production\final-project-areeb-atulit.X.production.o
+motor_response@j 28 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 ?_color_read_Clear D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 ?_color_read_Green D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_main 1DBC 0 CODE 0 text0 dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_main 1B04 0 CODE 0 text0 dist/default/production\final-project-areeb-atulit.X.production.o
 _CCP2CONbits FA7 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __pintcode 8 0 CODE 0 intcode dist/default/production\final-project-areeb-atulit.X.production.o
-motor_retrace@j 29 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 _TMR0H FD4 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _TMR0L FD3 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _RC4STAbits EE7 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
@@ -1168,17 +1222,20 @@ __LRAM 1 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.producti
 __Lbss 0 0 RAM 1 bss dist/default/production\final-project-areeb-atulit.X.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\final-project-areeb-atulit.X.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\final-project-areeb-atulit.X.production.o
+__HdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
 norm_stop@mL 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 norm_stop@mR 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-__initialization 23CA 0 CODE 0 cinit dist/default/production\final-project-areeb-atulit.X.production.o
-__end_of_Color_Interrupts_threshold 2448 0 CODE 0 text26 dist/default/production\final-project-areeb-atulit.X.production.o
+__initialization 21A4 0 CODE 0 cinit dist/default/production\final-project-areeb-atulit.X.production.o
+__end_of_Color_Interrupts_threshold 2314 0 CODE 0 text28 dist/default/production\final-project-areeb-atulit.X.production.o
+___xxtofl@sign 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __pbssBANK0 60 0 BANK0 1 bssBANK0 dist/default/production\final-project-areeb-atulit.X.production.o
-_interrupt_ctr 4F 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
+_interrupt_ctr 4C 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 _T2CONbits FBD 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\final-project-areeb-atulit.X.production.o
 ___wmul@product D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
-_color_writetoaddr 24E8 0 CODE 0 text28 dist/default/production\final-project-areeb-atulit.X.production.o
-__Hsmallconst E14 0 SMALLCONST 0 smallconst dist/default/production\final-project-areeb-atulit.X.production.o
+_color_writetoaddr 23B4 0 CODE 0 text30 dist/default/production\final-project-areeb-atulit.X.production.o
+__Hsmallconst E18 0 SMALLCONST 0 smallconst dist/default/production\final-project-areeb-atulit.X.production.o
+color_normalise@RGBC 22 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-areeb-atulit.X.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\final-project-areeb-atulit.X.production.o
 _SSP2CLKPPS E1C 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
 _CCP1CONbits FAB 0 ABS 0 - dist/default/production\final-project-areeb-atulit.X.production.o
@@ -1211,12 +1268,12 @@ __Hintcode 32 0 CODE 0 intcode dist/default/production\final-project-areeb-atuli
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text4 0 E14 E14 17D6 1
-cstackCOMRAM 1 1 1 56 1
+text3 0 E18 E18 16A0 1
+cstackCOMRAM 1 1 1 53 1
 reset_vec 0 0 0 4 1
-bssBANK0 1 60 60 6D 1
+bssBANK0 1 60 60 85 1
 intcode 0 8 8 2E 1
-smallconst 0 E00 E00 14 1
+smallconst 0 E00 E00 18 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

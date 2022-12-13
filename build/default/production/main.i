@@ -24505,7 +24505,7 @@ int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 3000;
+int upperThreshold = 2500;
 int lowerThreshold = 0;
 
 
@@ -24533,6 +24533,7 @@ void color_normalise(struct RGBC_val *RGBC);
 void color_click_init(void);
 char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
+void tricolorLEDoff(void);
 void RGBC2Serial(char *str);
 void RGBC_timing_register(void);
 char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
@@ -24632,34 +24633,14 @@ void main() {
     TRISFbits.TRISF0 = 0;
     LATFbits.LATF0 = 0;
 
-    int amb_red = color_read_Red();
-    int amb_green = color_read_Blue();
-    int amb_blue = color_read_Green();
-    int amb_clear = color_read_Clear();
     motor_return = 0;
 
    while (1) {
-
         fullSpeedAhead(&mL, &mR);
-        if(ctr==1){
-            LATFbits.LATF0=1;
-        }
-        else
-            {
-            LATFbits.LATF0=0;
-        }
-
         if (interrupt_flag == 1 && interrupt_ctr>1) {
-
-
-
-
             norm_stop(&mL, &mR);
             _delay((unsigned long)((1000)*(64000000/4000.0)));
             LATDbits.LATD7 = 0;
-
-
-
             if(motor_return == 0){
                 color_read_RGBC(&RGBC);
                 color_normalise(&RGBC);
@@ -24670,23 +24651,20 @@ void main() {
                 motor_retrace(&buggy_path, &mL, &mR);
                 ctr--;
                 if (ctr-1 == 0) {
-                    for (int j = 0; j <= 40; j++) {
-                        turnLeft(&mL, &mR);
-                        _delay((unsigned long)((30)*(64000000/4000.0)));
-                        norm_stop(&mL, &mR);
-                        _delay((unsigned long)((30)*(64000000/4000.0)));
-                    }
-                    LATHbits.LATH0 = !LATHbits.LATH0;
+                    fullSpeedAhead(&mL, &mR);
+                    _delay((unsigned long)((1000)*(64000000/4000.0)));
+                    norm_stop(&mL, &mR);
+                    _delay((unsigned long)((500)*(64000000/4000.0)));
+                    turnLeft(&mL, &mR);
+                    _delay((unsigned long)((425)*(64000000/4000.0)));
+
                     motor_return = 0;
                     norm_stop(&mL, &mR);
                     _delay((unsigned long)((2000)*(64000000/4000.0)));
                 }
             }
-
-
             LATHbits.LATH3 = 0;
             interrupt_flag = 0;
-# 126 "main.c"
    }
 }
 }

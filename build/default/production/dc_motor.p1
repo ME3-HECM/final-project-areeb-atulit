@@ -2249,10 +2249,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./color.h: 37: int amb_clear;
 [v _amb_clear `i ~T0 @X0 1 e ]
 "38
-[; ;./color.h: 38: int upperThreshold = 3000;
+[; ;./color.h: 38: int upperThreshold = 2500;
 [v _upperThreshold `i ~T0 @X0 1 e ]
 [i _upperThreshold
--> 3000 `i
+-> 2500 `i
 ]
 "39
 [; ;./color.h: 39: int lowerThreshold = 0;

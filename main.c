@@ -58,34 +58,14 @@ void main() {
     TRISFbits.TRISF0 = 0;
     LATFbits.LATF0 = 0;
     
-    int amb_red = color_read_Red();
-    int amb_green = color_read_Blue();
-    int amb_blue = color_read_Green();
-    int amb_clear = color_read_Clear();
     motor_return = 0;
 
    while (1) {
-        
         fullSpeedAhead(&mL, &mR);
-        if(ctr==1){
-            LATFbits.LATF0=1;
-        }
-        else 
-            {
-            LATFbits.LATF0=0;
-        }
-        //color_read_RGBC(&RGBC);
         if (interrupt_flag == 1 && interrupt_ctr>1) {
-            //Color_Interrupts_clear();
-//            if(interrupt_ctr==0)
-//                interrupt_ctr++;
-//            else{
             norm_stop(&mL, &mR);
             __delay_ms(1000);
             LATDbits.LATD7 = 0;
-
-//            buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
-//            ctr++;
             if(motor_return == 0){
                 color_read_RGBC(&RGBC);
                 color_normalise(&RGBC);
@@ -97,34 +77,19 @@ void main() {
                 ctr--;
                 if (ctr-1 == 0) {
                     fullSpeedAhead(&mL, &mR);
-                    __delay_ms(100);
-                    for (int j = 0; j <= 40; j++) { //for 135 deg, j=20, for 90 deg, j=15
-                        turnLeft(&mL, &mR);
-                        __delay_ms(30);
-                        norm_stop(&mL, &mR);
-                        __delay_ms(30);
-                    }
-                    LATHbits.LATH0 = !LATHbits.LATH0;
+                    __delay_ms(1000);
+                    norm_stop(&mL, &mR);
+                    __delay_ms(500);
+                    turnLeft(&mL, &mR);
+                    __delay_ms(425);
+//                    LATHbits.LATH0 = !LATHbits.LATH0;
                     motor_return = 0;
                     norm_stop(&mL, &mR);
                     __delay_ms(2000);
                 }
-            }
-            
-   
+            }    
             LATHbits.LATH3 = 0;
             interrupt_flag = 0;
-//            if (RGBC.R >5000){
-//                reverse(&mL, &mR);
-//                __delay_ms(50);
-//                turnRight(&mL, &mR); //turn right if red identified
-//                __delay_ms(210);
-//                norm_stop(&mL, &mR);
-//                __delay_ms(100);
-//            }
-//        }
-
-
    }
 }
 }

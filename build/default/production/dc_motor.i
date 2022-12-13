@@ -24349,7 +24349,7 @@ int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 3000;
+int upperThreshold = 2500;
 int lowerThreshold = 0;
 
 
@@ -24377,6 +24377,7 @@ void color_normalise(struct RGBC_val *RGBC);
 void color_click_init(void);
 char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
+void tricolorLEDoff(void);
 void RGBC2Serial(char *str);
 void RGBC_timing_register(void);
 char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);

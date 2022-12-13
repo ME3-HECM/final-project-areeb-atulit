@@ -24528,7 +24528,7 @@ int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 3000;
+int upperThreshold = 2500;
 int lowerThreshold = 0;
 
 
@@ -24556,29 +24556,35 @@ void color_normalise(struct RGBC_val *RGBC);
 void color_click_init(void);
 char colorVal2String(char *buf,struct RGBC_val *temp);
 void tricolorLED(void);
+void tricolorLEDoff(void);
 void RGBC2Serial(char *str);
 void RGBC_timing_register(void);
 char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
 # 2 "color.c" 2
-# 11 "color.c"
-void color_click_init(void)
-{
+
+
+
+
+
+
+
+void color_click_init(void) {
 
     I2C_2_Master_Init();
 
 
-  color_writetoaddr(0x00, 0x01);
+    color_writetoaddr(0x00, 0x01);
     _delay((unsigned long)((3)*(64000000/4000.0)));
 
 
- color_writetoaddr(0x00, 0x03);
+    color_writetoaddr(0x00, 0x03);
 
 
- color_writetoaddr(0x01, 0xD5);
+    color_writetoaddr(0x01, 0xD5);
 }
 
-void color_writetoaddr(char address, char value){
+void color_writetoaddr(char address, char value) {
     I2C_2_Master_Start();
     I2C_2_Master_Write(0x52 | 0x00);
     I2C_2_Master_Write(0x80 | address);
@@ -24586,80 +24592,79 @@ void color_writetoaddr(char address, char value){
     I2C_2_Master_Stop();
 }
 
-unsigned int color_read_Red(void)
-{
- unsigned int tmp;
- I2C_2_Master_Start();
- I2C_2_Master_Write(0x52 | 0x00);
- I2C_2_Master_Write(0xA0 | 0x16);
- I2C_2_Master_RepStart();
- I2C_2_Master_Write(0x52 | 0x01);
- tmp=I2C_2_Master_Read(1);
- tmp=tmp | (I2C_2_Master_Read(0)<<8);
- I2C_2_Master_Stop();
- return tmp;
+unsigned int color_read_Red(void) {
+    unsigned int tmp;
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0xA0 | 0x16);
+    I2C_2_Master_RepStart();
+    I2C_2_Master_Write(0x52 | 0x01);
+    tmp = I2C_2_Master_Read(1);
+    tmp = tmp | (I2C_2_Master_Read(0) << 8);
+    I2C_2_Master_Stop();
+    return tmp;
 }
 
-unsigned int color_read_Green(void)
-{
- unsigned int tmp;
- I2C_2_Master_Start();
- I2C_2_Master_Write(0x52 | 0x00);
- I2C_2_Master_Write(0xA0 | 0x18);
- I2C_2_Master_RepStart();
- I2C_2_Master_Write(0x52 | 0x01);
- tmp=I2C_2_Master_Read(1);
- tmp=tmp | (I2C_2_Master_Read(0)<<8);
- I2C_2_Master_Stop();
- return tmp;
+unsigned int color_read_Green(void) {
+    unsigned int tmp;
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0xA0 | 0x18);
+    I2C_2_Master_RepStart();
+    I2C_2_Master_Write(0x52 | 0x01);
+    tmp = I2C_2_Master_Read(1);
+    tmp = tmp | (I2C_2_Master_Read(0) << 8);
+    I2C_2_Master_Stop();
+    return tmp;
 }
 
-unsigned int color_read_Blue(void)
-{
- unsigned int tmp;
- I2C_2_Master_Start();
- I2C_2_Master_Write(0x52 | 0x00);
- I2C_2_Master_Write(0xA0 | 0x1A);
- I2C_2_Master_RepStart();
- I2C_2_Master_Write(0x52 | 0x01);
- tmp=I2C_2_Master_Read(1);
- tmp=tmp | (I2C_2_Master_Read(0)<<8);
- I2C_2_Master_Stop();
- return tmp;
+unsigned int color_read_Blue(void) {
+    unsigned int tmp;
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0xA0 | 0x1A);
+    I2C_2_Master_RepStart();
+    I2C_2_Master_Write(0x52 | 0x01);
+    tmp = I2C_2_Master_Read(1);
+    tmp = tmp | (I2C_2_Master_Read(0) << 8);
+    I2C_2_Master_Stop();
+    return tmp;
 }
 
-unsigned int color_read_Clear(void)
-{
- unsigned int tmp;
- I2C_2_Master_Start();
- I2C_2_Master_Write(0x52 | 0x00);
- I2C_2_Master_Write(0xA0 | 0x14);
- I2C_2_Master_RepStart();
- I2C_2_Master_Write(0x52 | 0x01);
- tmp=I2C_2_Master_Read(1);
- tmp=tmp | (I2C_2_Master_Read(0)<<8);
- I2C_2_Master_Stop();
- return tmp;
+unsigned int color_read_Clear(void) {
+    unsigned int tmp;
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0xA0 | 0x14);
+    I2C_2_Master_RepStart();
+    I2C_2_Master_Write(0x52 | 0x01);
+    tmp = I2C_2_Master_Read(1);
+    tmp = tmp | (I2C_2_Master_Read(0) << 8);
+    I2C_2_Master_Stop();
+    return tmp;
 }
-void RGBC2Serial(char *str){
+
+void RGBC2Serial(char *str) {
     _delay((unsigned long)((200)*(64000000/4000.0)));
     sendStringSerial4(str);
 }
-void color_read_RGBC(struct RGBC_val *temp){
+
+void color_read_RGBC(struct RGBC_val *temp) {
     temp->R = color_read_Red();
     temp->B = color_read_Blue();
     temp->G = color_read_Green();
     temp->C = color_read_Clear();
 }
-void color_normalise(struct RGBC_val *RGBC){
-    RGBC->norm_R = RGBC->C / RGBC->R;
 
+void color_normalise(struct RGBC_val *RGBC) {
+    RGBC->norm_R = RGBC->C / RGBC->R;
     RGBC->norm_G = RGBC->C / RGBC->G;
     RGBC->norm_B = RGBC->C / RGBC->B;
-    RGBC->norm_C = RGBC->C / amb_clear;
+    RGBC->norm_C = RGBC->C / 2650;
 }
-char colorVal2String(char *buf,struct RGBC_val *temp) {
-    sprintf(buf,"RGBC:%i %i %i %i %i\n",temp->R, temp->G, temp->B, temp->C, temp->norm_R);
+
+char colorVal2String(char *buf, struct RGBC_val *temp) {
+    sprintf(buf, "RGBC:%i %i %i %i %i\n", temp->R, temp->G, temp->B, temp->C, temp->norm_R);
 
     return buf;
 }
@@ -24678,193 +24683,145 @@ void tricolorLED(void) {
     LATEbits.LATE7 = 1;
 }
 
+void tricolorLEDoff(void) {
+
+    TRISGbits.TRISG0 = 0;
+    LATGbits.LATG0 = 0;
+    TRISAbits.TRISA4 = 0;
+    LATAbits.LATA4 = 0;
+    TRISFbits.TRISF7 = 0;
+    LATFbits.LATF7 = 0;
+    TRISAbits.TRISA3 = 0;
+    LATAbits.LATA3 = 0;
+    TRISEbits.TRISE7 = 0;
+    LATEbits.LATE7 = 0;
+}
+
 char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
 
-    if (temp->norm_G >8) {
-        reverse(mL,mR);
-        _delay((unsigned long)((400)*(64000000/4000.0)));
-        norm_stop(mL, mR);
+    if (temp->norm_C < 6 && temp-> norm_C > 1.5) {
+        if (temp->norm_G > 8) {
+            reverse(mL, mR);
+            _delay((unsigned long)((400)*(64000000/4000.0)));
+            norm_stop(mL, mR);
             _delay((unsigned long)((80)*(64000000/4000.0)));
-        for (int j = 0; j <= 23; j++) {
             turnRight(mL, mR);
-            _delay((unsigned long)((24)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
+            _delay((unsigned long)((220)*(64000000/4000.0)));
+            return 1;
         }
-        return 1;
-    }
-    else if (temp->norm_B > 4.5 && temp->norm_B < 5.2) {
-
-        reverse(mL, mR);
-        _delay((unsigned long)((400)*(64000000/4000.0)));
-        norm_stop(mL, mR);
-        _delay((unsigned long)((80)*(64000000/4000.0)));
-        for (int j = 0; j <= 18; j++) {
-            turnLeft(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
+        else if (temp->norm_B > 4.5 && temp->norm_B < 5.5) {
+            reverse(mL, mR);
+            _delay((unsigned long)((400)*(64000000/4000.0)));
             norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-        return 2;
-    }
-    else if (temp->norm_B > 2.8 && temp->norm_B < 3.2 && temp->norm_R > 2.8 && temp->norm_R < 3.2 && temp->norm_G > 2.8 && temp->norm_G < 3.2) {
-
-        reverse(mL,mR);
-        _delay((unsigned long)((400)*(64000000/4000.0)));
-        norm_stop(mL, mR);
-        _delay((unsigned long)((80)*(64000000/4000.0)));
-        for (int j = 0; j <= 40; j++) {
-            turnLeft(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-        return 3;
-    }
-    else if (temp->norm_B > 5.5 && temp->norm_B < 6 && temp->norm_R > 1.5 && temp->norm_R < 2 && temp->norm_G > 3 && temp->norm_G < 3.5) {
-        reverse(mL, mR);
-        _delay((unsigned long)((2000)*(64000000/4000.0)));
-        norm_stop(mL, mR);
-        _delay((unsigned long)((100)*(64000000/4000.0)));
-        for (int j = 0; j <= 16; j++) {
-            turnRight(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-        return 4;
-    }
-    else if (temp->norm_B < 5 && temp->norm_R > 1.5 && temp->norm_R < 2 && temp->norm_G > 3 && temp->norm_G < 3.5) {
-        LATHbits.LATH0 = !LATHbits.LATH0;
-        reverse(mL, mR);
-        _delay((unsigned long)((2000)*(64000000/4000.0)));
-        norm_stop(mL, mR);
-        _delay((unsigned long)((300)*(64000000/4000.0)));
-        for (int j = 0; j <= 12; j++) {
-            turnLeft(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-        return 5;
-    }
-    else if (temp->norm_B > 5.5 && temp->norm_B < 6 && temp->norm_R > 1.4 && temp->norm_R < 1.8 && temp->norm_G > 4.1 && temp->norm_G < 4.5) {
-
-        for (int j = 0; j <= 23; j++) {
-            turnRight(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-        return 6;
-    }
-    else if ( temp->norm_B > 3 && temp->norm_B < 3.3 && temp->norm_R > 3.5 && temp->norm_R < 4 && temp->norm_G > 2.1 && temp->norm_G < 2.5) {
-
-        for (int j = 0; j <= 20; j++) {
-            turnLeft(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-        return 7;
-    }
-
-    else if (temp->norm_C > 12) {
-        motor_return = 1;
-        reverse(mL, mR);
-        _delay((unsigned long)((400)*(64000000/4000.0)));
-        norm_stop(mL, mR);
-        _delay((unsigned long)((80)*(64000000/4000.0)));
-        for (int j = 0; j <= 45; j++) {
-            turnLeft(mL, mR);
-            _delay((unsigned long)((24)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-
-
-        return 8;
-
-    }
-
-}
-
-
-void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR) {
-    if (buggy_path[ctr-2]==1) {
-        reverse(mL, mR);
-        _delay((unsigned long)((400)*(64000000/4000.0)));
-        norm_stop(mL, mR);
-        _delay((unsigned long)((80)*(64000000/4000.0)));
-        for (int j = 0; j <= 23; j++) {
-            turnLeft(mL, mR);
-            _delay((unsigned long)((24)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
-        }
-    }
-    else if (buggy_path[ctr-2]==2) {
-    for (int j = 0; j <= 15; j++) {
-        turnRight(mL, mR);
-        _delay((unsigned long)((30)*(64000000/4000.0)));
-        norm_stop(mL, mR);
-        _delay((unsigned long)((30)*(64000000/4000.0)));
-    }
-    }
-    else if (buggy_path[ctr-2]==3) {
-        reverse(mL,mR);
-        _delay((unsigned long)((400)*(64000000/4000.0)));
-        norm_stop(mL, mR);
             _delay((unsigned long)((80)*(64000000/4000.0)));
-        for (int j = 0; j <= 45; j++) {
             turnLeft(mL, mR);
-            _delay((unsigned long)((24)*(64000000/4000.0)));
+            _delay((unsigned long)((250)*(64000000/4000.0)));
+            return 2;
+        }
+        else if (temp->norm_B > 2.8 && temp->norm_B < 3.2 && temp->norm_R > 2.8 && temp->norm_R < 3.2 && temp->norm_G > 2.8 && temp->norm_G < 3.2) {
+            reverse(mL, mR);
+            _delay((unsigned long)((400)*(64000000/4000.0)));
             norm_stop(mL, mR);
-            _delay((unsigned long)((30)*(64000000/4000.0)));
+            _delay((unsigned long)((80)*(64000000/4000.0)));
+            turnLeft(mL, mR);
+            _delay((unsigned long)((410)*(64000000/4000.0)));
+            return 3;
         }
     }
+    else if (temp->norm_C > 6.01 && temp->norm_C < 9) {
+            if (temp->norm_B < 5 && temp->norm_R > 1.7 && temp->norm_R < 2.2 && temp->norm_G > 3 && temp->norm_G < 3.5) {
+               LATHbits.LATH0 = !LATHbits.LATH0;
+                reverse(mL, mR);
+                _delay((unsigned long)((2000)*(64000000/4000.0)));
+                norm_stop(mL, mR);
+                _delay((unsigned long)((300)*(64000000/4000.0)));
+                turnLeft(mL, mR);
+                _delay((unsigned long)((250)*(64000000/4000.0)));
+                return 5;
+            } else if (temp->norm_B > 5.5 && temp->norm_B < 6 && temp->norm_R > 1.4 && temp->norm_R < 1.7 && temp->norm_G > 4.1 && temp->norm_G < 4.5) {
 
-    else if (buggy_path[ctr]==4) {
-     reverse(mL, mR);
-     _delay((unsigned long)((10)*(64000000/4000.0)));
-     norm_stop(mL, mR);
-     _delay((unsigned long)((100)*(64000000/4000.0)));
-     for (int j = 0; j <= 16; j++) {
-         turnLeft(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
-         norm_stop(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
-     }
+                turnRight(mL, mR);
+                _delay((unsigned long)((350)*(64000000/4000.0)));
+                return 6;
+            } else if (temp->norm_B > 3.3 && temp->norm_B < 3.9 && temp->norm_R > 2.7 && temp->norm_R < 3.2 && temp->norm_G > 2.5 && temp->norm_G < 2.9) {
+                LATFbits.LATF0 = !LATFbits.LATF0;
+                turnLeft(mL, mR);
+                _delay((unsigned long)((300)*(64000000/4000.0)));
+                norm_stop(mL, mR);
+                _delay((unsigned long)((2000)*(64000000/4000.0)));
+                return 7;
+            }
+        }
+        else if (temp->norm_C > 9.01) {
+# 204 "color.c"
+            if (temp->norm_B > 5) {
+
+                motor_return = 1;
+                reverse(mL, mR);
+                _delay((unsigned long)((400)*(64000000/4000.0)));
+                norm_stop(mL, mR);
+                _delay((unsigned long)((80)*(64000000/4000.0)));
+                turnLeft(mL, mR);
+                _delay((unsigned long)((425)*(64000000/4000.0)));
+                return 8;
+
+            }
     }
-    else if (buggy_path[ctr]==5) {
-     reverse(mL, mR);
-     _delay((unsigned long)((10)*(64000000/4000.0)));
-     norm_stop(mL, mR);
-     _delay((unsigned long)((300)*(64000000/4000.0)));
-     for (int j = 0; j <= 12; j++) {
-         turnRight(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
-         norm_stop(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
-     }
-    }
-    else if (buggy_path[ctr]==6) {
-     for (int j = 0; j <= 23; j++) {
-         turnRight(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
-         norm_stop(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
-     }
-    }
-    else if (buggy_path[ctr]==7) {
-         for (int j = 0; j <= 20; j++) {
-         turnRight(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
-         norm_stop(mL, mR);
-         _delay((unsigned long)((30)*(64000000/4000.0)));
+# 237 "color.c"
+        }
+    void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) {
+        if (buggy_path[ctr - 2] == 1) {
+            reverse(mL, mR);
+            _delay((unsigned long)((400)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((80)*(64000000/4000.0)));
+            turnLeft(mL, mR);
+            _delay((unsigned long)((250)*(64000000/4000.0)));
+
+        } else if (buggy_path[ctr - 2] == 2) {
+            reverse(mL, mR);
+            _delay((unsigned long)((400)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((80)*(64000000/4000.0)));
+            turnRight(mL, mR);
+            _delay((unsigned long)((220)*(64000000/4000.0)));
+
+        } else if (buggy_path[ctr - 2] == 3) {
+            reverse(mL, mR);
+            _delay((unsigned long)((400)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((80)*(64000000/4000.0)));
+            turnRight(mL, mR);
+            _delay((unsigned long)((430)*(64000000/4000.0)));
+
+        } else if (buggy_path[ctr - 2] == 4) {
+            norm_stop(mL, mR);
+            _delay((unsigned long)((100)*(64000000/4000.0)));
+            turnRight(mL, mR);
+            _delay((unsigned long)((250)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((100)*(64000000/4000.0)));
+            fullSpeedAhead(mL, mR);
+            _delay((unsigned long)((2000)*(64000000/4000.0)));
+
+
+        } else if (buggy_path[ctr - 2] == 5) {
+            norm_stop(mL, mR);
+            _delay((unsigned long)((100)*(64000000/4000.0)));
+            turnLeft(mL, mR);
+            _delay((unsigned long)((250)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((100)*(64000000/4000.0)));
+            fullSpeedAhead(mL, mR);
+            _delay((unsigned long)((2000)*(64000000/4000.0)));
+
+        } else if (buggy_path[ctr - 2] == 6) {
+            turnLeft(mL, mR);
+            _delay((unsigned long)((350)*(64000000/4000.0)));
+        } else if (buggy_path[ctr - 2] == 7) {
+            turnRight(mL, mR);
+            _delay((unsigned long)((350)*(64000000/4000.0)));
         }
 
+
     }
-
-
-}

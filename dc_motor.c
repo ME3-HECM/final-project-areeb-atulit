@@ -153,6 +153,17 @@ void turnRight(DC_motor *mL, DC_motor *mR)
     setMotorPWM(mR);
 }
 
+void slowSearch(DC_motor *mL, DC_motor *mR)
+{
+    mL->power = 40;
+    mR->power = 40;
+    mL->brakemode = 1;
+    mR->brakemode = 1;
+    mR->direction = 0;
+    mL->direction = 1;
+    setMotorPWM(mL);
+    setMotorPWM(mR);
+}
 void uturn(DC_motor *mL, DC_motor *mR){
     mL->power = 45;
     mR->power = 45;
@@ -186,6 +197,28 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
     setMotorPWM(mR);
     
 }
+void wallSmash(DC_motor *mL, DC_motor *mR)
+{
+    mL->power =30;
+    mR->power = 30;
+    mR->direction = 1;
+    mL->direction = 1;
+    mL->brakemode = 1;
+    mR->brakemode = 1;
+    while (mL->power <= 70 && mR->power <=70)
+    {
+        mL->power++;
+        mR->power++;
+        //__delay_ms(10);
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+    }
+    mL->power = 70;
+    mR->power = 70;
+    setMotorPWM(mL);
+    setMotorPWM(mR);
+    
+}
 void reverse(DC_motor *mL, DC_motor *mR)
 {
     mL->power = 5;
@@ -207,4 +240,18 @@ void reverse(DC_motor *mL, DC_motor *mR)
     setMotorPWM(mL);
     setMotorPWM(mR);
     
+}
+//function to prepare for turn
+void turnPrep(DC_motor *mL, DC_motor *mR){
+        reverse(mL, mR);
+        __delay_ms(600);
+        norm_stop(mL, mR);
+        __delay_ms(300);
+}
+
+void motorTRIS(DC_motor *mL, DC_motor *mR){
+    TRISEbits.TRISE2 = 0;
+    TRISEbits.TRISE4 = 0;
+    TRISCbits.TRISC7 = 0;
+    TRISGbits.TRISG6 = 0;
 }

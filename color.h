@@ -7,7 +7,7 @@
 #include "dc_motor.h"
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-//definition of RGB structure
+//definition of RGBC structure
 typedef struct RGBC_val { 
 	float R;
 	float G;
@@ -17,25 +17,19 @@ typedef struct RGBC_val {
     float norm_G;
     float norm_B;
     float norm_C;
-//    unsigned int R;
-//    unsigned int G;
-//    unsigned int B;
-//    unsigned int C;
-//    unsigned int norm_R;
-//    unsigned int norm_G;
-//    unsigned int norm_B;
-//    unsigned int norm_C;
+
 } RGBC_val;
 
 
 char motor_return;
 char buggy_path[15];
-int ctr; //stores which step the buggy is on
+int buggy_step; //stores which step the buggy is on
+int lost_ctr;
 int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 2500;
+int upperThreshold = 1900;
 int lowerThreshold = 0;
 /********************************************//**
  *  Function to initialise the colour click module using I2C
@@ -58,14 +52,23 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
+
 void color_read_RGBC(struct RGBC_val *temp);
 void color_normalise(struct RGBC_val *RGBC);
-void color_click_init(void);
 char colorVal2String(char *buf,struct RGBC_val *temp);
+void RGBC2Serial(char *str);
+
+void color_click_init(void);
+
+void rLED(void);
+void gLED(void);
+void bLED(void);
 void tricolorLED(void);
 void tricolorLEDoff(void);
-void RGBC2Serial(char *str);
+
 void RGBC_timing_register(void);
+
 char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
+
 #endif

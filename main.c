@@ -20,100 +20,147 @@
 
 
 void main() {
-    //Variable declarations
-    tricolorLED();
+    //Variable/structure declarations and initialisations
     RGBC_val RGBC; //initialise object of struct RGBC_val
     char buf[100]; //buffer to store rbgc values
-    //initialisations
+    motor_return = 0;// variable that tells motor whether its in forward or retrace mode
+    buggy_step=0;//count position in buggy motion history path
+    lost_ctr=0;
+    interrupt_ctr=0;//count number of interrupts executed
+    //int pathSet=0; //counter variable to reset path history
+    //reset each element of path history to zero
+//    for(pathSet=0;pathSet<100;pathSet++)
+//    {
+//        buggy_path[pathSet]=0;
+//    }
+    
+    //Function calls
     color_click_init();
-    ctr=0;
-    interrupt_ctr=0;
-    int pathSet=0;
-    for(pathSet=0;pathSet<15;pathSet++)
-    {
-        buggy_path[pathSet]=0;
-    }
-      
     Interrupts_init();
+    tricolorLED(); //turn on tri-color LED
+    //initialise colorclick interrupt
     Color_Interrupts_init();
     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
     persistence_register();
     
+    //initialise motor
     initDCmotorsPWM(200);
     DC_motor mL, mR;
     motorLinit(&mL);
     motorRinit(&mR);
-
-    TRISEbits.TRISE2 = 0;
-    TRISEbits.TRISE4 = 0;
-    TRISCbits.TRISC7 = 0;
-    TRISGbits.TRISG6 = 0;
+    
+    //TRIS set for motor control
+    motorTRIS(&mL,&mR);
+    
+    //set tris and lat for various LEDs for debugging purposes
+    //inbuilt PIC leds
     TRISDbits.TRISD7 = 0;
     LATDbits.LATD7 = 0;
     TRISHbits.TRISH3 = 0;
     LATHbits.LATH3 = 0;
+    
+    // buggy leds
+    //brake signal
     TRISHbits.TRISH0 = 0;
     LATHbits.LATH0 = 0;
     
+    //left signal 
     TRISFbits.TRISF0 = 0;
     LATFbits.LATF0 = 0;
     
-    motor_return = 0;
+     //right signal 
+    TRISDbits.TRISD4 = 0;
+    LATDbits.LATD4 = 0;
+    
+    //beam light
+    TRISDbits.TRISD3 = 0;
+    LATDbits.LATD3 = 0;
 
    while (1) {
-        fullSpeedAhead(&mL, &mR);
-        if (interrupt_flag == 1 && interrupt_ctr>1) {
-            norm_stop(&mL, &mR);
+       if(buggy_step==0) LATDbits.LATD3 = 1;
+       if(buggy_step==1) LATDbits.LATD4 = 1;
+       if(buggy_step==2) LATHbits.LATH0 = 1;
+       
+        fullSpeedAhead(&mL, &mR); // go straight initially
+        if (interrupt_flag == 1 && interrupt_ctr>1) {//if pic interrupt is triggered, go into this if statement
+            norm_stop(&mL, &mR);  //first stop the buggy
             __delay_ms(1000);
-            LATDbits.LATD7 = 0;
-            if(motor_return == 0){
-                color_read_RGBC(&RGBC);
-                color_normalise(&RGBC);
-                LATHbits.LATH3 = !LATHbits.LATH3;
-                buggy_path[ctr] = motor_response(&RGBC,&mL,&mR);
-                ctr++;
-            } else {
-                motor_retrace(&buggy_path, &mL, &mR);
-                ctr--;
-                if (ctr-1 == 0) {
-                    fullSpeedAhead(&mL, &mR);
-                    __delay_ms(1000);
+
+            LATDbits.LATD7 = 0; //turn off the led which monitors interrupt activity
+            if(motor_return == 0){    // check if motor is in forward mode
+                wallSmash(&mL, &mR);  // press against the wall to allow for more consistent colour readings. 
+                __delay_ms(600);     
+                color_read_RGBC(&RGBC);// read RGBC values in one go
+                color_normalise(&RGBC);// normalise colour values using formula Clear/(colour R/G/B). Normalised clear is clear/(clear value against black wall)
+                LATHbits.LATH3 = !LATHbits.LATH3;   //toggle LED to show that a motor response to a colour is occuring
+                buggy_path[buggy_step] = motor_response(&RGBC,&mL,&mR);//perform motor activity for colour detected, and add colour to buggy path history array
+                buggy_step++;//increment the buggy path step counter
+            } else {// if motor is in retrace mode
+                motor_retrace(&buggy_path, &mL, &mR);//reverse the corresponding forward step
+                buggy_step--;// decrement counter to go to previous step of forward journey
+                //the following code brings the buggy to its initial position after its final turn on the return journey is complete. 
+                if (buggy_step == 1) {
+                    //;fullSpeedAhead(&mL, &mR);
+                    //__delay_ms(500);
+                    motor_return = 0;
                     norm_stop(&mL, &mR);
                     __delay_ms(500);
                     turnLeft(&mL, &mR);
-                    __delay_ms(425);
-//                    LATHbits.LATH0 = !LATHbits.LATH0;
-                    motor_return = 0;
+                    __delay_ms(490);
+                    LATHbits.LATH0 = !LATHbits.LATH0;                  
                     norm_stop(&mL, &mR);
                     __delay_ms(2000);
                 }
             }    
-            LATHbits.LATH3 = 0;
-            interrupt_flag = 0;
+            LATHbits.LATH3 = 0;//reset led to check which mode the response represents
+            interrupt_flag = 0;//reset flag to check for colour
    }
 }
 }
 
 //----------Code for Serial Term(comment out interrupts.h before using this fucntion)-----------------------------------------------
-/*void main() {
-    //Variable declarations
-    tricolorLED();
-    TRISHbits.TRISH3 = 0;
-    LATHbits.LATH3 = 0;
-    
-    RGBC_val RGBC; //initialise object of struct RGBC_val
-    char buf[100]; //buffer to store rbgc values
-    initUSART4();
-    color_click_init();
-    
-    while(1) {
-        color_read_RGBC(&RGBC);
-        color_normalise(&RGBC);
-        LATHbits.LATH3 = !LATHbits.LATH3;
-        __delay_ms(500);
-        colorVal2String(buf, &RGBC);
-        RGBC2Serial(buf);
-    }
-}*/
- 
-//------------------------------------------------------------------------------
+//void main() {
+//    //Variable declarations
+//    tricolorLED();
+//    TRISHbits.TRISH3 = 0;
+//    LATHbits.LATH3 = 0;
+//    
+//    RGBC_val RGBC; //initialise object of struct RGBC_val
+//    char buf[100]; //buffer to store rbgc values
+//    initUSART4();
+//    color_click_init();
+//    
+//    while(1) {
+//        int test = 0;
+//            switch(test){
+//                case 0:
+//                    tricolorLED();
+//
+//                    break;
+//                case 1:
+//                    tricolorLEDoff();
+//                    rLED();
+//                    break;
+//                case 2:
+//                    tricolorLEDoff();
+//                    gLED();
+//                    break;
+//                case 3:
+//                    tricolorLEDoff();
+//                    bLED();
+//                    gLED();
+//                    break;
+//            }
+//            
+//
+//        color_read_RGBC(&RGBC);
+//        color_normalise(&RGBC);
+//        LATHbits.LATH3 = !LATHbits.LATH3;
+//        __delay_ms(1000);
+//        colorVal2String(buf, &RGBC);
+//        RGBC2Serial(buf);
+//        
+//    }
+//}
+// 
+////------------------------------------------------------------------------------

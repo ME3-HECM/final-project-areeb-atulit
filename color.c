@@ -82,12 +82,14 @@ unsigned int color_read_Clear(void) {
 }
 
 //function to send RGBC values to serial simultaneously
+
 void RGBC2Serial(char *str) {
     __delay_ms(200);
     sendStringSerial4(str);
 }
 
 //function to read one set of RGBC values
+
 void color_read_RGBC(struct RGBC_val *temp) {
     temp->R = color_read_Red();
     temp->B = color_read_Blue();
@@ -96,6 +98,7 @@ void color_read_RGBC(struct RGBC_val *temp) {
 }
 
 //normalise color values to standardise across ambient conditions. 
+
 void color_normalise(struct RGBC_val *RGBC) {
     amb_clear = 2385;
     RGBC->norm_R = RGBC->C / RGBC->R;
@@ -105,13 +108,16 @@ void color_normalise(struct RGBC_val *RGBC) {
 }
 
 //function to format RGBC values into a string and send to realterm
+
 char colorVal2String(char *buf, struct RGBC_val *temp) {
-    sprintf(buf, "RGBC:%f %f %f %f \n", temp->norm_R, temp->norm_G, temp->norm_B, temp->norm_C);
+    //sprintf(buf, "RGBC:%f %f %f %f \n", temp->norm_R, temp->norm_G, temp->norm_B, temp->norm_C);
+    sprintf(buf, "RGBC:%f %f %f %f %f\n", CR1L, CR2U, CR2L, CR3U, CR3L);
     //sprintf(buf,"norm_RGBC:%i %i %i %i\n",temp->norm_R, temp->norm_G, temp->norm_B, temp->norm_C);
     return buf;
 }
 
 //turn on all three LEDs of the tricolour LED
+
 void tricolorLED(void) {
     //to turn on rgb pins on colour clicker, check microbus pin, map to buggy pin and then pic pin
     rLED();
@@ -120,187 +126,205 @@ void tricolorLED(void) {
 }
 
 // turn on red led on color click
+
 void rLED(void) {
     TRISGbits.TRISG0 = 0;
     LATGbits.LATG0 = 1; //turns on red
 }
 
 // turn on green led on color click
+
 void gLED(void) {
     TRISEbits.TRISE7 = 0;
     LATEbits.LATE7 = 1; //turn on green
 }
 
 // turn on green led on color click
+
 void bLED(void) {
     TRISAbits.TRISA3 = 0;
     LATAbits.LATA3 = 1; // turn on blue
 }
 
 // turn of tricolor led
+
 void tricolorLEDoff(void) {
     //to turn on rgb pins on colour clicker, check microbus pin, map to buggy pin and then pic pin
-  LATAbits.LATA3 = 0;//turn off blue
-  LATEbits.LATE7 = 0;//turn off red
-  LATEbits.LATE7 = 0; //turn off green
+    LATAbits.LATA3 = 0; //turn off blue
+    LATEbits.LATE7 = 0; //turn off red
+    LATEbits.LATE7 = 0; //turn off green
+}
+
+// function to read clear value for colours and create clear ranges accordingly
+
+float rangeCalibrate(struct RGBC_val *RGBC) {
+    //read yellow, pink, light blue, green, blue
+    //            __delay_ms(3000);
+    //            __delay_ms(2000);
+    LATHbits.LATH3 = 1;
+    __delay_ms(500);
+    color_read_RGBC(RGBC);
+    color_normalise(RGBC);
+    float temp = RGBC->norm_C;
+    LATHbits.LATH3 = 0;
+    return temp;
+    //        CR1L = clearArr[0]-0.4;
+    //        CR2U = clearArr[1]+0.4;
+    //        CR2L = clearArr[2]-0.4;
+    //        CR3U = clearArr[3]+0.4;
+    //        CR3L = clearArr[4]-0.4;
+    //__delay_ms(3000);
 }
 
 //function to determine colour read by buggy and perform appropriate response. 
+
 char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
-        if (temp->norm_C <9 && temp->norm_C >6){
-            //Pink(Reverse 1 square and turn left 90)
-         if (temp->norm_B < 5 && temp->norm_R > 1.7 && temp->norm_R < 2.2 && temp->norm_G > 3 && temp->norm_G < 3.5) { 
-             reverse(mL, mR);
-        __delay_ms(3000);
-        norm_stop(mL, mR);
-        __delay_ms(100);
-        turnLeft(mL, mR);
-        __delay_ms(250);
-        return 5;
+    if (temp->norm_C < CR3L) { //black (Turn 360 degrees slowly, retrace if not interrupted)
+        if (lost_ctr < 2) {
+            lost_ctr++;
+        } else {
+            turnPrep(mL, mR);
+            for (int j = 0; j <= 75; j++) { //for 135 deg, j=20, for 90 deg, j=15
+                turnLeft(mL, mR);
+                __delay_ms(30);
+                norm_stop(mL, mR);
+                __delay_ms(60);
+            }
+            turnLeft(mL, mR);
+            __delay_ms(400);
+            norm_stop(mL, mR);
+            __delay_ms(1000);
+            motor_return = 1;
+            buggy_step--;
+            lost_ctr = 0;
+            return 9;
+        }
+
     }
-         //Orange(Turn Right 135)
-         if (temp->norm_B > 5.5 && temp->norm_B < 6 && temp->norm_R > 1.4 && temp->norm_R < 1.7 && temp->norm_G > 4.1 && temp->norm_G < 4.5) { 
-        //        LATHbits.LATH0 = !LATHbits.LATH0; 
-        turnPrep(mL, mR);
-        turnRight(mL, mR);
-        __delay_ms(430);
-        return 6;
-    }   //Light Blue(Turn left 135)
-         if (temp->norm_B > 3.3 && temp->norm_B < 3.9 && temp->norm_R > 2.7 && temp->norm_R < 3.2 && temp->norm_G > 2.5 && temp->norm_G < 2.9) { 
-        LATFbits.LATF0 = !LATFbits.LATF0;
-        turnPrep(mL, mR);
-        turnLeft(mL, mR);
-        __delay_ms(430);
-        norm_stop(mL, mR);
-        __delay_ms(1000);
-        return 7;
+    if (temp->norm_C < CR2U && temp->norm_C > CR2L) {//6&9 for buggy 1, 3.5 and 5.5 buggy 2
+        //Pink(Reverse 1 square and turn left 90)
+        if (temp->norm_B < 5 && temp->norm_R > 1.7 && temp->norm_R < 2.2 && temp->norm_G > 3 && temp->norm_G < 3.5) {
+            reverse(mL, mR);
+            __delay_ms(3000);
+            norm_stop(mL, mR);
+            __delay_ms(100);
+            turnLeft(mL, mR);
+            __delay_ms(220);
+            return 5;
+        }
+        //Orange(Turn Right 135)
+        if (temp->norm_B > 5.5 && temp->norm_B < 6 && temp->norm_R > 1.4 && temp->norm_R < 1.7 && temp->norm_G > 4.1 && temp->norm_G < 4.5) {
+            //        LATHbits.LATH0 = !LATHbits.LATH0; 
+            turnPrep(mL, mR);
+            turnRight(mL, mR);
+            __delay_ms(330);
+            norm_stop(mL, mR);
+            __delay_ms(1000);
+            return 6;
+        } //Light Blue(Turn left 135)
+        if (temp->norm_B > 3.3 && temp->norm_B < 3.9 && temp->norm_R > 2.7 && temp->norm_R < 3.2 && temp->norm_G > 2.5 && temp->norm_G < 2.9) {
+            LATFbits.LATF0 = !LATFbits.LATF0;
+            turnPrep(mL, mR);
+            turnLeft(mL, mR);
+            __delay_ms(330);
+            norm_stop(mL, mR);
+            __delay_ms(1000);
+            return 7;
+        }
+
     }
-    
+
+
+    if (temp->norm_C < CR3U && temp->norm_C > CR3L) {//6 and 1.5 buggy 1 and 3 
+        if (temp->norm_G > 8) { //Red Colour (Turn 90deg Right)
+            turnPrep(mL, mR);
+            turnRight(mL, mR);
+            __delay_ms(230);
+            return 1;
+        }
+        if (temp->norm_B > 4.5 && temp->norm_B < 5.5) { //Green Colour (Turn 90deg Left)
+            turnPrep(mL, mR);
+            turnLeft(mL, mR);
+            __delay_ms(215);
+            return 2;
+        }
+        if (temp->norm_B > 2.7 && temp->norm_B < 3.3 && temp->norm_R > 2.7 && temp->norm_R < 3.3 && temp->norm_G > 2.7 && temp->norm_G < 3.3) { //Dark Blue (Turn left 180)
+            turnPrep(mL, mR);
+            turnLeft(mL, mR);
+            __delay_ms(400);
+            return 3;
+        }
     }
-      
-    
-    if (temp->norm_C <6 && temp->norm_C >1.5){
-      if (temp->norm_G > 8) { //Red Colour (Turn 90deg Right)
-        turnPrep(mL, mR);
-        turnRight(mL, mR);
-        __delay_ms(280);
-        return 1;
-    }
-    if (temp->norm_B > 4.5 && temp->norm_B < 5.5) { //Green Colour (Turn 90deg Left)
-        turnPrep(mL, mR);
-        turnLeft(mL, mR);
-        __delay_ms(270);
-        return 2;
-    }
-    if (temp->norm_B > 2.7 && temp->norm_B < 3.3 && temp->norm_R > 2.7 && temp->norm_R < 3.3 && temp->norm_G > 2.7 && temp->norm_G < 3.3) { //Dark Blue (Turn left 180)
-        turnPrep(mL, mR);
-        turnLeft(mL, mR);
-        __delay_ms(485);
-        return 3;
-    }
-    }    
-    if (temp->norm_C >7){
+    if (temp->norm_C > CR1L) {//7 for buggy 1, 5.7 buggy 2
         if (temp->norm_B > 5) { //Yellow(Reverse 1 square and turn right 90)
-        reverse(mL, mR);
-        __delay_ms(3000);
-        norm_stop(mL, mR);
-        __delay_ms(100);
-        turnRight(mL, mR);
-        __delay_ms(290);
-        return 4;
-    }
-//        if (temp->norm_B < 5 && temp->norm_R > 1.7 && temp->norm_R < 2.2 && temp->norm_G > 3 && temp->norm_G < 3.5) { //Pink(Reverse 1 square and turn left 90)
-//        LATHbits.LATH0 = !LATHbits.LATH0;
-//        reverse(mL, mR);
-//        __delay_ms(2000);
-//        norm_stop(mL, mR);
-//        __delay_ms(300);
-//        turnLeft(mL, mR);
-//        __delay_ms(250);
-//        return 5;
-//    }
+            reverse(mL, mR);
+            __delay_ms(3000);
+            norm_stop(mL, mR);
+            __delay_ms(100);
+            turnRight(mL, mR);
+            __delay_ms(215);
+            return 4;
+        }
+
         if (temp->norm_B < 5) { //White (Turn left 180 and return)
 
-        motor_return = 1;
-        turnPrep(mL, mR);
-        turnLeft(mL, mR);
-        __delay_ms(470);
-        return 8;
+            motor_return = 1;
+            LATDbits.LATD4 = 1; //turn brake lights on
+            turnPrep(mL, mR);
+            turnLeft(mL, mR);
+            __delay_ms(430);
+            LATHbits.LATH3 = 0;
+            return 8;
         }
     }
- else { //black (Turn 360 degrees slowly, retrace if not interrupted)
-        if(lost_ctr<4){
-            lost_ctr++;
-        }
-        else{
-        norm_stop(mL, mR); 
-        __delay_ms(80);
-        for (int j = 0; j <= 90; j++) { //for 135 deg, j=20, for 90 deg, j=15
-            turnLeft(mL, mR);
-            __delay_ms(30);
-            norm_stop(mL, mR);
-            __delay_ms(60);
-        }
-        lost_ctr=0;
-        }
-        if (interrupt_flag == 0) {
-            motor_return = 1;
-        }
-        buggy_step --;
-        return 9;
+}
 
- }}
+void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) {
+    if (buggy_path[buggy_step - 2] == 1) { //Red Colour (Turn 90deg Left)
+        turnPrep(mL, mR);
+        turnLeft(mL, mR);
+        __delay_ms(215);
 
-    void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) {
-        if (buggy_path[buggy_step - 2] == 1) { //Red Colour (Turn 90deg Left)
-            turnPrep(mL, mR);
-            turnLeft(mL, mR);
-            __delay_ms(280);
+    } else if (buggy_path[buggy_step - 2] == 2) { //Green Colour (Turn 90deg Right)
+        turnPrep(mL, mR);
+        turnRight(mL, mR);
+        __delay_ms(230);
 
-        } else if (buggy_path[buggy_step - 2] == 2) { //Green Colour (Turn 90deg Right)
-            turnPrep(mL, mR);
-            turnRight(mL, mR);
-            __delay_ms(280);
+    } else if (buggy_path[buggy_step - 2] == 3) { //Dark Blue (Turn left 180)
+        turnPrep(mL, mR);
+        turnRight(mL, mR);
+        __delay_ms(415);
 
-        } else if (buggy_path[buggy_step - 2] == 3) { //Dark Blue (Turn left 180)
-            turnPrep(mL, mR);
-            turnRight(mL, mR);
-            __delay_ms(495);
+    } else if (buggy_path[buggy_step - 2] == 4) { //Yellow(Reverse 1 square and turn Left 90)
+        turnPrep(mL, mR);
+        turnLeft(mL, mR);
+        __delay_ms(215);
+        norm_stop(mL, mR);
+        __delay_ms(100);
+        fullSpeedAhead(mL, mR);
+        __delay_ms(1200);
 
-        } else if (buggy_path[buggy_step - 2] == 4) { //Yellow(Reverse 1 square and turn Left 90)
-            turnPrep(mL,mR);
-            turnRight(mL, mR);
-            __delay_ms(280);
-            norm_stop(mL, mR);
-            __delay_ms(100);
-            fullSpeedAhead(mL, mR);
-            __delay_ms(1200);
-            reverse(mL, mR);
-            __delay_ms(600);
-            turnLeft(mL, mR);
-            __delay_ms(285);
-            norm_stop(mL, mR);
-            __delay_ms(100);
+    } else if (buggy_path[buggy_step - 2] == 5) { //Pink(Reverse 1 square and turn left 90)
+        norm_stop(mL, mR);
+        __delay_ms(100);
+        turnRight(mL, mR);
+        __delay_ms(230);
+        norm_stop(mL, mR);
+        __delay_ms(100);
+        fullSpeedAhead(mL, mR);
+        __delay_ms(2000);
 
-        } else if (buggy_path[buggy_step - 2] == 5) { //Pink(Reverse 1 square and turn left 90)
-            norm_stop(mL, mR);
-            __delay_ms(100);
-            turnLeft(mL, mR);
-            __delay_ms(250);
-            norm_stop(mL, mR);
-            __delay_ms(100);
-            fullSpeedAhead(mL, mR);
-            __delay_ms(2000);
-
-        } else if (buggy_path[buggy_step - 2] == 6) { //Orange(Turn Right 135)
-            turnPrep(mL, mR);
-            turnLeft(mL, mR);
-            __delay_ms(350);
-        } else if (buggy_path[buggy_step - 2] == 7) { //Light Blue(Turn left 135)
-            turnPrep(mL, mR);
-            turnRight(mL, mR);
-            __delay_ms(350);
-        }
+    } else if (buggy_path[buggy_step - 2] == 6) { //Orange(Turn Right 135)
+        turnPrep(mL, mR);
+        turnLeft(mL, mR);
+        __delay_ms(350);
+    } else if (buggy_path[buggy_step - 2] == 7) { //Light Blue(Turn left 135)
+        turnPrep(mL, mR);
+        turnRight(mL, mR);
+        __delay_ms(350);
+    }
 
 
-    }    
+}
+
+

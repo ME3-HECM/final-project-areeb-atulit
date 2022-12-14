@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "color.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,16 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-
-
-#pragma config WDTCPS = WDTCPS_31
-#pragma config WDTE = OFF
-
-
+# 1 "color.c" 2
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24238,7 +24229,104 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
+# 1 "color.c" 2
+
+# 1 "./color.h" 1
+
+
+
+
+# 1 "./serial.h" 1
+# 13 "./serial.h"
+volatile char EUSART4RXbuf[20];
+volatile char RxBufWriteCnt=0;
+volatile char RxBufReadCnt=0;
+
+volatile char EUSART4TXbuf[60];
+volatile char TxBufWriteCnt=0;
+volatile char TxBufReadCnt=0;
+
+
+
+void initUSART4(void);
+char getCharSerial4(void);
+void sendCharSerial4(char charToSend);
+void sendStringSerial4(char *string);
+
+
+char getCharFromRxBuf(void);
+void putCharToRxBuf(char byte);
+char isDataInRxBuf (void);
+
+
+char getCharFromTxBuf(void);
+void putCharToTxBuf(char byte);
+char isDataInTxBuf (void);
+void TxBufferedString(char *string);
+void sendTxBuf(void);
+# 5 "./color.h" 2
+
+# 1 "./interrupts.h" 1
+
+
+
+
+# 1 "./i2c.h" 1
+# 13 "./i2c.h"
+void I2C_2_Master_Init(void);
+
+
+
+
+void I2C_2_Master_Idle(void);
+
+
+
+
+void I2C_2_Master_Start(void);
+
+
+
+
+void I2C_2_Master_RepStart(void);
+
+
+
+
+void I2C_2_Master_Stop(void);
+
+
+
+
+void I2C_2_Master_Write(unsigned char data_byte);
+
+
+
+
+unsigned char I2C_2_Master_Read(unsigned char ack);
+# 5 "./interrupts.h" 2
+
+
+
+int interrupt_flag = 0;
+int interrupt_ctr;
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+void Color_Interrupts_init(void);
+void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
+void persistence_register(void);
+void Color_Interrupts_clear(void);
+# 6 "./color.h" 2
+
+# 1 "./dc_motor.h" 1
+
+
+
+
+# 1 "./color.h" 1
+# 5 "./dc_motor.h" 2
+
+
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
@@ -24384,102 +24472,41 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 10 "main.c" 2
+# 8 "./dc_motor.h" 2
 
 
 # 1 "./dc_motor.h" 1
+# 10 "./dc_motor.h" 2
 
 
 
 
-# 1 "./color.h" 1
+typedef struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+} DC_motor;
 
 
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(DC_motor *m);
+void stop(DC_motor *mL, DC_motor *mR);
+void turnLeft(DC_motor *mL, DC_motor *mR);
+void turnRight(DC_motor *mL, DC_motor *mR);
+void uturn(DC_motor *mL, DC_motor *mR);
 
-
-# 1 "./serial.h" 1
-# 13 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
-
-
-
-void initUSART4(void);
-char getCharSerial4(void);
-void sendCharSerial4(char charToSend);
-void sendStringSerial4(char *string);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-# 5 "./color.h" 2
-
-# 1 "./interrupts.h" 1
-
-
-
-
-# 1 "./i2c.h" 1
-# 13 "./i2c.h"
-void I2C_2_Master_Init(void);
-
-
-
-
-void I2C_2_Master_Idle(void);
-
-
-
-
-void I2C_2_Master_Start(void);
-
-
-
-
-void I2C_2_Master_RepStart(void);
-
-
-
-
-void I2C_2_Master_Stop(void);
-
-
-
-
-void I2C_2_Master_Write(unsigned char data_byte);
-
-
-
-
-unsigned char I2C_2_Master_Read(unsigned char ack);
-# 5 "./interrupts.h" 2
-
-
-
-int interrupt_flag = 0;
-int interrupt_ctr;
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-void Color_Interrupts_init(void);
-void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
-void persistence_register(void);
-void Color_Interrupts_clear(void);
-# 6 "./color.h" 2
-
-# 1 "./dc_motor.h" 1
+void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void wallSmash(DC_motor *mL, DC_motor *mR);
+void reverse(DC_motor *mL, DC_motor *mR);
+void motorLinit(DC_motor *mL);
+void motorRinit(DC_motor *mR);
+void norm_stop(DC_motor *mL, DC_motor *mR);
+void turnPrep(DC_motor *mL, DC_motor *mR);
+void motorTRIS(DC_motor *mL, DC_motor *mR);
+void slowSearch(DC_motor *mL, DC_motor *mR);
 # 7 "./color.h" 2
 
 
@@ -24512,7 +24539,7 @@ int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 2000;
+int upperThreshold = 1900;
 int lowerThreshold = 0;
 
 
@@ -24554,51 +24581,7 @@ void RGBC_timing_register(void);
 char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
 float rangeCalibrate(struct RGBC_val *RGBC);
-# 5 "./dc_motor.h" 2
-
-
-
-
-
-# 1 "./dc_motor.h" 1
-# 10 "./dc_motor.h" 2
-
-
-
-
-typedef struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-} DC_motor;
-
-
-void initDCmotorsPWM(unsigned int PWMperiod);
-void setMotorPWM(DC_motor *m);
-void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft(DC_motor *mL, DC_motor *mR);
-void turnRight(DC_motor *mL, DC_motor *mR);
-void uturn(DC_motor *mL, DC_motor *mR);
-
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void wallSmash(DC_motor *mL, DC_motor *mR);
-void reverse(DC_motor *mL, DC_motor *mR);
-void motorLinit(DC_motor *mL);
-void motorRinit(DC_motor *mR);
-void norm_stop(DC_motor *mL, DC_motor *mR);
-void turnPrep(DC_motor *mL, DC_motor *mR);
-void motorTRIS(DC_motor *mL, DC_motor *mR);
-void slowSearch(DC_motor *mL, DC_motor *mR);
-# 12 "main.c" 2
-
-
-
-
-
-# 1 "./timers.h" 1
+# 2 "color.c" 2
 
 
 
@@ -24606,141 +24589,324 @@ void slowSearch(DC_motor *mL, DC_motor *mR);
 
 
 
-void Timer0_init(void);
-unsigned int get16bitTMR0val(void);
-# 17 "main.c" 2
+void color_click_init(void) {
+
+    I2C_2_Master_Init();
+
+
+    color_writetoaddr(0x00, 0x01);
+    _delay((unsigned long)((3)*(64000000/4000.0)));
+
+
+    color_writetoaddr(0x00, 0x03);
+
+
+    color_writetoaddr(0x01, 0xD5);
+}
+
+void color_writetoaddr(char address, char value) {
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0x80 | address);
+    I2C_2_Master_Write(value);
+    I2C_2_Master_Stop();
+}
+
+unsigned int color_read_Red(void) {
+    unsigned int tmp;
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0xA0 | 0x16);
+    I2C_2_Master_RepStart();
+    I2C_2_Master_Write(0x52 | 0x01);
+    tmp = I2C_2_Master_Read(1);
+    tmp = tmp | (I2C_2_Master_Read(0) << 8);
+    I2C_2_Master_Stop();
+    return tmp;
+}
+
+unsigned int color_read_Green(void) {
+    unsigned int tmp;
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0xA0 | 0x18);
+    I2C_2_Master_RepStart();
+    I2C_2_Master_Write(0x52 | 0x01);
+    tmp = I2C_2_Master_Read(1);
+    tmp = tmp | (I2C_2_Master_Read(0) << 8);
+    I2C_2_Master_Stop();
+    return tmp;
+}
+
+unsigned int color_read_Blue(void) {
+    unsigned int tmp;
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0xA0 | 0x1A);
+    I2C_2_Master_RepStart();
+    I2C_2_Master_Write(0x52 | 0x01);
+    tmp = I2C_2_Master_Read(1);
+    tmp = tmp | (I2C_2_Master_Read(0) << 8);
+    I2C_2_Master_Stop();
+    return tmp;
+}
+
+unsigned int color_read_Clear(void) {
+    unsigned int tmp;
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0xA0 | 0x14);
+    I2C_2_Master_RepStart();
+    I2C_2_Master_Write(0x52 | 0x01);
+    tmp = I2C_2_Master_Read(1);
+    tmp = tmp | (I2C_2_Master_Read(0) << 8);
+    I2C_2_Master_Stop();
+    return tmp;
+}
 
 
 
-
-void main() {
-    tricolorLED();
-    color_click_init();
-    float clearArr[6];
-
-    initDCmotorsPWM(200);
-    DC_motor mL, mR;
-    motorLinit(&mL);
-    motorRinit(&mR);
-
-
-    motorTRIS(&mL, &mR);
+void RGBC2Serial(char *str) {
+    _delay((unsigned long)((200)*(64000000/4000.0)));
+    sendStringSerial4(str);
+}
 
 
 
-    TRISDbits.TRISD7 = 0;
-    LATDbits.LATD7 = 0;
-    TRISHbits.TRISH3 = 0;
+void color_read_RGBC(struct RGBC_val *temp) {
+    temp->R = color_read_Red();
+    temp->B = color_read_Blue();
+    temp->G = color_read_Green();
+    temp->C = color_read_Clear();
+}
+
+
+
+void color_normalise(struct RGBC_val *RGBC) {
+    amb_clear = 2385;
+    RGBC->norm_R = RGBC->C / RGBC->R;
+    RGBC->norm_G = RGBC->C / RGBC->G;
+    RGBC->norm_B = RGBC->C / RGBC->B;
+    RGBC->norm_C = RGBC->C / amb_clear;
+}
+
+
+
+char colorVal2String(char *buf, struct RGBC_val *temp) {
+
+    sprintf(buf, "RGBC:%f %f %f %f %f\n", CR1L, CR2U, CR2L, CR3U, CR3L);
+
+    return buf;
+}
+
+
+
+void tricolorLED(void) {
+
+    rLED();
+    gLED();
+    bLED();
+}
+
+
+
+void rLED(void) {
+    TRISGbits.TRISG0 = 0;
+    LATGbits.LATG0 = 1;
+}
+
+
+
+void gLED(void) {
+    TRISEbits.TRISE7 = 0;
+    LATEbits.LATE7 = 1;
+}
+
+
+
+void bLED(void) {
+    TRISAbits.TRISA3 = 0;
+    LATAbits.LATA3 = 1;
+}
+
+
+
+void tricolorLEDoff(void) {
+
+    LATAbits.LATA3 = 0;
+    LATEbits.LATE7 = 0;
+    LATEbits.LATE7 = 0;
+}
+
+
+
+float rangeCalibrate(struct RGBC_val *RGBC) {
+
+
+
+    LATHbits.LATH3 = 1;
+    _delay((unsigned long)((500)*(64000000/4000.0)));
+    color_read_RGBC(RGBC);
+    color_normalise(RGBC);
+    float temp = RGBC->norm_C;
     LATHbits.LATH3 = 0;
+    return temp;
 
 
-    RGBC_val RGBC;
-    int a = 0;
-    TRISFbits.TRISF2 = 1;
-    ANSELFbits.ANSELF2 = 0;
 
 
-    while (a < 6) {
 
-        if (!PORTFbits.RF2) {
-            if(a!=5){
-            wallSmash(&mL, &mR);}
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-            clearArr[a] = rangeCalibrate(&RGBC);
-            a++;
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-            norm_stop(&mL, &mR);
-            _delay((unsigned long)((500)*(64000000/4000.0)));
+
+}
+
+
+
+char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
+    if (temp->norm_C < CR2U && temp->norm_C > CR2L) {
+
+        if (temp->norm_B < 5 && temp->norm_R > 1.7 && temp->norm_R < 2.2 && temp->norm_G > 3 && temp->norm_G < 3.5) {
+            reverse(mL, mR);
+            _delay((unsigned long)((3000)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((100)*(64000000/4000.0)));
+            turnLeft(mL, mR);
+            _delay((unsigned long)((250)*(64000000/4000.0)));
+            return 5;
         }
-    }
 
+        if (temp->norm_B > 5.5 && temp->norm_B < 6 && temp->norm_R > 1.4 && temp->norm_R < 1.7 && temp->norm_G > 4.1 && temp->norm_G < 4.5) {
 
-    Interrupts_init();
-    Color_Interrupts_init();
-    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
-    persistence_register();
-
-
-
-
-    char buf[100];
-    motor_return = 0;
-    buggy_step = 0;
-    lost_ctr = 0;
-    interrupt_ctr = 0;
-
-
-
-    TRISHbits.TRISH0 = 0;
-    LATHbits.LATH0 = 0;
-
-
-    TRISFbits.TRISF0 = 0;
-    LATFbits.LATF0 = 0;
-
-
-    TRISDbits.TRISD4 = 0;
-    LATDbits.LATD4 = 0;
-
-
-    TRISDbits.TRISD3 = 0;
-    LATDbits.LATD3 = 0;
-
-
-    while (1) {
-
-
-
-
-        fullSpeedAhead(&mL, &mR);
-        if (interrupt_flag == 1 && interrupt_ctr > 1) {
-
-
-
-
-
-            CR1L = 5.7;
-            CR2U = 5.5;
-            CR2L = 4.5;
-            CR3U = 4.2;
-            CR3L = 1.2;
-            norm_stop(&mL, &mR);
+            turnPrep(mL, mR);
+            turnRight(mL, mR);
+            _delay((unsigned long)((430)*(64000000/4000.0)));
+            return 6;
+        }
+        if (temp->norm_B > 3.3 && temp->norm_B < 3.9 && temp->norm_R > 2.7 && temp->norm_R < 3.2 && temp->norm_G > 2.5 && temp->norm_G < 2.9) {
+            LATFbits.LATF0 = !LATFbits.LATF0;
+            turnPrep(mL, mR);
+            turnLeft(mL, mR);
+            _delay((unsigned long)((430)*(64000000/4000.0)));
+            norm_stop(mL, mR);
             _delay((unsigned long)((1000)*(64000000/4000.0)));
-            LATDbits.LATD7 = 0;
-            if (motor_return == 0) {
-                LATHbits.LATH3 = 1;
-                wallSmash(&mL, &mR);
-                _delay((unsigned long)((600)*(64000000/4000.0)));
-                color_read_RGBC(&RGBC);
-                color_normalise(&RGBC);
-                buggy_path[buggy_step] = motor_response(&RGBC, &mL, &mR);
-                buggy_step++;
-            } else {
-                LATDbits.LATD7 = 1;
-                wallSmash(&mL, &mR);
-                _delay((unsigned long)((600)*(64000000/4000.0)));
-                motor_retrace(&buggy_path, &mL, &mR);
-                buggy_step--;
+            return 7;
+        }
 
-                if (buggy_step == 1) {
+    }
 
 
-                    motor_return = 0;
-                    LATDbits.LATD4 = 0;
-                    fullSpeedAhead(&mL, &mR);
-                    _delay((unsigned long)((500)*(64000000/4000.0)));
-                    norm_stop(&mL, &mR);
-                    _delay((unsigned long)((500)*(64000000/4000.0)));
-                    turnLeft(&mL, &mR);
-                    _delay((unsigned long)((430)*(64000000/4000.0)));
-                    LATHbits.LATH0 = !LATHbits.LATH0;
-                    norm_stop(&mL, &mR);
-                    _delay((unsigned long)((2000)*(64000000/4000.0)));
-                }
-            }
-            LATHbits.LATH3 = 0;
-            interrupt_flag = 0;
+    if (temp->norm_C < CR3U && temp->norm_C > CR3L) {
+        if (temp->norm_G > 8) {
+            turnPrep(mL, mR);
+            turnRight(mL, mR);
+            _delay((unsigned long)((280)*(64000000/4000.0)));
+            return 1;
+        }
+        if (temp->norm_B > 4.5 && temp->norm_B < 5.5) {
+            turnPrep(mL, mR);
+            turnLeft(mL, mR);
+            _delay((unsigned long)((270)*(64000000/4000.0)));
+            return 2;
+        }
+        if (temp->norm_B > 2.7 && temp->norm_B < 3.3 && temp->norm_R > 2.7 && temp->norm_R < 3.3 && temp->norm_G > 2.7 && temp->norm_G < 3.3) {
+            turnPrep(mL, mR);
+            turnLeft(mL, mR);
+            _delay((unsigned long)((485)*(64000000/4000.0)));
+            return 3;
         }
     }
+    if (temp->norm_C > CR1L) {
+        if (temp->norm_B > 5) {
+            reverse(mL, mR);
+            _delay((unsigned long)((3000)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((100)*(64000000/4000.0)));
+            turnRight(mL, mR);
+            _delay((unsigned long)((290)*(64000000/4000.0)));
+            return 4;
+        }
+
+        if (temp->norm_B < 5) {
+
+            motor_return = 1;
+            LATDbits.LATD4 = 1;
+            turnPrep(mL, mR);
+            turnLeft(mL, mR);
+            _delay((unsigned long)((470)*(64000000/4000.0)));
+            return 8;
+        }
+    } else {
+        if (lost_ctr < 4) {
+            lost_ctr++;
+        } else {
+            norm_stop(mL, mR);
+            _delay((unsigned long)((80)*(64000000/4000.0)));
+            for (int j = 0; j <= 90; j++) {
+                turnLeft(mL, mR);
+                _delay((unsigned long)((30)*(64000000/4000.0)));
+                norm_stop(mL, mR);
+                _delay((unsigned long)((60)*(64000000/4000.0)));
+            }
+            lost_ctr = 0;
+        }
+        if (interrupt_flag == 0) {
+            motor_return = 1;
+        }
+        buggy_step--;
+        return 9;
+
+    }
+}
+
+void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) {
+    if (buggy_path[buggy_step - 2] == 1) {
+        turnPrep(mL, mR);
+        turnLeft(mL, mR);
+        _delay((unsigned long)((280)*(64000000/4000.0)));
+
+    } else if (buggy_path[buggy_step - 2] == 2) {
+        turnPrep(mL, mR);
+        turnRight(mL, mR);
+        _delay((unsigned long)((280)*(64000000/4000.0)));
+
+    } else if (buggy_path[buggy_step - 2] == 3) {
+        turnPrep(mL, mR);
+        turnRight(mL, mR);
+        _delay((unsigned long)((495)*(64000000/4000.0)));
+
+    } else if (buggy_path[buggy_step - 2] == 4) {
+        turnPrep(mL, mR);
+        turnRight(mL, mR);
+        _delay((unsigned long)((280)*(64000000/4000.0)));
+        norm_stop(mL, mR);
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+        fullSpeedAhead(mL, mR);
+        _delay((unsigned long)((1200)*(64000000/4000.0)));
+        reverse(mL, mR);
+        _delay((unsigned long)((600)*(64000000/4000.0)));
+        turnLeft(mL, mR);
+        _delay((unsigned long)((285)*(64000000/4000.0)));
+        norm_stop(mL, mR);
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+
+    } else if (buggy_path[buggy_step - 2] == 5) {
+        norm_stop(mL, mR);
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+        turnLeft(mL, mR);
+        _delay((unsigned long)((250)*(64000000/4000.0)));
+        norm_stop(mL, mR);
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+        fullSpeedAhead(mL, mR);
+        _delay((unsigned long)((2000)*(64000000/4000.0)));
+
+    } else if (buggy_path[buggy_step - 2] == 6) {
+        turnPrep(mL, mR);
+        turnLeft(mL, mR);
+        _delay((unsigned long)((350)*(64000000/4000.0)));
+    } else if (buggy_path[buggy_step - 2] == 7) {
+        turnPrep(mL, mR);
+        turnRight(mL, mR);
+        _delay((unsigned long)((350)*(64000000/4000.0)));
+    }
+
 
 }

@@ -74,7 +74,6 @@ void __interrupt(high_priority) HighISR()
 
 
     if (PIR0bits.INT0IF == 1) { //check the interrupt source
-        LATDbits.LATD7 = 1;
         interrupt_flag = 1;
         interrupt_ctr++;
         Color_Interrupts_clear();

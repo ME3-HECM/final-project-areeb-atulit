@@ -24512,7 +24512,7 @@ int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 2000;
+int upperThreshold = 1900;
 int lowerThreshold = 0;
 
 
@@ -24613,10 +24613,11 @@ unsigned int get16bitTMR0val(void);
 
 
 
+
 void main() {
     tricolorLED();
     color_click_init();
-    float clearArr[6];
+    float clearArr[5];
 
     initDCmotorsPWM(200);
     DC_motor mL, mR;
@@ -24638,22 +24639,25 @@ void main() {
     int a = 0;
     TRISFbits.TRISF2 = 1;
     ANSELFbits.ANSELF2 = 0;
-
-
-    while (a < 6) {
-
+    while (a < 5) {
+        wallSmash(&mL, &mR);
         if (!PORTFbits.RF2) {
-            if(a!=5){
-            wallSmash(&mL, &mR);}
-            _delay((unsigned long)((500)*(64000000/4000.0)));
+
             clearArr[a] = rangeCalibrate(&RGBC);
             a++;
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-            norm_stop(&mL, &mR);
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-        }
-    }
 
+        }
+
+
+    }
+    CR1L = clearArr[0] - 0.4;
+    CR2U = 5.594;
+    CR2L = 4.65;
+    CR3U = 4.2;
+    CR3L = 1.2;
+    if (CR1L > 5) {
+        LATDbits.LATD7 = 1;
+    }
 
     Interrupts_init();
     Color_Interrupts_init();
@@ -24694,31 +24698,18 @@ void main() {
 
         fullSpeedAhead(&mL, &mR);
         if (interrupt_flag == 1 && interrupt_ctr > 1) {
-
-
-
-
-
-            CR1L = 5.7;
-            CR2U = 5.5;
-            CR2L = 4.5;
-            CR3U = 4.2;
-            CR3L = 1.2;
             norm_stop(&mL, &mR);
             _delay((unsigned long)((1000)*(64000000/4000.0)));
             LATDbits.LATD7 = 0;
             if (motor_return == 0) {
-                LATHbits.LATH3 = 1;
                 wallSmash(&mL, &mR);
                 _delay((unsigned long)((600)*(64000000/4000.0)));
                 color_read_RGBC(&RGBC);
                 color_normalise(&RGBC);
+                LATHbits.LATH3 = !LATHbits.LATH3;
                 buggy_path[buggy_step] = motor_response(&RGBC, &mL, &mR);
                 buggy_step++;
             } else {
-                LATDbits.LATD7 = 1;
-                wallSmash(&mL, &mR);
-                _delay((unsigned long)((600)*(64000000/4000.0)));
                 motor_retrace(&buggy_path, &mL, &mR);
                 buggy_step--;
 
@@ -24727,12 +24718,10 @@ void main() {
 
                     motor_return = 0;
                     LATDbits.LATD4 = 0;
-                    fullSpeedAhead(&mL, &mR);
-                    _delay((unsigned long)((500)*(64000000/4000.0)));
                     norm_stop(&mL, &mR);
                     _delay((unsigned long)((500)*(64000000/4000.0)));
                     turnLeft(&mL, &mR);
-                    _delay((unsigned long)((430)*(64000000/4000.0)));
+                    _delay((unsigned long)((490)*(64000000/4000.0)));
                     LATHbits.LATH0 = !LATHbits.LATH0;
                     norm_stop(&mL, &mR);
                     _delay((unsigned long)((2000)*(64000000/4000.0)));
@@ -24742,5 +24731,4 @@ void main() {
             interrupt_flag = 0;
         }
     }
-
 }

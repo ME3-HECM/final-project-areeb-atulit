@@ -24341,6 +24341,12 @@ typedef struct RGBC_val {
 
 } RGBC_val;
 
+float CR1L;
+float CR2U;
+float CR2L;
+float CR3U;
+float CR3L;
+
 
 char motor_return;
 char buggy_path[15];
@@ -24350,7 +24356,7 @@ int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 1900;
+int upperThreshold = 2000;
 int lowerThreshold = 0;
 
 
@@ -24391,6 +24397,7 @@ void RGBC_timing_register(void);
 
 char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
+float rangeCalibrate(struct RGBC_val *RGBC);
 # 5 "./dc_motor.h" 2
 
 
@@ -24759,7 +24766,7 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
     mL->direction = 1;
     mL->brakemode = 1;
     mR->brakemode = 1;
-    while (mL->power <= 45 && mR->power <=45)
+    while (mL->power <= 50 && mR->power <=50)
     {
         mL->power++;
         mR->power++;
@@ -24767,21 +24774,21 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
         setMotorPWM(mL);
         setMotorPWM(mR);
     }
-    mL->power = 45;
-    mR->power = 45;
+    mL->power = 50;
+    mR->power = 50;
     setMotorPWM(mL);
     setMotorPWM(mR);
 
 }
 void wallSmash(DC_motor *mL, DC_motor *mR)
 {
-    mL->power =30;
-    mR->power = 30;
+    mL->power =50;
+    mR->power = 50;
     mR->direction = 1;
     mL->direction = 1;
     mL->brakemode = 1;
     mR->brakemode = 1;
-    while (mL->power <= 70 && mR->power <=70)
+    while (mL->power <= 85 && mR->power <=85)
     {
         mL->power++;
         mR->power++;
@@ -24789,8 +24796,8 @@ void wallSmash(DC_motor *mL, DC_motor *mR)
         setMotorPWM(mL);
         setMotorPWM(mR);
     }
-    mL->power = 70;
-    mR->power = 70;
+    mL->power = 85;
+    mR->power = 85;
     setMotorPWM(mL);
     setMotorPWM(mR);
 

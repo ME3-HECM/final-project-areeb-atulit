@@ -24342,6 +24342,12 @@ typedef struct RGBC_val {
 
 } RGBC_val;
 
+float CR1L;
+float CR2U;
+float CR2L;
+float CR3U;
+float CR3L;
+
 
 char motor_return;
 char buggy_path[15];
@@ -24351,7 +24357,7 @@ int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 1900;
+int upperThreshold = 2000;
 int lowerThreshold = 0;
 
 
@@ -24392,6 +24398,7 @@ void RGBC_timing_register(void);
 
 char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
+float rangeCalibrate(struct RGBC_val *RGBC);
 # 5 "./dc_motor.h" 2
 
 
@@ -24650,7 +24657,6 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
 
 
     if (PIR0bits.INT0IF == 1) {
-        LATDbits.LATD7 = 1;
         interrupt_flag = 1;
         interrupt_ctr++;
         Color_Interrupts_clear();

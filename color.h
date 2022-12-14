@@ -20,6 +20,12 @@ typedef struct RGBC_val {
 
 } RGBC_val;
 
+float CR1L;
+float CR2U;
+float CR2L;
+float CR3U;
+float CR3L;
+
 
 char motor_return;
 char buggy_path[15];
@@ -29,7 +35,7 @@ int amb_red;
 int amb_green;
 int amb_blue;
 int amb_clear;
-int upperThreshold = 1900;
+int upperThreshold = 2000;
 int lowerThreshold = 0;
 /********************************************//**
  *  Function to initialise the colour click module using I2C
@@ -70,5 +76,5 @@ void RGBC_timing_register(void);
 
 char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
-
+float rangeCalibrate(struct RGBC_val *RGBC);
 #endif

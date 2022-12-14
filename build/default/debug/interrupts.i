@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "interrupts.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,16 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-
-
-#pragma config WDTCPS = WDTCPS_31
-#pragma config WDTE = OFF
-
-
+# 1 "interrupts.c" 2
 # 1 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24238,7 +24229,179 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
+# 1 "interrupts.c" 2
+
+# 1 "./interrupts.h" 1
+
+
+
+
+# 1 "./i2c.h" 1
+# 13 "./i2c.h"
+void I2C_2_Master_Init(void);
+
+
+
+
+void I2C_2_Master_Idle(void);
+
+
+
+
+void I2C_2_Master_Start(void);
+
+
+
+
+void I2C_2_Master_RepStart(void);
+
+
+
+
+void I2C_2_Master_Stop(void);
+
+
+
+
+void I2C_2_Master_Write(unsigned char data_byte);
+
+
+
+
+unsigned char I2C_2_Master_Read(unsigned char ack);
+# 5 "./interrupts.h" 2
+
+
+
+int interrupt_flag = 0;
+int interrupt_ctr;
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+void Color_Interrupts_init(void);
+void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
+void persistence_register(void);
+void Color_Interrupts_clear(void);
+# 2 "interrupts.c" 2
+
+# 1 "./dc_motor.h" 1
+
+
+
+
+# 1 "./color.h" 1
+
+
+
+
+# 1 "./serial.h" 1
+# 13 "./serial.h"
+volatile char EUSART4RXbuf[20];
+volatile char RxBufWriteCnt=0;
+volatile char RxBufReadCnt=0;
+
+volatile char EUSART4TXbuf[60];
+volatile char TxBufWriteCnt=0;
+volatile char TxBufReadCnt=0;
+
+
+
+void initUSART4(void);
+char getCharSerial4(void);
+void sendCharSerial4(char charToSend);
+void sendStringSerial4(char *string);
+
+
+char getCharFromRxBuf(void);
+void putCharToRxBuf(char byte);
+char isDataInRxBuf (void);
+
+
+char getCharFromTxBuf(void);
+void putCharToTxBuf(char byte);
+char isDataInTxBuf (void);
+void TxBufferedString(char *string);
+void sendTxBuf(void);
+# 5 "./color.h" 2
+
+
+# 1 "./dc_motor.h" 1
+# 7 "./color.h" 2
+
+
+
+
+typedef struct RGBC_val {
+ float R;
+ float G;
+ float B;
+    float C;
+    float norm_R;
+    float norm_G;
+    float norm_B;
+    float norm_C;
+
+} RGBC_val;
+
+float CR1L;
+float CR2U;
+float CR2L;
+float CR3U;
+float CR3L;
+
+
+char motor_return;
+char buggy_path[15];
+int buggy_step;
+int lost_ctr;
+int amb_red;
+int amb_green;
+int amb_blue;
+int amb_clear;
+int upperThreshold = 1900;
+int lowerThreshold = 0;
+
+
+
+void color_click_init(void);
+
+
+
+
+
+
+void color_writetoaddr(char address, char value);
+
+
+
+
+
+
+unsigned int color_read_Red(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_Blue(void);
+unsigned int color_read_Clear(void);
+
+void color_read_RGBC(struct RGBC_val *temp);
+void color_normalise(struct RGBC_val *RGBC);
+char colorVal2String(char *buf,struct RGBC_val *temp);
+void RGBC2Serial(char *str);
+
+void color_click_init(void);
+
+void rLED(void);
+void gLED(void);
+void bLED(void);
+void tricolorLED(void);
+void tricolorLEDoff(void);
+
+void RGBC_timing_register(void);
+
+char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
+void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
+float rangeCalibrate(struct RGBC_val *RGBC);
+# 5 "./dc_motor.h" 2
+
+
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
@@ -24384,180 +24547,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 10 "main.c" 2
-
-
-# 1 "./dc_motor.h" 1
-
-
-
-
-# 1 "./color.h" 1
-
-
-
-
-# 1 "./serial.h" 1
-# 13 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
-
-
-
-void initUSART4(void);
-char getCharSerial4(void);
-void sendCharSerial4(char charToSend);
-void sendStringSerial4(char *string);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-# 5 "./color.h" 2
-
-# 1 "./interrupts.h" 1
-
-
-
-
-# 1 "./i2c.h" 1
-# 13 "./i2c.h"
-void I2C_2_Master_Init(void);
-
-
-
-
-void I2C_2_Master_Idle(void);
-
-
-
-
-void I2C_2_Master_Start(void);
-
-
-
-
-void I2C_2_Master_RepStart(void);
-
-
-
-
-void I2C_2_Master_Stop(void);
-
-
-
-
-void I2C_2_Master_Write(unsigned char data_byte);
-
-
-
-
-unsigned char I2C_2_Master_Read(unsigned char ack);
-# 5 "./interrupts.h" 2
-
-
-
-int interrupt_flag = 0;
-int interrupt_ctr;
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-void Color_Interrupts_init(void);
-void Color_Interrupts_threshold(unsigned int upperThreshold,unsigned int lowerThreshold);
-void persistence_register(void);
-void Color_Interrupts_clear(void);
-# 6 "./color.h" 2
-
-# 1 "./dc_motor.h" 1
-# 7 "./color.h" 2
-
-
-
-
-typedef struct RGBC_val {
- float R;
- float G;
- float B;
-    float C;
-    float norm_R;
-    float norm_G;
-    float norm_B;
-    float norm_C;
-
-} RGBC_val;
-
-float CR1L;
-float CR2U;
-float CR2L;
-float CR3U;
-float CR3L;
-
-
-char motor_return;
-char buggy_path[15];
-int buggy_step;
-int lost_ctr;
-int amb_red;
-int amb_green;
-int amb_blue;
-int amb_clear;
-int upperThreshold = 2000;
-int lowerThreshold = 0;
-
-
-
-void color_click_init(void);
-
-
-
-
-
-
-void color_writetoaddr(char address, char value);
-
-
-
-
-
-
-unsigned int color_read_Red(void);
-unsigned int color_read_Green(void);
-unsigned int color_read_Blue(void);
-unsigned int color_read_Clear(void);
-
-void color_read_RGBC(struct RGBC_val *temp);
-void color_normalise(struct RGBC_val *RGBC);
-char colorVal2String(char *buf,struct RGBC_val *temp);
-void RGBC2Serial(char *str);
-
-void color_click_init(void);
-
-void rLED(void);
-void gLED(void);
-void bLED(void);
-void tricolorLED(void);
-void tricolorLEDoff(void);
-
-void RGBC_timing_register(void);
-
-char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
-void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
-float rangeCalibrate(struct RGBC_val *RGBC);
-# 5 "./dc_motor.h" 2
-
-
-
+# 8 "./dc_motor.h" 2
 
 
 # 1 "./dc_motor.h" 1
@@ -24592,13 +24582,7 @@ void norm_stop(DC_motor *mL, DC_motor *mR);
 void turnPrep(DC_motor *mL, DC_motor *mR);
 void motorTRIS(DC_motor *mL, DC_motor *mR);
 void slowSearch(DC_motor *mL, DC_motor *mR);
-# 12 "main.c" 2
-
-
-
-
-
-# 1 "./timers.h" 1
+# 3 "interrupts.c" 2
 
 
 
@@ -24606,141 +24590,79 @@ void slowSearch(DC_motor *mL, DC_motor *mR);
 
 
 
-void Timer0_init(void);
-unsigned int get16bitTMR0val(void);
-# 17 "main.c" 2
+void Interrupts_init(void)
+{
 
 
 
+    TRISBbits.TRISB0=1;
 
-void main() {
-    tricolorLED();
-    color_click_init();
-    float clearArr[6];
+    ANSELBbits.ANSELB0=0;
+    PIR0bits.INT0IF = 0;
+    PIE0bits.INT0IE = 1;
+    IPR0bits.INT0IP = 1;
+    INTCONbits.INT0EDG=0;
 
-    initDCmotorsPWM(200);
-    DC_motor mL, mR;
-    motorLinit(&mL);
-    motorRinit(&mR);
-
-
-    motorTRIS(&mL, &mR);
-
-
-
-    TRISDbits.TRISD7 = 0;
-    LATDbits.LATD7 = 0;
-    TRISHbits.TRISH3 = 0;
-    LATHbits.LATH3 = 0;
-
-
-    RGBC_val RGBC;
-    int a = 0;
-    TRISFbits.TRISF2 = 1;
-    ANSELFbits.ANSELF2 = 0;
-
-
-    while (a < 6) {
-
-        if (!PORTFbits.RF2) {
-            if(a!=5){
-            wallSmash(&mL, &mR);}
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-            clearArr[a] = rangeCalibrate(&RGBC);
-            a++;
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-            norm_stop(&mL, &mR);
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-        }
-    }
-
-
-    Interrupts_init();
-    Color_Interrupts_init();
-    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
-    persistence_register();
-
-
-
-
-    char buf[100];
-    motor_return = 0;
-    buggy_step = 0;
-    lost_ctr = 0;
-    interrupt_ctr = 0;
-
-
-
-    TRISHbits.TRISH0 = 0;
-    LATHbits.LATH0 = 0;
-
-
-    TRISFbits.TRISF0 = 0;
-    LATFbits.LATF0 = 0;
-
-
-    TRISDbits.TRISD4 = 0;
-    LATDbits.LATD4 = 0;
-
-
-    TRISDbits.TRISD3 = 0;
-    LATDbits.LATD3 = 0;
-
-
-    while (1) {
-
-
-
-
-        fullSpeedAhead(&mL, &mR);
-        if (interrupt_flag == 1 && interrupt_ctr > 1) {
-
-
-
-
-
-            CR1L = 5.7;
-            CR2U = 5.5;
-            CR2L = 4.5;
-            CR3U = 4.2;
-            CR3L = 1.2;
-            norm_stop(&mL, &mR);
-            _delay((unsigned long)((1000)*(64000000/4000.0)));
-            LATDbits.LATD7 = 0;
-            if (motor_return == 0) {
-                LATHbits.LATH3 = 1;
-                wallSmash(&mL, &mR);
-                _delay((unsigned long)((600)*(64000000/4000.0)));
-                color_read_RGBC(&RGBC);
-                color_normalise(&RGBC);
-                buggy_path[buggy_step] = motor_response(&RGBC, &mL, &mR);
-                buggy_step++;
-            } else {
-                LATDbits.LATD7 = 1;
-                wallSmash(&mL, &mR);
-                _delay((unsigned long)((600)*(64000000/4000.0)));
-                motor_retrace(&buggy_path, &mL, &mR);
-                buggy_step--;
-
-                if (buggy_step == 1) {
-
-
-                    motor_return = 0;
-                    LATDbits.LATD4 = 0;
-                    fullSpeedAhead(&mL, &mR);
-                    _delay((unsigned long)((500)*(64000000/4000.0)));
-                    norm_stop(&mL, &mR);
-                    _delay((unsigned long)((500)*(64000000/4000.0)));
-                    turnLeft(&mL, &mR);
-                    _delay((unsigned long)((430)*(64000000/4000.0)));
-                    LATHbits.LATH0 = !LATHbits.LATH0;
-                    norm_stop(&mL, &mR);
-                    _delay((unsigned long)((2000)*(64000000/4000.0)));
-                }
-            }
-            LATHbits.LATH3 = 0;
-            interrupt_flag = 0;
-        }
-    }
+    INTCONbits.IPEN=1;
+    INTCONbits.PEIE=1;
+    INTCONbits.GIE=1;
 
 }
+
+void Color_Interrupts_init(void)
+{
+
+
+   color_writetoaddr(0x00, 0b00010011);
+   _delay((unsigned long)((10)*(64000000/4000.0))) ;
+
+}
+
+void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerThreshold)
+{
+ color_writetoaddr(0x04, lowerThreshold);
+    color_writetoaddr(0x05, lowerThreshold>>8);
+    color_writetoaddr(0x06, upperThreshold);
+    color_writetoaddr(0x07, upperThreshold>>8);
+}
+
+void persistence_register(void)
+{
+ color_writetoaddr(0x0C, 0b010);
+}
+
+void Color_Interrupts_clear(void)
+{
+
+
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Write(0b11100110);
+    I2C_2_Master_Stop();
+
+
+    Color_Interrupts_init();
+    persistence_register();
+    Color_Interrupts_threshold(upperThreshold, lowerThreshold);
+
+}
+
+
+
+
+
+void __attribute__((picinterrupt(("high_priority")))) HighISR()
+{
+
+
+
+    if (PIR0bits.INT0IF == 1) {
+        LATDbits.LATD7 = 1;
+        interrupt_flag = 1;
+        interrupt_ctr++;
+        Color_Interrupts_clear();
+        PIR0bits.INT0IF = 0;
+
+    }
+
+    }

@@ -2260,38 +2260,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9
 [; ;./interrupts.h: 9: int interrupt_ctr;
 [v _interrupt_ctr `i ~T0 @X0 1 e ]
-"24 ./color.h
-[; ;./color.h: 24: char motor_return;
-[v _motor_return `uc ~T0 @X0 1 e ]
+"23 ./color.h
+[; ;./color.h: 23: float CR1L;
+[v _CR1L `f ~T0 @X0 1 e ]
+"24
+[; ;./color.h: 24: float CR2U;
+[v _CR2U `f ~T0 @X0 1 e ]
 "25
-[; ;./color.h: 25: char buggy_path[15];
-[v _buggy_path `uc ~T0 @X0 -> 15 `i e ]
+[; ;./color.h: 25: float CR2L;
+[v _CR2L `f ~T0 @X0 1 e ]
 "26
-[; ;./color.h: 26: int buggy_step;
-[v _buggy_step `i ~T0 @X0 1 e ]
+[; ;./color.h: 26: float CR3U;
+[v _CR3U `f ~T0 @X0 1 e ]
 "27
-[; ;./color.h: 27: int lost_ctr;
-[v _lost_ctr `i ~T0 @X0 1 e ]
-"28
-[; ;./color.h: 28: int amb_red;
-[v _amb_red `i ~T0 @X0 1 e ]
-"29
-[; ;./color.h: 29: int amb_green;
-[v _amb_green `i ~T0 @X0 1 e ]
+[; ;./color.h: 27: float CR3L;
+[v _CR3L `f ~T0 @X0 1 e ]
 "30
-[; ;./color.h: 30: int amb_blue;
-[v _amb_blue `i ~T0 @X0 1 e ]
+[; ;./color.h: 30: char motor_return;
+[v _motor_return `uc ~T0 @X0 1 e ]
 "31
-[; ;./color.h: 31: int amb_clear;
-[v _amb_clear `i ~T0 @X0 1 e ]
+[; ;./color.h: 31: char buggy_path[15];
+[v _buggy_path `uc ~T0 @X0 -> 15 `i e ]
 "32
-[; ;./color.h: 32: int upperThreshold = 1900;
+[; ;./color.h: 32: int buggy_step;
+[v _buggy_step `i ~T0 @X0 1 e ]
+"33
+[; ;./color.h: 33: int lost_ctr;
+[v _lost_ctr `i ~T0 @X0 1 e ]
+"34
+[; ;./color.h: 34: int amb_red;
+[v _amb_red `i ~T0 @X0 1 e ]
+"35
+[; ;./color.h: 35: int amb_green;
+[v _amb_green `i ~T0 @X0 1 e ]
+"36
+[; ;./color.h: 36: int amb_blue;
+[v _amb_blue `i ~T0 @X0 1 e ]
+"37
+[; ;./color.h: 37: int amb_clear;
+[v _amb_clear `i ~T0 @X0 1 e ]
+"38
+[; ;./color.h: 38: int upperThreshold = 2000;
 [v _upperThreshold `i ~T0 @X0 1 e ]
 [i _upperThreshold
--> 1900 `i
+-> 2000 `i
 ]
-"33
-[; ;./color.h: 33: int lowerThreshold = 0;
+"39
+[; ;./color.h: 39: int lowerThreshold = 0;
 [v _lowerThreshold `i ~T0 @X0 1 e ]
 [i _lowerThreshold
 -> 0 `i
@@ -2824,7 +2839,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 185:     mR->brakemode = 1;
 [e = . *U _mR 2 -> -> 1 `i `uc ]
 "186
-[; ;dc_motor.c: 186:     while (mL->power <= 45 && mR->power <=45)
+[; ;dc_motor.c: 186:     while (mL->power <= 50 && mR->power <=50)
 [e $U 2039  ]
 [e :U 2040 ]
 "187
@@ -2847,15 +2862,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2039 ]
 "186
-[; ;dc_motor.c: 186:     while (mL->power <= 45 && mR->power <=45)
-[e $ && <= -> . *U _mL 0 `i -> 45 `i <= -> . *U _mR 0 `i -> 45 `i 2040  ]
+[; ;dc_motor.c: 186:     while (mL->power <= 50 && mR->power <=50)
+[e $ && <= -> . *U _mL 0 `i -> 50 `i <= -> . *U _mR 0 `i -> 50 `i 2040  ]
 [e :U 2041 ]
 "194
-[; ;dc_motor.c: 194:     mL->power = 45;
-[e = . *U _mL 0 -> -> 45 `i `uc ]
+[; ;dc_motor.c: 194:     mL->power = 50;
+[e = . *U _mL 0 -> -> 50 `i `uc ]
 "195
-[; ;dc_motor.c: 195:     mR->power = 45;
-[e = . *U _mR 0 -> -> 45 `i `uc ]
+[; ;dc_motor.c: 195:     mR->power = 50;
+[e = . *U _mR 0 -> -> 50 `i `uc ]
 "196
 [; ;dc_motor.c: 196:     setMotorPWM(mL);
 [e ( _setMotorPWM (1 _mL ]
@@ -2881,11 +2896,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 201: {
 [f ]
 "202
-[; ;dc_motor.c: 202:     mL->power =30;
-[e = . *U _mL 0 -> -> 30 `i `uc ]
+[; ;dc_motor.c: 202:     mL->power =50;
+[e = . *U _mL 0 -> -> 50 `i `uc ]
 "203
-[; ;dc_motor.c: 203:     mR->power = 30;
-[e = . *U _mR 0 -> -> 30 `i `uc ]
+[; ;dc_motor.c: 203:     mR->power = 50;
+[e = . *U _mR 0 -> -> 50 `i `uc ]
 "204
 [; ;dc_motor.c: 204:     mR->direction = 1;
 [e = . *U _mR 1 -> -> 1 `i `uc ]
@@ -2899,7 +2914,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 207:     mR->brakemode = 1;
 [e = . *U _mR 2 -> -> 1 `i `uc ]
 "208
-[; ;dc_motor.c: 208:     while (mL->power <= 70 && mR->power <=70)
+[; ;dc_motor.c: 208:     while (mL->power <= 85 && mR->power <=85)
 [e $U 2043  ]
 [e :U 2044 ]
 "209
@@ -2922,15 +2937,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2043 ]
 "208
-[; ;dc_motor.c: 208:     while (mL->power <= 70 && mR->power <=70)
-[e $ && <= -> . *U _mL 0 `i -> 70 `i <= -> . *U _mR 0 `i -> 70 `i 2044  ]
+[; ;dc_motor.c: 208:     while (mL->power <= 85 && mR->power <=85)
+[e $ && <= -> . *U _mL 0 `i -> 85 `i <= -> . *U _mR 0 `i -> 85 `i 2044  ]
 [e :U 2045 ]
 "216
-[; ;dc_motor.c: 216:     mL->power = 70;
-[e = . *U _mL 0 -> -> 70 `i `uc ]
+[; ;dc_motor.c: 216:     mL->power = 85;
+[e = . *U _mL 0 -> -> 85 `i `uc ]
 "217
-[; ;dc_motor.c: 217:     mR->power = 70;
-[e = . *U _mR 0 -> -> 70 `i `uc ]
+[; ;dc_motor.c: 217:     mR->power = 85;
+[e = . *U _mR 0 -> -> 85 `i `uc ]
 "218
 [; ;dc_motor.c: 218:     setMotorPWM(mL);
 [e ( _setMotorPWM (1 _mL ]

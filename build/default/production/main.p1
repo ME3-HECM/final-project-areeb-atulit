@@ -2294,185 +2294,185 @@ Version 4.0 HI-TECH Software Intermediate Code
 "42
 [; ;main.c: 42:     rangeCalibrate(&RGBC,&mL, &mR);
 [e ( _rangeCalibrate (3 , , &U _RGBC -> &U _mL `*S2020 -> &U _mR `*S2020 ]
-"44
-[; ;main.c: 44:     Interrupts_init();
-[e ( _Interrupts_init ..  ]
-"45
-[; ;main.c: 45:     Color_Interrupts_init();
-[e ( _Color_Interrupts_init ..  ]
-"46
-[; ;main.c: 46:     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
-[e ( _Color_Interrupts_threshold (2 , -> _upperThreshold `ui -> _lowerThreshold `ui ]
-"47
-[; ;main.c: 47:     persistence_register();
-[e ( _persistence_register ..  ]
 "49
-[; ;main.c: 49:     char buf[100];
-[v _buf `uc ~T0 @X0 -> 100 `i a ]
+[; ;main.c: 49:     Interrupts_init();
+[e ( _Interrupts_init ..  ]
 "50
-[; ;main.c: 50:     motor_return = 0;
-[e = _motor_return -> -> 0 `i `uc ]
+[; ;main.c: 50:     Color_Interrupts_init();
+[e ( _Color_Interrupts_init ..  ]
 "51
-[; ;main.c: 51:     buggy_step = 0;
-[e = _buggy_step -> 0 `i ]
+[; ;main.c: 51:     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
+[e ( _Color_Interrupts_threshold (2 , -> _upperThreshold `ui -> _lowerThreshold `ui ]
 "52
-[; ;main.c: 52:     lost_ctr = 0;
-[e = _lost_ctr -> 0 `i ]
-"53
-[; ;main.c: 53:     interrupt_ctr = 0;
-[e = _interrupt_ctr -> 0 `i ]
+[; ;main.c: 52:     persistence_register();
+[e ( _persistence_register ..  ]
+"54
+[; ;main.c: 54:     char buf[100];
+[v _buf `uc ~T0 @X0 -> 100 `i a ]
+"55
+[; ;main.c: 55:     motor_return = 0;
+[e = _motor_return -> -> 0 `i `uc ]
+"56
+[; ;main.c: 56:     buggy_step = 0;
+[e = _buggy_step -> 0 `i ]
 "57
-[; ;main.c: 57:     TRISHbits.TRISH0 = 0;
-[e = . . _TRISHbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 57:     lost_ctr = 0;
+[e = _lost_ctr -> 0 `i ]
 "58
-[; ;main.c: 58:     LATHbits.LATH0 = 0;
-[e = . . _LATHbits 0 0 -> -> 0 `i `uc ]
-"61
-[; ;main.c: 61:     TRISFbits.TRISF0 = 0;
-[e = . . _TRISFbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 58:     interrupt_ctr = 0;
+[e = _interrupt_ctr -> 0 `i ]
 "62
-[; ;main.c: 62:     LATFbits.LATF0 = 0;
-[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
-"65
-[; ;main.c: 65:     TRISDbits.TRISD4 = 0;
-[e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 62:     TRISHbits.TRISH0 = 0;
+[e = . . _TRISHbits 0 0 -> -> 0 `i `uc ]
+"63
+[; ;main.c: 63:     LATHbits.LATH0 = 0;
+[e = . . _LATHbits 0 0 -> -> 0 `i `uc ]
 "66
-[; ;main.c: 66:     LATDbits.LATD4 = 0;
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-"69
-[; ;main.c: 69:     TRISDbits.TRISD3 = 0;
-[e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 66:     TRISFbits.TRISF0 = 0;
+[e = . . _TRISFbits 0 0 -> -> 0 `i `uc ]
+"67
+[; ;main.c: 67:     LATFbits.LATF0 = 0;
+[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
 "70
-[; ;main.c: 70:     LATDbits.LATD3 = 0;
+[; ;main.c: 70:     TRISDbits.TRISD4 = 0;
+[e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
+"71
+[; ;main.c: 71:     LATDbits.LATD4 = 0;
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+"74
+[; ;main.c: 74:     TRISDbits.TRISD3 = 0;
+[e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
+"75
+[; ;main.c: 75:     LATDbits.LATD3 = 0;
 [e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-"73
-[; ;main.c: 73:     while (1) {
+"78
+[; ;main.c: 78:     while (1) {
 [e :U 2024 ]
 {
-"74
-[; ;main.c: 74:         fullSpeedAhead(&mL, &mR);
+"79
+[; ;main.c: 79:         fullSpeedAhead(&mL, &mR);
 [e ( _fullSpeedAhead (2 , &U _mL &U _mR ]
-"75
-[; ;main.c: 75:         if (interrupt_flag == 1 && interrupt_ctr > 1) {
+"80
+[; ;main.c: 80:         if (interrupt_flag == 1 && interrupt_ctr > 1) {
 [e $ ! && == _interrupt_flag -> 1 `i > _interrupt_ctr -> 1 `i 2026  ]
 {
-"77
-[; ;main.c: 77:             norm_stop(&mL, &mR);
+"82
+[; ;main.c: 82:             norm_stop(&mL, &mR);
 [e ( _norm_stop (2 , &U _mL &U _mR ]
-"78
-[; ;main.c: 78:             _delay((unsigned long)((1000)*(64000000/4000.0)));
+"83
+[; ;main.c: 83:             _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"79
-[; ;main.c: 79:             LATDbits.LATD7 = 0;
+"84
+[; ;main.c: 84:             LATDbits.LATD7 = 0;
 [e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-"80
-[; ;main.c: 80:             if (motor_return == 0) {
+"85
+[; ;main.c: 85:             if (motor_return == 0) {
 [e $ ! == -> _motor_return `i -> 0 `i 2027  ]
 {
-"81
-[; ;main.c: 81:                 LATHbits.LATH3 = 1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"82
-[; ;main.c: 82:                 wallSmash(&mL, &mR);
-[e ( _wallSmash (2 , &U _mL &U _mR ]
-"83
-[; ;main.c: 83:                 _delay((unsigned long)((600)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 600 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"84
-[; ;main.c: 84:                 color_read_RGBC(&RGBC);
-[e ( _color_read_RGBC (1 &U _RGBC ]
-"85
-[; ;main.c: 85:                 color_normalise(&RGBC);
-[e ( _color_normalise (1 &U _RGBC ]
 "86
-[; ;main.c: 86:                 buggy_path[buggy_step] = motor_response(&RGBC, &mL, &mR);
-[e = *U + &U _buggy_path * -> -> _buggy_step `ui `ux -> -> # *U &U _buggy_path `ui `ux ( _motor_response (3 , , &U _RGBC -> &U _mL `*S2018 -> &U _mR `*S2018 ]
+[; ;main.c: 86:                 LATHbits.LATH3 = 1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 "87
-[; ;main.c: 87:                 buggy_step++;
-[e ++ _buggy_step -> 1 `i ]
+[; ;main.c: 87:                 wallSmash(&mL, &mR);
+[e ( _wallSmash (2 , &U _mL &U _mR ]
 "88
-[; ;main.c: 88:             } else {
+[; ;main.c: 88:                 _delay((unsigned long)((600)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 600 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"89
+[; ;main.c: 89:                 color_read_RGBC(&RGBC);
+[e ( _color_read_RGBC (1 &U _RGBC ]
+"90
+[; ;main.c: 90:                 color_normalise(&RGBC);
+[e ( _color_normalise (1 &U _RGBC ]
+"91
+[; ;main.c: 91:                 buggy_path[buggy_step] = motor_response(&RGBC, &mL, &mR);
+[e = *U + &U _buggy_path * -> -> _buggy_step `ui `ux -> -> # *U &U _buggy_path `ui `ux ( _motor_response (3 , , &U _RGBC -> &U _mL `*S2018 -> &U _mR `*S2018 ]
+"92
+[; ;main.c: 92:                 buggy_step++;
+[e ++ _buggy_step -> 1 `i ]
+"93
+[; ;main.c: 93:             } else {
 }
 [e $U 2028  ]
 [e :U 2027 ]
 {
-"89
-[; ;main.c: 89:                 LATDbits.LATD7 = 1;
+"94
+[; ;main.c: 94:                 LATDbits.LATD7 = 1;
 [e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-"90
-[; ;main.c: 90:                 wallSmash(&mL, &mR);
-[e ( _wallSmash (2 , &U _mL &U _mR ]
-"91
-[; ;main.c: 91:                 _delay((unsigned long)((600)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 600 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"92
-[; ;main.c: 92:                 motor_retrace(&buggy_path, &mL, &mR);
-[e ( _motor_retrace (3 , , -> &U _buggy_path `*uc -> &U _mL `*S2019 -> &U _mR `*S2019 ]
-"93
-[; ;main.c: 93:                 buggy_step--;
-[e -- _buggy_step -> 1 `i ]
 "95
-[; ;main.c: 95:                 if (buggy_step == 1) {
+[; ;main.c: 95:                 wallSmash(&mL, &mR);
+[e ( _wallSmash (2 , &U _mL &U _mR ]
+"96
+[; ;main.c: 96:                 _delay((unsigned long)((600)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 600 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"97
+[; ;main.c: 97:                 motor_retrace(&buggy_path, &mL, &mR);
+[e ( _motor_retrace (3 , , -> &U _buggy_path `*uc -> &U _mL `*S2019 -> &U _mR `*S2019 ]
+"98
+[; ;main.c: 98:                 buggy_step--;
+[e -- _buggy_step -> 1 `i ]
+"100
+[; ;main.c: 100:                 if (buggy_step == 1) {
 [e $ ! == _buggy_step -> 1 `i 2029  ]
 {
-"96
-[; ;main.c: 96:                     motor_return = 0;
-[e = _motor_return -> -> 0 `i `uc ]
-"97
-[; ;main.c: 97:                     LATDbits.LATD4 = 0;
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-"98
-[; ;main.c: 98:                     fullSpeedAhead(&mL, &mR);
-[e ( _fullSpeedAhead (2 , &U _mL &U _mR ]
-"99
-[; ;main.c: 99:                     _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"100
-[; ;main.c: 100:                     norm_stop(&mL, &mR);
-[e ( _norm_stop (2 , &U _mL &U _mR ]
 "101
-[; ;main.c: 101:                     _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 101:                     motor_return = 0;
+[e = _motor_return -> -> 0 `i `uc ]
 "102
-[; ;main.c: 102:                     turnLeft(&mL, &mR);
-[e ( _turnLeft (2 , &U _mL &U _mR ]
+[; ;main.c: 102:                     LATDbits.LATD4 = 0;
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
 "103
-[; ;main.c: 103:                     _delay((unsigned long)((430)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 430 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 103:                     fullSpeedAhead(&mL, &mR);
+[e ( _fullSpeedAhead (2 , &U _mL &U _mR ]
 "104
-[; ;main.c: 104:                     LATHbits.LATH0 = !LATHbits.LATH0;
-[e = . . _LATHbits 0 0 -> -> ! != -> . . _LATHbits 0 0 `i -> 0 `i `i `uc ]
+[; ;main.c: 104:                     _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "105
 [; ;main.c: 105:                     norm_stop(&mL, &mR);
 [e ( _norm_stop (2 , &U _mL &U _mR ]
 "106
-[; ;main.c: 106:                     _delay((unsigned long)((2000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 106:                     _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "107
-[; ;main.c: 107:                 }
+[; ;main.c: 107:                     turnLeft(&mL, &mR);
+[e ( _turnLeft (2 , &U _mL &U _mR ]
+"108
+[; ;main.c: 108:                     _delay((unsigned long)((430)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 430 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"109
+[; ;main.c: 109:                     LATHbits.LATH0 = !LATHbits.LATH0;
+[e = . . _LATHbits 0 0 -> -> ! != -> . . _LATHbits 0 0 `i -> 0 `i `i `uc ]
+"110
+[; ;main.c: 110:                     norm_stop(&mL, &mR);
+[e ( _norm_stop (2 , &U _mL &U _mR ]
+"111
+[; ;main.c: 111:                     _delay((unsigned long)((2000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"112
+[; ;main.c: 112:                 }
 }
 [e :U 2029 ]
-"108
-[; ;main.c: 108:             }
+"113
+[; ;main.c: 113:             }
 }
 [e :U 2028 ]
-"109
-[; ;main.c: 109:             LATHbits.LATH3 = 0;
+"114
+[; ;main.c: 114:             LATHbits.LATH3 = 0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"110
-[; ;main.c: 110:             interrupt_flag = 0;
+"115
+[; ;main.c: 115:             interrupt_flag = 0;
 [e = _interrupt_flag -> 0 `i ]
-"111
-[; ;main.c: 111:         }
+"116
+[; ;main.c: 116:         }
 }
 [e :U 2026 ]
-"112
-[; ;main.c: 112:     }
+"117
+[; ;main.c: 117:     }
 }
 [e :U 2023 ]
 [e $U 2024  ]
 [e :U 2025 ]
-"114
-[; ;main.c: 114: }
+"119
+[; ;main.c: 119: }
 [e :UE 2022 ]
 }

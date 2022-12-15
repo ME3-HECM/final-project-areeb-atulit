@@ -24637,6 +24637,11 @@ void main() {
     calibSwitchInit();
     rangeCalibrate(&RGBC,&mL, &mR);
 
+
+
+
+
+
     Interrupts_init();
     Color_Interrupts_init();
     Color_Interrupts_threshold(upperThreshold, lowerThreshold);

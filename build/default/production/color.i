@@ -24781,7 +24781,7 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             norm_stop(mL, mR);
             _delay((unsigned long)((100)*(64000000/4000.0)));
             turnLeft(mL, mR);
-            _delay((unsigned long)((220)*(64000000/4000.0)));
+            _delay((unsigned long)((210)*(64000000/4000.0)));
             return 5;
         }
 
@@ -24789,7 +24789,7 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
 
             turnPrep(mL, mR);
             turnRight(mL, mR);
-            _delay((unsigned long)((330)*(64000000/4000.0)));
+            _delay((unsigned long)((325)*(64000000/4000.0)));
             norm_stop(mL, mR);
             _delay((unsigned long)((1000)*(64000000/4000.0)));
             return 6;
@@ -24811,19 +24811,19 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
         if (temp->norm_G > 8) {
             turnPrep(mL, mR);
             turnRight(mL, mR);
-            _delay((unsigned long)((230)*(64000000/4000.0)));
+            _delay((unsigned long)((225)*(64000000/4000.0)));
             return 1;
         }
         if (temp->norm_B > 4.5 && temp->norm_B < 5.5) {
             turnPrep(mL, mR);
             turnLeft(mL, mR);
-            _delay((unsigned long)((215)*(64000000/4000.0)));
+            _delay((unsigned long)((210)*(64000000/4000.0)));
             return 2;
         }
         if (temp->norm_B > 2.7 && temp->norm_B < 3.3 && temp->norm_R > 2.7 && temp->norm_R < 3.3 && temp->norm_G > 2.7 && temp->norm_G < 3.3) {
             turnPrep(mL, mR);
             turnLeft(mL, mR);
-            _delay((unsigned long)((400)*(64000000/4000.0)));
+            _delay((unsigned long)((385)*(64000000/4000.0)));
             return 3;
         }
     }
@@ -24834,7 +24834,7 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             norm_stop(mL, mR);
             _delay((unsigned long)((100)*(64000000/4000.0)));
             turnRight(mL, mR);
-            _delay((unsigned long)((215)*(64000000/4000.0)));
+            _delay((unsigned long)((205)*(64000000/4000.0)));
             return 4;
         }
 
@@ -24844,8 +24844,9 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             LATDbits.LATD4 = 1;
             turnPrep(mL, mR);
             turnLeft(mL, mR);
-            _delay((unsigned long)((430)*(64000000/4000.0)));
+            _delay((unsigned long)((385)*(64000000/4000.0)));
             LATHbits.LATH3 = 0;
+            LATDbits.LATD7 = 1;
             return 8;
         }
     }
@@ -24862,7 +24863,7 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
                 _delay((unsigned long)((60)*(64000000/4000.0)));
             }
             turnLeft(mL, mR);
-            _delay((unsigned long)((400)*(64000000/4000.0)));
+            _delay((unsigned long)((385)*(64000000/4000.0)));
             norm_stop(mL, mR);
             _delay((unsigned long)((1000)*(64000000/4000.0)));
             motor_return = 1;
@@ -24878,22 +24879,22 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) 
     if (buggy_path[buggy_step - 2] == 1) {
         turnPrep(mL, mR);
         turnLeft(mL, mR);
-        _delay((unsigned long)((215)*(64000000/4000.0)));
+        _delay((unsigned long)((210)*(64000000/4000.0)));
 
     } else if (buggy_path[buggy_step - 2] == 2) {
         turnPrep(mL, mR);
         turnRight(mL, mR);
-        _delay((unsigned long)((230)*(64000000/4000.0)));
+        _delay((unsigned long)((225)*(64000000/4000.0)));
 
     } else if (buggy_path[buggy_step - 2] == 3) {
         turnPrep(mL, mR);
-        turnRight(mL, mR);
-        _delay((unsigned long)((415)*(64000000/4000.0)));
+        turnLeft(mL, mR);
+        _delay((unsigned long)((385)*(64000000/4000.0)));
 
     } else if (buggy_path[buggy_step - 2] == 4) {
         turnPrep(mL, mR);
         turnLeft(mL, mR);
-        _delay((unsigned long)((215)*(64000000/4000.0)));
+        _delay((unsigned long)((210)*(64000000/4000.0)));
         norm_stop(mL, mR);
         _delay((unsigned long)((100)*(64000000/4000.0)));
         fullSpeedAhead(mL, mR);
@@ -24903,7 +24904,7 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) 
         norm_stop(mL, mR);
         _delay((unsigned long)((100)*(64000000/4000.0)));
         turnRight(mL, mR);
-        _delay((unsigned long)((230)*(64000000/4000.0)));
+        _delay((unsigned long)((205)*(64000000/4000.0)));
         norm_stop(mL, mR);
         _delay((unsigned long)((100)*(64000000/4000.0)));
         fullSpeedAhead(mL, mR);
@@ -24912,11 +24913,11 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) 
     } else if (buggy_path[buggy_step - 2] == 6) {
         turnPrep(mL, mR);
         turnLeft(mL, mR);
-        _delay((unsigned long)((350)*(64000000/4000.0)));
+        _delay((unsigned long)((330)*(64000000/4000.0)));
     } else if (buggy_path[buggy_step - 2] == 7) {
         turnPrep(mL, mR);
         turnRight(mL, mR);
-        _delay((unsigned long)((350)*(64000000/4000.0)));
+        _delay((unsigned long)((325)*(64000000/4000.0)));
     }
 
 

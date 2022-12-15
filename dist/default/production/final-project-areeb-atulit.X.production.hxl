@@ -12,14 +12,14 @@
   0h - 3h		(dist/default/production\final-project-areeb-atulit.X.production.hex)
   8h - 37h		(dist/default/production\final-project-areeb-atulit.X.production.hex)
   E00h - E16h		(dist/default/production\final-project-areeb-atulit.X.production.hex)
-  E18h - 3C97h		(dist/default/production\final-project-areeb-atulit.X.production.hex)
+  E18h - 3CBDh		(dist/default/production\final-project-areeb-atulit.X.production.hex)
   200000h - 20000Fh		(dist/default/production\final-project-areeb-atulit.X.production.hex)
   300000h - 30000Bh		(dist/default/production\final-project-areeb-atulit.X.production.hex)
  Unused ranges:
   4h - 7h
   38h - DFFh
   E17h - E17h
-  3C98h - 1FFFFFh
+  3CBEh - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -779,7 +779,9 @@
 00003C60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00003C70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00003C80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003C90 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
+00003C90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003CA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003CB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------

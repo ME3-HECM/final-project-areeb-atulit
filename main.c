@@ -40,6 +40,11 @@ void main() {
     RGBC_val RGBC; //initialise object of struct RGBC_val
     calibSwitchInit(); //initialise switch to calibrate colors
     rangeCalibrate(&RGBC,&mL, &mR);
+//    CR1L=6.65;
+//    CR2U=6.6;
+//    CR2L=4.7;
+//    CR3U=4.6;
+//    CR3L=1.1;
     //initialise colorclick interrupt
     Interrupts_init();
     Color_Interrupts_init();

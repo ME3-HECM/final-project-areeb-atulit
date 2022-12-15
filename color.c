@@ -197,7 +197,7 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             norm_stop(mL, mR);
             __delay_ms(100);
             turnLeft(mL, mR);
-            __delay_ms(220);
+            __delay_ms(210);
             return 5;
         }
         //Orange(Turn Right 135)
@@ -205,7 +205,7 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             //        LATHbits.LATH0 = !LATHbits.LATH0; 
             turnPrep(mL, mR);
             turnRight(mL, mR);
-            __delay_ms(330);
+            __delay_ms(325);
             norm_stop(mL, mR);
             __delay_ms(1000);
             return 6;
@@ -227,19 +227,19 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
         if (temp->norm_G > 8) { //Red Colour (Turn 90deg Right)
             turnPrep(mL, mR);
             turnRight(mL, mR);
-            __delay_ms(230);
+            __delay_ms(225);
             return 1;
         }
         if (temp->norm_B > 4.5 && temp->norm_B < 5.5) { //Green Colour (Turn 90deg Left)
             turnPrep(mL, mR);
             turnLeft(mL, mR);
-            __delay_ms(215);
+            __delay_ms(210);
             return 2;
         }
         if (temp->norm_B > 2.7 && temp->norm_B < 3.3 && temp->norm_R > 2.7 && temp->norm_R < 3.3 && temp->norm_G > 2.7 && temp->norm_G < 3.3) { //Dark Blue (Turn left 180)
             turnPrep(mL, mR);
             turnLeft(mL, mR);
-            __delay_ms(400);
+            __delay_ms(385);
             return 3;
         }
     }
@@ -250,7 +250,7 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             norm_stop(mL, mR);
             __delay_ms(100);
             turnRight(mL, mR);
-            __delay_ms(215);
+            __delay_ms(205);
             return 4;
         }
 
@@ -260,8 +260,9 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             LATDbits.LATD4 = 1; //turn brake lights on
             turnPrep(mL, mR);
             turnLeft(mL, mR);
-            __delay_ms(430);
+            __delay_ms(385);
             LATHbits.LATH3 = 0;
+            LATDbits.LATD7 = 1;
             return 8;
         }
     }
@@ -278,7 +279,7 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
                 __delay_ms(60);
             }
             turnLeft(mL, mR);//take a u turn
-            __delay_ms(400);
+            __delay_ms(385);
             norm_stop(mL, mR);
             __delay_ms(1000);
             motor_return = 1;//set motor to return home if it fails to find a colour
@@ -294,22 +295,22 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) 
     if (buggy_path[buggy_step - 2] == 1) { //Red Colour (Turn 90deg Left)
         turnPrep(mL, mR);
         turnLeft(mL, mR);
-        __delay_ms(215);
+        __delay_ms(210);
 
     } else if (buggy_path[buggy_step - 2] == 2) { //Green Colour (Turn 90deg Right)
         turnPrep(mL, mR);
         turnRight(mL, mR);
-        __delay_ms(230);
+        __delay_ms(225);
 
     } else if (buggy_path[buggy_step - 2] == 3) { //Dark Blue (Turn left 180)
         turnPrep(mL, mR);
-        turnRight(mL, mR);
-        __delay_ms(415);
+        turnLeft(mL, mR);
+        __delay_ms(385);
 
     } else if (buggy_path[buggy_step - 2] == 4) { //Yellow(Reverse 1 square and turn Left 90)
         turnPrep(mL, mR);
         turnLeft(mL, mR);
-        __delay_ms(215);
+        __delay_ms(210);
         norm_stop(mL, mR);
         __delay_ms(100);
         fullSpeedAhead(mL, mR);
@@ -319,7 +320,7 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) 
         norm_stop(mL, mR);
         __delay_ms(100);
         turnRight(mL, mR);
-        __delay_ms(230);
+        __delay_ms(205);
         norm_stop(mL, mR);
         __delay_ms(100);
         fullSpeedAhead(mL, mR);
@@ -328,11 +329,11 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) 
     } else if (buggy_path[buggy_step - 2] == 6) { //Orange(Turn Right 135)
         turnPrep(mL, mR);
         turnLeft(mL, mR);
-        __delay_ms(350);
+        __delay_ms(330);
     } else if (buggy_path[buggy_step - 2] == 7) { //Light Blue(Turn left 135)
         turnPrep(mL, mR);
         turnRight(mL, mR);
-        __delay_ms(350);
+        __delay_ms(325);
     }
 
 

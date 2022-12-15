@@ -9,6 +9,7 @@
 /********************************************//**
  *  Function to initialise the colour click module using I2C
  ***********************************************/
+
 void color_click_init(void) {
     //setup colour sensor via i2c interface
     I2C_2_Master_Init(); //Initialise i2c Master
@@ -29,6 +30,7 @@ void color_click_init(void) {
  *  address is the register within the colour click to write to
  *	value is the value that will be written to that address
  ***********************************************/
+
 void color_writetoaddr(char address, char value) {
     I2C_2_Master_Start(); //Start condition
     I2C_2_Master_Write(0x52 | 0x00); //7 bit device address + Write mode
@@ -41,6 +43,7 @@ void color_writetoaddr(char address, char value) {
  *  Function to read the red channel
  *	Returns a 16 bit ADC value representing colour intensity
  ***********************************************/
+
 unsigned int color_read_Red(void) {
     unsigned int tmp;
     I2C_2_Master_Start(); //Start condition
@@ -105,29 +108,27 @@ void RGBC2Serial(char *str) {
  *  Function to read one set of RGBC values
  ***********************************************/
 void color_read_RGBC(struct RGBC_val *temp) {
-    
+
     temp->R = color_read_Red();
     temp->B = color_read_Blue();
     temp->G = color_read_Green();
     temp->C = color_read_Clear();
-    
-}
 
+}
 
 /********************************************************************
  *  Normalise color values to standardise across ambient conditions. 
  *******************************************************************/
 void color_normalise(struct RGBC_val *RGBC) {
-    amb_clear = 2385;
+    black_clear = 2385; //Value taken against black card to normalise clear value
     RGBC->norm_R = RGBC->C / RGBC->R;
     RGBC->norm_G = RGBC->C / RGBC->G;
     RGBC->norm_B = RGBC->C / RGBC->B;
-    RGBC->norm_C = RGBC->C / amb_clear;
+    RGBC->norm_C = RGBC->C / black_clear;
 }
 
-
 /********************************************************************
- *  Function to format RGBC values into a string and send to realterm
+ *  Function to format values into a string and send to RealTerm
  *******************************************************************/
 char colorVal2String(char *buf, struct RGBC_val *temp) {
     //sprintf(buf, "RGBC:%f %f %f %f \n", temp->norm_R, temp->norm_G, temp->norm_B, temp->norm_C);
@@ -146,7 +147,6 @@ void tricolorLED(void) {
     bLED();
 }
 
-
 /********************************************************************
  * Turn on red led on color click
  *******************************************************************/
@@ -164,7 +164,7 @@ void gLED(void) {
 }
 
 /********************************************************************
- * Turn on  blue led on color click
+ * Turn on blue led on color click
  *******************************************************************/
 void bLED(void) {
     TRISAbits.TRISA3 = 0;
@@ -181,24 +181,24 @@ void tricolorLEDoff(void) {
     LATEbits.LATE7 = 0; //turn off green
 }
 
-
 /******************************************************************************
  * Function to read clear value for colours and create clear ranges accordingly
  * Read yellow, pink, light blue, green, dark blue in order specified.
  *****************************************************************************/
-void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL,struct DC_motor *mR ) {
+void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL, struct DC_motor *mR) {
     float clearArr[6]; //Create a float array
-    for (int calibCtr=0;calibCtr < 6;){
+    for (int calibCtr = 0; calibCtr < 6;) {
         if (!PORTFbits.RF2) { //Check if switch is on
-            if(calibCtr!=5){ //press against wall if reading colour, not if reading ambient
-            wallSmash(mL, mR);}
+            if (calibCtr != 5) { //press against wall if reading colour, not if reading ambient
+                wallSmash(mL, mR);
+            }
             __delay_ms(500);
             LATHbits.LATH3 = 1;
             color_read_RGBC(RGBC);
             color_normalise(RGBC);
             __delay_ms(500);
             LATHbits.LATH3 = 0;
-            clearArr[calibCtr] = RGBC->norm_C;//add normalised clear for given colour into array
+            clearArr[calibCtr] = RGBC->norm_C; //add normalised clear for given colour into array
             __delay_ms(500);
             norm_stop(mL, mR);
             __delay_ms(500);
@@ -206,14 +206,13 @@ void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL,struct DC_motor *
         }
     }
     //assign upper and lower limits for each clear value range with appropriate tolerances
-            CR1L = clearArr[0]-0.4;
-            CR2U = clearArr[1]+0.3;
-            CR2L = clearArr[2]-0.3;
-            CR3U = clearArr[3]+0.4;
-            CR3L = clearArr[4]-0.2;
-            __delay_ms(2000);
+    CR1L = clearArr[0] - 0.4;
+    CR2U = clearArr[1] + 0.3;
+    CR2L = clearArr[2] - 0.3;
+    CR3U = clearArr[3] + 0.4;
+    CR3L = clearArr[4] - 0.2;
+    __delay_ms(2000);
 }
-
 
 /******************************************************************************
  * Function to determine colour read by buggy and perform appropriate response.
@@ -221,7 +220,7 @@ void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL,struct DC_motor *
  * The normalised RGB values are then used to distinguish between colours in each group.
  *****************************************************************************/
 char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
-    
+
     if (temp->norm_C < CR2U && temp->norm_C > CR2L) {//6&9 for buggy 1, 3.5 and 5.5 buggy 2
         //Pink(Reverse 1 square and turn left 90)
         if (temp->norm_B < 5 && temp->norm_R > 1.7 && temp->norm_R < 2.2 && temp->norm_G > 3 && temp->norm_G < 3.5) {
@@ -297,8 +296,7 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             LATDbits.LATD7 = 1;
             return 8;
         }
-    }
-    else { //black (Turn 360 degrees slowly, retrace if not interrupted)
+    } else { //black (Turn 360 degrees slowly, retrace if not interrupted)
         if (lost_ctr < 2) {
             lost_ctr++;
         } else {
@@ -310,13 +308,15 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
                 norm_stop(mL, mR);
                 __delay_ms(60);
             }
-            turnLeft(mL, mR);//take a u turn
+            turnLeft(mL, mR); //take a u turn
             __delay_ms(385);
             norm_stop(mL, mR);
             __delay_ms(1000);
-            motor_return = 1;//set motor to return home if it fails to find a colour
+            motor_return = 1; //set motor to return home if it fails to find a colour
             buggy_step--;
-            lost_ctr = 0;//reset counter 
+            lost_ctr = 0; //reset counter 
+            LATHbits.LATH3 = 0;
+            LATDbits.LATD7 = 1;
             return 9;
         }
 
@@ -367,7 +367,7 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) 
         turnPrep(mL, mR);
         turnLeft(mL, mR);
         __delay_ms(330);
-        
+
     } else if (buggy_path[buggy_step - 2] == 7) { //Light Blue(Turn Right 135)
         turnPrep(mL, mR);
         turnRight(mL, mR);
@@ -377,10 +377,11 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) 
 
 }
 //
+
 /******************************************************************************
  * Function to initialise switch for color calibration 
  *****************************************************************************/
-void calibSwitchInit(void){
+void calibSwitchInit(void) {
     TRISFbits.TRISF2 = 1; //set TRIS value for pin (input)
     ANSELFbits.ANSELF2 = 0; //turn off analogue input on pin
 }

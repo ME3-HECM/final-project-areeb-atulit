@@ -24623,7 +24623,7 @@ void main() {
 
     RGBC_val RGBC;
     calibSwitchInit();
-    rangeCalibrate(&RGBC,&mL, &mR);
+    rangeCalibrate(&RGBC, &mL, &mR);
 
 
     Interrupts_init();

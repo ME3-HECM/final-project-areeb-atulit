@@ -7,7 +7,9 @@
 #include "dc_motor.h"
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-//definition of RGBC structure
+/********************************************************************
+ *  Definition of RGBC structure. Floats are used as norm_RGBC are in decimals. 
+ *******************************************************************/
 typedef struct RGBC_val { 
 	float R;
 	float G;
@@ -20,23 +22,23 @@ typedef struct RGBC_val {
 
 } RGBC_val;
 
-float CR1L;
+/********************************************************************
+ *  Definition of Clear Thresholds for motor response.. 
+ *******************************************************************/
+float CR1L; 
 float CR2U;
 float CR2L;
 float CR3U;
 float CR3L;
 
 
-char motor_return;
-char buggy_path[15];
+char motor_return; //Stores wheter the buggy is in forward or retrace mode
+char buggy_path[15]; //Stores the colours the buggy has seen in the maze
 int buggy_step; //stores which step the buggy is on
-int lost_ctr;
-int amb_red;
-int amb_green;
-int amb_blue;
-int amb_clear;
-int upperThreshold = 2000;
-int lowerThreshold = 0;
+int lost_ctr; //Attempts made to read colour if lost
+int black_clear; //Clear value of a black surface
+int upperThreshold = 2000; //Upper Threshold for interrupt
+int lowerThreshold = 0; //Lower Threshold for interrupt
 
 
 unsigned int color_read_Red(void);

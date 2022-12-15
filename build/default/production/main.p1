@@ -2292,7 +2292,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 43:     calibSwitchInit();
 [e ( _calibSwitchInit ..  ]
 "44
-[; ;main.c: 44:     rangeCalibrate(&RGBC,&mL, &mR);
+[; ;main.c: 44:     rangeCalibrate(&RGBC, &mL, &mR);
 [e ( _rangeCalibrate (3 , , &U _RGBC -> &U _mL `*S2020 -> &U _mR `*S2020 ]
 "47
 [; ;main.c: 47:     Interrupts_init();

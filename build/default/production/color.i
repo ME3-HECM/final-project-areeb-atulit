@@ -24569,7 +24569,7 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
 void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL,struct DC_motor *mR );
 void calibSwitchInit(void);
 # 2 "color.c" 2
-# 12 "color.c"
+# 13 "color.c"
 void color_click_init(void) {
 
     I2C_2_Master_Init();
@@ -24590,6 +24590,7 @@ void color_click_init(void) {
 
 
 
+
 void color_writetoaddr(char address, char value) {
     I2C_2_Master_Start();
     I2C_2_Master_Write(0x52 | 0x00);
@@ -24597,6 +24598,7 @@ void color_writetoaddr(char address, char value) {
     I2C_2_Master_Write(value);
     I2C_2_Master_Stop();
 }
+
 
 
 
@@ -24677,7 +24679,6 @@ void color_read_RGBC(struct RGBC_val *temp) {
 
 
 
-
 void color_normalise(struct RGBC_val *RGBC) {
     amb_clear = 2385;
     RGBC->norm_R = RGBC->C / RGBC->R;
@@ -24685,7 +24686,6 @@ void color_normalise(struct RGBC_val *RGBC) {
     RGBC->norm_B = RGBC->C / RGBC->B;
     RGBC->norm_C = RGBC->C / amb_clear;
 }
-
 
 
 
@@ -24706,7 +24706,6 @@ void tricolorLED(void) {
     gLED();
     bLED();
 }
-
 
 
 
@@ -24746,13 +24745,13 @@ void tricolorLEDoff(void) {
 
 
 
-
-void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL,struct DC_motor *mR ) {
+void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL, struct DC_motor *mR) {
     float clearArr[6];
-    for (int calibCtr=0;calibCtr < 6;){
+    for (int calibCtr = 0; calibCtr < 6;) {
         if (!PORTFbits.RF2) {
-            if(calibCtr!=5){
-            wallSmash(mL, mR);}
+            if (calibCtr != 5) {
+                wallSmash(mL, mR);
+            }
             _delay((unsigned long)((500)*(64000000/4000.0)));
             LATHbits.LATH3 = 1;
             color_read_RGBC(RGBC);
@@ -24767,14 +24766,13 @@ void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL,struct DC_motor *
         }
     }
 
-            CR1L = clearArr[0]-0.4;
-            CR2U = clearArr[1]+0.3;
-            CR2L = clearArr[2]-0.3;
-            CR3U = clearArr[3]+0.4;
-            CR3L = clearArr[4]-0.2;
-            _delay((unsigned long)((2000)*(64000000/4000.0)));
+    CR1L = clearArr[0] - 0.4;
+    CR2U = clearArr[1] + 0.3;
+    CR2L = clearArr[2] - 0.3;
+    CR3U = clearArr[3] + 0.4;
+    CR3L = clearArr[4] - 0.2;
+    _delay((unsigned long)((2000)*(64000000/4000.0)));
 }
-
 
 
 
@@ -24858,8 +24856,7 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             LATDbits.LATD7 = 1;
             return 8;
         }
-    }
-    else {
+    } else {
         if (lost_ctr < 2) {
             lost_ctr++;
         } else {
@@ -24878,6 +24875,8 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             motor_return = 1;
             buggy_step--;
             lost_ctr = 0;
+            LATHbits.LATH3 = 0;
+            LATDbits.LATD7 = 1;
             return 9;
         }
 
@@ -24941,7 +24940,8 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) 
 
 
 
-void calibSwitchInit(void){
+
+void calibSwitchInit(void) {
     TRISFbits.TRISF2 = 1;
     ANSELFbits.ANSELF2 = 0;
 }

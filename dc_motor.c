@@ -1,7 +1,9 @@
 #include <xc.h>
 #include "dc_motor.h"
 
-// function initialise T2 and CCP for DC motor control
+/************************************************************************
+ *  Function initialise T2 and CCP for DC motor control
+ ***********************************************************************/
 void initDCmotorsPWM(unsigned int PWMperiod){
     //initialise your TRIS and LAT registers for PWM  
     
@@ -52,7 +54,9 @@ void initDCmotorsPWM(unsigned int PWMperiod){
     CCP4CONbits.EN=1; //turn on
 }
 
-// function to set CCP PWM output from the values in the motor structure
+/************************************************************************
+ *  Function to set CCP PWM output from the values in the motor structure
+ ***********************************************************************/
 void setMotorPWM(DC_motor *m)
 {
     unsigned char posDuty, negDuty; //duty cycle values for different sides of the motor
@@ -75,6 +79,9 @@ void setMotorPWM(DC_motor *m)
     }
 }
 
+/**********************************************
+ *  Function to initialise the left motor
+ ***********************************************/
 void motorLinit(DC_motor *mL)
 {
     mL->power = 50; //zero power to start
@@ -85,6 +92,9 @@ void motorLinit(DC_motor *mL)
     mL->PWMperiod = 200;
 }
 
+/**********************************************
+ *  Function to initialise the right motor
+ ***********************************************/
 void motorRinit(DC_motor *mR)
 {
     mR->power = 50; //zero power to start
@@ -94,13 +104,12 @@ void motorRinit(DC_motor *mR)
     mR->negDutyHighByte = (unsigned char *) (&CCPR4H); //store address of CCP2 duty high byte
     mR->PWMperiod = 200;
 }
-//function to stop the robot gradually 
-void stop(DC_motor *mL, DC_motor *mR)
+
+/**********************************************
+ *  Function to decelerate the buggy
+ ***********************************************/
+void decelerate(DC_motor *mL, DC_motor *mR)
 {
-//    mR->direction = 1;
-//    mL->direction = 1;
-//    mL->brakemode = 0;
-//    mR->brakemode = 0;
     while (mL->power >= 1 && mR->power >= 1)
     {
         mL->power--;
@@ -115,19 +124,21 @@ void stop(DC_motor *mL, DC_motor *mR)
     setMotorPWM(mR);
     
 }
+
+/**********************************************
+ *  Function to stop the buggy
+ ***********************************************/
 void norm_stop(DC_motor *mL, DC_motor *mR)
 {
-//    mR->direction = 1;
-//    mL->direction = 1;
-//    mL->brakemode = 0;
-//    mR->brakemode = 0;
     mL->power = 0;
     mR->power = 0;
     setMotorPWM(mL);
     setMotorPWM(mR);
-    
 }
-//function to make the robot turn left 
+
+/**********************************************
+ *  Function to make the buggy turn left
+ ***********************************************/
 void turnLeft(DC_motor *mL, DC_motor *mR)
 {
     mL->power = 60;
@@ -140,7 +151,9 @@ void turnLeft(DC_motor *mL, DC_motor *mR)
     setMotorPWM(mR);
 }
 
-//function to make the robot turn right 
+/**********************************************
+ *  Function to make the buggy turn right
+ ***********************************************/
 void turnRight(DC_motor *mL, DC_motor *mR)
 {
     mL->power = 60;
@@ -153,6 +166,9 @@ void turnRight(DC_motor *mL, DC_motor *mR)
     setMotorPWM(mR);
 }
 
+/**********************************************
+ *  Function to slowly move 
+ ***********************************************/
 void slowSearch(DC_motor *mL, DC_motor *mR)
 {
     mL->power = 40;
@@ -164,6 +180,10 @@ void slowSearch(DC_motor *mL, DC_motor *mR)
     setMotorPWM(mL);
     setMotorPWM(mR);
 }
+
+/**********************************************
+ *  Function to perform a U-Turn
+ ***********************************************/
 void uturn(DC_motor *mL, DC_motor *mR){
     mL->power = 45;
     mR->power = 45;
@@ -174,7 +194,10 @@ void uturn(DC_motor *mL, DC_motor *mR){
     setMotorPWM(mL);
     setMotorPWM(mR);
 }
-//function to make the robot go straight
+
+/**********************************************
+ *  Function to move forward
+ ***********************************************/
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {
     mL->power =5;
@@ -187,7 +210,6 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
     {
         mL->power++;
         mR->power++;
-        //__delay_ms(10);
         setMotorPWM(mL);
         setMotorPWM(mR);
     }
@@ -197,6 +219,10 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
     setMotorPWM(mR);
     
 }
+
+/**********************************************
+ *  Function to accelerate into wall
+ ***********************************************/
 void wallSmash(DC_motor *mL, DC_motor *mR)
 {
     mL->power =50;
@@ -209,7 +235,6 @@ void wallSmash(DC_motor *mL, DC_motor *mR)
     {
         mL->power++;
         mR->power++;
-        //__delay_ms(10);
         setMotorPWM(mL);
         setMotorPWM(mR);
     }
@@ -219,6 +244,10 @@ void wallSmash(DC_motor *mL, DC_motor *mR)
     setMotorPWM(mR);
     
 }
+
+/**********************************************
+ *  Function to reverse
+ ***********************************************/
 void reverse(DC_motor *mL, DC_motor *mR)
 {
     mL->power = 5;
@@ -241,7 +270,10 @@ void reverse(DC_motor *mL, DC_motor *mR)
     setMotorPWM(mR);
     
 }
-//function to prepare for turn
+
+/**********************************************
+ *  Function to prepare for turn
+ ***********************************************/
 void turnPrep(DC_motor *mL, DC_motor *mR){
         reverse(mL, mR);
         __delay_ms(600);
@@ -249,6 +281,9 @@ void turnPrep(DC_motor *mL, DC_motor *mR){
         __delay_ms(300);
 }
 
+/**********************************************
+ *  Function to read one set of RGBC values
+ ***********************************************/
 void motorTRIS(DC_motor *mL, DC_motor *mR){
     TRISEbits.TRISE2 = 0;
     TRISEbits.TRISE4 = 0;

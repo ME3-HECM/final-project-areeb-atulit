@@ -11,28 +11,25 @@ void Interrupts_init(void)
 {
 	// turn on global interrupts, peripheral interrupts and the interrupt source 
 	// It's a good idea to turn on global interrupts last, once all other interrupt configuration is done.
-    //PIE0bits.TMR0IE=1; 	//enable interrupt source INT0	
+    
     TRISBbits.TRISB0=1;
-     //Trigger on falling edge
-    ANSELBbits.ANSELB0=0;//turns off analogue input
+    ANSELBbits.ANSELB0=0; //Turns off analogue input
     PIR0bits.INT0IF = 0;
     PIE0bits.INT0IE = 1;
     IPR0bits.INT0IP = 1;
-    INTCONbits.INT0EDG=0;
-    //Color_Interrupts_clear();
+    INTCONbits.INT0EDG=0; //Trigger on falling edge
     INTCONbits.IPEN=1;//Enable priority 
     INTCONbits.PEIE=1;
-    INTCONbits.GIE=1; //turn on interrupts globally (when this is off, all interrupts are deactivated)
+    INTCONbits.GIE=1; //Turn on interrupts globally (when this is off, all interrupts are deactivated)
     
 }
 
 void Color_Interrupts_init(void)
 {
-	// turn on global interrupts, peripheral interrupts and the interrupt source 
-	// It's a good idea to turn on global interrupts last, once all other interrupt configuration is done.
+    
    color_writetoaddr(0x00, 0b00010011);
    __delay_ms(10) ;
-   //Color_Interrupts_clear();
+   
 }
 
 void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerThreshold)
@@ -50,14 +47,10 @@ void persistence_register(void)
 
 void Color_Interrupts_clear(void)
 {
-	// turn on global interrupts, peripheral interrupts and the interrupt source 
-	// It's a good idea to turn on global interrupts last, once all other interrupt configuration is done.
-    I2C_2_Master_Start();         //Start condition   //7 bit device address + Write mode
-    I2C_2_Master_Write(0x52 | 0x00);
+    I2C_2_Master_Start();            //Start condition   
+    I2C_2_Master_Write(0x52 | 0x00); //7 bit device address + Write mode
     I2C_2_Master_Write(0b11100110);    
-    I2C_2_Master_Stop();          //Stop condition
-   //__delay_ms(10) ;
-    //color_click_init();
+    I2C_2_Master_Stop();             //Stop condition
     Color_Interrupts_init();
     persistence_register();
     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
@@ -70,17 +63,12 @@ void Color_Interrupts_clear(void)
 ************************************/
 void __interrupt(high_priority) HighISR()
 {
-	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...
-
-
     if (PIR0bits.INT0IF == 1) { //check the interrupt source
-        interrupt_flag = 1;
+        interrupt_flag = 1; 
         interrupt_ctr++;
-        Color_Interrupts_clear();
+        Color_Interrupts_clear(); //Clear the colour clicker flag
         PIR0bits.INT0IF = 0; //clear the interrupt flag!
-        
-    }
-        
-    }
+    }  
+}
 
 

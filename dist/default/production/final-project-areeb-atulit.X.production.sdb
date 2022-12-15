@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F67K40 ]
 [d frameptr 4065 ]
-"30 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub/lab-5-areeb-atulit.X/serial.c
+"30 C:\Users\areeb\Documents\GitHub/lab-5-areeb-atulit.X/serial.c
 [v _sendCharSerial4 sendCharSerial4 `(v  1 e 1 0 ]
 "37
 [v _sendStringSerial4 sendStringSerial4 `(v  1 e 1 0 ]
@@ -45,64 +45,64 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"9 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\color.c
+"12 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
 [v _color_click_init color_click_init `(v  1 e 1 0 ]
-"24
+"32
 [v _color_writetoaddr color_writetoaddr `(v  1 e 1 0 ]
 [v i2_color_writetoaddr color_writetoaddr `(v  1 e 1 0 ]
-"32
+"44
 [v _color_read_Red color_read_Red `(ui  1 e 2 0 ]
-"45
+"57
 [v _color_read_Green color_read_Green `(ui  1 e 2 0 ]
-"58
+"70
 [v _color_read_Blue color_read_Blue `(ui  1 e 2 0 ]
-"71
+"83
 [v _color_read_Clear color_read_Clear `(ui  1 e 2 0 ]
-"93
+"107
 [v _color_read_RGBC color_read_RGBC `(v  1 e 1 0 ]
-"102
+"120
 [v _color_normalise color_normalise `(v  1 e 1 0 ]
-"121
+"142
 [v _tricolorLED tricolorLED `(v  1 e 1 0 ]
-"130
+"153
 [v _rLED rLED `(v  1 e 1 0 ]
-"137
+"161
 [v _gLED gLED `(v  1 e 1 0 ]
-"144
+"169
 [v _bLED bLED `(v  1 e 1 0 ]
-"159
+"189
 [v _rangeCalibrate rangeCalibrate `(v  1 e 1 0 ]
-"190
+"223
 [v _motor_response motor_response `(uc  1 e 1 0 ]
-"294
+"331
 [v _motor_retrace motor_retrace `(v  1 e 1 0 ]
-"342
+"383
 [v _calibSwitchInit calibSwitchInit `(v  1 e 1 0 ]
-"5 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+"7 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
 [v _initDCmotorsPWM initDCmotorsPWM `(v  1 e 1 0 ]
-"56
+"60
 [v _setMotorPWM setMotorPWM `(v  1 e 1 0 ]
-"78
+"85
 [v _motorLinit motorLinit `(v  1 e 1 0 ]
-"88
+"98
 [v _motorRinit motorRinit `(v  1 e 1 0 ]
-"118
-[v _norm_stop norm_stop `(v  1 e 1 0 ]
 "131
+[v _norm_stop norm_stop `(v  1 e 1 0 ]
+"142
 [v _turnLeft turnLeft `(v  1 e 1 0 ]
-"144
+"157
 [v _turnRight turnRight `(v  1 e 1 0 ]
-"178
+"201
 [v _fullSpeedAhead fullSpeedAhead `(v  1 e 1 0 ]
-"200
+"226
 [v _wallSmash wallSmash `(v  1 e 1 0 ]
-"222
+"251
 [v _reverse reverse `(v  1 e 1 0 ]
-"245
+"277
 [v _turnPrep turnPrep `(v  1 e 1 0 ]
-"252
+"287
 [v _motorTRIS motorTRIS `(v  1 e 1 0 ]
-"4 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+"4 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
 [v _I2C_2_Master_Init I2C_2_Master_Init `(v  1 e 1 0 ]
 "22
 [v _I2C_2_Master_Idle I2C_2_Master_Idle `(v  1 e 1 0 ]
@@ -120,24 +120,24 @@
 [v i2_I2C_2_Master_Write I2C_2_Master_Write `(v  1 e 1 0 ]
 "51
 [v _I2C_2_Master_Read I2C_2_Master_Read `(uc  1 e 1 0 ]
-"10 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+"10 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
 [v _Interrupts_init Interrupts_init `(v  1 e 1 0 ]
-"29
+"27
 [v _Color_Interrupts_init Color_Interrupts_init `(v  1 e 1 0 ]
 [v i2_Color_Interrupts_init Color_Interrupts_init `(v  1 e 1 0 ]
-"38
+"35
 [v _Color_Interrupts_threshold Color_Interrupts_threshold `(v  1 e 1 0 ]
 [v i2_Color_Interrupts_threshold Color_Interrupts_threshold `(v  1 e 1 0 ]
-"46
+"43
 [v _persistence_register persistence_register `(v  1 e 1 0 ]
 [v i2_persistence_register persistence_register `(v  1 e 1 0 ]
-"51
+"48
 [v _Color_Interrupts_clear Color_Interrupts_clear `(v  1 e 1 0 ]
-"71
+"64
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
-"21 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\main.c
+"21 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"23 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X/color.h
+"23 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X/color.h
 [v _CR1L CR1L `f  1 e 4 0 ]
 "24
 [v _CR2U CR2U `f  1 e 4 0 ]
@@ -161,11 +161,11 @@
 [v _upperThreshold upperThreshold `i  1 e 2 0 ]
 "39
 [v _lowerThreshold lowerThreshold `i  1 e 2 0 ]
-"8 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X/interrupts.h
+"8 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X/interrupts.h
 [v _interrupt_flag interrupt_flag `i  1 e 2 0 ]
 "9
 [v _interrupt_ctr interrupt_ctr `i  1 e 2 0 ]
-"13 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X/serial.h
+"13 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X/serial.h
 [v _EUSART4RXbuf EUSART4RXbuf `VE[20]uc  1 e 20 0 ]
 "14
 [v _RxBufWriteCnt RxBufWriteCnt `VEuc  1 e 1 0 ]
@@ -177,7 +177,7 @@
 [v _TxBufWriteCnt TxBufWriteCnt `VEuc  1 e 1 0 ]
 "19
 [v _TxBufReadCnt TxBufReadCnt `VEuc  1 e 1 0 ]
-"3182 C:/Users/44756/.mchp_packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
+"3182 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f67k40.h
 [v _RX4PPS RX4PPS `VEuc  1 e 1 @3605 ]
 "3796
 [v _SSP2CLKPPS SSP2CLKPPS `VEuc  1 e 1 @3612 ]
@@ -906,97 +906,97 @@
 "40499
 "40499
 [v _INTCONbits INTCONbits `VES1454  1 e 1 @4082 ]
-"21 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\main.c
+"21 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 [s S67 RGBC_val 32 `f 1 R 4 0 `f 1 G 4 4 `f 1 B 4 8 `f 1 C 4 12 `f 1 norm_R 4 16 `f 1 norm_G 4 20 `f 1 norm_B 4 24 `f 1 norm_C 4 28 ]
-"40
+"42
 [v main@RGBC RGBC `S67  1 a 32 34 ]
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-"27
+"28
 [v main@mR mR `S271  1 a 9 75 ]
 [v main@mL mL `S271  1 a 9 66 ]
-"119
+"123
 } 0
-"121 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\color.c
+"142 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
 [v _tricolorLED tricolorLED `(v  1 e 1 0 ]
-{
-"126
-} 0
-"130
-[v _rLED rLED `(v  1 e 1 0 ]
-{
-"133
-} 0
-"137
-[v _gLED gLED `(v  1 e 1 0 ]
-{
-"140
-} 0
-"144
-[v _bLED bLED `(v  1 e 1 0 ]
 {
 "147
 } 0
-"159
+"153
+[v _rLED rLED `(v  1 e 1 0 ]
+{
+"156
+} 0
+"161
+[v _gLED gLED `(v  1 e 1 0 ]
+{
+"164
+} 0
+"169
+[v _bLED bLED `(v  1 e 1 0 ]
+{
+"172
+} 0
+"189
 [v _rangeCalibrate rangeCalibrate `(v  1 e 1 0 ]
 {
-"162
+"191
 [v rangeCalibrate@calibCtr calibCtr `i  1 a 2 30 ]
-"161
+"190
 [v rangeCalibrate@clearArr clearArr `[6]f  1 a 24 6 ]
 [s S67 RGBC_val 32 `f 1 R 4 0 `f 1 G 4 4 `f 1 B 4 8 `f 1 C 4 12 `f 1 norm_R 4 16 `f 1 norm_G 4 20 `f 1 norm_B 4 24 `f 1 norm_C 4 28 ]
-"159
+"189
 [v rangeCalibrate@RGBC RGBC `*.39S67  1 p 2 0 ]
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v rangeCalibrate@mL mL `*.39S271  1 p 2 2 ]
 [v rangeCalibrate@mR mR `*.39S271  1 p 2 4 ]
-"186
+"215
 } 0
-"200 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+"226 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
 [v _wallSmash wallSmash `(v  1 e 1 0 ]
 {
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v wallSmash@mL mL `*.39S271  1 p 2 27 ]
 [v wallSmash@mR mR `*.39S271  1 p 2 29 ]
-"221
+"246
 } 0
-"93 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\color.c
+"107 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
 [v _color_read_RGBC color_read_RGBC `(v  1 e 1 0 ]
 {
 [s S67 RGBC_val 32 `f 1 R 4 0 `f 1 G 4 4 `f 1 B 4 8 `f 1 C 4 12 `f 1 norm_R 4 16 `f 1 norm_G 4 20 `f 1 norm_B 4 24 `f 1 norm_C 4 28 ]
 [v color_read_RGBC@temp temp `*.39S67  1 p 2 33 ]
-"98
+"114
 } 0
-"32
+"44
 [v _color_read_Red color_read_Red `(ui  1 e 2 0 ]
 {
-"33
-[v color_read_Red@tmp tmp `ui  1 a 2 17 ]
-"43
-} 0
 "45
+[v color_read_Red@tmp tmp `ui  1 a 2 17 ]
+"55
+} 0
+"57
 [v _color_read_Green color_read_Green `(ui  1 e 2 0 ]
 {
-"46
+"58
 [v color_read_Green@tmp tmp `ui  1 a 2 17 ]
-"56
+"68
 } 0
-"71
+"83
 [v _color_read_Clear color_read_Clear `(ui  1 e 2 0 ]
 {
-"72
+"84
 [v color_read_Clear@tmp tmp `ui  1 a 2 17 ]
-"82
+"94
 } 0
-"58
+"70
 [v _color_read_Blue color_read_Blue `(ui  1 e 2 0 ]
 {
-"59
+"71
 [v color_read_Blue@tmp tmp `ui  1 a 2 17 ]
-"69
+"81
 } 0
-"33 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+"33 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
 [v _I2C_2_Master_RepStart I2C_2_Master_RepStart `(v  1 e 1 0 ]
 {
 "37
@@ -1013,12 +1013,12 @@
 [v I2C_2_Master_Read@ack ack `uc  1 a 1 10 ]
 "62
 } 0
-"102 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\color.c
+"120 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
 [v _color_normalise color_normalise `(v  1 e 1 0 ]
 {
 [s S67 RGBC_val 32 `f 1 R 4 0 `f 1 G 4 4 `f 1 B 4 8 `f 1 C 4 12 `f 1 norm_R 4 16 `f 1 norm_G 4 20 `f 1 norm_B 4 24 `f 1 norm_C 4 28 ]
 [v color_normalise@RGBC RGBC `*.39S67  1 p 2 58 ]
-"108
+"126
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -1071,91 +1071,91 @@
 [v ___fladd@a a `d  1 p 4 12 ]
 "237
 } 0
-"46 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+"43 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
 [v _persistence_register persistence_register `(v  1 e 1 0 ]
 {
-"49
+"46
 } 0
-"294 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\color.c
+"331 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
 [v _motor_retrace motor_retrace `(v  1 e 1 0 ]
 {
 [v motor_retrace@buggy_path buggy_path `*.39uc  1 p 2 38 ]
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v motor_retrace@mL mL `*.39S271  1 p 2 40 ]
 [v motor_retrace@mR mR `*.39S271  1 p 2 42 ]
-"340
+"378
 } 0
-"178 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+"201 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
 [v _fullSpeedAhead fullSpeedAhead `(v  1 e 1 0 ]
 {
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v fullSpeedAhead@mL mL `*.39S271  1 p 2 27 ]
 [v fullSpeedAhead@mR mR `*.39S271  1 p 2 29 ]
-"199
+"221
 } 0
-"190 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\color.c
+"223 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
 [v _motor_response motor_response `(uc  1 e 1 0 ]
 {
-"275
+"307
 [v motor_response@j j `i  1 a 2 46 ]
 [s S67 RGBC_val 32 `f 1 R 4 0 `f 1 G 4 4 `f 1 B 4 8 `f 1 C 4 12 `f 1 norm_R 4 16 `f 1 norm_G 4 20 `f 1 norm_B 4 24 `f 1 norm_C 4 28 ]
-"190
+"223
 [v motor_response@temp temp `*.39S67  1 p 2 38 ]
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v motor_response@mL mL `*.39S271  1 p 2 40 ]
 [v motor_response@mR mR `*.39S271  1 p 2 42 ]
-"292
+"324
 } 0
-"144 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+"157 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
 [v _turnRight turnRight `(v  1 e 1 0 ]
 {
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v turnRight@mL mL `*.39S271  1 p 2 27 ]
 [v turnRight@mR mR `*.39S271  1 p 2 29 ]
-"154
+"167
 } 0
-"245
+"277
 [v _turnPrep turnPrep `(v  1 e 1 0 ]
 {
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v turnPrep@mL mL `*.39S271  1 p 2 32 ]
 [v turnPrep@mR mR `*.39S271  1 p 2 34 ]
-"250
+"282
 } 0
-"222
+"251
 [v _reverse reverse `(v  1 e 1 0 ]
 {
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v reverse@mL mL `*.39S271  1 p 2 27 ]
 [v reverse@mR mR `*.39S271  1 p 2 29 ]
-"243
+"272
 } 0
-"118
+"131
 [v _norm_stop norm_stop `(v  1 e 1 0 ]
 {
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v norm_stop@mL mL `*.39S271  1 p 2 27 ]
 [v norm_stop@mR mR `*.39S271  1 p 2 29 ]
-"129
+"137
 } 0
-"131
+"142
 [v _turnLeft turnLeft `(v  1 e 1 0 ]
 {
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v turnLeft@mL mL `*.39S271  1 p 2 27 ]
 [v turnLeft@mR mR `*.39S271  1 p 2 29 ]
-"141
+"152
 } 0
-"56
+"60
 [v _setMotorPWM setMotorPWM `(v  1 e 1 0 ]
 {
-"58
+"62
 [v setMotorPWM@negDuty negDuty `uc  1 a 1 26 ]
 [v setMotorPWM@posDuty posDuty `uc  1 a 1 25 ]
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-"56
+"60
 [v setMotorPWM@m m `*.39S271  1 p 2 21 ]
-"76
+"80
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -1186,76 +1186,76 @@
 [v ___flge@ff2 ff2 `d  1 p 4 12 ]
 "19
 } 0
-"252 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
+"287 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\dc_motor.c
 [v _motorTRIS motorTRIS `(v  1 e 1 0 ]
 {
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v motorTRIS@mL mL `*.39S271  1 p 2 8 ]
 [v motorTRIS@mR mR `*.39S271  1 p 2 10 ]
-"257
+"292
 } 0
-"88
+"98
 [v _motorRinit motorRinit `(v  1 e 1 0 ]
 {
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v motorRinit@mR mR `*.39S271  1 p 2 8 ]
-"96
+"106
 } 0
-"78
+"85
 [v _motorLinit motorLinit `(v  1 e 1 0 ]
 {
 [s S271 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v motorLinit@mL mL `*.39S271  1 p 2 8 ]
-"86
+"93
 } 0
-"5
+"7
 [v _initDCmotorsPWM initDCmotorsPWM `(v  1 e 1 0 ]
 {
 [v initDCmotorsPWM@PWMperiod PWMperiod `ui  1 p 2 8 ]
-"53
+"55
 } 0
-"9 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\color.c
+"12 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
 [v _color_click_init color_click_init `(v  1 e 1 0 ]
 {
-"22
+"25
 } 0
-"4 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+"4 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
 [v _I2C_2_Master_Init I2C_2_Master_Init `(v  1 e 1 0 ]
 {
 "20
 } 0
-"342 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\color.c
+"383 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
 [v _calibSwitchInit calibSwitchInit `(v  1 e 1 0 ]
 {
-"345
+"386
 } 0
-"10 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+"10 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
 [v _Interrupts_init Interrupts_init `(v  1 e 1 0 ]
 {
-"27
+"25
 } 0
-"38
+"35
 [v _Color_Interrupts_threshold Color_Interrupts_threshold `(v  1 e 1 0 ]
 {
 [v Color_Interrupts_threshold@upperThreshold upperThreshold `ui  1 p 2 12 ]
 [v Color_Interrupts_threshold@lowerThreshold lowerThreshold `ui  1 p 2 14 ]
-"44
+"41
 } 0
-"29
+"27
 [v _Color_Interrupts_init Color_Interrupts_init `(v  1 e 1 0 ]
 {
-"36
+"33
 } 0
-"24 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\color.c
+"32 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
 [v _color_writetoaddr color_writetoaddr `(v  1 e 1 0 ]
 {
 [v color_writetoaddr@address address `uc  1 a 1 wreg ]
 [v color_writetoaddr@address address `uc  1 a 1 wreg ]
 [v color_writetoaddr@value value `uc  1 p 1 10 ]
 [v color_writetoaddr@address address `uc  1 a 1 11 ]
-"30
+"38
 } 0
-"45 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+"45 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
 [v _I2C_2_Master_Write I2C_2_Master_Write `(v  1 e 1 0 ]
 {
 [v I2C_2_Master_Write@data_byte data_byte `uc  1 a 1 wreg ]
@@ -1279,43 +1279,43 @@
 {
 "25
 } 0
-"71 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
+"64 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\interrupts.c
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 {
-"84
+"72
 } 0
-"51
+"48
 [v _Color_Interrupts_clear Color_Interrupts_clear `(v  1 e 1 0 ]
 {
-"65
+"58
 } 0
-"46
+"43
 [v i2_persistence_register persistence_register `(v  1 e 1 0 ]
 {
-"49
+"46
 } 0
-"38
+"35
 [v i2_Color_Interrupts_threshold Color_Interrupts_threshold `(v  1 e 1 0 ]
 {
 [v i2Color_Interrupts_threshold@upperThreshold upperThreshold `ui  1 p 2 4 ]
 [v i2Color_Interrupts_threshold@lowerThreshold lowerThreshold `ui  1 p 2 6 ]
-"44
+"41
 } 0
-"29
+"27
 [v i2_Color_Interrupts_init Color_Interrupts_init `(v  1 e 1 0 ]
 {
-"36
+"33
 } 0
-"24 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\color.c
+"32 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\color.c
 [v i2_color_writetoaddr color_writetoaddr `(v  1 e 1 0 ]
 {
 [v i2color_writetoaddr@address address `uc  1 a 1 wreg ]
 [v i2color_writetoaddr@address address `uc  1 a 1 wreg ]
 [v i2color_writetoaddr@value value `uc  1 p 1 2 ]
 [v i2color_writetoaddr@address address `uc  1 a 1 3 ]
-"30
+"38
 } 0
-"45 C:\Users\44756\OneDrive - Imperial College London\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
+"45 C:\Users\areeb\Documents\GitHub\final-project-areeb-atulit.X\i2c.c
 [v i2_I2C_2_Master_Write I2C_2_Master_Write `(v  1 e 1 0 ]
 {
 [v i2I2C_2_Master_Write@data_byte data_byte `uc  1 a 1 wreg ]

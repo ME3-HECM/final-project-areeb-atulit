@@ -20,16 +20,14 @@
 
 void main() {
     tricolorLED(); //turn on tri-color LED
-    color_click_init();
-    float clearArr[6];
+    color_click_init(); //initialise colourclick
+    
     //initialise motor
     initDCmotorsPWM(200);
     DC_motor mL, mR;
     motorLinit(&mL);
     motorRinit(&mR);
-
-    //TRIS set for motor control
-    motorTRIS(&mL, &mR);
+    motorTRIS(&mL, &mR);//TRIS set for motor control
 
     //set tris and lat for various LEDs for debugging purposes
     //inbuilt PIC leds
@@ -40,34 +38,14 @@ void main() {
 
     //Variable/structure declarations and initialisations
     RGBC_val RGBC; //initialise object of struct RGBC_val
-    int a = 0; // counter for color calibration 
-    TRISFbits.TRISF2 = 1; //set TRIS value for pin (input)
-    ANSELFbits.ANSELF2 = 0; //turn off analogue input on pin 
-//    TRISFbits.TRISF3 = 1; //set TRIS value for pin (input)
-//    ANSELFbits.ANSELF3 = 0; //turn off analogue input on pin  
-    while (a < 6) {
-        //wallSmash(&mL, &mR);
-        if (!PORTFbits.RF2) {
-            if(a!=5){
-            wallSmash(&mL, &mR);}
-            __delay_ms(500);
-            clearArr[a] = rangeCalibrate(&RGBC);
-            a++;
-            __delay_ms(500);
-            norm_stop(&mL, &mR);
-            __delay_ms(500);
-        }
-    }
-
+    calibSwitchInit(); //initialise switch to calibrate colors
+    rangeCalibrate(&RGBC,&mL, &mR);
     //initialise colorclick interrupt
     Interrupts_init();
     Color_Interrupts_init();
     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
     persistence_register();
     //Function calls
-
-
-
     char buf[100]; //buffer to store rbgc values
     motor_return = 0; // variable that tells motor whether its in forward or retrace mode
     buggy_step = 0; //count position in buggy motion history path
@@ -93,22 +71,9 @@ void main() {
 
 
     while (1) {
-        //       if(buggy_step==0) LATDbits.LATD3 = 1;
-        //       if(buggy_step==1) LATDbits.LATD4 = 1;
-        //       if(buggy_step==2) LATHbits.LATH0 = 1;
-        //        interrupt_flag = 0;
         fullSpeedAhead(&mL, &mR); // go straight initially
         if (interrupt_flag == 1 && interrupt_ctr > 1) {//if pic interrupt is triggered, go into this if statement
-//            CR1L = clearArr[0] - 0.4;
-//            CR2U = clearArr[1] + 0.3;
-//            CR2L = clearArr[2] - 0.2;
-//            CR3U = clearArr[3] + 0.4;
-//            CR3L = clearArr[4] - 0.2;
-            CR1L = 5.7;
-            CR2U = 5.5;
-            CR2L = 4.5;
-            CR3U = 4.2;
-            CR3L = 1.2;
+            
             norm_stop(&mL, &mR); //first stop the buggy
             __delay_ms(1000);
             LATDbits.LATD7 = 0; //turn off the led which monitors interrupt activity
@@ -128,8 +93,6 @@ void main() {
                 buggy_step--; // decrement counter to go to previous step of forward journey
                 //the following code brings the buggy to its initial position after its final turn on the return journey is complete. 
                 if (buggy_step == 1) {
-                    //;fullSpeedAhead(&mL, &mR);
-                    //__delay_ms(500);
                     motor_return = 0;
                     LATDbits.LATD4 = 0; // brake lights off
                     fullSpeedAhead(&mL, &mR);
@@ -149,47 +112,31 @@ void main() {
     }
 
 }
-//
-//----------Code for Serial Term(comment out interrupts.h before using this fucntion)-----------------------------------------------
-/*void main() {
-    //Variable declarations
-    tricolorLED();
-    TRISHbits.TRISH3 = 0;
-    LATHbits.LATH3 = 0;
-    
-    RGBC_val RGBC; //initialise object of struct RGBC_val
-    char buf[100]; //buffer to store rbgc values
-    initUSART4();
-    color_click_init();
-    
-    while(1) {          
-        int a = 0; // counter for color calibration 
-    TRISFbits.TRISF2 = 1; //set TRIS value for pin (input)
-    ANSELFbits.ANSELF2 = 0; //turn off analogue input on pin 
-    float clearArr[5];
-    while (a < 5) {
-        //wallSmash(&mL, &mR);
-        if (!PORTFbits.RF2) {
-
-            clearArr[a] = rangeCalibrate(&RGBC);
-            a++;
-        }
-        //        float tolerance = 0.4;
-
-    }
-    CR1L = clearArr[0] - 0.4;
-    CR2U = clearArr[1] + 0.3;
-    CR2L = clearArr[2] - 0.3;
-    CR3U = clearArr[3] + 0.4;
-    CR3L = clearArr[4] - 0.2;
-        //color_read_RGBC(&RGBC);
-        //color_normalise(&RGBC);
-        LATHbits.LATH3 = !LATHbits.LATH3;
-        __delay_ms(1000);
-        colorVal2String(buf, &RGBC);
-        RGBC2Serial(buf);
-        
-    }
-}
-*/
-//------------------------------------------------------------------------------
+//void main() {
+//    //Variable declarations
+//    tricolorLED();
+//    TRISHbits.TRISH3 = 0;
+//    LATHbits.LATH3 = 0;
+//    //initialise motor
+//    initDCmotorsPWM(200);
+//    DC_motor mL, mR;
+//    motorLinit(&mL);
+//    motorRinit(&mR);
+//    motorTRIS(&mL, &mR);//TRIS set for motor control
+//    RGBC_val RGBC; //initialise object of struct RGBC_val
+//    char buf[100]; //buffer to store rbgc values
+//    initUSART4();
+//    color_click_init();
+//    
+//    while(1) {          
+//        int a = 0; // counter for color calibration 
+//    TRISFbits.TRISF2 = 1; //set TRIS value for pin (input)
+//    ANSELFbits.ANSELF2 = 0; //turn off analogue input on pin 
+//    rangeCalibrate(&RGBC,&mL, &mR);
+//        LATHbits.LATH3 = !LATHbits.LATH3;
+//        __delay_ms(1000);
+//        colorVal2String(buf, &RGBC);
+//        RGBC2Serial(buf);
+//        
+//    }
+//}

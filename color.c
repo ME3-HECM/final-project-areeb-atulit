@@ -156,51 +156,39 @@ void tricolorLEDoff(void) {
 }
 
 // function to read clear value for colours and create clear ranges accordingly
-
-float rangeCalibrate(struct RGBC_val *RGBC) {
+void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL,struct DC_motor *mR ) {
     //read yellow, pink, light blue, green, blue
-    //            __delay_ms(3000);
-    //            __delay_ms(2000);
-    LATHbits.LATH3 = 1;
-    __delay_ms(500);
-    color_read_RGBC(RGBC);
-    color_normalise(RGBC);
-    float temp = RGBC->norm_C;
-    LATHbits.LATH3 = 0;
-    return temp;
-    //        CR1L = clearArr[0]-0.4;
-    //        CR2U = clearArr[1]+0.4;
-    //        CR2L = clearArr[2]-0.4;
-    //        CR3U = clearArr[3]+0.4;
-    //        CR3L = clearArr[4]-0.4;
-    //__delay_ms(3000);
+    float clearArr[6];
+    for (int calibCtr=0;calibCtr < 6;){
+        if (!PORTFbits.RF2) {//check if switch is on
+            if(calibCtr!=5){//press against wall if reading colour, not if reading ambient
+            wallSmash(mL, mR);}
+            __delay_ms(500);
+            LATHbits.LATH3 = 1;
+            color_read_RGBC(RGBC);
+            color_normalise(RGBC);
+            __delay_ms(500);
+            LATHbits.LATH3 = 0;
+            clearArr[calibCtr] = RGBC->norm_C;//add normalised clear for given colour into array
+            __delay_ms(500);
+            norm_stop(mL, mR);
+            __delay_ms(500);
+            calibCtr++;
+        }
+    }
+    //assign upper and lower limits for each clear value range with appropriate tolerances
+            CR1L = clearArr[0]-0.4;
+            CR2U = clearArr[1]+0.3;
+            CR2L = clearArr[2]-0.3;
+            CR3U = clearArr[3]+0.4;
+            CR3L = clearArr[4]-0.2;
+            __delay_ms(2000);
 }
 
 //function to determine colour read by buggy and perform appropriate response. 
 
 char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
-    if (temp->norm_C < CR3L) { //black (Turn 360 degrees slowly, retrace if not interrupted)
-        if (lost_ctr < 2) {
-            lost_ctr++;
-        } else {
-            turnPrep(mL, mR);
-            for (int j = 0; j <= 75; j++) { //for 135 deg, j=20, for 90 deg, j=15
-                turnLeft(mL, mR);
-                __delay_ms(30);
-                norm_stop(mL, mR);
-                __delay_ms(60);
-            }
-            turnLeft(mL, mR);
-            __delay_ms(400);
-            norm_stop(mL, mR);
-            __delay_ms(1000);
-            motor_return = 1;
-            buggy_step--;
-            lost_ctr = 0;
-            return 9;
-        }
-
-    }
+    
     if (temp->norm_C < CR2U && temp->norm_C > CR2L) {//6&9 for buggy 1, 3.5 and 5.5 buggy 2
         //Pink(Reverse 1 square and turn left 90)
         if (temp->norm_B < 5 && temp->norm_R > 1.7 && temp->norm_R < 2.2 && temp->norm_G > 3 && temp->norm_G < 3.5) {
@@ -277,6 +265,29 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             return 8;
         }
     }
+    else { //black (Turn 360 degrees slowly, retrace if not interrupted)
+        if (lost_ctr < 2) {
+            lost_ctr++;
+        } else {
+            turnPrep(mL, mR);
+            //pulse in a circle looking for a colour to follow
+            for (int j = 0; j <= 75; j++) { //for 135 deg, j=20, for 90 deg, j=15
+                turnLeft(mL, mR);
+                __delay_ms(30);
+                norm_stop(mL, mR);
+                __delay_ms(60);
+            }
+            turnLeft(mL, mR);//take a u turn
+            __delay_ms(400);
+            norm_stop(mL, mR);
+            __delay_ms(1000);
+            motor_return = 1;//set motor to return home if it fails to find a colour
+            buggy_step--;
+            lost_ctr = 0;//reset counter 
+            return 9;
+        }
+
+    }
 }
 
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) {
@@ -326,5 +337,8 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) 
 
 
 }
-
-
+//function to initialise switch for color calibration 
+void calibSwitchInit(void){
+    TRISFbits.TRISF2 = 1; //set TRIS value for pin (input)
+    ANSELFbits.ANSELF2 = 0; //turn off analogue input on pin
+}

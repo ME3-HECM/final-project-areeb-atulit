@@ -2192,7 +2192,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
 "27
 [; ;interrupts.c: 27: }
-[e :UE 2021 ]
+[e :UE 2022 ]
 }
 "29
 [; ;interrupts.c: 29: void Color_Interrupts_init(void)
@@ -2210,7 +2210,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "36
 [; ;interrupts.c: 36: }
-[e :UE 2022 ]
+[e :UE 2023 ]
 }
 "38
 [; ;interrupts.c: 38: void Color_Interrupts_threshold(unsigned int upperThreshold, unsigned int lowerThreshold)
@@ -2240,7 +2240,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _color_writetoaddr (2 , -> -> 7 `i `uc -> >> _upperThreshold -> 8 `i `uc ]
 "44
 [; ;interrupts.c: 44: }
-[e :UE 2023 ]
+[e :UE 2024 ]
 }
 "46
 [; ;interrupts.c: 46: void persistence_register(void)
@@ -2255,7 +2255,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _color_writetoaddr (2 , -> -> 12 `i `uc -> -> 2 `i `uc ]
 "49
 [; ;interrupts.c: 49: }
-[e :UE 2024 ]
+[e :UE 2025 ]
 }
 "51
 [; ;interrupts.c: 51: void Color_Interrupts_clear(void)
@@ -2288,7 +2288,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Color_Interrupts_threshold (2 , -> _upperThreshold `ui -> _lowerThreshold `ui ]
 "65
 [; ;interrupts.c: 65: }
-[e :UE 2025 ]
+[e :UE 2026 ]
 }
 [v $root$_HighISR `(v ~T0 @X0 0 e ]
 "71
@@ -2301,7 +2301,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "76
 [; ;interrupts.c: 76:     if (PIR0bits.INT0IF == 1) {
-[e $ ! == -> . . _PIR0bits 0 0 `i -> 1 `i 2027  ]
+[e $ ! == -> . . _PIR0bits 0 0 `i -> 1 `i 2028  ]
 {
 "77
 [; ;interrupts.c: 77:         interrupt_flag = 1;
@@ -2318,8 +2318,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82
 [; ;interrupts.c: 82:     }
 }
-[e :U 2027 ]
+[e :U 2028 ]
 "84
 [; ;interrupts.c: 84:     }
-[e :UE 2026 ]
+[e :UE 2027 ]
 }

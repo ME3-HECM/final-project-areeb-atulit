@@ -24553,7 +24553,8 @@ void RGBC_timing_register(void);
 
 char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
-float rangeCalibrate(struct RGBC_val *RGBC);
+void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL,struct DC_motor *mR );
+void calibSwitchInit(void);
 # 5 "./dc_motor.h" 2
 
 
@@ -24616,14 +24617,12 @@ unsigned int get16bitTMR0val(void);
 void main() {
     tricolorLED();
     color_click_init();
-    float clearArr[6];
+
 
     initDCmotorsPWM(200);
     DC_motor mL, mR;
     motorLinit(&mL);
     motorRinit(&mR);
-
-
     motorTRIS(&mL, &mR);
 
 
@@ -24635,33 +24634,13 @@ void main() {
 
 
     RGBC_val RGBC;
-    int a = 0;
-    TRISFbits.TRISF2 = 1;
-    ANSELFbits.ANSELF2 = 0;
-
-
-    while (a < 6) {
-
-        if (!PORTFbits.RF2) {
-            if(a!=5){
-            wallSmash(&mL, &mR);}
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-            clearArr[a] = rangeCalibrate(&RGBC);
-            a++;
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-            norm_stop(&mL, &mR);
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-        }
-    }
-
+    calibSwitchInit();
+    rangeCalibrate(&RGBC,&mL, &mR);
 
     Interrupts_init();
     Color_Interrupts_init();
     Color_Interrupts_threshold(upperThreshold, lowerThreshold);
     persistence_register();
-
-
-
 
     char buf[100];
     motor_return = 0;
@@ -24688,22 +24667,9 @@ void main() {
 
 
     while (1) {
-
-
-
-
         fullSpeedAhead(&mL, &mR);
         if (interrupt_flag == 1 && interrupt_ctr > 1) {
 
-
-
-
-
-            CR1L = 5.7;
-            CR2U = 5.5;
-            CR2L = 4.5;
-            CR3U = 4.2;
-            CR3L = 1.2;
             norm_stop(&mL, &mR);
             _delay((unsigned long)((1000)*(64000000/4000.0)));
             LATDbits.LATD7 = 0;
@@ -24723,8 +24689,6 @@ void main() {
                 buggy_step--;
 
                 if (buggy_step == 1) {
-
-
                     motor_return = 0;
                     LATDbits.LATD4 = 0;
                     fullSpeedAhead(&mL, &mR);

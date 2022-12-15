@@ -24580,7 +24580,8 @@ void RGBC_timing_register(void);
 
 char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
-float rangeCalibrate(struct RGBC_val *RGBC);
+void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL,struct DC_motor *mR );
+void calibSwitchInit(void);
 # 2 "color.c" 2
 
 
@@ -24739,51 +24740,39 @@ void tricolorLEDoff(void) {
 }
 
 
+void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL,struct DC_motor *mR ) {
 
-float rangeCalibrate(struct RGBC_val *RGBC) {
+    float clearArr[6];
+    for (int calibCtr=0;calibCtr < 6;){
+        if (!PORTFbits.RF2) {
+            if(calibCtr!=5){
+            wallSmash(mL, mR);}
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            LATHbits.LATH3 = 1;
+            color_read_RGBC(RGBC);
+            color_normalise(RGBC);
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            LATHbits.LATH3 = 0;
+            clearArr[calibCtr] = RGBC->norm_C;
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            calibCtr++;
+        }
+    }
 
-
-
-    LATHbits.LATH3 = 1;
-    _delay((unsigned long)((500)*(64000000/4000.0)));
-    color_read_RGBC(RGBC);
-    color_normalise(RGBC);
-    float temp = RGBC->norm_C;
-    LATHbits.LATH3 = 0;
-    return temp;
-
-
-
-
-
-
+            CR1L = clearArr[0]-0.4;
+            CR2U = clearArr[1]+0.3;
+            CR2L = clearArr[2]-0.3;
+            CR3U = clearArr[3]+0.4;
+            CR3L = clearArr[4]-0.2;
+            _delay((unsigned long)((2000)*(64000000/4000.0)));
 }
 
 
 
 char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor *mR) {
-    if (temp->norm_C < CR3L) {
-        if (lost_ctr < 2) {
-            lost_ctr++;
-        } else {
-            turnPrep(mL, mR);
-            for (int j = 0; j <= 80; j++) {
-                turnLeft(mL, mR);
-                _delay((unsigned long)((30)*(64000000/4000.0)));
-                norm_stop(mL, mR);
-                _delay((unsigned long)((60)*(64000000/4000.0)));
-            }
-            turnLeft(mL, mR);
-            _delay((unsigned long)((330)*(64000000/4000.0)));
-            norm_stop(mL, mR);
-            _delay((unsigned long)((1000)*(64000000/4000.0)));
-            motor_return = 1;
-            buggy_step--;
-            lost_ctr = 0;
-            return 9;
-        }
 
-    }
     if (temp->norm_C < CR2U && temp->norm_C > CR2L) {
 
         if (temp->norm_B < 5 && temp->norm_R > 1.7 && temp->norm_R < 2.2 && temp->norm_G > 3 && temp->norm_G < 3.5) {
@@ -24860,6 +24849,29 @@ char motor_response(struct RGBC_val *temp, struct DC_motor *mL, struct DC_motor 
             return 8;
         }
     }
+    else {
+        if (lost_ctr < 2) {
+            lost_ctr++;
+        } else {
+            turnPrep(mL, mR);
+
+            for (int j = 0; j <= 75; j++) {
+                turnLeft(mL, mR);
+                _delay((unsigned long)((30)*(64000000/4000.0)));
+                norm_stop(mL, mR);
+                _delay((unsigned long)((60)*(64000000/4000.0)));
+            }
+            turnLeft(mL, mR);
+            _delay((unsigned long)((400)*(64000000/4000.0)));
+            norm_stop(mL, mR);
+            _delay((unsigned long)((1000)*(64000000/4000.0)));
+            motor_return = 1;
+            buggy_step--;
+            lost_ctr = 0;
+            return 9;
+        }
+
+    }
 }
 
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) {
@@ -24908,4 +24920,9 @@ void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor * mR) 
     }
 
 
+}
+
+void calibSwitchInit(void){
+    TRISFbits.TRISF2 = 1;
+    ANSELFbits.ANSELF2 = 0;
 }

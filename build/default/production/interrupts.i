@@ -24398,7 +24398,8 @@ void RGBC_timing_register(void);
 
 char motor_response(struct RGBC_val *temp, struct DC_motor *L, struct DC_motor *R);
 void motor_retrace(char *buggy_path, struct DC_motor *mL, struct DC_motor *mR);
-float rangeCalibrate(struct RGBC_val *RGBC);
+void rangeCalibrate(struct RGBC_val *RGBC, struct DC_motor *mL,struct DC_motor *mR );
+void calibSwitchInit(void);
 # 5 "./dc_motor.h" 2
 
 
